@@ -1,0 +1,130 @@
+FFFFFF                                                                   [100%]
+================================== FAILURES ===================================
+___________________ test_bundle_roundtrip_and_hash_mismatch ___________________
+
+tmp_path = WindowsPath('C:/Users/Lenovo/AppData/Local/Temp/pytest-of-Lenovo/pytest-29/test_bundle_roundtrip_and_hash0')
+
+    def test_bundle_roundtrip_and_hash_mismatch(tmp_path):
+>       sync = sync_module()
+               ^^^^^^^^^^^^^
+
+tests\test_artifact_sync.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def sync_module():
+        spec = importlib.util.find_spec('scripts.sync_artifacts')
+>       assert spec is not None, 'Versioned artifact synchronization is not implemented'
+E       AssertionError: Versioned artifact synchronization is not implemented
+E       assert None is not None
+
+tests\test_artifact_sync.py:10: AssertionError
+_ test_archive_rejects_escape_or_unlisted_roots_before_writing[../outside.txt] _
+
+tmp_path = WindowsPath('C:/Users/Lenovo/AppData/Local/Temp/pytest-of-Lenovo/pytest-29/test_archive_rejects_escape_or0')
+name = '../outside.txt'
+
+    @pytest.mark.parametrize('name', ['../outside.txt', 'data/processed/../../outside.txt',
+                                      'C:/outside.txt', 'src/overwrite.py'])
+    def test_archive_rejects_escape_or_unlisted_roots_before_writing(tmp_path, name):
+>       sync = sync_module()
+               ^^^^^^^^^^^^^
+
+tests\test_artifact_sync.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def sync_module():
+        spec = importlib.util.find_spec('scripts.sync_artifacts')
+>       assert spec is not None, 'Versioned artifact synchronization is not implemented'
+E       AssertionError: Versioned artifact synchronization is not implemented
+E       assert None is not None
+
+tests\test_artifact_sync.py:10: AssertionError
+_ test_archive_rejects_escape_or_unlisted_roots_before_writing[data/processed/../../outside.txt] _
+
+tmp_path = WindowsPath('C:/Users/Lenovo/AppData/Local/Temp/pytest-of-Lenovo/pytest-29/test_archive_rejects_escape_or1')
+name = 'data/processed/../../outside.txt'
+
+    @pytest.mark.parametrize('name', ['../outside.txt', 'data/processed/../../outside.txt',
+                                      'C:/outside.txt', 'src/overwrite.py'])
+    def test_archive_rejects_escape_or_unlisted_roots_before_writing(tmp_path, name):
+>       sync = sync_module()
+               ^^^^^^^^^^^^^
+
+tests\test_artifact_sync.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def sync_module():
+        spec = importlib.util.find_spec('scripts.sync_artifacts')
+>       assert spec is not None, 'Versioned artifact synchronization is not implemented'
+E       AssertionError: Versioned artifact synchronization is not implemented
+E       assert None is not None
+
+tests\test_artifact_sync.py:10: AssertionError
+_ test_archive_rejects_escape_or_unlisted_roots_before_writing[C:/outside.txt] _
+
+tmp_path = WindowsPath('C:/Users/Lenovo/AppData/Local/Temp/pytest-of-Lenovo/pytest-29/test_archive_rejects_escape_or2')
+name = 'C:/outside.txt'
+
+    @pytest.mark.parametrize('name', ['../outside.txt', 'data/processed/../../outside.txt',
+                                      'C:/outside.txt', 'src/overwrite.py'])
+    def test_archive_rejects_escape_or_unlisted_roots_before_writing(tmp_path, name):
+>       sync = sync_module()
+               ^^^^^^^^^^^^^
+
+tests\test_artifact_sync.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def sync_module():
+        spec = importlib.util.find_spec('scripts.sync_artifacts')
+>       assert spec is not None, 'Versioned artifact synchronization is not implemented'
+E       AssertionError: Versioned artifact synchronization is not implemented
+E       assert None is not None
+
+tests\test_artifact_sync.py:10: AssertionError
+_ test_archive_rejects_escape_or_unlisted_roots_before_writing[src/overwrite.py] _
+
+tmp_path = WindowsPath('C:/Users/Lenovo/AppData/Local/Temp/pytest-of-Lenovo/pytest-29/test_archive_rejects_escape_or3')
+name = 'src/overwrite.py'
+
+    @pytest.mark.parametrize('name', ['../outside.txt', 'data/processed/../../outside.txt',
+                                      'C:/outside.txt', 'src/overwrite.py'])
+    def test_archive_rejects_escape_or_unlisted_roots_before_writing(tmp_path, name):
+>       sync = sync_module()
+               ^^^^^^^^^^^^^
+
+tests\test_artifact_sync.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def sync_module():
+        spec = importlib.util.find_spec('scripts.sync_artifacts')
+>       assert spec is not None, 'Versioned artifact synchronization is not implemented'
+E       AssertionError: Versioned artifact synchronization is not implemented
+E       assert None is not None
+
+tests\test_artifact_sync.py:10: AssertionError
+_________________ test_pack_rejects_missing_or_external_input _________________
+
+tmp_path = WindowsPath('C:/Users/Lenovo/AppData/Local/Temp/pytest-of-Lenovo/pytest-29/test_pack_rejects_missing_or_e0')
+
+    def test_pack_rejects_missing_or_external_input(tmp_path):
+>       sync = sync_module()
+               ^^^^^^^^^^^^^
+
+tests\test_artifact_sync.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def sync_module():
+        spec = importlib.util.find_spec('scripts.sync_artifacts')
+>       assert spec is not None, 'Versioned artifact synchronization is not implemented'
+E       AssertionError: Versioned artifact synchronization is not implemented
+E       assert None is not None
+
+tests\test_artifact_sync.py:10: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_artifact_sync.py::test_bundle_roundtrip_and_hash_mismatch
+FAILED tests/test_artifact_sync.py::test_archive_rejects_escape_or_unlisted_roots_before_writing[../outside.txt]
+FAILED tests/test_artifact_sync.py::test_archive_rejects_escape_or_unlisted_roots_before_writing[data/processed/../../outside.txt]
+FAILED tests/test_artifact_sync.py::test_archive_rejects_escape_or_unlisted_roots_before_writing[C:/outside.txt]
+FAILED tests/test_artifact_sync.py::test_archive_rejects_escape_or_unlisted_roots_before_writing[src/overwrite.py]
+FAILED tests/test_artifact_sync.py::test_pack_rejects_missing_or_external_input
+6 failed in 0.32s

@@ -1,0 +1,14 @@
+Defaulting to user installation because normal site-packages is not writeable
+Collecting pyarrow
+  Downloading pyarrow-26.0.0-cp314-cp314-win_amd64.whl.metadata (3.0 kB)
+Downloading pyarrow-26.0.0-cp314-cp314-win_amd64.whl (29.2 MB)
+   ----------                               7.3/29.2 MB 126.2 kB/s eta 0:02:54
+WARNING: Connection timed out while downloading.
+WARNING: Attempting to resume incomplete download (7.3 MB/29.2 MB, attempt 1)
+Resuming download pyarrow-26.0.0-cp314-cp314-win_amd64.whl (7.3 MB/29.2 MB)
+   ---------------------------------------- 29.2/29.2 MB 520.7 kB/s  0:00:49
+Installing collected packages: pyarrow
+Successfully installed pyarrow-26.0.0
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2.2
+[notice] To update, run: python.exe -m pip install --upgrade pip

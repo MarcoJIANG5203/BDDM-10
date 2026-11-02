@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "repository": "zsj-6/EI",
+  "bundles": {
+    "b-synthetic-20261102": {
+      "status": "prepared",
+      "kind": "synthetic",
+      "tag": "artifacts-2026-11-02",
+      "asset": "b-synthetic-20261102.zip",
+      "archive": "dist/artifacts/b-synthetic-20261102.zip",
+      "sha256": "14909d30b2b7bfa1df6316e798e1a93e8482adda408e02dbe0a9a90f6e57c6f4",
+      "bytes": 29717166,
+      "roots": [
+        "results/synthetic/20261102T063118_fa76f8a8",
+        "results/synthetic/20261102T063118_bdf6797a",
+        "data/synthetic"
+      ],
+      "files": 79
+    }
+  }
+}

@@ -1,0 +1,21 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+______________ test_audit_inclusion_count_matches_loaded_cohort _______________
+
+tmp_path = WindowsPath('C:/Users/Lenovo/AppData/Local/Temp/pytest-of-Lenovo/pytest-25/test_audit_inclusion_count_mat0')
+
+    def test_audit_inclusion_count_matches_loaded_cohort(tmp_path):
+        import json
+        from src.experiment import create_demo
+        from src.data import load_cohort
+        cfg=create_demo(tmp_path/'data',n_a=100,n_b=20)
+        path=Path(cfg['audit_path']);audit=json.loads(path.read_text())
+        audit['exclusion_counts']['included']=1;path.write_text(json.dumps(audit))
+>       with pytest.raises(ValueError,match='counts'):load_cohort(cfg,2026)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests\test_protocol.py:204: Failed
+=========================== short test summary info ===========================
+FAILED tests/test_protocol.py::test_audit_inclusion_count_matches_loaded_cohort
+1 failed, 14 deselected in 2.76s

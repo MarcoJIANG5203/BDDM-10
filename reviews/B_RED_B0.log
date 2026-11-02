@@ -1,0 +1,28 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_____________________ test_end_to_end_synthetic_artifacts _____________________
+
+tmp_path = WindowsPath('C:/Users/Lenovo/AppData/Local/Temp/pytest-of-Lenovo/pytest-21/test_end_to_end_synthetic_arti0')
+
+    def test_end_to_end_synthetic_artifacts(tmp_path):
+        exp=module('experiment')
+        cfg=exp.create_demo(tmp_path/'synthetic',n_a=800,n_b=100)
+        cfg.update(bootstrap=5,seeds=[2026],scenarios=['S0','S1','S2','S3','S4'],output_root=str(tmp_path/'results'),batches=1)
+        result=exp.run(cfg)
+        import json
+        assert json.loads((result/'manifest.json').read_text())['run_status']=='completed'
+        preds=pd.read_csv(result/'patient_predictions.csv')
+        assert set(preds.scenario)=={'S0','S1','S2','S3','S4'}
+        status=pd.read_csv(result/'method_status.csv')
+        assert set(status.method)=={'B0','B1','B2','B3','B4','B5','B6'}
+        assert (status.loc[status.method.isin(['B5','B6']),'status']=='available').all()
+        assert set(preds.selection_mode)=={'batch','frozen'}
+>       assert (preds.loc[preds.method=='B0','M']==1).all()
+E       assert np.False_
+E        +  where np.False_ = all()
+E        +    where all = 0        10\n1        10\n2        10\n3        10\n4        10\n         ..\n15455    10\n15456    10\n15457    10\n15458    10\n15459    10\nName: M, Length: 580, dtype: int64 == 1.all
+
+tests\test_protocol.py:123: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_protocol.py::test_end_to_end_synthetic_artifacts - assert n...
+1 failed, 9 deselected in 14.88s

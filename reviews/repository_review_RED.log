@@ -1,0 +1,126 @@
+FFFFF                                                                    [100%]
+================================== FAILURES ===================================
+_ test_windows_path_aliases_rejected_before_writing[data/processed/COHORT.csv] _
+
+tmp_path = WindowsPath('C:/Users/Lenovo/AppData/Local/Temp/pytest-of-Lenovo/pytest-34/test_windows_path_aliases_reje0')
+second = 'data/processed/COHORT.csv'
+
+    @pytest.mark.parametrize('second', ['data/processed/COHORT.csv', 'data/processed/cohort.csv.',
+                                       'data/processed/cohort.csv '])
+    def test_windows_path_aliases_rejected_before_writing(tmp_path, second):
+        sync = sync_module()
+        archive = tmp_path / 'aliases.zip'
+        with zipfile.ZipFile(archive, 'w') as bundle:
+            bundle.writestr('data/processed/cohort.csv', 'FIRST')
+            bundle.writestr(second, 'SECOND')
+        target = tmp_path / 'target'
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests\test_artifact_sync.py:83: Failed
+_ test_windows_path_aliases_rejected_before_writing[data/processed/cohort.csv.] _
+
+tmp_path = WindowsPath('C:/Users/Lenovo/AppData/Local/Temp/pytest-of-Lenovo/pytest-34/test_windows_path_aliases_reje1')
+second = 'data/processed/cohort.csv.'
+
+    @pytest.mark.parametrize('second', ['data/processed/COHORT.csv', 'data/processed/cohort.csv.',
+                                       'data/processed/cohort.csv '])
+    def test_windows_path_aliases_rejected_before_writing(tmp_path, second):
+        sync = sync_module()
+        archive = tmp_path / 'aliases.zip'
+        with zipfile.ZipFile(archive, 'w') as bundle:
+            bundle.writestr('data/processed/cohort.csv', 'FIRST')
+            bundle.writestr(second, 'SECOND')
+        target = tmp_path / 'target'
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests\test_artifact_sync.py:83: Failed
+_ test_windows_path_aliases_rejected_before_writing[data/processed/cohort.csv ] _
+
+tmp_path = WindowsPath('C:/Users/Lenovo/AppData/Local/Temp/pytest-of-Lenovo/pytest-34/test_windows_path_aliases_reje2')
+second = 'data/processed/cohort.csv '
+
+    @pytest.mark.parametrize('second', ['data/processed/COHORT.csv', 'data/processed/cohort.csv.',
+                                       'data/processed/cohort.csv '])
+    def test_windows_path_aliases_rejected_before_writing(tmp_path, second):
+        sync = sync_module()
+        archive = tmp_path / 'aliases.zip'
+        with zipfile.ZipFile(archive, 'w') as bundle:
+            bundle.writestr('data/processed/cohort.csv', 'FIRST')
+            bundle.writestr(second, 'SECOND')
+        target = tmp_path / 'target'
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests\test_artifact_sync.py:83: Failed
+________ test_existing_directory_link_cannot_redirect_a_delivery[True] ________
+
+tmp_path = WindowsPath('C:/Users/Lenovo/AppData/Local/Temp/pytest-of-Lenovo/pytest-34/test_existing_directory_link_c0')
+linked_root = True
+
+    @pytest.mark.parametrize('linked_root', [True, False])
+    def test_existing_directory_link_cannot_redirect_a_delivery(tmp_path, linked_root):
+        import os
+        import subprocess
+        sync = sync_module()
+        root = tmp_path / 'project'
+        destination = root / 'src'
+        destination.mkdir(parents=True)
+        link = root / 'data/processed' if linked_root else root / 'data/processed/nested'
+        link.parent.mkdir(parents=True, exist_ok=True)
+        if os.name == 'nt':
+            subprocess.run(['cmd', '/c', 'mklink', '/J', str(link), str(destination)],
+                           capture_output=True, check=True)
+        else:
+            link.symlink_to(destination, target_is_directory=True)
+        archive = tmp_path / 'link.zip'
+        with zipfile.ZipFile(archive, 'w') as bundle:
+            bundle.writestr('data/processed/valid.csv', 'GOOD')
+            bundle.writestr('data/processed/escaped.csv' if linked_root else
+                            'data/processed/nested/escaped.csv', 'BAD')
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests\test_artifact_sync.py:108: Failed
+_______ test_existing_directory_link_cannot_redirect_a_delivery[False] ________
+
+tmp_path = WindowsPath('C:/Users/Lenovo/AppData/Local/Temp/pytest-of-Lenovo/pytest-34/test_existing_directory_link_c1')
+linked_root = False
+
+    @pytest.mark.parametrize('linked_root', [True, False])
+    def test_existing_directory_link_cannot_redirect_a_delivery(tmp_path, linked_root):
+        import os
+        import subprocess
+        sync = sync_module()
+        root = tmp_path / 'project'
+        destination = root / 'src'
+        destination.mkdir(parents=True)
+        link = root / 'data/processed' if linked_root else root / 'data/processed/nested'
+        link.parent.mkdir(parents=True, exist_ok=True)
+        if os.name == 'nt':
+            subprocess.run(['cmd', '/c', 'mklink', '/J', str(link), str(destination)],
+                           capture_output=True, check=True)
+        else:
+            link.symlink_to(destination, target_is_directory=True)
+        archive = tmp_path / 'link.zip'
+        with zipfile.ZipFile(archive, 'w') as bundle:
+            bundle.writestr('data/processed/valid.csv', 'GOOD')
+            bundle.writestr('data/processed/escaped.csv' if linked_root else
+                            'data/processed/nested/escaped.csv', 'BAD')
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests\test_artifact_sync.py:108: Failed
+=========================== short test summary info ===========================
+FAILED tests/test_artifact_sync.py::test_windows_path_aliases_rejected_before_writing[data/processed/COHORT.csv]
+FAILED tests/test_artifact_sync.py::test_windows_path_aliases_rejected_before_writing[data/processed/cohort.csv.]
+FAILED tests/test_artifact_sync.py::test_windows_path_aliases_rejected_before_writing[data/processed/cohort.csv ]
+FAILED tests/test_artifact_sync.py::test_existing_directory_link_cannot_redirect_a_delivery[True]
+FAILED tests/test_artifact_sync.py::test_existing_directory_link_cannot_redirect_a_delivery[False]
+5 failed, 7 deselected in 0.44s

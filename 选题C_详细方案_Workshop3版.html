@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>选题 C 详细方案（Workshop 3 版）— MIRAGE</title>
+<style>
+  body {
+    font-family: "Microsoft YaHei", "Segoe UI", "PingFang SC", sans-serif;
+    max-width: 1020px; margin: 40px auto; padding: 0 24px;
+    line-height: 1.75; color: #222; background: #fff;
+  }
+  h1 { font-size: 29px; border-bottom: 3px solid #1f6f6b; padding-bottom: 12px; margin-bottom: 8px; }
+  h2 { font-size: 22px; margin-top: 44px; border-left: 5px solid #1f6f6b; padding-left: 12px; }
+  h3 { font-size: 18px; margin-top: 28px; color: #15524f; }
+  h4 { font-size: 16px; margin-top: 20px; }
+  p { margin: 10px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 14px; }
+  th, td { border: 1px solid #c5dcd9; padding: 8px 10px; vertical-align: top; text-align: left; }
+  th { background: #eaf5f3; }
+  tr:nth-child(even) td { background: #f8fcfb; }
+  blockquote { border-left: 4px solid #c9a227; background: #fff9e8; margin: 16px 0; padding: 10px 16px; }
+  code { background: #f1f4f3; padding: 2px 5px; border-radius: 3px; font-family: Consolas, "Courier New", monospace; font-size: 90%; }
+  pre { background: #1c2524; color: #e8f0ef; padding: 16px; border-radius: 6px; overflow-x: auto; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  a { color: #1a5fb4; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .toc { background: #f6fbfa; border: 1px solid #d3e5e2; padding: 16px 24px; border-radius: 6px; }
+  .toc ol { margin: 6px 0; padding-left: 22px; }
+  .meta { color: #555; }
+  .footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #ddd; color: #777; font-size: 13px; }
+  .warn { background: #fff1f0; border-left: 4px solid #c0392b; padding: 10px 16px; margin: 16px 0; }
+  .note { background: #eef7f6; border-left: 4px solid #1f6f6b; padding: 10px 16px; margin: 16px 0; }
+  .key { font-size: 21px; font-weight: bold; color: #15524f; }
+  @media print {
+    body { margin: 0; max-width: none; }
+    h2 { page-break-after: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; }
+    a { color: #222; }
+  }
+</style>
+</head>
+<body>
+
+<h1>选题 C 详细方案（Workshop 3 版）</h1>
+<p class="meta"><strong>MIRAGE：掩码感知的插补门控与共形拒识</strong><br>
+<em>Mask-Aware Imputation Gating and Conformal Rejection for Reliable Clinical Risk Prediction</em></p>
+
+<table>
+  <tr><th style="width:150px">项目</th><th>内容</th></tr>
+  <tr><td>目标 workshop</td><td>Workshop 3 — Trustworthy and Reliable AI for Critical Applications</td></tr>
+  <tr><td>文档日期</td><td>2026-10-28</td></tr>
+  <tr><td>选题状态</td><td>重定位版本 C1（非原表 C0）</td></tr>
+  <tr><td>撞车率</td><td>原描述 75–85%；本方案 30–45%</td></tr>
+  <tr><td>主数据</td><td>PhysioNet 2019（脓毒症早期预测）</td></tr>
+  <tr><td>核心主张</td><td>插补不确定性是独立于模型不确定性的风险源；应按缺失掩码路由插补、分层校准拒识</td></tr>
+</table>
+
+<div class="warn">
+<strong>本方案与原表的区别：</strong>原表卖“临床残缺数据 + 共形拒识”；本方案卖“<strong>插补不确定性归因 + 掩码条件选择性风险控制</strong>”。前者已被 Sci Rep 2026 占住，后者仍有空间。
+</div>
+
+<div class="toc">
+<strong>目录</strong>
+<ol>
+  <li><a href="#sec0">一页纸摘要</a></li>
+  <li><a href="#sec1">与 Workshop 3 的对齐</a></li>
+  <li><a href="#sec2">题目、摘要与一句话主张</a></li>
+  <li><a href="#sec3">问题定义与研究问题</a></li>
+  <li><a href="#sec4">与最近工作的关系及避撞改写</a></li>
+  <li><a href="#sec5">方法：MIRAGE</a></li>
+  <li><a href="#sec6">实验设计</a></li>
+  <li><a href="#sec7">论文写作结构</a></li>
+  <li><a href="#sec8">会出现的问题与处理</a></li>
+  <li><a href="#sec9">23 天执行与 Go/No-Go</a></li>
+  <li><a href="#sec10">退路</a></li>
+  <li><a href="#sec11">来源</a></li>
+</ol>
+</div>
+
+<h2 id="sec0">0. 一页纸摘要</h2>
+<p><strong>问题</strong>：临床风险模型在残缺 EHR 上必须先插补再预测。现有共形分诊把插补当作确定性预处理（LOCF），拒识信号只来自预测不确定性；高缺失率下，模型可能“自信地错”，因为插补出来的证据本身不可靠。</p>
+<p><strong>主张</strong>：插补诱导不确定性（imputation-induced uncertainty）是独立于模型不确定性的风险源；拒识应同时考虑“模型不确定”和“插补不可信”。</p>
+<p><strong>方法 MIRAGE：</strong></p>
+<ol>
+  <li>按缺失掩码把患者路由到不同插补策略（mean / MICE / GAIN / SAITS / 不插补）；</li>
+  <li>用插补器间分歧 + 证据/集成信号，操作性地分离插补不确定性与模型不确定性；</li>
+  <li>按掩码分层（Mondrian）校准共形预测集；</li>
+  <li>在覆盖率约束下，用成本感知阈值做拒识/转人工。</li>
+</ol>
+<p><strong>数据</strong>：PhysioNet 2019 主实验；UCI Heart Disease 外部验证；NHANES/原始 BRFSS 可选；CDC 糖尿病仅做模拟缺失补充。</p>
+<p><strong>评测</strong>：掩码条件覆盖率、最差层覆盖率、选择性风险、risk–coverage、拒识率、临床成本、不确定性错误检测 AUROC。</p>
+<p><strong>最近邻</strong>：Sci Rep 2026 的 LOCF + CP + cost-aware deferral，作为第一基线直接复现并分析其失效。</p>
+<p><strong>撞车率</strong>：本方案约 30–45%（中低）；文本查重可压到 &lt;10%。</p>
+
+<h2 id="sec1">1. 与 Workshop 3 的对齐</h2>
+
+<h3>1.1 关键词映射</h3>
+<table>
+  <tr><th>Workshop 关键词</th><th>本文对应</th></tr>
+  <tr><td>Trustworthy AI</td><td>不确定时拒识/转人工，避免过度自信的自动化决策</td></tr>
+  <tr><td>Reliable AI</td><td>掩码条件覆盖 + 选择性风险控制</td></tr>
+  <tr><td>Uncertainty Estimation</td><td>插补不确定性 vs 模型不确定性 vs 数据噪声</td></tr>
+  <tr><td>Robust ML</td><td>MCAR/MAR/MNAR、缺失率 10%–70%、分布偏移</td></tr>
+  <tr><td>Healthcare AI</td><td>脓毒症早期预警、临床分诊</td></tr>
+  <tr><td>Interpretable ML</td><td>SHAP + “为什么拒识”的原因分解</td></tr>
+  <tr><td>Reliability Evaluation</td><td>掩码分层覆盖、risk–coverage、成本曲线、最差层指标</td></tr>
+  <tr><td>Critical Applications</td><td>漏诊/误诊代价不对称，拒识是安全边界</td></tr>
+</table>
+
+<h3>1.2 主席契合</h3>
+<table>
+  <tr><th>主席</th><th>契合点</th><th>注意</th></tr>
+  <tr><td>Lei Zhang ★★★</td><td>不完备医疗数据补全、贝叶斯矩阵、智能决策</td><td>他的 Bayesian Matrix 是最近邻之一，必须在 Related Work 明确区分</td></tr>
+  <tr><td>Jing Li ★★</td><td>急诊医学、风险预测、可解释决策支持</td><td>用脓毒症分诊 + 拒识原因解释把她的方向拉进来</td></tr>
+  <tr><td>Wenli Li ★★</td><td>慢病/养老运营</td><td>外部验证可选 NHANES/糖尿病数据，兼顾她的方向</td></tr>
+  <tr><td>Zhaojing Wang ★</td><td>工业诊断、可靠性评测</td><td>不强行贴合；可在 Discussion 提“评测协议可迁移到工业”</td></tr>
+  <tr><td>Yinzhen Lyu ☆</td><td>具身智能</td><td>不相关</td></tr>
+</table>
+
+<h3>1.3 为什么它属于“critical application”</h3>
+<ul>
+  <li>脓毒症早期预警的漏诊代价远高于误报；</li>
+  <li>模型在缺失率高时最需要拒识，而现有方法恰好在此时最不可靠；</li>
+  <li>拒识不是“逃避”，而是把不确定病例交给更高层级临床判断，符合 critical application 的安全边界。</li>
+</ul>
+
+<h2 id="sec2">2. 题目、摘要与一句话主张</h2>
+
+<h3>2.1 题目候选</h3>
+<p><strong>推荐：</strong></p>
+<blockquote><strong>MIRAGE: Mask-Aware Imputation Gating and Conformal Rejection for Reliable Clinical Risk Prediction</strong></blockquote>
+<p>备选：</p>
+<ol>
+  <li><em>Imputation Uncertainty Is Not Model Uncertainty: Mask-Conditional Conformal Rejection for Clinical Risk Prediction</em></li>
+  <li><em>Gated Imputation, Calibrated Rejection: Trustworthy Diagnosis from Incomplete Clinical Records</em></li>
+  <li><em>Don't Guess Twice: Imputation-Aware Selective Risk Control for Clinical Decision Support</em></li>
+</ol>
+<p><strong>不建议的题目：</strong></p>
+<ul>
+  <li><em>Conformal Rejection for Clinical Missing Data</em>（与 Sci Rep 2026 太像）</li>
+  <li><em>Uncertainty Propagation and Conformal Rejection in Incomplete EHR</em>（核心名词仍是“拒识”，撞车感强）</li>
+</ul>
+
+<h3>2.2 摘要草稿（英文，提交时按结果填数字）</h3>
+<blockquote>
+Clinical risk models are increasingly deployed on incomplete electronic health records, where missing values must be imputed before prediction. Conformal selective prediction can abstain when a prediction set is unreliable, but existing pipelines treat imputation as a deterministic preprocessing step (e.g., last-observation-carried-forward) and attribute all uncertainty to the model. We argue that imputation-induced uncertainty is a distinct and actionable source of risk: under high missingness, a model may be confidently wrong because the imputed evidence itself is unreliable. We propose MIRAGE, a mask-aware framework that (i) routes each patient to an imputation strategy based on the missingness pattern, (ii) operationally separates imputation uncertainty from model uncertainty using cross-imputer disagreement and evidential/ensemble signals, (iii) calibrates conformal prediction sets per mask stratum, and (iv) defers decisions when imputation uncertainty dominates or the prediction set is not singleton. We evaluate on PhysioNet 2019 and external clinical data under MCAR/MAR/MNAR and missingness rates up to 70%, using LOCF-based conformal deferral as the primary baseline. We report mask-conditional coverage, selective risk, deferral burden, and cost-sensitive utility. The goal is a reliability evaluation protocol that tells clinicians not only when the model is uncertain, but why.
+</blockquote>
+
+<h3>2.3 一句话主张（中文）</h3>
+<p class="key">现有共形分诊把插补当确定性预处理，拒识只看模型不确定性；我们把插补不确定性显式分离出来，按缺失掩码路由插补并分层校准拒识，在相同覆盖率下降低选择性风险与临床成本。</p>
+
+<h3>2.4 贡献点（按重要性排序）</h3>
+<ol>
+  <li><strong>问题</strong>：定义“插补感知的选择性风险”，指出高缺失率下插补误差会被误判为模型误差。</li>
+  <li><strong>方法</strong>：提出 MIRAGE，把插补路由、不确定性分解、掩码条件 CP、成本感知拒识串成一个可复现框架。</li>
+  <li><strong>评测</strong>：给出缺失分层的可靠性评测协议（掩码条件覆盖、最差层覆盖、risk–coverage、成本曲线），并在公开数据上与 LOCF+CP 直接对比。</li>
+  <li><strong>发现</strong>：量化 LOCF+CP 在何种缺失模式下失效，给出失效边界。</li>
+</ol>
+
+<h2 id="sec3">3. 问题定义与研究问题</h2>
+
+<h3>3.1 符号与设定</h3>
+<ul>
+  <li>患者样本：<code>(X_i, M_i, Y_i)</code>，<code>X_i ∈ R^d</code>，<code>M_i ∈ {0,1}^d</code>（1 观测，0 缺失），<code>Y_i ∈ {0,1}</code>。</li>
+  <li>插补器组合：<code>F = {f_1, ..., f_K}</code>，如 mean、MICE、GAIN、SAITS、none。</li>
+  <li>路由：<code>k* = g(M, X_obs)</code>，为每个样本选一个插补器。</li>
+  <li>诊断模型：<code>h(X̃^{k*}, M) → p(y|x)</code>。</li>
+  <li>共形分数：<code>s(x, y)</code>，如 <code>1 − p_y(x)</code>（LAC）或 APS。</li>
+  <li>掩码层：<code>m ∈ M</code>（可先聚类，避免组合爆炸）。</li>
+  <li>预测集：<code>C(x) = {y : s(x, y) ≤ q_m}</code>，<code>q_m</code> 为该层校准分位数。</li>
+  <li>拒识策略：<code>π(x) ∈ {accept, defer}</code>。</li>
+</ul>
+
+<h3>3.2 优化目标</h3>
+<p>在覆盖率约束下最小化期望临床成本：</p>
+<pre><code>min_π  E[ cost(π) ]
+s.t.   P(Y ∈ C(X) | M = m) ≥ 1 − α,  for all supported m
+       deferral_rate ≤ d_max</code></pre>
+<p>成本：</p>
+<pre><code>cost = c_FN · FN + c_FP · FP + c_defer · defer</code></pre>
+<p>参考量级：<code>c_FN : c_FP : c_defer = 10 : 1 : 2</code>，并做敏感性分析。</p>
+
+<h3>3.3 研究问题</h3>
+<table>
+  <tr><th>RQ</th><th>问题</th><th>对应实验</th></tr>
+  <tr><td>RQ1</td><td>插补不确定性是否可与模型不确定性分离，并在高缺失率下主导错误？</td><td>E3</td></tr>
+  <tr><td>RQ2</td><td>掩码条件 CP 是否比全局 CP 在缺失率变化时覆盖更稳？</td><td>E4 / E5</td></tr>
+  <tr><td>RQ3</td><td>插补路由 + 掩码条件拒识是否在相同覆盖率下降低选择性风险与成本？</td><td>E6 / E8</td></tr>
+  <tr><td>RQ4</td><td>方法何时失效？MNAR、稀疏掩码、分布偏移下边界在哪里？</td><td>E5 / E8</td></tr>
+</table>
+
+<h2 id="sec4">4. 与最近工作的关系及避撞改写</h2>
+
+<h3>4.1 最近邻对照表</h3>
+<table>
+  <tr><th>工作</th><th>它做了什么</th><th>与本方案的差异</th></tr>
+  <tr><td><strong>Sci Rep 2026</strong>：Conformal selective prediction with cost-aware deferral</td><td>PhysioNet 2019 脓毒症；LOCF；split CP + Mondrian（性别）+ 成本感知延迟；80% 覆盖下错误率降 49.6%/46.7%</td><td>它把插补当确定性预处理；我们显式建模插补不确定性、按掩码分层、路由插补</td></tr>
+  <tr><td><strong>SafeImpute（KDD 2026）</strong></td><td>对插补值做共形选择 + FDR 控制，判断哪些插补值可发布</td><td>它选“插补值是否可信”，我们选“诊断决策是否可自动化”；层级不同</td></tr>
+  <tr><td><strong>SQUIREDL（ACM TCH 2025）</strong></td><td>EDL + Akima 插补 + 插补点加权，医疗时序回归</td><td>它是时序回归；我们是表格分诊 + CP 拒识 + 掩码条件校准</td></tr>
+  <tr><td><strong>Zaffran et al. 2023</strong></td><td>impute-then-predict 的边际覆盖；CP-MDA；掩码条件有效性</td><td>它是理论基线；我们把掩码条件校准接到决策拒识与成本约束上</td></tr>
+  <tr><td><strong>MC²（MICCAI 2026 workshop）</strong></td><td>模态级缺失的 Mondrian CP</td><td>它是模态缺失；我们是变量级缺失 + 插补不确定性 + 拒识</td></tr>
+  <tr><td><strong>Calibrated Abstention in Clinical LLMs</strong></td><td>学习式门控 + split CP</td><td>对象是 LLM；我们是表格 EHR + 插补组合</td></tr>
+</table>
+
+<h3>4.2 八条避撞改写（直接照做）</h3>
+<table>
+  <tr><th>原表述</th><th>改成</th><th>原因</th></tr>
+  <tr><td>临床残缺数据 + 共形拒识</td><td>插补不确定性归因 + 掩码条件选择性风险控制</td><td>把核心名词从“拒识”移开</td></tr>
+  <tr><td>我们首次提出……</td><td>我们表明……；据我们所知，尚无工作……</td><td>避免“first”被一篇 nearest work 打掉</td></tr>
+  <tr><td>EDL 是方法核心</td><td>EDL 是可选归因模块；骨架是插补路由 + 掩码 CP</td><td>降低“EDL + CP 冗余”的攻击面</td></tr>
+  <tr><td>提高诊断准确率</td><td>在相同覆盖率下降低选择性风险与临床成本</td><td>对齐 critical application 的代价不对称</td></tr>
+  <tr><td>处理缺失数据</td><td>区分插补不确定性与模型不确定性</td><td>从“数据预处理”升级为“风险归因”</td></tr>
+  <tr><td>PhysioNet + CDC 糖尿病</td><td>PhysioNet 主数据 + 非脓毒症外部验证</td><td>CDC 无缺失值，且避免“脓毒症论文”定性</td></tr>
+  <tr><td>与现有方法对比</td><td>以 LOCF+CP 为第一基线，并分析其失效</td><td>把最近邻变成故事的一部分</td></tr>
+  <tr><td>组合级空白</td><td>精确三元组未见，但核心主张有最近邻</td><td>诚实且可防御</td></tr>
+</table>
+
+<h3>4.3 不要写的句子</h3>
+<ul>
+  <li>“目前没有相关研究。”</li>
+  <li>“我们是首个将共形预测用于临床缺失数据的工作。”</li>
+  <li>“EDL 提供了可靠的分布无关保证。”（保证来自 CP，不是 EDL）</li>
+  <li>“在 MNAR 下仍然保证覆盖率。”（不成立）</li>
+  <li>“CDC 糖尿病数据集存在大量缺失。”（该发布版没有缺失）</li>
+</ul>
+
+<h3>4.4 可直接用的差异化段落</h3>
+<blockquote>
+最接近的工作是 [Sci Rep 2026]，它在脓毒症分诊中结合了共形预测与成本感知延迟，但将缺失值视为确定性预处理（LOCF），拒识信号只来自预测不确定性。本文表明，在高缺失率下，插补误差会与模型误差混淆；我们通过掩码条件校准与插补路由，把插补诱导的不确定性显式纳入拒识，并在同一队列上相对该基线降低选择性风险与临床成本。
+</blockquote>
+
+<h2 id="sec5">5. 方法：MIRAGE</h2>
+
+<h3>5.1 框架</h3>
+<pre><code>X_obs, M
+   │
+   ├─> M1 缺失模式编码：缺失率、块结构、变量类型、模式簇
+   │
+   ├─> M2 插补路由 g(M, X_obs)
+   │       ├─ mean / median
+   │       ├─ MICE
+   │       ├─ GAIN / SAITS
+   │       └─ none（保留掩码）
+   │
+   ├─> M3 诊断模型 h（LightGBM / MLP）+ 可选证据头
+   │
+   ├─> M4 不确定性分解
+   │       ├─ U_imp：跨插补器/多次插补的分歧
+   │       ├─ U_mod：集成分歧或 EDL vacuity
+   │       └─ U_al：期望熵
+   │
+   ├─> M5 掩码条件共形校准（Mondrian CP by mask cluster）
+   │
+   └─> M6 成本感知拒识
+           ├─ set size &gt; 1
+           ├─ max prob &lt; τ
+           └─ cost-aware threshold（含 U_imp / U_mod）</code></pre>
+
+<h3>5.2 M1：缺失模式编码</h3>
+<ul>
+  <li>数值特征：缺失率、连续缺失块长度、变量类型（生命体征/化验/人口学）。</li>
+  <li>模式表示：<code>M</code> 的二进制向量；高维时用聚类（K-means / 层次聚类）压成 10–30 个 mask cluster。</li>
+  <li>最小支持度：每个 cluster 至少 <code>n_min</code> 个校准样本（如 50），否则合并到邻近 cluster。</li>
+</ul>
+
+<h3>5.3 M2：插补路由</h3>
+<p><strong>规则路由（先做，稳）：</strong></p>
+<table>
+  <tr><th>缺失情况</th><th>路由</th></tr>
+  <tr><td>缺失率 &lt; 10%</td><td>mean / median</td></tr>
+  <tr><td>10%–30%，变量间相关强</td><td>MICE</td></tr>
+  <tr><td>&gt; 30%，高维非线性</td><td>GAIN / SAITS</td></tr>
+  <tr><td>整块缺失（如某化验未开）</td><td>none + 掩码指示</td></tr>
+</table>
+<p><strong>学习路由（加分项，后做）：</strong></p>
+<ul>
+  <li>输入：缺失率、mask 向量、变量类型；</li>
+  <li>输出：插补器选择（Gumbel-Softmax / straight-through）；</li>
+  <li>训练信号：下游验证损失 + 插补误差；</li>
+  <li>只在训练折内训练，校准/测试不得参与；</li>
+  <li>必须做“无路由”消融，证明增益不是超参噪声。</li>
+</ul>
+
+<h3>5.4 M3：诊断模型</h3>
+<ul>
+  <li>主模型：LightGBM（表格、快、稳）。</li>
+  <li>备选：MLP / TabNet；不引入大模型，保证 23 天可跑。</li>
+  <li>可选证据头：EDL，输出 Dirichlet 证据；仅用于 M4 的归因与路由特征，不用于覆盖保证。</li>
+  <li>类别不平衡：脓毒症阳性率约 7%，用 class weight / focal loss；报告 AUPRC。</li>
+</ul>
+
+<h3>5.5 M4：不确定性分解（操作性定义）</h3>
+<p>不是因果分解，而是<strong>可操作的三路信号</strong>：</p>
+<ul>
+  <li><strong>插补不确定性</strong> <code>U_imp</code>：
+    <ul>
+      <li>跨插补器分歧：<code>U_imp = Var_k(p_k)</code> 或平均 pairwise Jensen–Shannon 散度；</li>
+      <li>或多重插补（M=10）的预测方差。</li>
+    </ul>
+  </li>
+  <li><strong>模型不确定性</strong> <code>U_mod</code>：
+    <ul>
+      <li>Deep Ensembles / MC Dropout 的预测分歧；</li>
+      <li>或 EDL 的 vacuity <code>u = K / S</code>。</li>
+    </ul>
+  </li>
+  <li><strong>数据噪声</strong> <code>U_al</code>：预测分布的期望熵。</li>
+</ul>
+<p><strong>主导比：</strong></p>
+<pre><code>r(x) = U_imp(x) / (U_imp(x) + U_mod(x) + ε)</code></pre>
+<p><code>r(x)</code> 高表示“这次不可信主要是因为插补”，而不是模型没见过。</p>
+<p><strong>验证方式</strong>（避免自说自话）：</p>
+<ul>
+  <li>按缺失率分层，计算 <code>U_imp</code>、<code>U_mod</code> 对“预测错误”的 AUROC；</li>
+  <li>若 <code>U_imp</code> 在高缺失层显著优于 <code>U_mod</code>，说明分离有意义；</li>
+  <li>报告二者的相关性，避免完全共线。</li>
+</ul>
+
+<h3>5.6 M5：掩码条件共形校准</h3>
+<ul>
+  <li>分层：按 mask cluster <code>m</code> 分别校准。</li>
+  <li>非一致性分数：LAC <code>s = 1 − p_y</code>，或 APS；主实验用 LAC，附录给 APS。</li>
+  <li>分位数（有限样本修正）：</li>
+</ul>
+<pre><code>q_m = Quantile( {s_i : i ∈ calibration, M_i = m},
+                ceil((n_m + 1)(1 − α)) / n_m )</code></pre>
+<ul>
+  <li>覆盖目标：<code>P(Y ∈ C(X) | M = m) ≥ 1 − α</code>。</li>
+  <li>小样本层：合并/回退全局，报告覆盖率偏差。</li>
+  <li>分布偏移：加权 CP（importance weighting）作为扩展，不承诺 MNAR。</li>
+</ul>
+
+<h3>5.7 M6：拒识规则</h3>
+<p>三种规则对比：</p>
+<ol>
+  <li><strong>Set-size</strong>：<code>|C(x)| &gt; 1</code> → defer。</li>
+  <li><strong>Confidence</strong>：<code>max_y p(y|x) &lt; τ</code> → defer。</li>
+  <li><strong>Cost-aware（推荐）</strong>：在 calibration 上选阈值，最小化
+    <code>c_FN·FN + c_FP·FP + c_defer·defer</code>。
+    <ul>
+      <li>可加入 <code>r(x)</code> 作为特征：<code>defer if r(x) &gt; ρ and |C(x)| &gt; 1</code>。</li>
+      <li>约束拒识预算 <code>deferral_rate ≤ d_max</code>。</li>
+    </ul>
+  </li>
+</ol>
+<p><strong>输出给临床的三件事：</strong></p>
+<ul>
+  <li>诊断标签；</li>
+  <li>预测集（可能的类别）；</li>
+  <li>拒识原因：模型不确定 / 插补不可信 / 两者都有。</li>
+</ul>
+
+<h3>5.8 理论主张与边界</h3>
+<table>
+  <tr><th>命题</th><th>内容</th><th>边界</th></tr>
+  <tr><td>P1</td><td>impute-then-predict 在可交换性下保持<strong>边际</strong>覆盖（引 Zaffran et al.）</td><td>不保证掩码条件</td></tr>
+  <tr><td>P2</td><td>按 mask cluster 分层校准，可在每层内给出有限样本覆盖</td><td>层样本足够；cluster 定义需预先固定</td></tr>
+  <tr><td>P3</td><td>成本感知阈值在 calibration 上给出经验成本控制</td><td>分布偏移下失效；需加权 CP 或在线更新</td></tr>
+  <tr><td>边界</td><td>MNAR 下交换性破坏，不宣称保证</td><td>只报告敏感性分析与失效曲线</td></tr>
+</table>
+
+<h3>5.9 算法伪代码</h3>
+<pre><code>Input: train D_tr, calibration D_ca, test D_te, portfolio F, alpha, costs
+1. Fit imputers F on D_tr only.
+2. Fit router g on D_tr (rule-based or learned with inner CV).
+3. Fit predictor h on D_tr (with optional EDL head).
+4. For each calibration sample:
+     m_i = cluster(M_i)
+     k_i = g(M_i, X_obs_i)
+     p_i = h(f_{k_i}(X_obs_i), M_i)
+     s_i = 1 - p_i[y_i]
+5. For each mask cluster m:
+     q_m = finite_sample_quantile({s_i : m_i = m}, alpha)
+6. Choose rejection threshold tau on D_ca by minimizing cost.
+7. For each test sample:
+     C(x) = {y : s(x,y) <= q_{m(x)}}
+     defer if cost_rule(C(x), p(x), U_imp(x), U_mod(x), tau)</code></pre>
+
+<h2 id="sec6">6. 实验设计</h2>
+
+<h3>6.1 数据</h3>
+<table>
+  <tr><th>数据集</th><th>角色</th><th>缺失</th><th>获取</th></tr>
+  <tr><td>PhysioNet 2019</td><td>主实验</td><td>天然缺失</td><td>开放；免费账号 + DUA；AWS 镜像</td></tr>
+  <tr><td>UCI Heart Disease</td><td>外部验证</td><td>天然缺失（ca、thal）</td><td>公开</td></tr>
+  <tr><td>NHANES / 原始 BRFSS</td><td>可选外部验证</td><td>有缺失</td><td>公开</td></tr>
+  <tr><td>CDC Diabetes（UCI 891）</td><td>仅模拟缺失补充</td><td><strong>无缺失</strong></td><td>公开</td></tr>
+  <tr><td>MIMIC-IV / eICU</td><td>若已有权限</td><td>天然缺失</td><td>credentialed</td></tr>
+</table>
+<p><strong>原则</strong>：主结论只基于天然缺失数据；模拟缺失用于压力测试，不替代主结果。</p>
+
+<h3>6.2 缺失机制</h3>
+<table>
+  <tr><th>机制</th><th>做法</th><th>用途</th></tr>
+  <tr><td>Natural</td><td>直接用 PhysioNet 2019 的原始缺失</td><td>主结果</td></tr>
+  <tr><td>MCAR</td><td>随机置缺</td><td>理论基线</td></tr>
+  <tr><td>MAR</td><td>依赖观测变量置缺（年龄、性别、生命体征）</td><td>主压力测试</td></tr>
+  <tr><td>MNAR</td><td>依赖未观测值置缺（如按血压本身）</td><td>敏感性 / 失效边界</td></tr>
+</table>
+<p>缺失率：10%、30%、50%、70%。</p>
+
+<h3>6.3 基线</h3>
+<ol>
+  <li><strong>LOCF + split CP + cost-aware deferral</strong>（Sci Rep 2026 口径，第一基线）。</li>
+  <li>Mean / Median + CP。</li>
+  <li>MICE + CP。</li>
+  <li>GAIN / SAITS + CP。</li>
+  <li>MC Dropout + CP。</li>
+  <li>Deep Ensembles + CP。</li>
+  <li>EDL + 阈值拒识（无 CP）。</li>
+  <li>CP + 拒识，但不建模插补不确定性（消融基线）。</li>
+  <li>SafeImpute 风格（若代码可得）。</li>
+  <li>MIRAGE。</li>
+</ol>
+
+<h3>6.4 指标</h3>
+<table>
+  <tr><th>类别</th><th>指标</th></tr>
+  <tr><td>覆盖</td><td>边际覆盖、掩码条件覆盖、最差层覆盖、子群覆盖</td></tr>
+  <tr><td>选择性</td><td>selective risk、risk–coverage AUC、固定覆盖率下错误率</td></tr>
+  <tr><td>拒识</td><td>拒识率、固定风险下拒识率、拒识原因分布</td></tr>
+  <tr><td>成本</td><td>期望成本、成本敏感性（FN:FP:defer 多组）</td></tr>
+  <tr><td>校准</td><td>ECE、Brier、NLL</td></tr>
+  <tr><td>插补</td><td>MAE、RMSE</td></tr>
+  <tr><td>不确定性</td><td>错误检测 AUROC、U_imp/U_mod 分离度</td></tr>
+  <tr><td>公平性</td><td>性别/年龄组覆盖率差</td></tr>
+  <tr><td>效率</td><td>推理时间、校准开销</td></tr>
+</table>
+
+<h3>6.5 消融</h3>
+<ul>
+  <li>去路由（固定 MICE）。</li>
+  <li>去 EDL（用 Deep Ensembles）。</li>
+  <li>去掩码分层（全局 CP）。</li>
+  <li>去插补不确定性（只用模型不确定性）。</li>
+  <li>换拒识规则（set-size / confidence / cost-aware）。</li>
+  <li>插补组合大小（1 / 3 / 5）。</li>
+  <li>mask cluster 数量（5 / 10 / 20 / 30）。</li>
+</ul>
+
+<h3>6.6 预期结果（假设，不是已得结果）</h3>
+<table>
+  <tr><th>预期</th><th>量级（假设）</th><th>支撑图</th></tr>
+  <tr><td>全局 CP 在高缺失下覆盖下降</td><td>从 0.90 降到 0.75–0.82</td><td>图 2</td></tr>
+  <tr><td>掩码条件 CP 维持最差层覆盖</td><td>0.87–0.93</td><td>图 2</td></tr>
+  <tr><td>选择性风险相对 LOCF+CP 降低</td><td>5%–15%</td><td>图 3</td></tr>
+  <tr><td>临床成本降低</td><td>10%–20%</td><td>图 4</td></tr>
+  <tr><td>U_imp 在高缺失层错误检测 AUROC</td><td>高于 U_mod 0.03–0.10</td><td>图 1</td></tr>
+  <tr><td>拒识率增加</td><td>+3–8 个百分点</td><td>图 3</td></tr>
+</table>
+<div class="note"><strong>注意：</strong>这些是实验假设；论文中必须用真实结果替换，不得直接写入。</div>
+
+<h3>6.7 图表清单</h3>
+<table>
+  <tr><th>编号</th><th>内容</th></tr>
+  <tr><td>图 1</td><td>框架图：mask → router → predictor → uncertainty → CP → rejection</td></tr>
+  <tr><td>图 2</td><td>缺失率 vs 覆盖率（全局 CP / 掩码 CP / 最差层）</td></tr>
+  <tr><td>图 3</td><td>risk–coverage 曲线（多基线）</td></tr>
+  <tr><td>图 4</td><td>成本 vs 覆盖率 / 拒识预算</td></tr>
+  <tr><td>图 5</td><td>不确定性分离：U_imp vs U_mod 的错误检测 AUROC</td></tr>
+  <tr><td>图 6</td><td>案例：SHAP + 拒识原因（模型不确定 / 插补不可信）</td></tr>
+  <tr><td>表 1</td><td>数据与缺失画像</td></tr>
+  <tr><td>表 2</td><td>主结果（覆盖、选择性风险、成本）</td></tr>
+  <tr><td>表 3</td><td>消融</td></tr>
+  <tr><td>表 4</td><td>外部验证与偏移</td></tr>
+</table>
+
+<h2 id="sec7">7. 论文写作结构</h2>
+<p>按常见 workshop 4–8 页估算，具体以 CFP 为准。</p>
+<table>
+  <tr><th>章节</th><th>页数（估）</th><th>内容</th></tr>
+  <tr><td>Abstract</td><td>0.25</td><td>问题、主张、方法、数据、结果</td></tr>
+  <tr><td>1 Introduction</td><td>0.75–1</td><td>临床场景 → LOCF+CP 的失效 → 贡献</td></tr>
+  <tr><td>2 Related Work</td><td>0.5–0.75</td><td>CP + missing、selective prediction、EDL、clinical decision support</td></tr>
+  <tr><td>3 Problem Formulation</td><td>0.5–0.75</td><td>符号、掩码条件覆盖、选择性风险、成本目标</td></tr>
+  <tr><td>4 Method</td><td>1.25–1.5</td><td>M1–M6，公式，算法</td></tr>
+  <tr><td>5 Experiments</td><td>1.5–2</td><td>数据、基线、主结果、消融、失效分析</td></tr>
+  <tr><td>6 Discussion &amp; Limitations</td><td>0.5</td><td>MNAR、临床部署、拒识负担</td></tr>
+  <tr><td>7 Conclusion</td><td>0.25</td><td>总结与未来工作</td></tr>
+  <tr><td>References</td><td>0.5–1</td><td>15–25 条</td></tr>
+</table>
+<p><strong>写作顺序建议</strong>：先写 Method 与 Experiments 的表图，再写 Intro；Intro 的最后一段贡献要与结果一一对应。</p>
+
+<h2 id="sec8">8. 会出现的问题与处理</h2>
+
+<h3>8.1 撞车类问题</h3>
+<table>
+  <tr><th>问题</th><th>严重度</th><th>处理</th></tr>
+  <tr><td>Sci Rep 2026 已做“CP + 临床分诊 + 成本延迟”</td><td>高</td><td>把它设为第一基线；核心差异写成“插补不确定性归因 + 掩码条件校准”；在 Intro 主动引用</td></tr>
+  <tr><td>SafeImpute 已做“共形选择插补值”</td><td>中高</td><td>明确层级差异：值级 vs 决策级；引用并说明互补</td></tr>
+  <tr><td>SQUIREDL 已做“EDL + 插补”</td><td>中</td><td>EDL 降级为可选模块；主骨架不依赖 EDL</td></tr>
+  <tr><td>Zaffran 已做“掩码条件 CP 理论”</td><td>中高</td><td>引用为理论基线；贡献放在“决策拒识 + 成本约束”，不要重复造理论</td></tr>
+  <tr><td>审稿人说“这就是 CP + 拒识”</td><td>高</td><td>用失效分析开场：LOCF+CP 在高缺失下如何错；再用实验证明差异</td></tr>
+</table>
+
+<h3>8.2 理论类问题</h3>
+<table>
+  <tr><th>问题</th><th>为什么会出问题</th><th>处理</th></tr>
+  <tr><td>MNAR 下交换性破坏</td><td>覆盖保证不成立</td><td>只声明 MCAR/MAR；MNAR 做敏感性分析与失效边界</td></tr>
+  <tr><td>掩码组合爆炸</td><td>mask 维度高，层样本稀疏</td><td>mask 聚类 + 最小支持度 + 合并回退</td></tr>
+  <tr><td>掩码条件覆盖的有限样本保证</td><td>每层样本少，分位数不稳</td><td>报告每层 n、覆盖率置信区间；小层不单独下结论</td></tr>
+  <tr><td>选择性风险控制</td><td>分布偏移下成本阈值失效</td><td>加权 CP、在线更新、报告 OOD 退化</td></tr>
+  <tr><td>不确定性“分解”不可识别</td><td>插补与模型误差纠缠</td><td>明确是操作性分解，不是因果分解；用错误检测 AUROC 验证</td></tr>
+  <tr><td>不确定性双重计数</td><td>EDL + CP 都在用不确定性</td><td>CP 只用一种非一致性分数；EDL 只做路由/解释；做消融</td></tr>
+</table>
+
+<h3>8.3 方法类问题</h3>
+<table>
+  <tr><th>问题</th><th>表现</th><th>处理</th></tr>
+  <tr><td>EDL 不稳定</td><td>证据塌缩、ECE 差、对学习率敏感</td><td>先跑 Deep Ensembles；EDL 作为可选；温度缩放；报告失败案例</td></tr>
+  <tr><td>路由过拟合</td><td>训练集上路由好，测试集无增益</td><td>规则路由优先；学习路由用内层 CV；做“无路由”消融</td></tr>
+  <tr><td>插补器泄漏</td><td>插补器在全量数据上拟合</td><td>插补器只在训练折拟合；校准/测试独立</td></tr>
+  <tr><td>路由与 CP 相互干扰</td><td>不同插补器导致分数分布不同</td><td>按“插补器 + mask cluster”联合分层，或固定路由后再校准</td></tr>
+  <tr><td>拒识规则难比较</td><td>set-size 与 confidence 不可直接比</td><td>统一在 risk–coverage 与成本曲线下比较</td></tr>
+  <tr><td>成本参数随意</td><td>审稿人质疑临床意义</td><td>多组成本敏感性；引用临床代价区间；报告阈值变化</td></tr>
+  <tr><td>拒识负担</td><td>拒识率高，临床不可用</td><td>设 deferral budget；报告拒识率–风险曲线；给出预算约束下的最优</td></tr>
+  <tr><td>类别不平衡</td><td>阳性率约 7%，校准偏向多数类</td><td>分层校准、class weight、AUPRC、成本敏感</td></tr>
+</table>
+
+<h3>8.4 数据类问题</h3>
+<table>
+  <tr><th>问题</th><th>事实</th><th>处理</th></tr>
+  <tr><td>CDC 糖尿病无缺失</td><td>UCI 891 已 listwise 删除</td><td>不作为主数据；只做模拟缺失补充</td></tr>
+  <tr><td>PhysioNet 2019 标签定义</td><td>脓毒症标签有时序定义与争议</td><td>严格按 Challenge 定义；报告 cohort 构建；做标签敏感性</td></tr>
+  <tr><td>患者级泄漏</td><td>同一患者多个时间点</td><td>按患者切分，不按时间点切分</td></tr>
+  <tr><td>外部验证样本小</td><td>UCI Heart 仅 303 例</td><td>只做 sanity check；报告置信区间；不把它当主结论</td></tr>
+  <tr><td>数据集偏移</td><td>不同医院/年份</td><td>时间/站点切分；加权 CP；报告 OOD</td></tr>
+  <tr><td>MIMIC 权限</td><td>需 CITI + DUA</td><td>23 天内不作为主数据；若有权限可加</td></tr>
+</table>
+
+<h3>8.5 评审类问题</h3>
+<table>
+  <tr><th>审稿意见</th><th>防御</th></tr>
+  <tr><td>“Incremental pipeline.”</td><td>用问题定义 + 失效分析 + 掩码条件评测回应；强调不是新模块堆叠</td></tr>
+  <tr><td>“Why not just improve imputation?”</td><td>展示最好插补器仍留下不确定性；拒识仍需校准</td></tr>
+  <tr><td>“CP already handles missing data.”</td><td>引 Zaffran：边际覆盖 ≠ 掩码条件覆盖；我们做决策级</td></tr>
+  <tr><td>“EDL is unnecessary.”</td><td>消融显示 EDL 可替换；论文骨架不依赖 EDL</td></tr>
+  <tr><td>“No clinical validation.”</td><td>公开数据 + 成本模拟；Limitations 明确；不宣称临床已验证</td></tr>
+  <tr><td>“Cost model is arbitrary.”</td><td>多组成本 + 敏感性 + 临床文献区间</td></tr>
+  <tr><td>“First claim is false.”</td><td>不写 first；写“据我们所知，尚无工作联合……”并引最近邻</td></tr>
+  <tr><td>“Results are marginal.”</td><td>报告置信区间与配对检验；若增益小，转向失效边界与评测贡献</td></tr>
+</table>
+
+<h3>8.6 执行类问题</h3>
+<table>
+  <tr><th>问题</th><th>处理</th></tr>
+  <tr><td>23 天不够</td><td>按第 9 节门槛；砍外部验证与 SHAP，保主实验</td></tr>
+  <tr><td>算力不足</td><td>LightGBM + 小 MLP；不跑大模型；CP 是后处理</td></tr>
+  <tr><td>复现困难</td><td>固定种子、配置文件、聚合脚本；公开代码</td></tr>
+  <tr><td>页数超限</td><td>主文只放三条 claim；细节进附录/补充材料</td></tr>
+  <tr><td>写作时间不够</td><td>先图后文；Intro 最后写；模板化 Related Work</td></tr>
+</table>
+
+<h2 id="sec9">9. 23 天执行与 Go/No-Go</h2>
+<table>
+  <tr><th>阶段</th><th>天数</th><th>任务</th><th>门槛</th></tr>
+  <tr><td>P0</td><td>D1–D2</td><td>数据下载、患者级切分、缺失画像</td><td>标签率与变量分布可复现</td></tr>
+  <tr><td>P1</td><td>D3–D4</td><td>LOCF + CP + deferral 基线</td><td>覆盖率在名义值 ±3%</td></tr>
+  <tr><td>P2</td><td>D5–D7</td><td>插补组合 + LightGBM</td><td>≥4 种插补器跑通</td></tr>
+  <tr><td>P3</td><td>D8–D10</td><td>集成 / EDL 不确定性</td><td>EDL 不优于集成则弃用</td></tr>
+  <tr><td>P4</td><td>D11–D13</td><td>掩码聚类 + 掩码 CP + 路由</td><td>最差层覆盖提升 ≥2 个百分点</td></tr>
+  <tr><td>P5</td><td>D14–D16</td><td>主实验 + 缺失压力测试</td><td>选择性风险或成本改善 ≥5%</td></tr>
+  <tr><td>P6</td><td>D17–D19</td><td>消融 + 成本曲线 + 失效边界</td><td>三条 claim 各有图</td></tr>
+  <tr><td>P7</td><td>D20–D21</td><td>外部验证</td><td>至少一个外部集</td></tr>
+  <tr><td>P8</td><td>D22–D23</td><td>写作、图表、复现包</td><td>图表由脚本生成</td></tr>
+</table>
+<p><strong>硬门槛：</strong></p>
+<ul>
+  <li>D4 不过 → 停，查泄漏与切分。</li>
+  <li>D10 不过 → 弃 EDL，改集成 + 多插补方差。</li>
+  <li>D13 不过 → 弃路由/分层卖点，缩回“插补不确定性 + 拒识”，或转 T2。</li>
+  <li>D16 不过 → 不强推 C1，按退路处理。</li>
+</ul>
+
+<h2 id="sec10">10. 退路</h2>
+<ol>
+  <li><strong>保守退路</strong>：多插补方差 + split CP + 成本拒识。不做 EDL、不做学习路由，仍是一篇完整的“插补不确定性 + 可靠拒识”论文。</li>
+  <li><strong>评测型退路</strong>：如果方法增益小，改写成“LOCF+CP 在何种缺失模式下失效”的可靠性评测论文，仍契合 workshop 的 reliability evaluation。</li>
+  <li><strong>换题退路</strong>：转 T2（故障严重度保形回归）。数据全公开、23 天风险最低，但与医疗方向偏离。</li>
+</ol>
+
+<h2 id="sec11">11. 来源</h2>
+<ol>
+  <li><a href="https://www.nature.com/articles/s41598-026-40637-w">Conformal selective prediction with cost-aware deferral for safe clinical triage under distribution shift（Sci Rep 2026）</a></li>
+  <li><a href="https://github.com/c15926/conformal-triage-public-">代码：c15926/conformal-triage-public-</a></li>
+  <li><a href="https://export.arxiv.org/abs/2607.05613">SafeImpute: Reliable Clinical Data Imputation via Conformal Selection（KDD 2026）</a></li>
+  <li><a href="https://dl.acm.org/doi/full/10.1145/3723049">SQUIREDL（ACM TCH 2025）</a></li>
+  <li><a href="https://arxiv.org/abs/2306.02732">Conformal prediction with missing values（Zaffran et al.）</a></li>
+  <li><a href="https://papers.miccai.org/miccai-2026-sat/MLMI_024.html">Modality-Conditional CP（MICCAI 2026 workshop）</a></li>
+  <li><a href="https://physionet.org/content/challenge-2019/1.0.0/">PhysioNet 2019 Challenge</a></li>
+  <li><a href="https://physionet.org/about/faqs/">PhysioNet FAQ</a></li>
+  <li><a href="https://archive.ics.uci.edu/dataset/891/cdc+Diabetes_012+health+indicators">CDC Diabetes Health Indicators（UCI 891）</a></li>
+  <li><a href="https://www.kaggle.com/datasets/vanthieu/diabetes-health-indicators-brfss-2015-2023">CDC Diabetes（Kaggle，253,680 行）</a></li>
+</ol>
+
+<div class="footer">
+文档结束 · 生成日期 2026-10-28 · 与同名 Markdown 文件内容一致
+</div>
+
+</body>
+</html>

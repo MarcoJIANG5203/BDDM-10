@@ -1,0 +1,17 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+____________ test_historical_windows_paths_resolve_in_a_new_clone _____________
+
+tmp_path = WindowsPath('C:/Users/Lenovo/AppData/Local/Temp/pytest-of-Lenovo/pytest-31/test_historical_windows_paths_0')
+
+    def test_historical_windows_paths_resolve_in_a_new_clone(tmp_path):
+        from reviews import verify_b_artifacts as audit
+>       assert hasattr(audit, 'resolve_input'), 'Historical absolute paths are not portable yet'
+E       AssertionError: Historical absolute paths are not portable yet
+E       assert False
+E        +  where False = hasattr(<module 'reviews.verify_b_artifacts' from 'D:\\Users\\Lenovo\\Desktop\\EI\\reviews\\verify_b_artifacts.py'>, 'resolve_input')
+
+tests\test_artifact_sync.py:61: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_artifact_sync.py::test_historical_windows_paths_resolve_in_a_new_clone
+1 failed in 1.36s

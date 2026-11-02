@@ -1,0 +1,174 @@
+FFFFFFFF                                                                 [100%]
+================================== FAILURES ===================================
+____________________ test_conformal_finite_sample_and_sets ____________________
+
+    def test_conformal_finite_sample_and_sets():
+>       c = module('conformal')
+            ^^^^^^^^^^^^^^^^^^^
+
+tests\test_protocol.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'conformal'
+
+    def module(name):
+>       assert importlib.util.find_spec('src.' + name) is not None, 'Required behavior module missing: ' + name
+E       AssertionError: Required behavior module missing: conformal
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001E2FF64EDA0>(('src.' + 'conformal'))
+E        +    where <function find_spec at 0x000001E2FF64EDA0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_protocol.py:9: AssertionError
+_________________ test_capacity_ties_frozen_and_labels_absent _________________
+
+    def test_capacity_ties_frozen_and_labels_absent():
+>       s = module('selection')
+            ^^^^^^^^^^^^^^^^^^^
+
+tests\test_protocol.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'selection'
+
+    def module(name):
+>       assert importlib.util.find_spec('src.' + name) is not None, 'Required behavior module missing: ' + name
+E       AssertionError: Required behavior module missing: selection
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001E2FF64EDA0>(('src.' + 'selection'))
+E        +    where <function find_spec at 0x000001E2FF64EDA0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_protocol.py:9: AssertionError
+___________________ test_metrics_denominators_and_bootstrap ___________________
+
+    def test_metrics_denominators_and_bootstrap():
+>       m = module('metrics')
+            ^^^^^^^^^^^^^^^^^
+
+tests\test_protocol.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'metrics'
+
+    def module(name):
+>       assert importlib.util.find_spec('src.' + name) is not None, 'Required behavior module missing: ' + name
+E       AssertionError: Required behavior module missing: metrics
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001E2FF64EDA0>(('src.' + 'metrics'))
+E        +    where <function find_spec at 0x000001E2FF64EDA0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_protocol.py:9: AssertionError
+___________ test_imputation_observed_reproducible_and_train_missing ___________
+
+    def test_imputation_observed_reproducible_and_train_missing():
+>       d=module('data'); imp=module('imputation')
+          ^^^^^^^^^^^^^^
+
+tests\test_protocol.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'data'
+
+    def module(name):
+>       assert importlib.util.find_spec('src.' + name) is not None, 'Required behavior module missing: ' + name
+E       AssertionError: Required behavior module missing: data
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001E2FF64EDA0>(('src.' + 'data'))
+E        +    where <function find_spec at 0x000001E2FF64EDA0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_protocol.py:9: AssertionError
+___________________ test_scenarios_only_observed_physiology ___________________
+
+    def test_scenarios_only_observed_physiology():
+>       d=module('data');s=module('scenarios')
+          ^^^^^^^^^^^^^^
+
+tests\test_protocol.py:77: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'data'
+
+    def module(name):
+>       assert importlib.util.find_spec('src.' + name) is not None, 'Required behavior module missing: ' + name
+E       AssertionError: Required behavior module missing: data
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001E2FF64EDA0>(('src.' + 'data'))
+E        +    where <function find_spec at 0x000001E2FF64EDA0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_protocol.py:9: AssertionError
+__________________ test_data_rejects_split_and_schema_leaks ___________________
+
+    def test_data_rejects_split_and_schema_leaks():
+>       d=module('data')
+          ^^^^^^^^^^^^^^
+
+tests\test_protocol.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'data'
+
+    def module(name):
+>       assert importlib.util.find_spec('src.' + name) is not None, 'Required behavior module missing: ' + name
+E       AssertionError: Required behavior module missing: data
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001E2FF64EDA0>(('src.' + 'data'))
+E        +    where <function find_spec at 0x000001E2FF64EDA0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_protocol.py:9: AssertionError
+______________ test_shared_model_weights_and_probability_summary ______________
+
+    def test_shared_model_weights_and_probability_summary():
+>       model=module('models')
+              ^^^^^^^^^^^^^^^^
+
+tests\test_protocol.py:102: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'models'
+
+    def module(name):
+>       assert importlib.util.find_spec('src.' + name) is not None, 'Required behavior module missing: ' + name
+E       AssertionError: Required behavior module missing: models
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001E2FF64EDA0>(('src.' + 'models'))
+E        +    where <function find_spec at 0x000001E2FF64EDA0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_protocol.py:9: AssertionError
+_____________________ test_end_to_end_synthetic_artifacts _____________________
+
+tmp_path = WindowsPath('C:/Users/Lenovo/AppData/Local/Temp/pytest-of-Lenovo/pytest-17/test_end_to_end_synthetic_arti0')
+
+    def test_end_to_end_synthetic_artifacts(tmp_path):
+>       exp=module('experiment')
+            ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_protocol.py:111: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'experiment'
+
+    def module(name):
+>       assert importlib.util.find_spec('src.' + name) is not None, 'Required behavior module missing: ' + name
+E       AssertionError: Required behavior module missing: experiment
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001E2FF64EDA0>(('src.' + 'experiment'))
+E        +    where <function find_spec at 0x000001E2FF64EDA0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_protocol.py:9: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_protocol.py::test_conformal_finite_sample_and_sets - Assert...
+FAILED tests/test_protocol.py::test_capacity_ties_frozen_and_labels_absent - ...
+FAILED tests/test_protocol.py::test_metrics_denominators_and_bootstrap - Asse...
+FAILED tests/test_protocol.py::test_imputation_observed_reproducible_and_train_missing
+FAILED tests/test_protocol.py::test_scenarios_only_observed_physiology - Asse...
+FAILED tests/test_protocol.py::test_data_rejects_split_and_schema_leaks - Ass...
+FAILED tests/test_protocol.py::test_shared_model_weights_and_probability_summary
+FAILED tests/test_protocol.py::test_end_to_end_synthetic_artifacts - Assertio...
+8 failed in 1.14s

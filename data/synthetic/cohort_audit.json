@@ -1,0 +1,18 @@
+{
+  "protocol_version": "v1",
+  "synthetic": true,
+  "data_version": "synthetic-v1-1402",
+  "feature_window_end": 12,
+  "outcome_window": "(12,24]",
+  "label_shift_hours": 6,
+  "site_meanings": {
+    "A": "synthetic development hospital",
+    "B": "synthetic external hospital"
+  },
+  "exclusion_counts": {
+    "input": 920,
+    "included": 920,
+    "excluded": 0
+  },
+  "warning": "Synthetic inputs and labels; no original ICU temporal audit performed"
+}

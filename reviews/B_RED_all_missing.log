@@ -1,0 +1,39 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_ test_all_physiology_missing_train_keeps_demographics_and_original_indicators _
+
+    def test_all_physiology_missing_train_keeps_demographics_and_original_indicators():
+        from src.data import FEATURES,PHYSIO
+        from src.imputation import PosteriorImputer
+        train=pd.DataFrame(np.nan,index=range(3),columns=FEATURES)
+        train['Age']=[20.,40.,np.nan];train['Gender']=[1.,0.,1.]
+>       im=PosteriorImputer().fit(train)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_protocol.py:212: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <src.imputation.PosteriorImputer object at 0x000001CF87B14EC0>
+x =    HR  O2Sat  Temp  SBP  MAP  ...  WBC  Fibrinogen  Platelets   Age  Gender
+0 NaN    NaN   NaN  NaN  NaN  ...  NaN    ...   NaN  40.0     0.0
+2 NaN    NaN   NaN  NaN  NaN  ...  NaN         NaN        NaN   NaN     1.0
+
+[3 rows x 36 columns]
+
+    def fit(self,x):
+        x=x[FEATURES]
+        self.age_=float(x.Age.median())
+        mode=x.Gender.mode()
+        if not np.isfinite(self.age_) or mode.empty:
+            raise ValueError('Training Age/Gender cannot be entirely missing')
+        self.gender_=float(mode.iloc[0])
+        self.dropped_columns_=[c for c in PHYSIO if x[c].isna().all()]
+        self.active_=[c for c in PHYSIO if c not in self.dropped_columns_]
+>       if not self.active_:raise ValueError('All physiological inputs missing in training')
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: All physiological inputs missing in training
+
+src\imputation.py:30: ValueError
+=========================== short test summary info ===========================
+FAILED tests/test_protocol.py::test_all_physiology_missing_train_keeps_demographics_and_original_indicators
+1 failed, 15 deselected in 3.37s

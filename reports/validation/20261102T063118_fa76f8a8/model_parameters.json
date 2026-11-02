@@ -1,0 +1,342 @@
+[
+  {
+    "split_seed": 2026,
+    "model": "LR",
+    "M": 10,
+    "source_M": 10,
+    "C": 0.1,
+    "C_selection": [
+      {
+        "C": 0.1,
+        "selection_auprc": 0.6119733031450838
+      },
+      {
+        "C": 1,
+        "selection_auprc": 0.5990799865040191
+      },
+      {
+        "C": 10,
+        "selection_auprc": 0.5981969037584122
+      }
+    ],
+    "classifier_parameters": {
+      "C": 0.1,
+      "class_weight": null,
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 2000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": null,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "median_classifier_parameters": {
+      "C": 0.1,
+      "class_weight": null,
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 2000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": null,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "risk_classifier_parameters": {
+      "C": 1,
+      "max_iter": 2000,
+      "class_weight": null
+    },
+    "training_all_missing": [],
+    "rounds": 10,
+    "risk_status": {
+      "B5": "available",
+      "B6": "available"
+    },
+    "sampling": "conditional Gaussian BayesianRidge chain, missing-only final clipping",
+    "seed_mapping": "sha256 JSON [split_seed,role,patient_id,batch,draw] first 4 bytes big endian",
+    "selection_errors": 36,
+    "selection_correct": 44
+  },
+  {
+    "split_seed": 2027,
+    "model": "LR",
+    "M": 10,
+    "source_M": 10,
+    "C": 1,
+    "C_selection": [
+      {
+        "C": 0.1,
+        "selection_auprc": 0.5882317667998463
+      },
+      {
+        "C": 1,
+        "selection_auprc": 0.6034503827547191
+      },
+      {
+        "C": 10,
+        "selection_auprc": 0.6032830441295673
+      }
+    ],
+    "classifier_parameters": {
+      "C": 1,
+      "class_weight": null,
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 2000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": null,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "median_classifier_parameters": {
+      "C": 1,
+      "class_weight": null,
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 2000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": null,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "risk_classifier_parameters": {
+      "C": 1,
+      "max_iter": 2000,
+      "class_weight": null
+    },
+    "training_all_missing": [],
+    "rounds": 10,
+    "risk_status": {
+      "B5": "available",
+      "B6": "available"
+    },
+    "sampling": "conditional Gaussian BayesianRidge chain, missing-only final clipping",
+    "seed_mapping": "sha256 JSON [split_seed,role,patient_id,batch,draw] first 4 bytes big endian",
+    "selection_errors": 34,
+    "selection_correct": 46
+  },
+  {
+    "split_seed": 2028,
+    "model": "LR",
+    "M": 10,
+    "source_M": 10,
+    "C": 10,
+    "C_selection": [
+      {
+        "C": 0.1,
+        "selection_auprc": 0.5254257035556367
+      },
+      {
+        "C": 1,
+        "selection_auprc": 0.5448234746746258
+      },
+      {
+        "C": 10,
+        "selection_auprc": 0.5468103522551724
+      }
+    ],
+    "classifier_parameters": {
+      "C": 10,
+      "class_weight": null,
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 2000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": null,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "median_classifier_parameters": {
+      "C": 10,
+      "class_weight": null,
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 2000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": null,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "risk_classifier_parameters": {
+      "C": 1,
+      "max_iter": 2000,
+      "class_weight": null
+    },
+    "training_all_missing": [],
+    "rounds": 10,
+    "risk_status": {
+      "B5": "available",
+      "B6": "available"
+    },
+    "sampling": "conditional Gaussian BayesianRidge chain, missing-only final clipping",
+    "seed_mapping": "sha256 JSON [split_seed,role,patient_id,batch,draw] first 4 bytes big endian",
+    "selection_errors": 35,
+    "selection_correct": 45
+  },
+  {
+    "split_seed": 2029,
+    "model": "LR",
+    "M": 10,
+    "source_M": 10,
+    "C": 1,
+    "C_selection": [
+      {
+        "C": 0.1,
+        "selection_auprc": 0.6201833715192566
+      },
+      {
+        "C": 1,
+        "selection_auprc": 0.6306931085823295
+      },
+      {
+        "C": 10,
+        "selection_auprc": 0.6287610229454047
+      }
+    ],
+    "classifier_parameters": {
+      "C": 1,
+      "class_weight": null,
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 2000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": null,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "median_classifier_parameters": {
+      "C": 1,
+      "class_weight": null,
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 2000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": null,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "risk_classifier_parameters": {
+      "C": 1,
+      "max_iter": 2000,
+      "class_weight": null
+    },
+    "training_all_missing": [],
+    "rounds": 10,
+    "risk_status": {
+      "B5": "available",
+      "B6": "available"
+    },
+    "sampling": "conditional Gaussian BayesianRidge chain, missing-only final clipping",
+    "seed_mapping": "sha256 JSON [split_seed,role,patient_id,batch,draw] first 4 bytes big endian",
+    "selection_errors": 36,
+    "selection_correct": 44
+  },
+  {
+    "split_seed": 2030,
+    "model": "LR",
+    "M": 10,
+    "source_M": 10,
+    "C": 1,
+    "C_selection": [
+      {
+        "C": 0.1,
+        "selection_auprc": 0.5535427523572898
+      },
+      {
+        "C": 1,
+        "selection_auprc": 0.5541153548028102
+      },
+      {
+        "C": 10,
+        "selection_auprc": 0.5540933243631172
+      }
+    ],
+    "classifier_parameters": {
+      "C": 1,
+      "class_weight": null,
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 2000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": null,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "median_classifier_parameters": {
+      "C": 1,
+      "class_weight": null,
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 2000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": null,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "risk_classifier_parameters": {
+      "C": 1,
+      "max_iter": 2000,
+      "class_weight": null
+    },
+    "training_all_missing": [],
+    "rounds": 10,
+    "risk_status": {
+      "B5": "available",
+      "B6": "available"
+    },
+    "sampling": "conditional Gaussian BayesianRidge chain, missing-only final clipping",
+    "seed_mapping": "sha256 JSON [split_seed,role,patient_id,batch,draw] first 4 bytes big endian",
+    "selection_errors": 39,
+    "selection_correct": 41
+  }
+]

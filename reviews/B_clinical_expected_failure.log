@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "D:\Users\Lenovo\Desktop\EI\scripts\run_experiments.py", line 16, in <module>
+    print(run(config,rf=args.rf,m_sensitivity=args.m_sensitivity,alpha_sensitivity=args.alpha_sensitivity))
+          ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\Lenovo\Desktop\EI\src\experiment.py", line 111, in run
+    manifest['data_sha256']=file_hash(cfg['data_path']);manifest['audit_sha256']=file_hash(cfg['audit_path'])
+                            ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Users\Lenovo\Desktop\EI\src\utils.py", line 16, in file_hash
+    with open(path, 'rb') as f:
+         ~~~~^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/processed/cohort.parquet'

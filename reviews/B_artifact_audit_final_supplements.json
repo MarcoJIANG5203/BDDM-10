@@ -1,0 +1,21 @@
+{
+  "run": "results\\synthetic\\20261102T062332_a3f5dbb9",
+  "synthetic": true,
+  "run_status": "completed",
+  "patient_method_rows": 69120,
+  "imputation_probability_rows": 24360,
+  "independently_checked_metric_rows": 576,
+  "artifact_hashes_checked": 25,
+  "checks": [
+    "all artifact hashes",
+    "unique output keys",
+    "hospital identity",
+    "singleton eligibility",
+    "independent counts and proportions",
+    "same batch K",
+    "shared MI predictions and sets",
+    "p_m mean and ddof=1 std",
+    "B0 M=1",
+    "q frozen across batches"
+  ]
+}
