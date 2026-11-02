@@ -31,9 +31,9 @@ python scripts/run_experiments.py --config configs/demo.yaml
 
 本地验证环境为Python 3.14.5。macOS/Linux使用`source .venv/bin/activate`。仓库附有明确标记的合成输入，可直接运行demo。重新生成可运行`python scripts/create_demo_data.py --output data/synthetic`，它会重写本机demo配置路径，不要提交个人绝对路径。
 
-当前完整测试31项通过（原科学验证18项、同步及跨机器路径13项），新克隆目录也已运行通过。
+当前完整测试32项通过（原科学验证18项，同步及跨机器路径14项），证据见reviews/repository_tests.log；新克隆也执行完整测试。
 
-安装GitHub CLI并`gh auth login`后可同步完整历史验证包：
+这份固定合成验证包有随Git同步的备用ZIP，以下命令会先校验并使用本地副本，无需额外下载。对于只有Release的其他版本，先安装GitHub CLI并`gh auth login`。
 
 ```powershell
 python scripts/sync_artifacts.py list
@@ -42,7 +42,7 @@ python reviews/verify_b_artifacts.py results/synthetic/20261102T063118_fa76f8a8
 python reviews/verify_b_artifacts.py results/synthetic/20261102T063118_bdf6797a
 ```
 
-Git同步轻量文件，Release同步完整数据/产物，均在同一仓库管理。私有仓库成员需要相应访问权限。
+Git同步代码/文档与本次固定合成包备用副本，Release管理完整数据/产物版本。私有仓库成员需要相应访问权限。
 
 ## 实验入口
 

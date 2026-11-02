@@ -4,7 +4,7 @@
 
 ## 结论
 
-补丁复核通过，可以继续首次提交、推送和Release发布。原2项Important及1项Minor均已修复关闭，当前无未关闭实质问题。未发现科学协议改变。当前prepared是明确的中间状态，不作为发布失败，也不声称Release已发布。
+补丁复核通过，原2项Important及1项Minor均已修复关闭，当前无未关闭实质问题。未发现科学协议改变。首次提交和Release发布现已完成；弱网Git备用传输补丁亦已复核通过，可提交推送。prepared仅为初审时的中间状态，当前registry为published，发布证据见末节。
 
 ## 初审Important（均已关闭；行号为修复前）
 
@@ -33,3 +33,11 @@ reviews/verify_b_artifacts.py:49—50：正式数据跨机器重定位回退名�
 - 已核阅reviews/repository_review_RED.log：3种路径别名及2种本地联接在旧实现均未抛错，5项失败；修复后reviews/repository_review_GREEN.log显示13 passed in 0.79s。本复核者只读审阅补丁与测试期望，未重复原科学测试。
 
 发布就绪结论仅指本轮代码及文档复核。Release是否已经可下载、registry是否已记录published、干净clone是否完整复现，仍以随后的实际发布验证为准。
+
+## 发布后Git备用传输复核
+
+因Release实际下载停滞新增固定合成ZIP的Git副本。只读核查restore_git_fallback、fetch调用顺序及README/DATA_SYNC/AGENTS例外说明：fetch先要求published，然后尝试已登记的Git路径；副本存在时复用原extract_bundle的SHA、声明根、链接、路径别名及覆盖校验；未提供或未找到副本才走原Release下载；副本损坏时明确失败，不跳过SHA。此补丁不改变科学代码、产物或解压策略，没有新增实质问题，可以提交推送。
+
+已独立重新计算artifacts/packages/b-synthetic-20261102.zip：29,717,166字节，SHA与registry一致。已读取reviews/repository_release.json，其中Release URL为https://github.com/zsj-6/EI/releases/tag/artifacts-2026-11-02，资产状态uploaded、size=29717166、digest=sha256:14909d30b2b7bfa1df6316e798e1a93e8482adda408e02dbe0a9a90f6e57c6f4，均与本地副本及registry相符。本复核者依据留存的远端响应证据核对，没有另作远端调用。
+
+新增测试验证无需下载即可恢复、备用副本缺失返回False、损坏副本SHA失败；reviews/repository_sync_final_GREEN.log显示14 passed in 0.99s。文档明确这仅是固定合成验收包例外，不授权把真实患者数据或任意大型产物放入普通Git。完整Release下载未成功，不能将Git备用恢复表述为Release下载成功。新增备用副本推送后的干净clone恢复验证由主代理完成并留存。

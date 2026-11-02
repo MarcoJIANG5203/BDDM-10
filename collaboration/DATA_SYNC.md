@@ -2,16 +2,17 @@
 
 Git维护代码、协议、状态、小样本和版本索引；较大数据和完整run放**同一仓库GitHub Release**，无需另建网盘。
 
+本次固定合成验收包另有`artifacts/packages/b-synthetic-20261102.zip`备用副本（约30MB）。它与已发布Release的SHA256完全相同。弱网下fetch优先校验Git副本再恢复，不再等待Release下载；不改变版本与内容。真实大型数据仍使用Release。
+
 ## 接收者
 
 ```powershell
 git pull --ff-only
-gh auth login
 python scripts/sync_artifacts.py list
 python scripts/sync_artifacts.py fetch b-synthetic-20261102
 ```
 
-fetch按artifacts/registry.json下载、核对SHA256，再恢复声明目录。相同本地文件跳过，不同内容默认报错；确定切换新版本时先保留自己的工作，再显式加`--replace`。不改哈希绕过失败。
+fetch先看registry是否登记并提供了Git备用ZIP，否则用gh下载Release（该方式需先`gh auth login`）；两条路径都核对同一SHA256，再恢复声明目录。相同本地文件跳过，不同内容默认报错；确定切换新版本时先保留自己的工作，再显式加`--replace`。不改哈希绕过失败。
 
 为保持Windows/macOS/Linux间的文件对应关系，包内不使用仅大小写不同的重名、尾点/尾空格路径，也不通过本机符号链接或目录联接重定向交付目录。工具在写入前检查整包路径；`--replace`只允许替换明确的普通文件，不放宽目录边界。
 

@@ -117,6 +117,17 @@ def gh(*arguments, check=True):
                           encoding='utf-8')
 
 
+def restore_git_fallback(project_root, entry, replace=False):
+    name = entry.get('git_fallback')
+    if not name:
+        return False
+    archive = Path(project_root) / relative_name(name).as_posix()
+    if not archive.is_file():
+        return False
+    extract_bundle(archive, project_root, entry['roots'], entry['sha256'], replace)
+    return True
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--project-root', type=Path, default=Path(__file__).resolve().parents[1])
@@ -170,6 +181,9 @@ def main():
         else:
             if entry['status'] != 'published':
                 raise ValueError('Delivery has not been published')
+            if restore_git_fallback(root, entry, args.replace):
+                print('Verified and synchronized from Git copy:', identifier)
+                return
             with tempfile.TemporaryDirectory(prefix='ei-artifact-') as temporary:
                 gh('release', 'download', entry['tag'], '--repo', repository,
                    '--pattern', entry['asset'], '--dir', temporary)

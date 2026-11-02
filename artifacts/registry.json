@@ -16,7 +16,8 @@
         "data/synthetic"
       ],
       "files": 79,
-      "url": "https://github.com/zsj-6/EI/releases/tag/artifacts-2026-11-02"
+      "url": "https://github.com/zsj-6/EI/releases/tag/artifacts-2026-11-02",
+      "git_fallback": "artifacts/packages/b-synthetic-20261102.zip"
     }
   }
 }

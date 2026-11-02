@@ -116,3 +116,21 @@ def test_clinical_csv_fallback_preserves_supported_format():
     assert hasattr(audit, 'cohort_fallback'), 'Clinical CSV fallback is not implemented'
     assert audit.cohort_fallback({'synthetic': False, 'data_path': r'Z:\old\cohort.csv'}) == 'data/processed/cohort.csv'
     assert audit.cohort_fallback({'synthetic': False, 'data_path': r'Z:\old\cohort.parquet'}) == 'data/processed/cohort.parquet'
+
+
+def test_registered_git_copy_restores_without_a_release_download(tmp_path):
+    sync = sync_module()
+    assert hasattr(sync, 'restore_git_fallback'), 'Git transport fallback is not implemented'
+    source = tmp_path / 'source'
+    (source / 'results/synthetic/run').mkdir(parents=True)
+    (source / 'results/synthetic/run/value.csv').write_bytes(b'1,2\r\n')
+    target = tmp_path / 'clone'
+    archive = target / 'artifacts/packages/validation.zip'
+    metadata = sync.create_bundle(source, ['results/synthetic/run'], archive)
+    entry = dict(metadata, git_fallback='artifacts/packages/validation.zip')
+    assert sync.restore_git_fallback(target, entry)
+    assert (target / 'results/synthetic/run/value.csv').read_bytes() == b'1,2\r\n'
+    assert sync.restore_git_fallback(target, {**entry, 'git_fallback':'artifacts/packages/missing.zip'}) is False
+    archive.write_bytes(b'corrupted copy')
+    with pytest.raises(ValueError, match='SHA256'):
+        sync.restore_git_fallback(target, entry)

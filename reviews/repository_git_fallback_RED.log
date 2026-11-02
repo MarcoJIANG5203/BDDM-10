@@ -1,0 +1,17 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+________ test_registered_git_copy_restores_without_a_release_download _________
+
+tmp_path = WindowsPath('C:/Users/Lenovo/AppData/Local/Temp/pytest-of-Lenovo/pytest-38/test_registered_git_copy_resto0')
+
+    def test_registered_git_copy_restores_without_a_release_download(tmp_path):
+        sync = sync_module()
+>       assert hasattr(sync, 'restore_git_fallback'), 'Git transport fallback is not implemented'
+E       AssertionError: Git transport fallback is not implemented
+E       assert False
+E        +  where False = hasattr(<module 'scripts.sync_artifacts' from 'D:\\Users\\Lenovo\\Desktop\\EI\\scripts\\sync_artifacts.py'>, 'restore_git_fallback')
+
+tests\test_artifact_sync.py:123: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_artifact_sync.py::test_registered_git_copy_restores_without_a_release_download
+1 failed in 0.29s
