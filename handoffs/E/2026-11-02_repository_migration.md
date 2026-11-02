@@ -6,4 +6,4 @@
 
 本地origin指向新仓库，legacy-origin保留旧zsj-6/EI。共享克隆指令、数据发布目标和交接入口改到新仓库；旧历史报告、run和manifest不重写。
 
-固定合成包字节和SHA256保持不变，Git备用随迁移上传；新仓库Release发布及迁移验证完成后在此补记结果。A/C/D临床实质任务不据本次迁移标记完成。
+固定合成包字节和SHA256保持不变，Git备用随迁移上传。新仓库Release artifacts-2026-11-02已发布，远端资产大小29,717,166字节及SHA256与registry一致，见reviews/migration_release.json。新克隆32测试通过（30.65s），独立恢复验收进行中。A/C/D临床实质任务不据本次迁移标记完成。

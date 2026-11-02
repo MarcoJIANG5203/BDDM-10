@@ -3,7 +3,7 @@
   "repository": "MarcoJIANG5203/BDDM-10",
   "bundles": {
     "b-synthetic-20261102": {
-      "status": "prepared",
+      "status": "published",
       "kind": "synthetic",
       "tag": "artifacts-2026-11-02",
       "asset": "b-synthetic-20261102.zip",
