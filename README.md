@@ -31,6 +31,8 @@ python scripts/run_experiments.py --config configs/demo.yaml
 
 本地验证环境为Python 3.14.5。macOS/Linux使用`source .venv/bin/activate`。仓库附有明确标记的合成输入，可直接运行demo。重新生成可运行`python scripts/create_demo_data.py --output data/synthetic`，它会重写本机demo配置路径，不要提交个人绝对路径。
 
+当前完整测试31项通过（原科学验证18项、同步及跨机器路径13项），新克隆目录也已运行通过。
+
 安装GitHub CLI并`gh auth login`后可同步完整历史验证包：
 
 ```powershell
