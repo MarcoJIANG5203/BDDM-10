@@ -2,6 +2,8 @@
 
 更新日期：2026-11-02。要求变化时改本页并写[CHANGELOG](CHANGELOG.md)，验收用[交付模板](../handoffs/TEMPLATE.md)。
 
+统一交付仓库已切换为MarcoJIANG5203/BDDM-10。下列路径均相对此仓库，新的代码、数据版本、记录和PR不再提交到旧zsj-6/EI。
+
 | ID / 生产者 → 接收者 | 必交内容 | 验收标准 | 时间点 |
 |---|---|---|---|
 | A-001 / A → B、C、E | data/processed/cohort.parquet、cohort_audit.json；splits/seed_2026.json到2030；生成代码、特征字典、标签核查；发布data版本包 | 每患者一行、36输入，划分互斥完备、医院正确；恢复提前6小时标签，特征<=12h，结局(12,24]；真实纳排/阳性数，C核病例和边界 | 11月3日数据门槛 |
