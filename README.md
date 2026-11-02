@@ -1,4 +1,4 @@
-# EI · T1 团队协作仓库
+# BDDM-10 · T1 团队协作仓库
 
 研究：**缺失临床数据中基于多重插补预测分歧的共形拒识评估**。
 
@@ -20,8 +20,8 @@
 ## 开始使用
 
 ```powershell
-git clone https://github.com/zsj-6/EI.git
-cd EI
+git clone https://github.com/MarcoJIANG5203/BDDM-10.git
+cd BDDM-10
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements-lock.txt

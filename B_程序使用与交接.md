@@ -7,7 +7,7 @@
 在PowerShell中进入项目目录：
 
 ```powershell
-cd EI
+cd BDDM-10
 python -m pip install -r requirements-lock.txt
 python -m pytest -q
 python scripts/create_demo_data.py --output data/synthetic
