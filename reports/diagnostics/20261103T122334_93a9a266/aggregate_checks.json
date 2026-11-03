@@ -1,0 +1,9 @@
+{
+  "calibration_replay": "exact_both_predictors",
+  "set_accounting": "PASS",
+  "observed_all_point_predictions_negative": "PASS",
+  "paired_capacity_and_intersections": "PASS",
+  "documented_five_batch_error_sequence": "PASS",
+  "stability_18_groups": "PASS",
+  "scope": "diagnostic aggregates validated; no independent C/E acceptance"
+}

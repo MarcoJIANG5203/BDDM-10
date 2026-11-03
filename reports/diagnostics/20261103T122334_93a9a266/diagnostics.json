@@ -1,0 +1,48 @@
+{
+  "run": "results/candidate-clinical/20261103T122334_93a9a266",
+  "source_manifest_sha256": "c156c8b2fa61a76dbaf0fa93c6363b18523648484fa76f1031f2a4ecd0b07e12",
+  "diagnostic_script_sha256": "0038f25aa195c7ae56904510ec03b4a88aadaf654d8c92d8465f6307c1b6cb24",
+  "scope": "post_hoc_descriptive_frozen_model_replay",
+  "model_refit": false,
+  "labels_splits_or_protocol_changed": false,
+  "scientific_acceptance": false,
+  "frozen_file_checks_before_and_after": 34,
+  "calibration": [
+    {
+      "predictor": "MI",
+      "n": 1527,
+      "positive": 9,
+      "k": 1376,
+      "q_saved": 0.010980572824885326,
+      "q_independent": 0.010980572824885326,
+      "q_replay_absolute_difference": 0.0,
+      "positive_set_requires_p_at_least": 0.9890194271751147,
+      "positive_score_min": 0.9790577641570306,
+      "positive_score_max": 0.9990890651444094,
+      "covered_positive": 0,
+      "covered_negative": 1376,
+      "covered_total": 1376
+    },
+    {
+      "predictor": "median",
+      "n": 1527,
+      "positive": 9,
+      "k": 1376,
+      "q_saved": 0.01069312137681149,
+      "q_independent": 0.01069312137681149,
+      "q_replay_absolute_difference": 0.0,
+      "positive_set_requires_p_at_least": 0.9893068786231886,
+      "positive_score_min": 0.987083034175695,
+      "positive_score_max": 0.998866517533978,
+      "covered_positive": 0,
+      "covered_negative": 1376,
+      "covered_total": 1376
+    }
+  ],
+  "selection_errors": 6,
+  "selection_correct": 1012,
+  "risk_model_minimum_errors": 20,
+  "S0_batches": 5,
+  "test_prediction_replay": "existing_test_outputs_only",
+  "hypothesis_limit": "Numerical mechanism verified; underlying clinical validity and causes of poor discrimination require A/C/E review."
+}
