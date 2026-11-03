@@ -18,6 +18,30 @@
       "files": 79,
       "url": "https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/artifacts-2026-11-02",
       "git_fallback": "artifacts/packages/b-synthetic-20261102.zip"
+    },
+    "b-candidate-natural-20261103-r1": {
+      "status": "prepared",
+      "kind": "clinical_results",
+      "tag": "b-candidate-natural-20261103-r1",
+      "asset": "b-candidate-natural-20261103-r1.zip",
+      "archive": "dist/artifacts/b-candidate-natural-20261103-r1.zip",
+      "sha256": "5d5879dd112d329a5b3079dbdc8d5588a7bdf82c4c1e596e4b15b98751fabd33",
+      "bytes": 21522751,
+      "roots": [
+        "results/candidate-clinical/20261103T122334_93a9a266",
+        ".artifact-cache/a-receipt/ec8fd750cc17038bb0a73c37e1537a1e7a4d780e/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/data/processed/cohort.parquet",
+        ".artifact-cache/a-receipt/ec8fd750cc17038bb0a73c37e1537a1e7a4d780e/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/data/processed/cohort_audit.json",
+        ".artifact-cache/a-receipt/ec8fd750cc17038bb0a73c37e1537a1e7a4d780e/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/splits",
+        ".artifact-cache/a-receipt/ec8fd750cc17038bb0a73c37e1537a1e7a4d780e/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/sources/LICENSE.txt",
+        ".artifact-cache/a-receipt/ec8fd750cc17038bb0a73c37e1537a1e7a4d780e/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/sources/SOURCE_REGISTER.md"
+      ],
+      "files": 28,
+      "scientific_status": "candidate_pre_freeze_not_accepted",
+      "prerelease": true,
+      "source_data_version": "a-clinical-protocol-v1-20261103-full-r1",
+      "source_data_commit": "ec8fd750cc17038bb0a73c37e1537a1e7a4d780e",
+      "run_id": "20261103T122334_93a9a266",
+      "purpose": "B natural-data trial; not A formal data release"
     }
   }
 }

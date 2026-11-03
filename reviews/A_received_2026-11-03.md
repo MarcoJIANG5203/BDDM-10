@@ -45,3 +45,5 @@ python reviews/verify_a_received.py --package .artifact-cache/a-receipt/ec8fd750
 - E与A/B/C讨论精度不足并形成冻结决定；时间窗/纳排如需变更，必须新版本重建重核，不能根据模型结果改标签或选择划分。
 - A当前把临床表/原始ZIP直接提交至Git，尚无data Release/registry条目。B未合并该数据树，也未代A重写历史。审核后A/E按DATA_SYNC发布可校验的不可变版本。
 - 冻结及正式交付完成后，B先运行2026/S0，再运行协议矩阵；本轮仅接收核验，不产生正式主表。C、D的任务状态保持待本人交付/验收。
+
+后续记录：用户在本接收核验后另行授权跑真实候选，已完成2026/S0/S4；详见[候选试跑结果](../reports/candidate-trials/20261103T122334_93a9a266/SUMMARY.md)。本接收JSON保留当时未运行模型的历史状态，不覆盖为后续结果。

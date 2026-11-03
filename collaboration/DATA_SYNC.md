@@ -6,6 +6,21 @@ Git维护代码、协议、状态、小样本和版本索引；较大数据和�
 
 11月3日已收到A分支的`a-clinical-protocol-v1-20261103-full-r1`候选，固定源提交`ec8fd750cc17038bb0a73c37e1537a1e7a4d780e`。B已在忽略缓存中按源字节核验；正式data Release和registry条目仍未发布，不能用`fetch`合成包来代替真实队列。当前A分支把临床文件直接放入Git，与本页约定不符；B不合并该数据树、不重写A历史，待A/C/E审核后由A/E发布版本包。临时复核固定提交的方法见[接收报告](../reviews/A_received_2026-11-03.md)。
 
+用户随后授权的B真实候选试跑使用版本包`b-candidate-natural-20261103-r1`交付。该包包含完整S0/S4 run、原字节最小输入（Parquet、audit、五split）和来源/许可，恢复到run记录的相对路径；不包含A全部原始ZIP。包的`kind=clinical_results`表示使用真实输入，`scientific_status=candidate_pre_freeze_not_accepted`表示仍未科学验收；Release标记pre-release。published只说明候选字节已上传，不是A正式data发布或C/E签收。
+
+当前交付在B分支；同步该分支后可在registry状态为published时获取并复核：
+
+```powershell
+git fetch origin
+git switch b/core-methods-experiments
+git pull --ff-only
+python scripts/sync_artifacts.py fetch b-candidate-natural-20261103-r1
+python reviews/verify_b_artifacts.py results/candidate-clinical/20261103T122334_93a9a266
+python reviews/verify_candidate_bootstrap.py results/candidate-clinical/20261103T122334_93a9a266 --output .artifact-cache/candidate-bootstrap-recheck.json
+```
+
+临床候选包不添加普通Git备用ZIP；需要相应私有仓库访问权限和可用的Release下载连接。小型摘要在[候选结果目录](../reports/candidate-trials/20261103T122334_93a9a266/SUMMARY.md)，原始manifest及输入字节保留。
+
 本次固定合成验收包另有`artifacts/packages/b-synthetic-20261102.zip`备用副本（约30MB）。它与已发布Release的SHA256完全相同。弱网下fetch优先校验Git副本再恢复，不再等待Release下载；不改变版本与内容。真实大型数据仍使用Release。
 
 ## 接收者

@@ -1,0 +1,296 @@
+[
+  {
+    "split_seed": 2026,
+    "scenario": "S0",
+    "original_observed": 30136,
+    "hidden": 0,
+    "hidden_fraction": 0.0,
+    "final_missing_fraction": 0.41878495660559306,
+    "mask_sha256": "a6ea724c261ec638db062cc5c1b0ffe4e372815baa152394b58f01685281c84a",
+    "per_column": {
+      "HR": {
+        "original_observed": 1525,
+        "hidden": 0
+      },
+      "O2Sat": {
+        "original_observed": 1523,
+        "hidden": 0
+      },
+      "Temp": {
+        "original_observed": 1511,
+        "hidden": 0
+      },
+      "SBP": {
+        "original_observed": 1477,
+        "hidden": 0
+      },
+      "MAP": {
+        "original_observed": 1525,
+        "hidden": 0
+      },
+      "DBP": {
+        "original_observed": 786,
+        "hidden": 0
+      },
+      "Resp": {
+        "original_observed": 1515,
+        "hidden": 0
+      },
+      "EtCO2": {
+        "original_observed": 0,
+        "hidden": 0
+      },
+      "BaseExcess": {
+        "original_observed": 722,
+        "hidden": 0
+      },
+      "HCO3": {
+        "original_observed": 1149,
+        "hidden": 0
+      },
+      "FiO2": {
+        "original_observed": 702,
+        "hidden": 0
+      },
+      "pH": {
+        "original_observed": 758,
+        "hidden": 0
+      },
+      "PaCO2": {
+        "original_observed": 716,
+        "hidden": 0
+      },
+      "SaO2": {
+        "original_observed": 312,
+        "hidden": 0
+      },
+      "AST": {
+        "original_observed": 334,
+        "hidden": 0
+      },
+      "BUN": {
+        "original_observed": 1148,
+        "hidden": 0
+      },
+      "Alkalinephos": {
+        "original_observed": 324,
+        "hidden": 0
+      },
+      "Calcium": {
+        "original_observed": 976,
+        "hidden": 0
+      },
+      "Chloride": {
+        "original_observed": 1146,
+        "hidden": 0
+      },
+      "Creatinine": {
+        "original_observed": 1127,
+        "hidden": 0
+      },
+      "Bilirubin_direct": {
+        "original_observed": 28,
+        "hidden": 0
+      },
+      "Glucose": {
+        "original_observed": 1236,
+        "hidden": 0
+      },
+      "Lactate": {
+        "original_observed": 398,
+        "hidden": 0
+      },
+      "Magnesium": {
+        "original_observed": 1094,
+        "hidden": 0
+      },
+      "Phosphate": {
+        "original_observed": 976,
+        "hidden": 0
+      },
+      "Potassium": {
+        "original_observed": 1240,
+        "hidden": 0
+      },
+      "Bilirubin_total": {
+        "original_observed": 318,
+        "hidden": 0
+      },
+      "TroponinI": {
+        "original_observed": 46,
+        "hidden": 0
+      },
+      "Hct": {
+        "original_observed": 1252,
+        "hidden": 0
+      },
+      "Hgb": {
+        "original_observed": 1128,
+        "hidden": 0
+      },
+      "PTT": {
+        "original_observed": 873,
+        "hidden": 0
+      },
+      "WBC": {
+        "original_observed": 1075,
+        "hidden": 0
+      },
+      "Fibrinogen": {
+        "original_observed": 112,
+        "hidden": 0
+      },
+      "Platelets": {
+        "original_observed": 1084,
+        "hidden": 0
+      }
+    }
+  },
+  {
+    "split_seed": 2026,
+    "scenario": "S4",
+    "original_observed": 238203,
+    "hidden": 0,
+    "hidden_fraction": 0.0,
+    "final_missing_fraction": 0.4967336694033982,
+    "mask_sha256": "1012b0dc4e72c29e769cd0833cedbd702d60151b55424d146ad67e4a7a063280",
+    "per_column": {
+      "HR": {
+        "original_observed": 13915,
+        "hidden": 0
+      },
+      "O2Sat": {
+        "original_observed": 13906,
+        "hidden": 0
+      },
+      "Temp": {
+        "original_observed": 13738,
+        "hidden": 0
+      },
+      "SBP": {
+        "original_observed": 13889,
+        "hidden": 0
+      },
+      "MAP": {
+        "original_observed": 13785,
+        "hidden": 0
+      },
+      "DBP": {
+        "original_observed": 13887,
+        "hidden": 0
+      },
+      "Resp": {
+        "original_observed": 13753,
+        "hidden": 0
+      },
+      "EtCO2": {
+        "original_observed": 1836,
+        "hidden": 0
+      },
+      "BaseExcess": {
+        "original_observed": 209,
+        "hidden": 0
+      },
+      "HCO3": {
+        "original_observed": 157,
+        "hidden": 0
+      },
+      "FiO2": {
+        "original_observed": 3318,
+        "hidden": 0
+      },
+      "pH": {
+        "original_observed": 3303,
+        "hidden": 0
+      },
+      "PaCO2": {
+        "original_observed": 3312,
+        "hidden": 0
+      },
+      "SaO2": {
+        "original_observed": 2887,
+        "hidden": 0
+      },
+      "AST": {
+        "original_observed": 4406,
+        "hidden": 0
+      },
+      "BUN": {
+        "original_observed": 9350,
+        "hidden": 0
+      },
+      "Alkalinephos": {
+        "original_observed": 4407,
+        "hidden": 0
+      },
+      "Calcium": {
+        "original_observed": 9968,
+        "hidden": 0
+      },
+      "Chloride": {
+        "original_observed": 897,
+        "hidden": 0
+      },
+      "Creatinine": {
+        "original_observed": 9357,
+        "hidden": 0
+      },
+      "Bilirubin_direct": {
+        "original_observed": 708,
+        "hidden": 0
+      },
+      "Glucose": {
+        "original_observed": 12046,
+        "hidden": 0
+      },
+      "Lactate": {
+        "original_observed": 2684,
+        "hidden": 0
+      },
+      "Magnesium": {
+        "original_observed": 8042,
+        "hidden": 0
+      },
+      "Phosphate": {
+        "original_observed": 5421,
+        "hidden": 0
+      },
+      "Potassium": {
+        "original_observed": 10264,
+        "hidden": 0
+      },
+      "Bilirubin_total": {
+        "original_observed": 4414,
+        "hidden": 0
+      },
+      "TroponinI": {
+        "original_observed": 3944,
+        "hidden": 0
+      },
+      "Hct": {
+        "original_observed": 9324,
+        "hidden": 0
+      },
+      "Hgb": {
+        "original_observed": 9350,
+        "hidden": 0
+      },
+      "PTT": {
+        "original_observed": 2603,
+        "hidden": 0
+      },
+      "WBC": {
+        "original_observed": 9018,
+        "hidden": 0
+      },
+      "Fibrinogen": {
+        "original_observed": 1036,
+        "hidden": 0
+      },
+      "Platelets": {
+        "original_observed": 9069,
+        "hidden": 0
+      }
+    }
+  }
+]
