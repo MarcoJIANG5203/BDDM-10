@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-11-03T16:39:13.754070+00:00",
+  "generated_at_utc": "2026-11-03T16:41:50.059715+00:00",
   "validation_only": true,
   "script": {
     "path": "scripts/make_figures.py",
-    "sha256": "32fe3236cfe870869f528fcf82b1938da3a4997c4db2287fe48dd1a1bf3eb93f"
+    "sha256": "7bb45a7af8c89bbfe9571fcbd034a5c5cf4af8c148be621bbbfec5a490814fe3"
   },
   "run": {
     "run_id": "20261102T063118_fa76f8a8",
@@ -86,17 +86,17 @@
     "models/seed2030_LR_M10_alpha0.1.joblib": "109b9dd32cba5a8352ea3867c4b534afb8c50dfdbc3afc5fc0df43bd6d2c3204"
   },
   "outputs": {
-    "figures/fig1_missingness.pdf": "6d34b0284c51629fcd3f0b9ec7584ab11e2e1fcc6ddb6d9971bfb196e2205d46",
+    "figures/fig1_missingness.pdf": "e9292ed25e6b546303e9960fec601533825f27ba017510f2fd2f83a32a8f117b",
     "figures/fig1_missingness.png": "5917ef18c0ff8f0b30cb7ae43b350541d923bcbe1e96e185b538baeb70195cbe",
-    "figures/fig2_risk_acceptance.pdf": "8c3167709980faaf12b5164c51e67b616b68ce0cb0ef022da9b6a562d57ae850",
+    "figures/fig2_risk_acceptance.pdf": "295abef9b2657e0ce46e0b3ebb0fef80e989f52bf4361a25123cf4b538111108",
     "figures/fig2_risk_acceptance.png": "0eea124a25692fa05a9f1560f1692ff17995f65bd2fbf82bb51255eba245950f",
-    "figures/fig3_scenarios.pdf": "ea82dc0dda48b1725c8f2df8f7f192ffd13b67d7d5636782ba3a05e74185d337",
+    "figures/fig3_scenarios.pdf": "0aae331ee7befec4e88d3f86bff36ed0b1e7bc41f7434a8a861aae1fc73b787a",
     "figures/fig3_scenarios.png": "fc7bbf61bade1272e81df71177044cb27e9a0b2ca51c5200b9a8dac5b6b0e52e",
-    "figures/fig4_coverage.pdf": "5c5c6eb8ac48a2e5b690b9808b30704a7637fa95c4297e7c192a4a6b61232bf7",
+    "figures/fig4_coverage.pdf": "31ad17e84b4e6cef18794ab915d924e1a61cd7819009543fcc80a93faf360129",
     "figures/fig4_coverage.png": "27a97ba0794380421b900be64ea1441a1a39acfc80829e1c29e974f865f27b8e",
-    "figures/fig5_disagreement.pdf": "0808f97ca4164fbbd7db55e84bed045d9e187db7d38b35003aee4a264c029b01",
+    "figures/fig5_disagreement.pdf": "4aaac7f9d3ff9fdd3523c2c0800cbef8c7b4cf609b37463e7cc80d2264e9c28d",
     "figures/fig5_disagreement.png": "a9f6b8dcf7194cc43e261ca7c43d6bb19b0502f24779ce181528d7a32967a4b7",
-    "figures/fig6_stability.pdf": "85412e2a814dcebe8075fe25597d487c22453c825cdaa85e9d5e13130b24c9d9",
+    "figures/fig6_stability.pdf": "11afd407c1e3605ad7a8425de29f73be1cec300a1f0ef1cfaa84028d46592373",
     "figures/fig6_stability.png": "c13f9ab0ef2692a8eb37c2acbbe633df4d4a78adf85d479ceee1a2c6dff6d63c",
     "tables/fig1_missingness_data.csv": "e623cf84416ab9b087aa65e5190b89408dda8d4e306914be06c122e849279053",
     "tables/fig2_contrast_data.csv": "08fbc7f2e75e678ececa0bbf042fa0c3103da178906b708b1a40a501f556e42d",

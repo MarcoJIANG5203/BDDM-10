@@ -1128,7 +1128,7 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-dir", required=True, help="completed run directory containing manifest.json")
-    parser.add_argument("--out-dir", default=None, help="output directory; defaults to paper/figures/<run_id> or paper/validation/<run_id>")
+    parser.add_argument("--out-dir", default=None, help="output directory; defaults to paper/runs/<run_id> or paper/validation/<run_id>")
     parser.add_argument("--cohort", default=None, help="delivered cohort table (CSV/Parquet) for Table 1 and Figure 1")
     parser.add_argument("--audit", default=None, help="cohort audit JSON for Table 1")
     parser.add_argument("--formats", default="pdf,png", help="comma-separated figure formats (default: pdf,png)")
@@ -1144,7 +1144,7 @@ def main(argv=None) -> int:
     manifest = load_json(run_dir / "manifest.json")
     synthetic = bool(manifest.get("synthetic"))
     out_dir = Path(args.out_dir) if args.out_dir else (
-        repo_root / ("paper/validation" if synthetic else "paper/figures") / str(manifest.get("run_id"))
+        repo_root / ("paper/validation" if synthetic else "paper/runs") / str(manifest.get("run_id"))
     )
     formats = [item.strip().lower() for item in args.formats.split(",") if item.strip()]
     allowed = {"pdf", "png", "svg"}

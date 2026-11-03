@@ -2,7 +2,7 @@
 
 更新：2026-11-04。负责人：D。验收：C 核对数字/引用，E 检查全文一致性。
 
-**当前状态：** 只有合成 run 的软件验证输出，位于 `paper/validation/20261102T063118_fa76f8a8/`。这些图不是临床结果，不得进入论文。真实临床图表要等 A-001、C-001 和 B-002 验收后，用 `scripts/make_figures.py` 从 `results/clinical/<run_id>` 生成到 `paper/figures/<run_id>/` 与 `paper/tables/<run_id>/`。
+**当前状态：** 只有合成 run 的软件验证输出，位于 `paper/validation/20261102T063118_fa76f8a8/`。这些图不是临床结果，不得进入论文。真实临床图表要等 A-001、C-001 和 B-002 验收后，用 `scripts/make_figures.py` 从 `results/clinical/<run_id>` 生成到 `paper/runs/<run_id>/figures/` 与 `paper/runs/<run_id>/tables/`。
 
 ## 状态图例
 
@@ -78,7 +78,7 @@ python scripts/make_figures.py `
      --cohort data/processed/cohort.parquet `
      --audit data/processed/cohort_audit.json
    ```
-   输出默认到 `paper/figures/<accepted_run_id>/`，不会覆盖其他 run。
+   输出默认到 `paper/runs/<accepted_run_id>/`，不会覆盖其他 run。
 3. 更新 `paper/source_index.md` 的 run_id、文件路径和 SHA256；删除/归档旧的验证引用，但 `paper/validation/` 保留作软件证据。
 4. C 核对 Table 2/2b 与摘要数字；E 检查全文一致性；D 才可把图放进投稿稿。
 

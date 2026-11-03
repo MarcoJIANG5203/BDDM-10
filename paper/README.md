@@ -10,12 +10,12 @@ paper/
   outline.md             英文论文提纲、主张—证据台账、写作分工
   figure_list.md         图表清单、生成方式、来源与验收检查点
   source_index.md        正文每个数字的来源索引与核对规则
-  figures/<run_id>/      真实临床 run 生成的论文图（D-002；当前未生成）
-  tables/<run_id>/       真实临床 run 生成的论文表（D-002；当前未生成）
+  runs/<run_id>/figures/ 真实临床 run 生成的论文图（D-002；当前未生成）
+  runs/<run_id>/tables/  真实临床 run 生成的论文表（D-002；当前未生成）
   validation/<run_id>/   仅合成 run 的软件验证输出，全部带“非临床证据”水印
 ```
 
-`paper/figures/` 与 `paper/tables/` 只能由已验收的真实临床 run 生成。`paper/validation/` 中的任何数字都不得写入论文、摘要、投稿材料或对外汇报。
+`paper/runs/` 只能由已验收的真实临床 run 生成。`paper/validation/` 中的任何数字都不得写入论文、摘要、投稿材料或对外汇报。
 
 ## 生成命令
 
@@ -49,7 +49,7 @@ python scripts/make_figures.py `
 
 ## 数字规则
 
-- 论文中每个数字必须能在 `source_index.md` 找到一条 `S-xxx`，并指向 `paper/tables/` 或 `paper/validation/.../tables/` 的具体文件、列和过滤条件。
+- 论文中每个数字必须能在 `source_index.md` 找到一条 `S-xxx`，并指向 `paper/runs/<run_id>/tables/` 或 `paper/validation/.../tables/` 的具体文件、列和过滤条件。
 - 禁止手改结果数字；需要新数字时，从新的不可变 run 重新运行脚本。
 - 摘要、正文、图表必须使用同一 run、同一过滤条件；C 核对数字与引用，E 检查全文一致性。
 - 合成结果只能用于软件与流程验证，不能支持临床结论、效果方向、覆盖率保证或安全声明。
