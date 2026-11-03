@@ -2,6 +2,14 @@
 
 新记录放最上方，写日期、负责人、变更、影响的旧结果与处理方式。
 
+## 2026-11-04 · D-001 图表与论文工作区
+
+- D 新增 `scripts/make_figures.py`、`paper/` 提纲/图表清单/来源索引/README、`tests/test_make_figures.py` 和 D-001 交付记录。
+- 脚本只从已完成且 artifact 哈希匹配的 run 生成图表；合成 run 必须显式 `--validation-only` 并加水印，未加参数直接拒绝。
+- 锁定环境新增 `matplotlib==3.11.2` 及绘图依赖（contourpy、cycler、fonttools、kiwisolver、pillow、pyparsing）；不改协议、数据、split、标签、模型或已有结果。
+- 合成 run `20261102T063118_fa76f8a8` 的输出仅作软件验证（`paper/validation/`）；该 run 单元素候选池仅 11/120，所有目标容量均不足，不能用于效果方向或临床结论。
+- A 正式队列仍未交付；D-002 需 A-001、C-001/C-002、B-002 通过后启动。无旧结果受影响。
+
 ## 2026-11-02 · 切换至BDDM-10
 
 - 按用户要求改用MarcoJIANG5203/BDDM-10作为统一仓库，合并新仓库初始README提交并保留旧项目完整提交历史。
