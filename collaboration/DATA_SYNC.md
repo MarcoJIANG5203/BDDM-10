@@ -19,7 +19,26 @@ python reviews/verify_b_artifacts.py results/candidate-clinical/20261103T122334_
 python reviews/verify_candidate_bootstrap.py results/candidate-clinical/20261103T122334_93a9a266 --output .artifact-cache/candidate-bootstrap-recheck.json
 ```
 
-临床候选包不添加普通Git备用ZIP；需要相应私有仓库访问权限和可用的Release下载连接。小型摘要在[候选结果目录](../reports/candidate-trials/20261103T122334_93a9a266/SUMMARY.md)，原始manifest及输入字节保留。
+本机实测上述标准下载报`release not found`，但Release元数据可读；资产API下载成功，SHA256匹配，下载包在空目录恢复后120指标行和全部哈希复核通过。若遇同样问题，使用registry登记的资产API下载并校验恢复（PowerShell；用二进制文件流保存，避免文本重定向损坏ZIP）：
+
+```powershell
+@'
+import json, subprocess
+from pathlib import Path
+from scripts.sync_artifacts import extract_bundle
+registry = json.loads(Path('artifacts/registry.json').read_text(encoding='utf-8'))
+entry = registry['bundles']['b-candidate-natural-20261103-r1']
+assert entry['status'] == 'published'
+archive = Path('.artifact-cache') / entry['asset']
+archive.parent.mkdir(parents=True, exist_ok=True)
+with archive.open('wb') as stream:
+    subprocess.run(['gh', 'api', entry['asset_api'], '-H', 'Accept: application/octet-stream'], stdout=stream, check=True, timeout=60)
+extract_bundle(archive, Path.cwd(), entry['roots'], entry['sha256'])
+print('Downloaded, SHA256 verified, and restored candidate trial')
+'@ | python -
+```
+
+随后执行上面的两条独立核验命令即可；现有同字节文件跳过，不同内容默认拒绝覆盖。临床候选包不添加普通Git备用ZIP；需要相应私有仓库访问权限。小型摘要在[候选结果目录](../reports/candidate-trials/20261103T122334_93a9a266/SUMMARY.md)，原始manifest及输入字节保留。
 
 本次固定合成验收包另有`artifacts/packages/b-synthetic-20261102.zip`备用副本（约30MB）。它与已发布Release的SHA256完全相同。弱网下fetch优先校验Git副本再恢复，不再等待Release下载；不改变版本与内容。真实大型数据仍使用Release。
 

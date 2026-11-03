@@ -9,6 +9,8 @@
 - B5/B6因6错误/1012正确而按规则不可用。60%批次主比较S0 B4比B2多1错误，S4少3错误但区间跨0；MI阳性覆盖0/8、0/38，未见稳定优势。真实不足如实保留，不更换标签/划分或用高总体覆盖称安全。
 - 小型摘要入Git，完整run及精确最小输入以b-candidate-natural-20261103-r1候选结果包交付，Release为pre-release、科学状态未验收，发布状态以registry为准。此包不等于A正式data发布；A负责人、C核验和E精度/冻结决定仍待本人记录。
 - 该候选run的Git摘要CSV/JSON/YAML指定保留原始字节，避免跨系统换行转换改变其配置/manifest副本；原始run和版本包始终保持原字节。
+- 候选结果包已上传并确认pre-release=true、21,522,751字节及SHA256一致。B配置/证据e2822ad与下载标签19689ec分别登记，标签处13份源码SHA与run一致；main提交未变。网络下载核查与本地空目录恢复证据分别记录，详见reviews/A_candidate_release_2026-11-03.json及A_candidate_download_2026-11-03.json。
+- 标准gh下载提示release not found，资产API实际下载成功并验证同SHA；远端下载包在空目录恢复、全部指标及哈希再次通过。registry登记asset_id/API，DATA_SYNC提供二进制保存和校验恢复命令，不改冻结run/源码、不增加临床Git ZIP。
 
 ## 2026-11-03 · B接收A的v1候选
 

@@ -20,7 +20,7 @@
       "git_fallback": "artifacts/packages/b-synthetic-20261102.zip"
     },
     "b-candidate-natural-20261103-r1": {
-      "status": "prepared",
+      "status": "published",
       "kind": "clinical_results",
       "tag": "b-candidate-natural-20261103-r1",
       "asset": "b-candidate-natural-20261103-r1.zip",
@@ -41,7 +41,13 @@
       "source_data_version": "a-clinical-protocol-v1-20261103-full-r1",
       "source_data_commit": "ec8fd750cc17038bb0a73c37e1537a1e7a4d780e",
       "run_id": "20261103T122334_93a9a266",
-      "purpose": "B natural-data trial; not A formal data release"
+      "purpose": "B natural-data trial; not A formal data release",
+      "url": "https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/b-candidate-natural-20261103-r1",
+      "release_tag_commit": "19689ec985278a757512cf87a4acd90c48f0d5b9",
+      "B_trial_code_commit": "e2822ad3c980510a5e2da398ee13a13d3a3c7f07",
+      "asset_id": 705559147,
+      "asset_api": "repos/MarcoJIANG5203/BDDM-10/releases/assets/705559147",
+      "download_fallback": "authenticated_gh_asset_api"
     }
   }
 }

@@ -31,4 +31,8 @@ B5/B6在选择集只有6个错误、1012个正确，未达各20例门槛，按�
 
 包ID/tag为`b-candidate-natural-20261103-r1`，28文件、21,522,751字节，SHA256 `5d5879dd112d329a5b3079dbdc8d5588a7bdf82c4c1e596e4b15b98751fabd33`。发布状态及pre-release信息见[registry](../../../artifacts/registry.json)，获取方式见[DATA_SYNC](../../../collaboration/DATA_SYNC.md)。包含完整run、原字节cohort.parquet/audit/五split和来源许可，未把临床明细/ZIP加入普通Git。
 
+[远端版本证据](../../../reviews/A_candidate_release_2026-11-03.json)确认资产已上传、大小及SHA256匹配、pre-release=true。B试跑配置/证据提交为e2822ad，下载标签指向19689ec，其13份科学/运行源码与run清单逐字节一致；两种提交分别记录。该下载标签不是A正式数据冻结版本。[网络下载核查](../../../reviews/A_candidate_download_2026-11-03.json)单独记录实际结果，本地空目录恢复成功不代替网络下载成功。
+
+网络核查最终结果：常规gh下载报release not found；改用已认证资产API后完整下载、SHA256通过，并在[新空目录恢复复核](../../../reviews/A_candidate_remote_restore_audit_2026-11-03.json)中再次通过120指标及全部源码/输入/产物哈希。可复用的API下载/校验命令已写入DATA_SYNC，没有给临床包增加普通Git副本。
+
 本轮只执行2026/S0/S4，未执行S1—S3、其他种子或RF/M/alpha敏感性；五种子五场景正式矩阵尚未完成。后续由A确认、C独立复核、E与A/B/C形成精度和冻结决定，再确定正式版本执行范围；不根据当前效果挑有利场景或修改标签。
