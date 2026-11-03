@@ -4,6 +4,8 @@ Git维护代码、协议、状态、小样本和版本索引；较大数据和�
 
 当前发布目标为MarcoJIANG5203/BDDM-10，脚本读取artifacts/registry.json中的repository。历史报告里的zsj-6/EI仅用于溯源，新数据与产物交付均使用新仓库。
 
+11月3日已收到A分支的`a-clinical-protocol-v1-20261103-full-r1`候选，固定源提交`ec8fd750cc17038bb0a73c37e1537a1e7a4d780e`。B已在忽略缓存中按源字节核验；正式data Release和registry条目仍未发布，不能用`fetch`合成包来代替真实队列。当前A分支把临床文件直接放入Git，与本页约定不符；B不合并该数据树、不重写A历史，待A/C/E审核后由A/E发布版本包。临时复核固定提交的方法见[接收报告](../reviews/A_received_2026-11-03.md)。
+
 本次固定合成验收包另有`artifacts/packages/b-synthetic-20261102.zip`备用副本（约30MB）。它与已发布Release的SHA256完全相同。弱网下fetch优先校验Git副本再恢复，不再等待Release下载；不改变版本与内容。真实大型数据仍使用Release。
 
 ## 接收者
@@ -45,7 +47,7 @@ python scripts/sync_artifacts.py publish clinical-main-v1
 ## 当前边界
 
 - b-synthetic-20261102仅含两份最终合成run及对应合成输入；可重建全部验证产物。
-- 正式队列尚未交付，待A发布并经C核对后登记。
+- A候选已提交并经B接口核对；负责人确认、C独立复核、E精度/冻结决定及正式Release尚待完成，审核后发布登记。
 - 原始大文件、正式患者表、split和完整results默认不入普通Git，使用版本包；Git保留目录说明和元数据。
 
 历史manifest中的本机绝对路径保留作溯源；复核脚本在当前项目定位同字节输入，只有SHA256匹配才接受，不依赖原电脑盘符。.gitattributes保留合成输入字节，避免换行转换破坏校验。
