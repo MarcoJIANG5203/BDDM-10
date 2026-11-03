@@ -1,0 +1,128 @@
+[
+  {
+    "key": "challenge-2019/1.0.0/training/training_setA/p006423.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setA/p006423.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setA/p006517.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setA/p006517.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setA/p016594.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setA/p016594.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p103743.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p103743.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p106565.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p106565.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p112344.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p112344.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p112387.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p112387.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p112576.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p112576.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p112949.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p112949.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p113575.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p113575.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p114308.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p114308.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p115950.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p115950.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p116210.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p116210.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p116308.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p116308.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p116307.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p116307.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p116309.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p116309.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p116337.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p116337.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p116541.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p116541.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p117667.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p117667.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p118564.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p118564.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  },
+  {
+    "key": "challenge-2019/1.0.0/training/training_setB/p118868.psv",
+    "url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/training/training_setB/p118868.psv",
+    "status": 200,
+    "size_and_etag_md5_verified": true
+  }
+]

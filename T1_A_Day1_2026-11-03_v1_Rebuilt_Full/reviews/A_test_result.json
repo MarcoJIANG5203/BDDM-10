@@ -1,0 +1,7 @@
+{
+  "command": "python -m pytest -q",
+  "tests_passed": 47,
+  "duration_seconds": 42.36,
+  "status": "PASS",
+  "synthetic_tests_are_not_clinical_results": true
+}

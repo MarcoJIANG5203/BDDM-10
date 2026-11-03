@@ -1,0 +1,7 @@
+{
+  "data_version": "a-clinical-protocol-v1-20261103-full-r1",
+  "mask_definition": "1=missing;0=observed;36 columns in formal order",
+  "observation_counts": "Number of observed cells in actual hours1--12 for34 physiological/laboratory variables",
+  "scope": "Auxiliary diagnostics only. B consumes data/processed/cohort and generates its own indicators.",
+  "no_data_or_split_modification": true
+}

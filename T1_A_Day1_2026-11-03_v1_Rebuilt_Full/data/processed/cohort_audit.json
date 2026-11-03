@@ -1,0 +1,329 @@
+{
+  "protocol_version": "v1",
+  "data_version": "a-clinical-protocol-v1-20261103-full-r1",
+  "synthetic": false,
+  "feature_window_end": 12,
+  "outcome_window": "(12,24]",
+  "label_shift_hours": 6,
+  "site_meanings": {
+    "A": "Beth Israel Deaconess Medical Center; PhysioNet 2019 training_setA",
+    "B": "Emory University Hospital; PhysioNet 2019 training_setB"
+  },
+  "exclusion_counts": {
+    "input": 40336,
+    "included": 24095,
+    "excluded": 16241,
+    "raw_patients": 40336,
+    "invalid_hourly_records": 0,
+    "missing_initial_hours": 8793,
+    "insufficient_followup": 7448,
+    "first_observation_positive": 0,
+    "onset_at_or_before_12": 0,
+    "invalid_input_demographics": 0
+  },
+  "exclusion_order": [
+    "invalid_hourly_records",
+    "missing_initial_hours",
+    "insufficient_followup",
+    "first_observation_positive",
+    "onset_at_or_before_12",
+    "invalid_input_demographics",
+    "included"
+  ],
+  "exclusion_reason_counts_are_mutually_exclusive": true,
+  "cohort_rule": "Require every ICU hour1--24. Exclude shifted-label early/left-censored onset. No age >=18 filter is specified by v1, so none is added. Missing Age/Gender is allowed.",
+  "feature_order": [
+    "HR",
+    "O2Sat",
+    "Temp",
+    "SBP",
+    "MAP",
+    "DBP",
+    "Resp",
+    "EtCO2",
+    "BaseExcess",
+    "HCO3",
+    "FiO2",
+    "pH",
+    "PaCO2",
+    "SaO2",
+    "AST",
+    "BUN",
+    "Alkalinephos",
+    "Calcium",
+    "Chloride",
+    "Creatinine",
+    "Bilirubin_direct",
+    "Glucose",
+    "Lactate",
+    "Magnesium",
+    "Phosphate",
+    "Potassium",
+    "Bilirubin_total",
+    "TroponinI",
+    "Hct",
+    "Hgb",
+    "PTT",
+    "WBC",
+    "Fibrinogen",
+    "Platelets",
+    "Age",
+    "Gender"
+  ],
+  "aggregation": "last observed value at actual ICULOS<=12; NaN if absent; no imputation",
+  "split_algorithm": "Python random.Random(seed); sorted IDs; shuffle y=0 then y=1 within A; largest-remainder apportionment 60/10/15/15 with role-order ties; external B unchanged",
+  "site_counts": {
+    "A": {
+      "raw": 20336,
+      "included": 10174,
+      "positive": 57,
+      "exclusions": {
+        "invalid_hourly_records": 0,
+        "missing_initial_hours": 7497,
+        "insufficient_followup": 2665,
+        "first_observation_positive": 0,
+        "onset_at_or_before_12": 0,
+        "invalid_input_demographics": 0
+      }
+    },
+    "B": {
+      "raw": 20000,
+      "included": 13921,
+      "positive": 38,
+      "exclusions": {
+        "invalid_hourly_records": 0,
+        "missing_initial_hours": 1296,
+        "insufficient_followup": 4783,
+        "first_observation_positive": 0,
+        "onset_at_or_before_12": 0,
+        "invalid_input_demographics": 0
+      }
+    }
+  },
+  "split_counts": {
+    "2026": {
+      "train": {
+        "n": 6104,
+        "positive": 34,
+        "negative": 6070
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6,
+        "negative": 1012
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9,
+        "negative": 1518
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8,
+        "negative": 1517
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38,
+        "negative": 13883
+      }
+    },
+    "2027": {
+      "train": {
+        "n": 6104,
+        "positive": 34,
+        "negative": 6070
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6,
+        "negative": 1012
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9,
+        "negative": 1518
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8,
+        "negative": 1517
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38,
+        "negative": 13883
+      }
+    },
+    "2028": {
+      "train": {
+        "n": 6104,
+        "positive": 34,
+        "negative": 6070
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6,
+        "negative": 1012
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9,
+        "negative": 1518
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8,
+        "negative": 1517
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38,
+        "negative": 13883
+      }
+    },
+    "2029": {
+      "train": {
+        "n": 6104,
+        "positive": 34,
+        "negative": 6070
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6,
+        "negative": 1012
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9,
+        "negative": 1518
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8,
+        "negative": 1517
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38,
+        "negative": 13883
+      }
+    },
+    "2030": {
+      "train": {
+        "n": 6104,
+        "positive": 34,
+        "negative": 6070
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6,
+        "negative": 1012
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9,
+        "negative": 1518
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8,
+        "negative": 1517
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38,
+        "negative": 13883
+      }
+    }
+  },
+  "precision_gates": {
+    "site_positive_minimum": 200,
+    "internal_test_positive_minimum": 50,
+    "site_pass": {
+      "A": false,
+      "B": false
+    },
+    "internal_test_pass": {
+      "2026": false,
+      "2027": false,
+      "2028": false,
+      "2029": false,
+      "2030": false
+    },
+    "status": "NOT_MET_REQUIRES_PRE_FREEZE_DISCUSSION_NO_SILENT_ENDPOINT_CHANGE"
+  },
+  "human_review": {
+    "A_owner_review": "PENDING",
+    "C_independent_10_positive_10_negative": "PENDING",
+    "E_precision_decision": "PENDING",
+    "note": "Automated raw-level checks are not human attestation or recipient acceptance."
+  },
+  "model_fitting_performed": false,
+  "clinical_ground_truth_independently_adjudicated": false,
+  "raw_source": {
+    "version": "1.0.0",
+    "year": 2019,
+    "doi": "10.13026/v64v-d857",
+    "url": "https://physionet.org/content/challenge-2019/1.0.0/",
+    "companion_article_year": 2020,
+    "companion_article_doi": "10.1097/CCM.0000000000004145"
+  },
+  "raw_archive_sha256": {
+    "training_setA.zip": "dd488baf1d85e0eebf627be56a8e09c7d79664a8660eb9760b1882ecd5279a71",
+    "training_setB.zip": "4ea0379fde2596b838904aef0f0942899670ab78c48d13f916eb61f7bb01d739"
+  },
+  "file_sha256": {
+    "data/processed/cohort.csv": "e5e88ebcfb755da9d610b0c9587733c8d87ba477cd8fcb2161c0459107946b16",
+    "data/processed/cohort.parquet": "27d58cc44e17d7c1a01993ce76aa604f9b306f51ed1619dcd0704a1d038c0a81",
+    "data/processed/excluded_records.csv": "13b866c6668f41faa25823a545fca064fbac9658122772ff8c9468ac0a8efd01",
+    "data/processed/feature_missingness.csv": "cd93555261fd6bc226ef71d80ec4192d7ceba6c22feb771eff4883455178ce2a",
+    "data/processed/record_audit.csv": "038da035e342e541fb20138cd86cbc40de45ad0cba765a73f7ec94c967944173",
+    "data/processed/review_10_positive_10_negative.csv": "c821ba5dc821bbd57c5f01461e79e3e63b853e18e467d194c64bcb5f06e987ed",
+    "data/processed/review_cases/A/p001771.psv": "0c142689d9f9094ac968778c1ee75bc0d2cefbe53b0b679d1265004ab30816d3",
+    "data/processed/review_cases/A/p003213.psv": "b1379ebe7ea2686c44c9330496533ddc280b27a88b788aa058a6d90adaafeb6d",
+    "data/processed/review_cases/A/p005691.psv": "c670310de648ad956d6a631455639dd6c4ea262b6b68b972b65d93dff5c252ae",
+    "data/processed/review_cases/A/p006984.psv": "073cbefc7e1d4108c7aaf83149a3f6b40f70eb4dbcd788155e6824b6c04ed2e0",
+    "data/processed/review_cases/A/p011108.psv": "3d7a3798e406d66fbfe9437b0ec20be46571a30b47eddd412ce8458178b2733f",
+    "data/processed/review_cases/A/p013493.psv": "d4271682491ac89445bd42dc782439b2730842a2015186c05232ec3fbea26d84",
+    "data/processed/review_cases/A/p014055.psv": "c0fbd2cfce2d03e2c4155cbeb91b9d652ebc2cc91bca4633f1cebed9a556008b",
+    "data/processed/review_cases/A/p015733.psv": "c6a14e94de1873a193312325c5be033430330ba2e9bb42f8e2dbce56f01d59fb",
+    "data/processed/review_cases/A/p018884.psv": "bf7fadb725a11a294237fc2891c95c15a39ea94533fa5e2aec14af32fbf0ef7d",
+    "data/processed/review_cases/A/p020444.psv": "f4ad55281985d20504e18843f7b608cffef950f713817fba8169f40b8a8e72ff",
+    "data/processed/review_cases/B/p103821.psv": "5b781fbe2d15527baa3885da2a3a815e9e77ac233b49267ff12fedf55130cbff",
+    "data/processed/review_cases/B/p107263.psv": "2fe399650d98123e90a0eac20bb344c90a15ec6342bd693b701b3aac7a6193bd",
+    "data/processed/review_cases/B/p107721.psv": "5cd076fe7b430b433370c51e8f1a703b07a174165421d828948dc810bcc48512",
+    "data/processed/review_cases/B/p110744.psv": "ed065bb99544291713d0f4f4a5c2f9458b2c95059672d10aafcc64afab3870b6",
+    "data/processed/review_cases/B/p112872.psv": "68850f187f25cd254d7cae3c1219a9f24c61708627b28ece068a000048828f60",
+    "data/processed/review_cases/B/p113691.psv": "557186c791908c9855e105d65a3a4158ab171eef0961aa80291b06849f72c8f0",
+    "data/processed/review_cases/B/p114096.psv": "757f780cfe3c26e5e02cd01bc5cd87986afe1020322fcf1ae010dac9e2919880",
+    "data/processed/review_cases/B/p114568.psv": "bbdeaa4789cf5a42f49ac59878ce0d86938d38b940e65acee57690d3b2770175",
+    "data/processed/review_cases/B/p119117.psv": "0490057700c9a9260a3c9c016ab23402ac5a9eaef34e10ecb4162e75cba07a73",
+    "data/processed/review_cases/B/p119583.psv": "e86f048ae7cf477a307a4ea8f74795c48946a0ab0e79dce4fce0f8f08a51692a",
+    "splits/seed_2026.json": "ec125595db148070351f237ad052f2754265cad061d96783beebfc3dc99d351f",
+    "splits/seed_2027.json": "b3f5cc23996d8d9f1150e377ab79fd121ec4037d57bb89c61b0cee4e27827ecb",
+    "splits/seed_2028.json": "a19b7dfbdf8d457cb57baa1e68d989b000752d22afb3c8e4b0d4957dbe5a4ce9",
+    "splits/seed_2029.json": "15a57fc26f91c2a6bc1ff1c219d7279c0bafba68bba0d7569e0ca99949b6f23c",
+    "splits/seed_2030.json": "8800012eac62a1aacc73b3d43b8a9ba1b3ce0b76df57a86e0d81bcf0c4649c47"
+  },
+  "code_sha256": "66a398f9478e30678d97fe0748c29ac50efbd4284096c3b17da29fa5a7e838a5",
+  "source_contract_sha256": {
+    "T1_\u7edf\u4e00\u5b9e\u9a8c\u8bf4\u660e_v1.md": "14769c88162ea086b07d8bccb6db091ad54e6640934309b107bafe430a4d6390",
+    "T1_\u6280\u672f\u4ea4\u63a5\u7ea6\u5b9a.md": "55b1136f582c98bb10dc785c80132dc034a5fd4eb630d7f5c572ebf46815b652",
+    "docs/A\u5230B_\u6570\u636e\u4ea4\u63a5\u8bf4\u660e.md": "607c4b573ffbdc3dd340d450b40a42a121e443ce4a8fef61b8268a189b3c1245",
+    "configs/protocol_v1.yaml": "90686937e41a99818540fb971f97209136e6169163322b8ecf3c885a43b0c8a6",
+    "src/data.py": "09f3863af2f735bdd2a8f546caf3674cc66c2e2dab1b59dde56637b29dbe7193"
+  },
+  "python_version": "3.14.7",
+  "source_repository_commit": "6c6ca2ce2987446ad5af27cfa7691ed7544d9ccf",
+  "source_checkout_mode": "preserved_snapshot",
+  "analysis_unit_limitation": "one released subject record file; cross-stay person linkage is unavailable",
+  "changes_from_previous_candidate": [
+    "Strict full hours1--24 replaces permissive delayed-start inclusion",
+    "36 inputs; HospAdmTime removed",
+    "No undocumented adult-only eligibility filter",
+    "A stratified60/10/15/15 with selection; seeds2026--2030 replace old split",
+    "patient_id and y_true replace record_id and outcome_12_24; output paths match B contract"
+  ],
+  "release_status": "LOCAL_PREPARED_NOT_PUBLISHED_NOT_ACCEPTED"
+}

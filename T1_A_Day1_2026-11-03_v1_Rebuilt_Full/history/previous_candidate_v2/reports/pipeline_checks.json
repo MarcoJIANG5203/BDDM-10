@@ -1,0 +1,14 @@
+{
+  "raw_file_count_40336": true,
+  "unique_record_ids": true,
+  "no_duplicate_model_rows": true,
+  "flow_exhaustive": true,
+  "all_included_observed_through_24h": true,
+  "no_early_or_left_censored_onsets_in_cohort": true,
+  "target_matches_label_hours_7_to_18": true,
+  "site_B_entirely_external": true,
+  "site_A_no_external": true,
+  "features_exclude_future_and_label_metadata": true,
+  "mask_matches_predictors": true,
+  "observations_within_12h": true
+}

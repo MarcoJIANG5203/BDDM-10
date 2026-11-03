@@ -1,0 +1,268 @@
+{
+  "basis": "T1_A_Day1_2026-11-03 original FULL folder; not the GitHub reduced edition",
+  "meaningful_original_files": 52,
+  "all_exact": true,
+  "omitted": "Python bytecode cache only",
+  "files": [
+    {
+      "original": "00_START_HERE.md",
+      "preserved_at": "history/previous_candidate_v2/00_START_HERE.md",
+      "sha256": "806417b02ad17817386649785eba79d9a9fd5d3d1c93461dbfd020bede802fa9"
+    },
+    {
+      "original": "01_PROTOCOL_AND_RESULTS.md",
+      "preserved_at": "history/previous_candidate_v2/01_PROTOCOL_AND_RESULTS.md",
+      "sha256": "39742bfb12221da657736724fd33afe4d103889d067affa4032b1425f748bba6"
+    },
+    {
+      "original": "02_HANDOVER_TO_B.md",
+      "preserved_at": "history/previous_candidate_v2/02_HANDOVER_TO_B.md",
+      "sha256": "f747f8333e120353897ae8df96a3256fea1b905e72caa86dfe4ab293a8e94340"
+    },
+    {
+      "original": "03_C_E_REVIEW_AND_DAILY_UPDATE.md",
+      "preserved_at": "history/previous_candidate_v2/03_C_E_REVIEW_AND_DAILY_UPDATE.md",
+      "sha256": "bd5d0a804a02f830c19ce0aadb2a07d1b400adae34e95d0aa6a6246521e37134"
+    },
+    {
+      "original": "PACKAGE_SHA256SUMS.txt",
+      "preserved_at": "history/previous_candidate_v2/PACKAGE_SHA256SUMS.txt",
+      "sha256": "ce674f77829a7ba50a8ecc941d3504f8d9f77696ca678536b57d08eff718dc55"
+    },
+    {
+      "original": "protocol_candidate_v2.json",
+      "preserved_at": "history/previous_candidate_v2/protocol_candidate_v2.json",
+      "sha256": "c3b8360528318644c1b55857c6db9ed79d1c98b3ca175d610da6d69c7625d5af"
+    },
+    {
+      "original": "code/build_dictionary.py",
+      "preserved_at": "history/previous_candidate_v2/code/build_dictionary.py",
+      "sha256": "c0314666bee78ac100f8a419b874ca47a33dafc0ed1932b380a83e98361a03c9"
+    },
+    {
+      "original": "code/build_reports.py",
+      "preserved_at": "history/previous_candidate_v2/code/build_reports.py",
+      "sha256": "dd6a76bbb9c36ba88aaacda70c3f8d6893d02ebaf1ec04056a37f67ec1770dab"
+    },
+    {
+      "original": "code/collect_sources.py",
+      "preserved_at": "code/collect_sources.py",
+      "sha256": "f1e3246527d8eebd5510aabba2516ecd392510c203691b981818de4ba0c966cb"
+    },
+    {
+      "original": "code/download_official.py",
+      "preserved_at": "code/download_official.py",
+      "sha256": "a4db71be628b02dab395494ec19fd1755ab767f450dee704215f920b5c1bb1cb"
+    },
+    {
+      "original": "code/prepare_day1.py",
+      "preserved_at": "history/previous_candidate_v2/code/prepare_day1.py",
+      "sha256": "57e18d14bfbfd3f92bc8bb6cfe866003c1620df3f93bb19d79e171a03b33260d"
+    },
+    {
+      "original": "code/recover_downloads.py",
+      "preserved_at": "code/recover_downloads.py",
+      "sha256": "0a37fdeb9914f1e1655935c355d29478c852e8627a13e370aeb23fe479ceb9a6"
+    },
+    {
+      "original": "code/test_cohort_rules.py",
+      "preserved_at": "history/previous_candidate_v2/code/test_cohort_rules.py",
+      "sha256": "1dbfc5e02b740464cd9fe283abab68c4e16e311ca3b202c67636064093517531"
+    },
+    {
+      "original": "code/verify_package.py",
+      "preserved_at": "history/previous_candidate_v2/code/verify_package.py",
+      "sha256": "b61a2a0a4bba2f682cfd2d48e679805eb77b476ac56bc27d199d7e0e37323a40"
+    },
+    {
+      "original": "data/derived_field_dictionary.csv",
+      "preserved_at": "history/previous_candidate_v2/data/derived_field_dictionary.csv",
+      "sha256": "e86d3752024f85a3376a6add6808bf26f66c8534ec37cb13c1842d570447c80d"
+    },
+    {
+      "original": "data/eligibility_audit_all_records.csv",
+      "preserved_at": "history/previous_candidate_v2/data/eligibility_audit_all_records.csv",
+      "sha256": "25ba6abc19dc598a1ca91a987063cf80772aebe701af9a0e820a7bccfacaad40"
+    },
+    {
+      "original": "data/missing_mask37.csv",
+      "preserved_at": "history/previous_candidate_v2/data/missing_mask37.csv",
+      "sha256": "76ead3f761a567901fbc44df0c7448352ef5c2b50cfbcce63e101b0866822b72"
+    },
+    {
+      "original": "data/model_feature_columns.json",
+      "preserved_at": "history/previous_candidate_v2/data/model_feature_columns.json",
+      "sha256": "15429c9bb62364f6371d90b8992cb2b0e2d839c904e547aa22ecf95506302589"
+    },
+    {
+      "original": "data/observed_counts34.csv",
+      "preserved_at": "history/previous_candidate_v2/data/observed_counts34.csv",
+      "sha256": "60475e8be8a7acc115e0646b4c78d0f8100758f7a57235a78b31b81714ce06e5"
+    },
+    {
+      "original": "data/patients.csv",
+      "preserved_at": "history/previous_candidate_v2/data/patients.csv",
+      "sha256": "9dcf5c97c1ef3cce609e46c7672c094871447a48e95dd2220e977776f6d849dc"
+    },
+    {
+      "original": "data/patient_split_manifest.csv",
+      "preserved_at": "history/previous_candidate_v2/data/patient_split_manifest.csv",
+      "sha256": "3fab852c3038837b36be4e77ea1e0207da46a39c2c9589f45b150ff6ca605f6a"
+    },
+    {
+      "original": "data/raw_field_dictionary.csv",
+      "preserved_at": "history/previous_candidate_v2/data/raw_field_dictionary.csv",
+      "sha256": "34515748c78346038f6ada502e88af10899b2cafedb6c0d034ee61b12f06b9d3"
+    },
+    {
+      "original": "data/X_last12.csv",
+      "preserved_at": "history/previous_candidate_v2/data/X_last12.csv",
+      "sha256": "4de6c60120361e1d6714dcaa5829d5912ecbf31339a336176a0cb8e73551f0f6"
+    },
+    {
+      "original": "raw/training_setA.zip",
+      "preserved_at": "raw/training_setA.zip",
+      "sha256": "dd488baf1d85e0eebf627be56a8e09c7d79664a8660eb9760b1882ecd5279a71"
+    },
+    {
+      "original": "raw/training_setB.zip",
+      "preserved_at": "raw/training_setB.zip",
+      "sha256": "4ea0379fde2596b838904aef0f0942899670ab78c48d13f916eb61f7bb01d739"
+    },
+    {
+      "original": "reports/cohort_counts.csv",
+      "preserved_at": "history/previous_candidate_v2/reports/cohort_counts.csv",
+      "sha256": "f88aaea2177fd188c14fb257171ec6f24bed9fa6ee31219ec00192f4623a1ce5"
+    },
+    {
+      "original": "reports/cohort_flow.csv",
+      "preserved_at": "history/previous_candidate_v2/reports/cohort_flow.csv",
+      "sha256": "2f0199d1d700141c4975b0157011defb01d2e4f50572c513b45eded8236551e9"
+    },
+    {
+      "original": "reports/derived_data_sha256.json",
+      "preserved_at": "history/previous_candidate_v2/reports/derived_data_sha256.json",
+      "sha256": "ce55ec9f6f9fdbf757b817004bbcd9c84de80fcc79348753e9dadab9486b197d"
+    },
+    {
+      "original": "reports/endpoint_feasibility.csv",
+      "preserved_at": "history/previous_candidate_v2/reports/endpoint_feasibility.csv",
+      "sha256": "652e7b5035522e33869296a0b3a905ad16e844382a5dde19c66414d0dd0723c2"
+    },
+    {
+      "original": "reports/execution_environment.json",
+      "preserved_at": "history/previous_candidate_v2/reports/execution_environment.json",
+      "sha256": "316b0d0cf723bb69aa852702edb1bff90193c2c1db716a984a707044577e48ab"
+    },
+    {
+      "original": "reports/feature_missingness37.csv",
+      "preserved_at": "history/previous_candidate_v2/reports/feature_missingness37.csv",
+      "sha256": "eed0d9fcd5ce726469d2fc377040f707d81a197adbba29684de806049941dde7"
+    },
+    {
+      "original": "reports/hourly_missingness34.csv",
+      "preserved_at": "history/previous_candidate_v2/reports/hourly_missingness34.csv",
+      "sha256": "4a7d093e177a4703ccf7d6a8af3637a774728d60db700c70756006ac13f0b672"
+    },
+    {
+      "original": "reports/independent_package_checks.json",
+      "preserved_at": "history/previous_candidate_v2/reports/independent_package_checks.json",
+      "sha256": "053876ea2ba92c911d25c85d19f50e954e5bed9403700261463934e4f2760a6b"
+    },
+    {
+      "original": "reports/pipeline_checks.json",
+      "preserved_at": "history/previous_candidate_v2/reports/pipeline_checks.json",
+      "sha256": "641dc2bff0cd11cd24d93336b2e811f92ef68b7965ed8682c3176a9f89bdf549"
+    },
+    {
+      "original": "reports/summary.json",
+      "preserved_at": "history/previous_candidate_v2/reports/summary.json",
+      "sha256": "4c69ceea221d23d4f300562450376f87becdd5d04d5c18a876d12718db6267fd"
+    },
+    {
+      "original": "reports/synthetic_tests.txt",
+      "preserved_at": "history/previous_candidate_v2/reports/synthetic_tests.txt",
+      "sha256": "446c60233bfaa0235a330b88710d2e5ce9d718e0e76b634dbe27a52991490571"
+    },
+    {
+      "original": "sources/download_recovery_receipt.json",
+      "preserved_at": "sources/download_recovery_receipt.json",
+      "sha256": "1585977cd50736c6b7b96e3cea21aef7d441ce7a1296790f01b4f68d9448b32d"
+    },
+    {
+      "original": "sources/download_status.json",
+      "preserved_at": "sources/download_status.json",
+      "sha256": "10438ada546bc56bfe3b452244b2782d05a1c420efea7ec058f72631716d37ec"
+    },
+    {
+      "original": "sources/download_status_attempt1.json",
+      "preserved_at": "sources/download_status_attempt1.json",
+      "sha256": "35bfdaaa0dd289b979658bcaa329035729edc9a63d9bf7af0704c12a3089ff40"
+    },
+    {
+      "original": "sources/initial_protocol_v1_SUPERSEDED.json",
+      "preserved_at": "sources/initial_protocol_v1_SUPERSEDED.json",
+      "sha256": "a7f7872914f43fcf59f10377968975ef30a5ad0c2257e4d01dc339c9bc5108af"
+    },
+    {
+      "original": "sources/journal_accepted_manuscript.pdf",
+      "preserved_at": "sources/journal_accepted_manuscript.pdf",
+      "sha256": "ed39d1735c94f1ae157793cc4e362a9930639d48e56d5ad7a61f6f40d79c77be"
+    },
+    {
+      "original": "sources/journal_pubmed.html",
+      "preserved_at": "sources/journal_pubmed.html",
+      "sha256": "b8a9a969ce4916850e979e1e6dd107685450682b6ae432f37ffeb33adfa18a89"
+    },
+    {
+      "original": "sources/LICENSE.txt",
+      "preserved_at": "sources/LICENSE.txt",
+      "sha256": "bcdfcd4f31c790e30fb645dc36414907172405897adff329ad379eed85d12017"
+    },
+    {
+      "original": "sources/official_evaluate_sepsis_score.py.txt",
+      "preserved_at": "sources/official_evaluate_sepsis_score.py.txt",
+      "sha256": "26b8b26267ed32e8b7a7a27e45201cfc8c6640e717ba4cdc1f452b32f12b99e5"
+    },
+    {
+      "original": "sources/official_SHA256SUMS.txt",
+      "preserved_at": "sources/official_SHA256SUMS.txt",
+      "sha256": "ba025b2702297c202592a01d4eb31532938a2f6b3aab3afe125e75a52bd281a5"
+    },
+    {
+      "original": "sources/physionet_dataset_page.html",
+      "preserved_at": "sources/physionet_dataset_page.html",
+      "sha256": "fa52712f6f1b32cbf0c14879b308c994277e4920c3fa6360d2450aa67dfa347f"
+    },
+    {
+      "original": "sources/raw_file_manifest.csv",
+      "preserved_at": "sources/raw_file_manifest.csv",
+      "sha256": "aee7ea89969ecd1ccfad5e5bcb58725583c5546f011b136c138ec665d474c0b5"
+    },
+    {
+      "original": "sources/references.bib",
+      "preserved_at": "sources/references.bib",
+      "sha256": "f6f7cda6ef2c0d911465a9845d773ab79abd4ce9ef99d1b06ae7245b4940253a"
+    },
+    {
+      "original": "sources/s3_inventory.json",
+      "preserved_at": "sources/s3_inventory.json",
+      "sha256": "43a61e0e342384ec44f0a8856d45f287a72493f56779a2a300b75e5554fde7e0"
+    },
+    {
+      "original": "sources/sepsis3_pubmed.html",
+      "preserved_at": "sources/sepsis3_pubmed.html",
+      "sha256": "4641e26f647d7a26aa761ae8d935ca9563f75cd5c379037f159490aef6b97e46"
+    },
+    {
+      "original": "sources/source_download_receipts.json",
+      "preserved_at": "sources/source_download_receipts.json",
+      "sha256": "b6a2cbc20d308ee22186b73ec16837deef9e32d07dba4bac1820a6c66a402e53"
+    },
+    {
+      "original": "sources/SOURCE_REGISTER.md",
+      "preserved_at": "sources/SOURCE_REGISTER.md",
+      "sha256": "13b0a043d038c0ad6fcab29b73465b46ab2e5230e04255f6c4b35d0a7e3ac2e5"
+    }
+  ]
+}

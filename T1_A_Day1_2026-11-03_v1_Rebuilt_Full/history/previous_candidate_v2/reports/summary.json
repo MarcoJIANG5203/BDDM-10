@@ -1,0 +1,185 @@
+{
+  "raw_counts": {
+    "A": 20336,
+    "B": 20000
+  },
+  "source_ever_positive_counts": {
+    "A": 1790,
+    "B": 1142
+  },
+  "time_axis_start_after_1_counts": {
+    "A": 7497,
+    "B": 1296
+  },
+  "endpoint_feasibility": [
+    {
+      "site": "A",
+      "known_transition_onsets_12_24_before_other_filters": 334,
+      "retained_positive": 78,
+      "known_positive_excluded_for_followup_24h": 256,
+      "known_positive_excluded_for_other_reasons": 0,
+      "excluded_followup_with_proxy_after_last_observation": 0
+    },
+    {
+      "site": "B",
+      "known_transition_onsets_12_24_before_other_filters": 152,
+      "retained_positive": 40,
+      "known_positive_excluded_for_followup_24h": 112,
+      "known_positive_excluded_for_other_reasons": 0,
+      "excluded_followup_with_proxy_after_last_observation": 1
+    }
+  ],
+  "flow": [
+    {
+      "site": "A",
+      "stage": "invalid_schema_or_values",
+      "n_records": 0
+    },
+    {
+      "site": "A",
+      "stage": "invalid_time_axis",
+      "n_records": 0
+    },
+    {
+      "site": "A",
+      "stage": "invalid_label_sequence",
+      "n_records": 0
+    },
+    {
+      "site": "A",
+      "stage": "insufficient_history_12h",
+      "n_records": 418
+    },
+    {
+      "site": "A",
+      "stage": "nonadult_or_age_unknown",
+      "n_records": 0
+    },
+    {
+      "site": "A",
+      "stage": "left_censored_onset",
+      "n_records": 14
+    },
+    {
+      "site": "A",
+      "stage": "onset_at_or_before_12h",
+      "n_records": 131
+    },
+    {
+      "site": "A",
+      "stage": "insufficient_followup_24h",
+      "n_records": 3567
+    },
+    {
+      "site": "A",
+      "stage": "included",
+      "n_records": 16206
+    },
+    {
+      "site": "B",
+      "stage": "invalid_schema_or_values",
+      "n_records": 0
+    },
+    {
+      "site": "B",
+      "stage": "invalid_time_axis",
+      "n_records": 0
+    },
+    {
+      "site": "B",
+      "stage": "invalid_label_sequence",
+      "n_records": 0
+    },
+    {
+      "site": "B",
+      "stage": "insufficient_history_12h",
+      "n_records": 532
+    },
+    {
+      "site": "B",
+      "stage": "nonadult_or_age_unknown",
+      "n_records": 20
+    },
+    {
+      "site": "B",
+      "stage": "left_censored_onset",
+      "n_records": 1
+    },
+    {
+      "site": "B",
+      "stage": "onset_at_or_before_12h",
+      "n_records": 74
+    },
+    {
+      "site": "B",
+      "stage": "insufficient_followup_24h",
+      "n_records": 4533
+    },
+    {
+      "site": "B",
+      "stage": "included",
+      "n_records": 14840
+    }
+  ],
+  "cohorts": [
+    {
+      "scope": "site_A",
+      "n_records": 16206,
+      "positive": 78,
+      "negative": 16128,
+      "positive_fraction": 0.004813032210292484,
+      "mean_feature_missing_fraction": 0.36718632738625334,
+      "mean_hourly_dynamic_missing_fraction": 0.7918209305195607
+    },
+    {
+      "scope": "site_B",
+      "n_records": 14840,
+      "positive": 40,
+      "negative": 14800,
+      "positive_fraction": 0.0026954177897574125,
+      "mean_feature_missing_fraction": 0.4540504115975814,
+      "mean_hourly_dynamic_missing_fraction": 0.8050643134612335
+    },
+    {
+      "scope": "train",
+      "n_records": 9722,
+      "positive": 46,
+      "negative": 9676,
+      "positive_fraction": 0.004731536720839333,
+      "mean_feature_missing_fraction": 0.3676976709274591,
+      "mean_hourly_dynamic_missing_fraction": 0.7917463323531428
+    },
+    {
+      "scope": "calibration",
+      "n_records": 3240,
+      "positive": 15,
+      "negative": 3225,
+      "positive_fraction": 0.004629629629629629,
+      "mean_feature_missing_fraction": 0.36541541541541545,
+      "mean_hourly_dynamic_missing_fraction": 0.7920433914306464
+    },
+    {
+      "scope": "internal_test",
+      "n_records": 3244,
+      "positive": 17,
+      "negative": 3227,
+      "positive_fraction": 0.0052404438964241675,
+      "mean_feature_missing_fraction": 0.3674226013930083,
+      "mean_hourly_dynamic_missing_fraction": 0.7918223084548246
+    },
+    {
+      "scope": "external_test",
+      "n_records": 14840,
+      "positive": 40,
+      "negative": 14800,
+      "positive_fraction": 0.0026954177897574125,
+      "mean_feature_missing_fraction": 0.4540504115975814,
+      "mean_hourly_dynamic_missing_fraction": 0.8050643134612335
+    }
+  ],
+  "training_all_missing_features": [
+    "EtCO2"
+  ],
+  "elapsed_seconds": 40.9,
+  "candidate_status": "PENDING_C_LABEL_REVIEW_AND_E_PROTOCOL_CONFIRMATION"
+}

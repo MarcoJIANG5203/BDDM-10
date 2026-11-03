@@ -1,0 +1,11 @@
+{
+  "data/derived_field_dictionary.csv": "e86d3752024f85a3376a6add6808bf26f66c8534ec37cb13c1842d570447c80d",
+  "data/eligibility_audit_all_records.csv": "25ba6abc19dc598a1ca91a987063cf80772aebe701af9a0e820a7bccfacaad40",
+  "data/missing_mask37.csv": "76ead3f761a567901fbc44df0c7448352ef5c2b50cfbcce63e101b0866822b72",
+  "data/model_feature_columns.json": "15429c9bb62364f6371d90b8992cb2b0e2d839c904e547aa22ecf95506302589",
+  "data/observed_counts34.csv": "60475e8be8a7acc115e0646b4c78d0f8100758f7a57235a78b31b81714ce06e5",
+  "data/patient_split_manifest.csv": "3fab852c3038837b36be4e77ea1e0207da46a39c2c9589f45b150ff6ca605f6a",
+  "data/patients.csv": "9dcf5c97c1ef3cce609e46c7672c094871447a48e95dd2220e977776f6d849dc",
+  "data/raw_field_dictionary.csv": "34515748c78346038f6ada502e88af10899b2cafedb6c0d034ee61b12f06b9d3",
+  "data/X_last12.csv": "4de6c60120361e1d6714dcaa5829d5912ecbf31339a336176a0cb8e73551f0f6"
+}

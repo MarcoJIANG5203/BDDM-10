@@ -1,0 +1,9 @@
+{
+  "source": "Official PhysioNet Open S3, as linked by PhysioNet",
+  "retrieval_date_hong_kong": "2026-11-03",
+  "expected_files": 40336,
+  "downloaded_verified_files": 40336,
+  "failures": [],
+  "elapsed_seconds": 584.13,
+  "recovery_note": "Individual fresh HTTPS sessions repaired transport failures; original failed receipt preserved separately."
+}
