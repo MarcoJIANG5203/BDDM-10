@@ -9,6 +9,7 @@
 | 完成范围 | RF S0/S2、M5/20 S0、alpha=.05 S0/S2候选补充；不升格正式B-002 |
 | B核验 | 完整run `run_status=completed`；独立核对240指标行、22产物/13源码/1split哈希、48配对bootstrap区间；26文件本地包SHA256与空目录恢复通过；LR M10 .1重合120指标行与旧候选矩阵一致；小型复核回执见`reviews/B_candidate_supplements_2026-11-04.json`，仓库32测试通过 |
 | 远端状态 | 未上传；A源许可冲突未解决，暂不新增含临床输入/逐患者结果的公开或预发布附件。registry登记prepared，不能fetch或写published |
+| 代码与小型证据 | B分支提交`eac8460`已推送；[draft PR #5](https://github.com/MarcoJIANG5203/BDDM-10/pull/5)待接收人复核，不等于正式B-002或合入main |
 | 科学限制 | 内部测试仅8阳性；B5/B6选择集6错误未达20例门槛；阳性集合覆盖问题仍在，补充组合未显示稳定分歧优势 |
 | 接收人结论 | 由C/E对本新run各自独立复核；B不代签 |
 

@@ -9,7 +9,7 @@ B岗位当前工作分支为`b/core-methods-experiments`。按用户新要求，
 | 岗位 | 当前状态 | 证据 | 下一项交付 / 接收人 |
 |---|---|---|---|
 | A 数据与基础实验 | A本人确认保留v1；原始receipt与草稿附件传输已交付，正式data Release/科学冻结未完成 | A分支`6b2650e`、其`handoffs/A/2026-11-04_A-001_closeout_EN.md`及`reviews/A_remote_delivery_2026-11-04.json`；[E新接收记录](../handoffs/E/2026-11-04_A_C_D_B_coordination.md) | 许可澄清、正式data版本发布；C/E按各自范围签收 |
-| B 核心方法与实验 | v1候选主矩阵及RF/M/alpha候选补充已完成并经B独立核验；B接收C-003旧候选指标核验范围；正式B-002仍待正式数据/冻结 | [主矩阵交接](../handoffs/B/2026-11-04_v1_candidate_full_matrix.md)、[补充与C-003接收](../handoffs/B/2026-11-04_v1_candidate_supplements_C003_receipt.md)、[补充摘要](../reports/candidate-trials/20261104T132609_45c03e76/SUMMARY.md) | 取得正式data Release与E冻结决定后，从正式字节新跑B-002；C独立核验新run |
+| B 核心方法与实验 | v1候选主矩阵及RF/M/alpha候选补充已完成并经B独立核验；B接收C-003旧候选指标核验范围；正式B-002仍待正式数据/冻结 | [主矩阵交接](../handoffs/B/2026-11-04_v1_candidate_full_matrix.md)、[补充与C-003接收](../handoffs/B/2026-11-04_v1_candidate_supplements_C003_receipt.md)、[补充摘要](../reports/candidate-trials/20261104T132609_45c03e76/SUMMARY.md)；draft PR #5 | 取得正式data Release与E冻结决定后，从正式字节新跑B-002；C独立核验新run |
 | C 文献与独立核验 | C-003边界断言与候选逐患者/区间核验、C-004引用更正、C-005原始receipt有条件接受均已提交C分支；C未亲自逐份重跑原始PSV；B已范围内接收C-003 | C分支`f4d9736`；[B复跑记录](../handoffs/B/2026-11-04_v1_candidate_supplements_C003_receipt.md)；PR #4 | D处理R5；E核专场通知，正式run仍由C独立签收 |
 | D 图表与论文 | D-001图表流程及D-001a临床签认门槛已提交，E流程范围内接收，C数字/引用核验仍独立；D-002骨架存在，真实结果稿仍被正式run阻塞 | D分支`1960f88`、PR #2；[E流程复核](../handoffs/E/2026-11-04_A_C_D_B_coordination.md) | C核验D数字/引用；D按C-004补R5；待正式结果后写临床图文 |
 | E 统筹与整合 | 依据A确认和C有条件接收，记录保留v1的预冻结执行口径；正式发布、B-002及结果冻结继续暂缓 | [E新协调记录](../handoffs/E/2026-11-04_A_C_D_B_coordination.md) | 解决许可与正式数据版本；分别取得C/E正式签认、专场通知和投稿细则证据 |
