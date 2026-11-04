@@ -1,6 +1,6 @@
 # D 岗位 · 论文与图表工作区
 
-本目录由 **D（图表与论文负责人）** 维护。当前状态：**D-001 / D-001a 已提交待验收；D-002 准备（引用核实 + 英文稿骨架）已提交待验收**。D-002 的真实结果稿、提交版 PDF 与材料清单要等 A-001、C-001/C-002 与 B-002 真实结果验收后才能完成。**D-002 的前置条件与 A/B/C/E 待办见 [d002_readiness.md](d002_readiness.md)；引用范围见 [references_checklist.md](references_checklist.md)。**
+本目录由 **D（图表与论文负责人）** 维护。当前状态：**D-001 / D-001a 已提交待验收；D-002 准备（引用核实 + 英文稿骨架 + Table 1/Fig 1 DRAFT）已提交待验收**。D-002 的真实结果稿、提交版 PDF 与材料清单要等 A-001、C-001/C-002 与 B-002 真实结果验收后才能完成。**D-002 的前置条件与 A/B/C/E 待办见 [d002_readiness.md](d002_readiness.md)；引用范围见 [references_checklist.md](references_checklist.md)。**
 
 ## 目录约定
 
@@ -11,16 +11,17 @@ paper/
   figure_list.md         图表清单、生成方式、来源与验收检查点
   source_index.md        正文每个数字的来源索引与核对规则
   references_checklist.md  引用核实清单（C-002 输入 → D 可引用范围）
-  references.bib         只含已核实元数据的 6 条 BibTeX
+  references.bib         只含已核实元数据的 7 条 BibTeX（含 C-004 补出的 R5）
   draft_v0.md            英文稿骨架；结果全部占位，不可提交
   d002_readiness.md      D-002 门槛、A/B/C/E 待办与当前数据状态
   acceptance_record_template.json  C/E 签认记录模板（模板本身不是验收）
+  inputs/<data_version>/ A 正式数据生成的 Table 1 / Fig 1 DRAFT（仅数据描述，待接收）
   runs/<run_id>/figures/ 真实临床 run 生成的论文图（D-002；当前未生成）
   runs/<run_id>/tables/  真实临床 run 生成的论文表（D-002；当前未生成）
   validation/<run_id>/   仅合成 run 的软件验证输出，全部带“非临床证据”水印
 ```
 
-`paper/runs/` 只能由已验收的真实临床 run 生成。`paper/validation/` 中的任何数字都不得写入论文、摘要、投稿材料或对外汇报。
+`paper/runs/` 只能由已验收的真实临床 run 生成。`paper/inputs/` 的 Table 1/Fig 1 是 **DRAFT_PENDING_ACCEPTANCE**，在 A PR 合并、C/E 接收前不得作为最终论文表。`paper/validation/` 中的任何数字都不得写入论文、摘要、投稿材料或对外汇报。
 
 ## 生成命令
 
@@ -44,6 +45,16 @@ python scripts/make_figures.py `
 ```
 
 签认记录必须匹配 run 的 `manifest_sha256`、`run_id`、协议与数据版本，并包含 C/E 的姓名、日期、决定和证据路径；模板见 `paper/acceptance_record_template.json`。
+
+正式 A 数据 Release 的 Table 1 / Fig 1（D-002 数据描述；输出强制标 DRAFT，等 A PR 合并与 C/E 接收）：
+
+```powershell
+python scripts/make_cohort_tables.py `
+  --release-zip dist/artifacts/a-data-v1-20261104-r1.zip `
+  --expected-sha256 feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c
+```
+
+默认输出 `paper/inputs/a-data-v1-20261104-r1/`；脚本校验 release ZIP、audit、cohort、5 份 splits、site/阳性数、role 互斥完备，并在 `provenance.json` 写 `DRAFT_PENDING_ACCEPTANCE`。
 
 仅合成 run 的软件验证（D-001；输出强制加水印）：
 
@@ -77,15 +88,19 @@ python scripts/make_figures.py `
 | 交付 | 路径 | 状态 |
 |---|---|---|
 | 图表/表格脚本 | `scripts/make_figures.py` | 已提交待验收 |
+| A 数据 Table 1/Fig 1 脚本 | `scripts/make_cohort_tables.py` | 已提交待验收 |
+| 正式 A 数据 Table 1/Fig 1 DRAFT | `paper/inputs/a-data-v1-20261104-r1/` | DRAFT，待 A PR 合并/C/E 接收 |
 | 临床 run 签认门槛（D-001a） | `scripts/make_figures.py`、`paper/acceptance_record_template.json` | 已提交待验收 |
 | 论文提纲 | `paper/outline.md` | 已提交待验收 |
 | 图表清单 | `paper/figure_list.md` | 已提交待验收 |
 | 来源索引 | `paper/source_index.md` | 已提交待验收 |
-| 引用核实清单 | `paper/references_checklist.md` | 已提交待验收（R5 未找到，禁止引用） |
-| 已核实 BibTeX | `paper/references.bib` | 6 条；R5 未写入 |
+| 引用核实清单 | `paper/references_checklist.md` | 7/7 可引用；R5 由 C-004 补出；R1 LOCF 不写 |
+| 已核实 BibTeX | `paper/references.bib` | 7 条，含 `wong2026mc2` |
 | 英文稿骨架 v0 | `paper/draft_v0.md` | 结果全占位；不可提交 |
 | D-002 就绪清单与 A/B/C 待办 | `paper/d002_readiness.md` | 已提交待验收 |
 | 合成 run 验证输出 | `paper/validation/20261102T063118_fa76f8a8/` | 仅软件验证，非临床证据 |
 | D-001 交付记录 | `handoffs/D/2026-11-04_D-001.md` | 已提交待验收 |
 | D-001a 交付记录 | `handoffs/D/2026-11-04_D-001a_acceptance_gate.md` | 已提交待验收 |
 | D-002 准备记录 | `handoffs/D/2026-11-04_D-002_prep.md` | 已提交待验收 |
+| D-002 引用更新（C-004） | `handoffs/D/2026-11-04_D-002_prep_C004.md` | 已提交待验收 |
+| D-002 Table 1/Fig 1 DRAFT | `handoffs/D/2026-11-04_D-002_cohort_tables.md` | 已提交待验收 |

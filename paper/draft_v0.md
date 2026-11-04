@@ -2,7 +2,7 @@
 
 **Status:** English manuscript skeleton prepared on 2026-11-04. **No accepted clinical run exists yet.** Every `[RESULT:S-xxx]` is an unresolved placeholder; no result number in this draft may be quoted, submitted, or circulated as a finding. Synthetic and candidate-run outputs are excluded.
 
-**Citation policy:** only the six entries in `paper/references.bib`, all metadata-verified in `paper/references_checklist.md`. The C-002 entry “MC² (MICCAI 2026)” is **not cited** because no DOI/URL could be verified. Claims marked `[CLAIM-CHECK]` require full-text confirmation before submission.
+**Citation policy:** only the seven entries in `paper/references.bib`, all verified in `paper/references_checklist.md` (R5 source supplied by C-004). R5 is cited only for modality-level missingness; R1’s “LOCF” is not claimed because it remains unverified. Claims marked `[CLAIM-CHECK]` require full-text confirmation before submission.
 
 **Working title:** Imputation Disagreement for Selective Prediction under Missing Clinical Data: A Conformal Rejection Study
 
@@ -47,7 +47,7 @@ Split conformal prediction constructs prediction sets with finite-sample margina
 
 ### 2.2 Missing data and multiple imputation
 
-Conformal prediction with missing values has been analyzed for impute-then-predict pipelines \cite{zaffran2023conformal}. Conformal selection has also been applied to clinical data imputation \cite{he2026safeimpute}. Our question is different in level: those works address the validity or selection of imputed values, whereas we ask whether patient-level variation across MI draws is useful for deciding which predictions to automate. We treat MI as a practical stochastic procedure with explicit clipping and reproducibility rules, not as a recovery of the true missing-data distribution.
+Conformal prediction with missing values has been analyzed for impute-then-predict pipelines \cite{zaffran2023conformal}. Conformal selection has also been applied to clinical data imputation, using conformal p-values and false-discovery-rate control to decide which imputed values are acceptable \cite{he2026safeimpute}. At the modality level, modality-conditional conformal calibration stratifies by the available modality combination and restores per-stratum coverage without retraining the predictor \cite{wong2026mc2}. Our question is different in level: those works address the validity or selection of imputed values, or missingness of whole modalities, whereas we ask whether patient-level variation across variable-level MI draws is useful for deciding which predictions to automate. We treat MI as a practical stochastic procedure with explicit clipping and reproducibility rules, not as a recovery of the true missing-data distribution.
 
 ### 2.3 Uncertainty in sparse clinical time series
 
@@ -55,9 +55,9 @@ Evidential deep learning with spline-based imputation and weighted observed/impu
 
 ### 2.4 Positioning
 
-`[CLAIM-CHECK: C-002]` The closest clinical work combines conformal sets with cost-aware deferral \cite{kwon2026conformal}; the closest missing-data work studies conformal prediction or conformal imputation \cite{zaffran2023conformal,he2026safeimpute}. Our incremental question is whether imputation disagreement adds information beyond confidence and missingness at the same acceptance capacity. We do not claim to be the first to handle missing clinical data, and we do not claim that disagreement is a superior uncertainty measure in general.
+`[CLAIM-CHECK: C-004]` The closest clinical work combines conformal sets with cost-aware deferral \cite{kwon2026conformal}; the closest missing-data work studies conformal prediction, conformal imputation, and modality-conditional calibration \cite{zaffran2023conformal,he2026safeimpute,wong2026mc2}. Our incremental question is whether variable-level imputation disagreement adds information beyond confidence and missingness at the same acceptance capacity. We do not claim to be the first to handle missing clinical data, and we do not claim that disagreement is a superior uncertainty measure in general.
 
-> Citation note: the C-002 entry “MC² (MICCAI 2026 workshop)” has no verified DOI/URL and is intentionally omitted. It must not be added without a source.
+> Citation note: R5 is cited only for modality-level missingness \cite{wong2026mc2}; C-004 confirmed that this is a different level from our variable-level MI disagreement. R1’s “LOCF” is not claimed because it remains unverified.
 
 ---
 
@@ -191,15 +191,16 @@ We do not claim clinical benefit, deployment readiness, cost-effectiveness, or t
 |---|---|
 | Abstract structure and placeholders | Drafted |
 | Introduction | Drafted without clinical numbers |
-| Related Work | Drafted with six verified citations; R5 excluded |
+| Related Work | Drafted with seven verified citations; R5 included per C-004 |
 | Methods | Drafted from protocol/B material; no results |
 | Results | Placeholder headings only |
 | Discussion/Limitations | Drafted; final claims pending accepted run |
-| References | `paper/references.bib` (6 verified entries) |
-| Citation claims | R1/R3 claim-level details still require full-text checks |
-| Figures/tables | `paper/figure_list.md`; generated only after acceptance |
+| References | `paper/references.bib` (7 verified entries) |
+| Citation claims | R1 “LOCF” unverified; R3 FDR verified by C-004; R5 verified by C-004 |
+| Figures/tables | `paper/figure_list.md`; model figures only after acceptance |
+| Table 1 / Fig 1 | DRAFT generated from `a-data-v1-20261104-r1` in `paper/inputs/`; not inserted until A PR merges and C/E accepts |
 | Accepted clinical run | **MISSING** |
 | C/E acceptance record | **MISSING** |
-| C-002 verified citation list | **PARTIAL** (metadata verified; R5 missing; R1/R3 claim details pending) |
+| C-002 verified citation list | **7/7 metadata verified**; only R1 “LOCF” claim remains unconfirmed |
 
 **Do not submit this draft.** Replace every `[RESULT:S-xxx]` only from the accepted run, update `paper/source_index.md`, and obtain C’s numeric/citation check and the C/E acceptance record first.

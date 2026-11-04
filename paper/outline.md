@@ -39,7 +39,7 @@ Draft structure, one sentence per bullet:
 
 ## 2. Related work (≈700 words; owner C-002)
 
-C-002 must supply verified references and a difference statement. Provisional scope, no citations inserted by D: **D has now checked the C-002 list in `paper/references_checklist.md`; six entries are metadata-verified and one (“MC²”, R5) is excluded because no DOI/URL was found. Only those six may be cited.**
+C-002 must supply verified references and a difference statement. Provisional scope, no citations inserted by D: **D has now checked the C-002 list in `paper/references_checklist.md`; seven entries are verified, including R5 (“MC²”) which C-004 supplied (MICCAI 2026 Satellite/MLMI, LNCS 17272). Only those seven may be cited.**
 
 | Theme | What the section must establish | Source |
 |---|---|---|
@@ -183,7 +183,7 @@ Restate the question and the accepted-run answer, including a null result if app
 | CL-5 | Test-time three-state instability is `[RESULT:S-008]` | Table 5, Figure 6 | Pending |
 | CL-6 | Synthetic runs validate the pipeline only | `paper/validation/`, provenance | Available as QA only |
 
-**Prohibited claims:** clinical benefit; improved patient safety; conditional coverage guarantee for accepted patients; superiority without interval and denominators; any number from a synthetic run; any citation not verified by C-002.
+**Prohibited claims:** clinical benefit; improved patient safety; conditional coverage guarantee for accepted patients; superiority without interval and denominators; any number from a synthetic run; any citation not verified by C-002/C-004.
 
 ---
 

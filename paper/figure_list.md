@@ -2,14 +2,16 @@
 
 更新：2026-11-04。负责人：D。验收：C 核对数字/引用，E 检查全文一致性。
 
-**当前状态：** 只有合成 run 的软件验证输出，位于 `paper/validation/20261102T063118_fa76f8a8/`。这些图不是临床结果，不得进入论文。真实临床图表要等 A-001、C-001 和 B-002 验收后，用 `scripts/make_figures.py` 从 `results/clinical/<run_id>` 生成到 `paper/runs/<run_id>/figures/` 与 `paper/runs/<run_id>/tables/`。**临床 run 还必须附带 C/E 签认记录 `reviews/acceptance/<run_id>.json`；脚本会拒绝任何没有签认的临床 run，包括当前 B 的候选矩阵。** 前置条件见 [d002_readiness.md](d002_readiness.md)。
+**当前状态：** A 的正式 data Release `a-data-v1-20261104-r1` 已发布，D 已从该 Release 生成 **Table 1 / Fig 1 DRAFT**（`paper/inputs/a-data-v1-20261104-r1/`）；它们是数据描述草稿，等 A PR #3 合并与 C/E 接收后才可进论文。合成 run 的软件验证在 `paper/validation/20261102T063118_fa76f8a8/`，不得进入论文。真实临床模型图表要等 B-002 正式 run，用 `scripts/make_figures.py` 生成到 `paper/runs/<run_id>/`。**临床 run 还必须附带 C/E 签认记录 `reviews/acceptance/<run_id>.json`；脚本会拒绝任何没有签认的临床 run，包括当前 B 的候选矩阵。** 前置条件见 [d002_readiness.md](d002_readiness.md)。
 
 ## 状态图例
 
 | 标记 | 含义 |
 |---|---|
 | `READY-QA` | 脚本已生成并通过合成 run 验证；仅软件证据 |
+| `READY-DRAFT` | 已从正式 A data Release 生成；DRAFT_PENDING_ACCEPTANCE，不能作为最终论文表 |
 | `PENDING-A` | 依赖 A-001 正式队列/审计 |
+| `PENDING-A-MERGE` | A 数据/PR 尚未合并/接收；草稿已生成 |
 | `PENDING-B` | 依赖 B-002 已验收临床 run |
 | `PENDING-C` | 依赖 C-001/C-002 独立核验/文献 |
 | `ACCEPTED` | 接收人已签字；数字可用于论文 |
@@ -18,7 +20,7 @@
 
 | ID | 英文图题（工作版） | 回答的问题 | 数据来源与过滤 | 脚本输出 | 状态 |
 |---|---|---|---|---|---|
-| Fig 1 | Feature missingness in the delivered cohort | 哪些输入缺失最多？两院是否不同？ | A-001 `cohort` + `cohort_audit.json`；按 `site` 分组；特征列取协议 36 项 | `figures/fig1_missingness.{pdf,png}`；`tables/fig1_missingness_data.csv` | PENDING-A |
+| Fig 1 | Feature missingness in the delivered cohort | 哪些输入缺失最多？两院是否不同？ | A data release `a-data-v1-20261104-r1`：`cohort.parquet` + `cohort_audit.json`；按 `site` 分组；特征列取 36 项 | `scripts/make_cohort_tables.py` → `paper/inputs/a-data-v1-20261104-r1/figures/fig1_missingness.{pdf,png}`；`tables/fig1_missingness_data.csv` | READY-DRAFT / PENDING-A-MERGE |
 | Fig 2 | Risk vs realized acceptance; B4 − B2 risk difference | 在相同目标容量下，分歧排序是否比置信度排序错误更少？ | `metrics.csv`：`split_seed=2026, model=LR, M=10, source_M=10, alpha=0.1, scenario=S0, imputation_batch=0, selection_mode=batch`；B0 用 `M=1` 且 `target_acceptance` 为空；B2/B3/B4 取 c=0.4/0.6/0.8；B4−B2 区间取 `bootstrap_differences.csv` 同条件 `comparison=B4-B2` | `figures/fig2_risk_acceptance.{pdf,png}`；`tables/fig2_risk_acceptance_data.csv`；`tables/fig2_contrast_data.csv` | READY-QA / PENDING-B |
 | Fig 3 | Scenario robustness (mean, min–max) | B4−B2、B6−B5 在自然缺失、额外缺失、化验缺失、外院是否同向？ | `metrics.csv`：`model=LR, M=10, source_M=10, alpha=0.1, imputation_batch=0, target_acceptance=0.6, selection_mode=batch`，全部 5 个种子 × S0–S4 | `figures/fig3_scenarios.{pdf,png}`；`tables/fig3_scenario_data.csv` | READY-QA / PENDING-B |
 | Fig 4 | Coverage by stratum (S0, primary seed) | 原始共形集合的边际覆盖如何？按类别/缺失分层呢？ | `coverage_strata.csv`：主种子、S0、alpha=0.1、batch=0；MI 取 `M=10`，median 取 `M=1`；分层顺序见脚本 `STRATA_ORDER` | `figures/fig4_coverage.{pdf,png}`；`tables/fig4_coverage_data.csv` | READY-QA / PENDING-B |
@@ -29,8 +31,8 @@
 
 | ID | 表题（工作版） | 内容 | 数据来源与过滤 | 脚本输出 | 状态 |
 |---|---|---|---|---|---|
-| Table 1a | Cohort summary | 每院/总体的 n、阳性数、阳性率、纳排计数、数据版本 | A-001 `cohort.parquet`/`cohort.csv` + `cohort_audit.json`；`y_true` 求和；`exclusion_counts` 来自审计 | `tables/table1_cohort_summary.csv` | PENDING-A |
-| Table 1b | Feature missingness | 36 项输入总体及分院缺失率 | 同上；按 `features` 列 | `tables/table1_feature_missingness.csv` | PENDING-A |
+| Table 1a | Cohort summary | 每院/总体的 n、阳性数、阳性率、纳排计数、数据版本 | A data release `a-data-v1-20261104-r1`；`cohort.parquet` + `cohort_audit.json`；按 `site`；`exclusion_counts` 来自审计 | `scripts/make_cohort_tables.py` → `paper/inputs/a-data-v1-20261104-r1/tables/table1_cohort_summary.csv` | READY-DRAFT / PENDING-A-MERGE |
+| Table 1b | Feature missingness | 36 项输入总体及分院缺失率 | 同上；按 36 项特征列 | `paper/inputs/a-data-v1-20261104-r1/tables/table1_feature_missingness.csv` | READY-DRAFT / PENDING-A-MERGE |
 | Table 2 | Main selective-risk results | B0–B6 的接受人数/比例、选择性风险、危险漏放、阴性残余风险、覆盖、AUROC/AUPRC、候选池大小、容量不足标记 | `metrics.csv` 主条件（见 Fig 2）；B0 `M=1,target_acceptance` 空；B1 `M=10,target_acceptance` 空；B2–B6 `M=10,target_acceptance=0.6`；状态取 `method_status.csv` | `tables/table2_main_results.csv` | READY-QA / PENDING-B |
 | Table 2b | Primary contrasts | B4−B2、B6−B5 的风险差、95% CI、有效/无效重抽 | `bootstrap_differences.csv` 主条件 c=0.6；batch 与 frozen 各一行 | `tables/table2b_primary_contrasts.csv` | READY-QA / PENDING-B |
 | Table 3a | Scenario per-seed | 每种子 × S0–S4 的 B2/B4/B5/B6 风险及差值 | `metrics.csv` c=0.6 batch，5 seeds × 5 scenarios | `tables/table3_scenario_per_seed.csv` | READY-QA / PENDING-B |

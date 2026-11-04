@@ -2,7 +2,7 @@
 
 更新：2026-11-04。维护：D。核对：C（数字/引用），E（全文一致性）。
 
-**规则：** 摘要、正文、图表标题和结论中的每个数字都必须有本文件的一条 `S-xxx`。没有来源条目的数字不得写入论文。数字只从 `paper/runs/<run_id>/tables/` 或 `paper/validation/.../tables/` 的 CSV 读取；不得从聊天、截图、旧稿或合成 run 复制到临床稿。临床 run 必须同时有 `reviews/acceptance/<run_id>.json`；`provenance.json.acceptance` 记录该文件的路径、SHA256、C/E 签认状态。
+**规则：** 摘要、正文、图表标题和结论中的每个数字都必须有本文件的一条 `S-xxx`。没有来源条目的数字不得写入论文。数字只从 `paper/runs/<run_id>/tables/`、`paper/inputs/<data_version>/tables/` 或 `paper/validation/.../tables/` 的 CSV 读取；不得从聊天、截图、旧稿或合成 run 复制到临床稿。临床 run 必须同时有 `reviews/acceptance/<run_id>.json`；`provenance.json.acceptance` 记录该文件的路径、SHA256、C/E 签认状态。`paper/inputs/` 的 Table 1/Fig 1 目前是 `DRAFT_PENDING_ACCEPTANCE`，在 A PR 合并与 C/E 接收前不能作为最终论文数字。
 
 **当前临床 run：** 无。以下条目的 `run_id` 与路径为占位；真实结果到位后由 D 更新、C 核对、E 签字。当前唯一可用的合成验证见本文件末尾 `V-001`，它不能替代任何 `S-xxx`。
 
@@ -10,7 +10,7 @@
 
 | ID | 论文位置 / 用途 | 输出文件 | 过滤条件 | 列 / 计算 | 状态 |
 |---|---|---|---|---|---|
-| S-001 | 摘要/结果：每院样本量、阳性数、阳性率、纳排 | `tables/table1_cohort_summary.csv` | A-001 验收队列；按 `site`，Overall 行可选 | `n`, `positives`, `base_rate`, `included`, `excluded` | PENDING-A/C-001 |
+| S-001 | 摘要/结果：每院样本量、阳性数、阳性率、纳排 | `paper/inputs/a-data-v1-20261104-r1/tables/table1_cohort_summary.csv` | A data release `a-data-v1-20261104-r1`；按 `site`，Overall 行可选 | `n`, `positives`, `base_rate`, `included`, `excluded` | READY-DRAFT / PENDING-A-MERGE/C-005 |
 | S-002 | 摘要/Table 2：B0–B6 的选择性风险、接受比例、危险漏放、阴性残余风险、覆盖 | `tables/table2_main_results.csv` | `split_seed=2026, model=LR, M=10, source_M=10, alpha=0.1, scenario=S0, imputation_batch=0, selection_mode=batch`；B0 `M=1,target`空；B1 `M=10,target`空；B2–B6 `target=0.6` | 对应列；B0/B1 的 target 为空；状态取 `method_status.csv` | PENDING-B/C |
 | S-003 | 摘要/结果：主效应 B4−B2（c=0.60） | `tables/table2b_primary_contrasts.csv`；原始 `bootstrap_differences.csv` | 同 S-002；`comparison=B4-B2, target_acceptance=0.6, selection_mode=batch` | `risk_difference`, `ci_low`, `ci_high`, `valid`, `invalid` | PENDING-B/C |
 | S-004 | 摘要/结果：条件增量 B6−B5（c=0.60） | 同上 | `comparison=B6-B5`，其余同 S-003 | 同上 | PENDING-B/C |
@@ -18,7 +18,7 @@
 | S-006 | 结果/Table 4：原始集合覆盖（总体/类别/缺失分层） | `tables/table4_coverage_strata.csv`；原始 `coverage_strata.csv` | 主种子、S0、alpha=0.1、batch=0；MI `M=10`，median `M=1` | `n`, `covered`, `coverage`；空集计入分母 | PENDING-B/C |
 | S-007 | 结果/Fig 5：分歧五分位错误率、每格 n、Wilson 区间 | `tables/fig5_disagreement_data.csv` | `patient_predictions.csv` 主条件；`method=B4, target=0.6, selection_mode=batch`；仅 singleton；`p_std` 五等分 | `n`, `errors`, `error_rate`, `ci_low`, `ci_high`, `p_std_min/max` | PENDING-B/C |
 | S-008 | 结果/Table 5：跨测试插补批次的三状态不一致率 | `tables/table5_stability.csv` | `stability.csv` 主种子、S0、alpha=0.1；B0 `M=1,target`空；B1–B6 `target=0.6`；batch/frozen | `mean_disagreement`, `min`, `max`, `pairs` | PENDING-B/C |
-| S-009 | 结果/Table 1b：特征缺失率（总体/分院） | `tables/table1_feature_missingness.csv` | A-001 队列；按协议 36 个特征；`site` 分组 | `overall_missing`, `missing_site_<site>`, `n` | PENDING-A/C-001 |
+| S-009 | 结果/Table 1b：特征缺失率（总体/分院） | `paper/inputs/a-data-v1-20261104-r1/tables/table1_feature_missingness.csv` | A data release；按协议 36 个特征；`site` 分组 | `overall_missing`, `missing_site_<site>`, `n` | READY-DRAFT / PENDING-A-MERGE/C-005 |
 | S-010 | 补充表 S1–S3：RF、M=5/20、alpha=0.05 | 补充 run 的 `metrics.csv` / `bootstrap_differences.csv` | `model=RF, scenario=S0/S2`；或 `source_M=5/20, scenario=S0`；或 `alpha=0.05, model=LR, M=10` | 与主表同列；报告区间与分母 | PENDING-B/C |
 | S-011 | 方法/结果：容量不足、实际接受比例、候选池大小 | `tables/table2_main_results.csv`；`metrics.csv` | 同 S-002 | `pool_size`, `capacity_shortfall`, `accepted`, `acceptance` | PENDING-B/C |
 | S-012 | 方法/结果：AUROC/AUPRC、阳性基率、事件数 | `tables/table2_main_results.csv` | 同 S-002 | `auroc`, `auprc`, `base_rate`, `positives`, `n` | PENDING-B/C |
