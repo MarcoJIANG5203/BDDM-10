@@ -4,7 +4,11 @@ Git维护代码、协议、状态、小样本和版本索引；较大数据和�
 
 当前发布目标为MarcoJIANG5203/BDDM-10，脚本读取artifacts/registry.json中的repository。历史报告里的zsj-6/EI仅用于溯源，新数据与产物交付均使用新仓库。
 
-11月3日已收到A分支的`a-clinical-protocol-v1-20261103-full-r1`候选，固定源提交`ec8fd750cc17038bb0a73c37e1537a1e7a4d780e`。B已在忽略缓存中按源字节核验；正式data Release和registry条目仍未发布，不能用`fetch`合成包来代替真实队列。当前A分支把临床文件直接放入Git，与本页约定不符；B不合并该数据树、不重写A历史，待A/C/E审核后由A/E发布版本包。临时复核固定提交的方法见[接收报告](../reviews/A_received_2026-11-03.md)。
+11月4日A后续草稿交付：A分支`6b2650e`把原始临床树从当前Git索引移除，保留不可变历史。草稿Release的review-data ZIP为4,663,092字节、SHA256 `3a84a2432d6d2332c68b7e49199da597df2b5c3d724ea208b490f2c609dd1527`；原始full-source ZIP为50,674,324字节、SHA256 `a57d16dc5432b2e2518bc5f754b706c60de7b94d3fb496870687d4a564770cb1`。A回执记载两个资产均实际下载、校验和空目录恢复；A分支registry保持`prepared`、`draft=true`，标准`fetch`不得当作正式数据。来源许可证冲突尚待数据保管方澄清，见[E协调记录](../handoffs/E/2026-11-04_A_C_D_B_coordination.md)。
+
+B候选补充包`b-candidate-v1-supplements-20261104-r1`已本地pack并空目录恢复核对：26文件、32,655,716字节、SHA256 `808537f305e7acb47fa01ce0eb5012d950b1224b92ca9c86ece470a1ee2e5e7f`。registry状态`prepared`且**未上传**，含临床逐患者结果与最小输入，许可澄清前不改标published；本地运行摘要随Git同步。
+
+11月3日已收到A分支的`a-clinical-protocol-v1-20261103-full-r1`候选，固定源提交`ec8fd750cc17038bb0a73c37e1537a1e7a4d780e`。B已在忽略缓存中按源字节核验；正式data Release仍未发布，不能用`fetch`合成包来代替真实队列。A早期提交曾把临床文件直接放入Git；后续A分支`6b2650e`已从当前索引移除临床树，保留历史源提交。B不合并该数据树、不重写A历史。临时复核固定提交的方法见[接收报告](../reviews/A_received_2026-11-03.md)。
 
 用户随后授权的B真实候选试跑使用版本包`b-candidate-natural-20261103-r1`交付。该包包含完整S0/S4 run、原字节最小输入（Parquet、audit、五split）和来源/许可，恢复到run记录的相对路径；不包含A全部原始ZIP。包的`kind=clinical_results`表示使用真实输入，`scientific_status=candidate_pre_freeze_not_accepted`表示仍未科学验收；Release标记pre-release。published只说明候选字节已上传，不是A正式data发布或C/E签收。
 
