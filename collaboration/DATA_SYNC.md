@@ -10,6 +10,8 @@ Git维护代码、协议、状态、小样本和版本索引；较大数据和�
 
 当前交付在B分支；同步该分支后可在registry状态为published时获取并复核：
 
+11月4日另有五种子五场景主模型候选包`b-candidate-v1-matrix-20261104-r1`，完整run及最小原字节输入按同一规则交付，registry已标published/pre-release。同步本分支后执行`python scripts/sync_artifacts.py fetch b-candidate-v1-matrix-20261104-r1`，再执行`python reviews/verify_b_artifacts.py results/candidate-clinical/20261104T002604_e3a5a42b`及`python reviews/verify_candidate_bootstrap.py results/candidate-clinical/20261104T002604_e3a5a42b --output .artifact-cache/candidate-full-bootstrap-recheck.json`。常规Release下载失败时可按下文的资产API方案替换bundle ID使用，并始终核对registry SHA256；本轮实际资产API下载123,342,522字节、SHA及空目录恢复已通过，证据见`reviews/B_candidate_v1_matrix_release_2026-11-04.json`。它仍是候选预冻结包，不是A正式data发布或C/E科学验收。
+
 ```powershell
 git fetch origin
 git switch b/core-methods-experiments

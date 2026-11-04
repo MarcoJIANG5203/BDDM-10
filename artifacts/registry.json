@@ -48,6 +48,37 @@
       "asset_id": 705559147,
       "asset_api": "repos/MarcoJIANG5203/BDDM-10/releases/assets/705559147",
       "download_fallback": "authenticated_gh_asset_api"
+    },
+    "b-candidate-v1-matrix-20261104-r1": {
+      "status": "published",
+      "kind": "clinical_results",
+      "tag": "b-candidate-v1-matrix-20261104-r1",
+      "asset": "b-candidate-v1-matrix-20261104-r1.zip",
+      "archive": "dist/artifacts/b-candidate-v1-matrix-20261104-r1.zip",
+      "sha256": "b701d0ee24156480235b9258b9be05a3640961c08d8cb3c2bbee046ceca3870f",
+      "bytes": 123342522,
+      "roots": [
+        "results/candidate-clinical/20261104T002604_e3a5a42b",
+        ".artifact-cache/a-receipt/ec8fd750cc17038bb0a73c37e1537a1e7a4d780e/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/data/processed/cohort.parquet",
+        ".artifact-cache/a-receipt/ec8fd750cc17038bb0a73c37e1537a1e7a4d780e/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/data/processed/cohort_audit.json",
+        ".artifact-cache/a-receipt/ec8fd750cc17038bb0a73c37e1537a1e7a4d780e/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/splits/seed_2026.json",
+        ".artifact-cache/a-receipt/ec8fd750cc17038bb0a73c37e1537a1e7a4d780e/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/splits/seed_2027.json",
+        ".artifact-cache/a-receipt/ec8fd750cc17038bb0a73c37e1537a1e7a4d780e/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/splits/seed_2028.json",
+        ".artifact-cache/a-receipt/ec8fd750cc17038bb0a73c37e1537a1e7a4d780e/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/splits/seed_2029.json",
+        ".artifact-cache/a-receipt/ec8fd750cc17038bb0a73c37e1537a1e7a4d780e/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/splits/seed_2030.json"
+      ],
+      "files": 53,
+      "scientific_status": "candidate_pre_freeze_not_accepted",
+      "prerelease": true,
+      "source_data_version": "a-clinical-protocol-v1-20261103-full-r1",
+      "source_data_commit": "ec8fd750cc17038bb0a73c37e1537a1e7a4d780e",
+      "run_id": "20261104T002604_e3a5a42b",
+      "purpose": "User-authorized v1 main-model candidate matrix; not A formal data release or C/E acceptance",
+      "url": "https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/b-candidate-v1-matrix-20261104-r1",
+      "release_tag_commit": "19689ec985278a757512cf87a4acd90c48f0d5b9",
+      "asset_id": 707671693,
+      "asset_api": "repos/MarcoJIANG5203/BDDM-10/releases/assets/707671693",
+      "download_fallback": "authenticated_gh_asset_api"
     }
   }
 }
