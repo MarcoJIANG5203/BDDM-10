@@ -1,6 +1,6 @@
 # D 岗位 · 论文与图表工作区
 
-本目录由 **D（图表与论文负责人）** 维护。当前状态：**D-001 / D-001a 已提交待验收**；D-002（真实结果稿、提交版 PDF 与材料清单）要等 A-001、C-001/C-002 与 B-002 真实结果验收后才能完成。**D-002 的前置条件与 A/B/C/E 待办见 [d002_readiness.md](d002_readiness.md)。**
+本目录由 **D（图表与论文负责人）** 维护。当前状态：**D-001 / D-001a 已提交待验收；D-002 准备（引用核实 + 英文稿骨架）已提交待验收**。D-002 的真实结果稿、提交版 PDF 与材料清单要等 A-001、C-001/C-002 与 B-002 真实结果验收后才能完成。**D-002 的前置条件与 A/B/C/E 待办见 [d002_readiness.md](d002_readiness.md)；引用范围见 [references_checklist.md](references_checklist.md)。**
 
 ## 目录约定
 
@@ -10,6 +10,9 @@ paper/
   outline.md             英文论文提纲、主张—证据台账、写作分工
   figure_list.md         图表清单、生成方式、来源与验收检查点
   source_index.md        正文每个数字的来源索引与核对规则
+  references_checklist.md  引用核实清单（C-002 输入 → D 可引用范围）
+  references.bib         只含已核实元数据的 6 条 BibTeX
+  draft_v0.md            英文稿骨架；结果全部占位，不可提交
   d002_readiness.md      D-002 门槛、A/B/C/E 待办与当前数据状态
   acceptance_record_template.json  C/E 签认记录模板（模板本身不是验收）
   runs/<run_id>/figures/ 真实临床 run 生成的论文图（D-002；当前未生成）
@@ -69,7 +72,7 @@ python scripts/make_figures.py `
 - 摘要、正文、图表必须使用同一 run、同一过滤条件；C 核对数字与引用，E 检查全文一致性。
 - 合成结果只能用于软件与流程验证，不能支持临床结论、效果方向、覆盖率保证或安全声明。
 
-## 当前交付（D-001 / D-001a）
+## 当前交付（D-001 / D-001a / D-002 准备）
 
 | 交付 | 路径 | 状态 |
 |---|---|---|
@@ -78,7 +81,11 @@ python scripts/make_figures.py `
 | 论文提纲 | `paper/outline.md` | 已提交待验收 |
 | 图表清单 | `paper/figure_list.md` | 已提交待验收 |
 | 来源索引 | `paper/source_index.md` | 已提交待验收 |
+| 引用核实清单 | `paper/references_checklist.md` | 已提交待验收（R5 未找到，禁止引用） |
+| 已核实 BibTeX | `paper/references.bib` | 6 条；R5 未写入 |
+| 英文稿骨架 v0 | `paper/draft_v0.md` | 结果全占位；不可提交 |
 | D-002 就绪清单与 A/B/C 待办 | `paper/d002_readiness.md` | 已提交待验收 |
 | 合成 run 验证输出 | `paper/validation/20261102T063118_fa76f8a8/` | 仅软件验证，非临床证据 |
 | D-001 交付记录 | `handoffs/D/2026-11-04_D-001.md` | 已提交待验收 |
 | D-001a 交付记录 | `handoffs/D/2026-11-04_D-001a_acceptance_gate.md` | 已提交待验收 |
+| D-002 准备记录 | `handoffs/D/2026-11-04_D-002_prep.md` | 已提交待验收 |
