@@ -1,8 +1,8 @@
-# 图表清单与来源索引（D-001）
+# 图表清单与来源索引（D-001 / D-001a）
 
 更新：2026-11-04。负责人：D。验收：C 核对数字/引用，E 检查全文一致性。
 
-**当前状态：** 只有合成 run 的软件验证输出，位于 `paper/validation/20261102T063118_fa76f8a8/`。这些图不是临床结果，不得进入论文。真实临床图表要等 A-001、C-001 和 B-002 验收后，用 `scripts/make_figures.py` 从 `results/clinical/<run_id>` 生成到 `paper/runs/<run_id>/figures/` 与 `paper/runs/<run_id>/tables/`。
+**当前状态：** 只有合成 run 的软件验证输出，位于 `paper/validation/20261102T063118_fa76f8a8/`。这些图不是临床结果，不得进入论文。真实临床图表要等 A-001、C-001 和 B-002 验收后，用 `scripts/make_figures.py` 从 `results/clinical/<run_id>` 生成到 `paper/runs/<run_id>/figures/` 与 `paper/runs/<run_id>/tables/`。**临床 run 还必须附带 C/E 签认记录 `reviews/acceptance/<run_id>.json`；脚本会拒绝任何没有签认的临床 run，包括当前 B 的候选矩阵。** 前置条件见 [d002_readiness.md](d002_readiness.md)。
 
 ## 状态图例
 
@@ -71,19 +71,22 @@ python scripts/make_figures.py `
 ## D-002 替换流程（真实结果到位后）
 
 1. 只接受 B-002 已验收、C 独立核算、E 记录的临床 run；先检查 `manifest.run_status=completed`、`synthetic=false`、artifact hashes 全匹配。
-2. 运行：
+2. 确认 `reviews/acceptance/<accepted_run_id>.json` 已由 C/E 签署，且 `manifest_sha256`、`run_id`、协议/数据版本与 run 一致；模板见 `paper/acceptance_record_template.json`。没有签认记录时脚本直接拒绝，不能生成论文图。
+3. 运行：
    ```powershell
    python scripts/make_figures.py `
      --run-dir results/clinical/<accepted_run_id> `
      --cohort data/processed/cohort.parquet `
-     --audit data/processed/cohort_audit.json
+     --audit data/processed/cohort_audit.json `
+     --acceptance-file reviews/acceptance/<accepted_run_id>.json
    ```
    输出默认到 `paper/runs/<accepted_run_id>/`，不会覆盖其他 run。
-3. 更新 `paper/source_index.md` 的 run_id、文件路径和 SHA256；删除/归档旧的验证引用，但 `paper/validation/` 保留作软件证据。
-4. C 核对 Table 2/2b 与摘要数字；E 检查全文一致性；D 才可把图放进投稿稿。
+4. 更新 `paper/source_index.md` 的 run_id、文件路径和 SHA256；删除/归档旧的验证引用，但 `paper/validation/` 保留作软件证据。
+5. C 核对 Table 2/2b 与摘要数字；E 检查全文一致性；D 才可把图放进投稿稿。
 
 ## 审稿检查点（C/E）
 
+- [ ] 临床 run 有 `reviews/acceptance/<run_id>.json`，且 `provenance.json.acceptance` 的路径/哈希/签认与之一致。
 - [ ] 图的每个数字能在 `tables/*_data.csv` 找到，且过滤条件与图注一致。
 - [ ] Table 2 的 B0 使用 M=1 且 target 为空；B1 使用 M=10 且 target 为空；B2–B6 使用同一候选池、同一 K。
 - [ ] 容量不足时报告 `actual_acceptance` 与 `pool_size`，不把整池接受解释为排序差异。

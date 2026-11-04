@@ -1,6 +1,6 @@
 # D 岗位 · 论文与图表工作区
 
-本目录由 **D（图表与论文负责人）** 维护。当前状态：**D-001 已提交待验收**；D-002（真实结果稿、提交版 PDF 与材料清单）要等 A-001、C-001/C-002 与 B-002 真实结果验收后才能完成。
+本目录由 **D（图表与论文负责人）** 维护。当前状态：**D-001 / D-001a 已提交待验收**；D-002（真实结果稿、提交版 PDF 与材料清单）要等 A-001、C-001/C-002 与 B-002 真实结果验收后才能完成。**D-002 的前置条件与 A/B/C/E 待办见 [d002_readiness.md](d002_readiness.md)。**
 
 ## 目录约定
 
@@ -10,6 +10,8 @@ paper/
   outline.md             英文论文提纲、主张—证据台账、写作分工
   figure_list.md         图表清单、生成方式、来源与验收检查点
   source_index.md        正文每个数字的来源索引与核对规则
+  d002_readiness.md      D-002 门槛、A/B/C/E 待办与当前数据状态
+  acceptance_record_template.json  C/E 签认记录模板（模板本身不是验收）
   runs/<run_id>/figures/ 真实临床 run 生成的论文图（D-002；当前未生成）
   runs/<run_id>/tables/  真实临床 run 生成的论文表（D-002；当前未生成）
   validation/<run_id>/   仅合成 run 的软件验证输出，全部带“非临床证据”水印
@@ -19,7 +21,7 @@ paper/
 
 ## 生成命令
 
-真实临床 run（D-002；需要 B/C/E 已验收该 run）：
+真实临床 run（D-002；需要 B/C/E 已验收该 run，且 `reviews/acceptance/<run_id>.json` 已签认）：
 
 ```powershell
 python scripts/make_figures.py `
@@ -27,6 +29,18 @@ python scripts/make_figures.py `
   --cohort data/processed/cohort.parquet `
   --audit data/processed/cohort_audit.json
 ```
+
+签认记录默认从 `reviews/acceptance/<run_id>.json` 读取；也可以显式指定：
+
+```powershell
+python scripts/make_figures.py `
+  --run-dir results/clinical/<run_id> `
+  --cohort data/processed/cohort.parquet `
+  --audit data/processed/cohort_audit.json `
+  --acceptance-file reviews/acceptance/<run_id>.json
+```
+
+签认记录必须匹配 run 的 `manifest_sha256`、`run_id`、协议与数据版本，并包含 C/E 的姓名、日期、决定和证据路径；模板见 `paper/acceptance_record_template.json`。
 
 仅合成 run 的软件验证（D-001；输出强制加水印）：
 
@@ -42,8 +56,9 @@ python scripts/make_figures.py `
 
 1. 读取 `manifest.json`，要求 `run_status=completed`，并逐个核对 `artifact_hashes`；任何文件缺失或被改动都会拒绝生成。
 2. 合成 run 未加 `--validation-only` 时直接报错，不允许生成论文图；加了该参数后，所有输出带 “SYNTHETIC SOFTWARE VALIDATION — NOT CLINICAL EVIDENCE” 水印。
-3. 输出表格、图、**图背后的数据 CSV**、`provenance.json`（输入/输出 SHA256、run、过滤器、脚本哈希）。
-4. 不覆盖已有输出，除非显式 `--overwrite`；历史 run 不被改写。
+3. 真实临床 run 必须有 C/E 签认记录（默认 `reviews/acceptance/<run_id>.json`）；缺少、哈希不匹配、run_id/协议/数据版本不符或 C/E 未签，脚本都直接拒绝。候选 run 和未冻结 run 不能生成论文图。
+4. 输出表格、图、**图背后的数据 CSV**、`provenance.json`（输入/输出 SHA256、run、过滤器、脚本哈希、acceptance 记录）。
+5. 不覆盖已有输出，除非显式 `--overwrite`；历史 run 不被改写。
 
 依赖：`matplotlib==3.11.2` 已加入 `requirements.txt` / `requirements-lock.txt`（D-001 新增）。
 
@@ -54,13 +69,16 @@ python scripts/make_figures.py `
 - 摘要、正文、图表必须使用同一 run、同一过滤条件；C 核对数字与引用，E 检查全文一致性。
 - 合成结果只能用于软件与流程验证，不能支持临床结论、效果方向、覆盖率保证或安全声明。
 
-## 当前交付（D-001）
+## 当前交付（D-001 / D-001a）
 
 | 交付 | 路径 | 状态 |
 |---|---|---|
 | 图表/表格脚本 | `scripts/make_figures.py` | 已提交待验收 |
+| 临床 run 签认门槛（D-001a） | `scripts/make_figures.py`、`paper/acceptance_record_template.json` | 已提交待验收 |
 | 论文提纲 | `paper/outline.md` | 已提交待验收 |
 | 图表清单 | `paper/figure_list.md` | 已提交待验收 |
 | 来源索引 | `paper/source_index.md` | 已提交待验收 |
+| D-002 就绪清单与 A/B/C 待办 | `paper/d002_readiness.md` | 已提交待验收 |
 | 合成 run 验证输出 | `paper/validation/20261102T063118_fa76f8a8/` | 仅软件验证，非临床证据 |
-| 交付记录 | `handoffs/D/2026-11-04_D-001.md` | 已提交待验收 |
+| D-001 交付记录 | `handoffs/D/2026-11-04_D-001.md` | 已提交待验收 |
+| D-001a 交付记录 | `handoffs/D/2026-11-04_D-001a_acceptance_gate.md` | 已提交待验收 |

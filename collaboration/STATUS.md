@@ -9,7 +9,7 @@
 | A 数据与基础实验 | 待正式数据交付 | 已有[接口说明](../docs/A到B_数据交接说明.md)，暂无真实队列 | A-001：队列、五split、audit和时间标签核对；B接通，C核验，E定版本 |
 | B 核心方法与实验 | 程序和合成验证完成；临床实验待A | [交付记录](../handoffs/B/2026-11-02.md)、[原算法验收](../reviews/B_最终验收.md) | B-002：先主种子S0再正式矩阵；C核算、D制图、E核公平性 |
 | C 文献与独立核验 | 待成员提交文献及验收记录 | B代码已有独立复核，不替代C真实标签/指标核验 | C-001标签、C-002文献/投稿要求、C-003真实指标；交A/B/D/E |
-| D 图表与论文 | D-001已提交待验收：提纲、图表脚本、清单/来源索引；合成run仅软件验证 | [D-001交付记录](../handoffs/D/2026-11-04_D-001.md)、[论文工作区](../paper/README.md)、[合成验证provenance](../paper/validation/20261102T063118_fa76f8a8/provenance.json) | D-002真实结果稿件需A-001/C-001/C-002/B-002；C核对数字与引用，E检查一致性 |
+| D 图表与论文 | D-001/D-001a已提交待验收：提纲、图表脚本、清单/来源索引；临床run必须有C/E签认；合成run仅软件验证 | [D-001交付记录](../handoffs/D/2026-11-04_D-001.md)、[D-001a门槛记录](../handoffs/D/2026-11-04_D-001a_acceptance_gate.md)、[D-002就绪清单](../paper/d002_readiness.md)、[论文工作区](../paper/README.md)、[合成验证provenance](../paper/validation/20261102T063118_fa76f8a8/provenance.json) | D-002需A-001签认+正式data Release、C-001/C-002、E冻结、B-002正式run及C/E签认；C核对数字/引用，E检查一致性 |
 | E 统筹与整合 | 新仓库迁移及同步验证完成；持续统筹 | [新仓库交付记录](../handoffs/E/2026-11-02_repository_migration.md)；新Release已published；新克隆32测试和完整恢复核算通过 | E-001在BDDM-10维护状态/要求/版本，跟进11月3日数据门槛；全组检查各自范围 |
 
 正式数据版本：**未发布**。可下载包仅为B合成验证，版本索引见[registry](../artifacts/registry.json)。当前临床实验前置项是A-001及C的标签核查；B收到有效队列后才能产真实主表，D再写结果。

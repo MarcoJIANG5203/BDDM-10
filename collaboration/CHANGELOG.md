@@ -2,6 +2,13 @@
 
 新记录放最上方，写日期、负责人、变更、影响的旧结果与处理方式。
 
+## 2026-11-04 · D-001a 临床 run 签认门槛
+
+- D 的 `scripts/make_figures.py` 新增硬门槛：真实临床 run 必须有 `reviews/acceptance/<run_id>.json`，且 `run_id`、`manifest_sha256`、协议/数据版本匹配，C/E 均签认；否则拒绝生成论文图。
+- 新增模板 `paper/acceptance_record_template.json`、就绪清单 `paper/d002_readiness.md` 与 D-001a 交付记录；合成 run 仍只走 `--validation-only` 并加水印。
+- B 的候选 run `20261104T002604_e3a5a42b` 是预冻结候选，脚本会拒绝其生成论文图；候选 run 不作为正式 B-002 或 D-002 数字来源。
+- 不改协议、数据、split、标签、模型或已有 run；无旧结果受影响。D-002 需 A-001 签认/正式 Release、C-001/C-002、E 冻结、B-002 正式 run 与 C/E 签认。
+
 ## 2026-11-04 · D-001 图表与论文工作区
 
 - D 新增 `scripts/make_figures.py`、`paper/` 提纲/图表清单/来源索引/README、`tests/test_make_figures.py` 和 D-001 交付记录。

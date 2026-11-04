@@ -7,6 +7,9 @@ The script is intentionally strict:
   using a run;
 * it refuses to turn a synthetic run into paper results unless
   ``--validation-only`` is passed, in which case every output is watermarked;
+* a clinical run must have a C/E-signed acceptance record (by default
+  ``reviews/acceptance/<run_id>.json``) whose manifest SHA256 matches the run;
+  candidate or otherwise unaccepted runs are refused;
 * every plotted or tabulated number is computed from the run's CSV/JSON files;
   no result number is typed into the script or the paper by hand;
 * the data behind each figure is written next to the figure so every number can
@@ -77,6 +80,11 @@ LABELS = {
 
 class ProvenanceError(RuntimeError):
     """Raised when a run cannot be used as evidence."""
+
+
+ACCEPTANCE_SCHEMA_VERSION = 1
+ACCEPTANCE_STATUSES = {"accepted", "accepted_with_limits"}
+ACCEPTANCE_DECISIONS = {"accepted", "accepted_with_limits"}
 
 
 def utc_now() -> str:
@@ -153,6 +161,79 @@ def ensure_synthetic_policy(manifest: dict, validation_only: bool) -> None:
             "--validation-only is only valid for synthetic runs; a clinical run must "
             "be rendered without that flag."
         )
+
+
+def _nonempty_text(record: dict, key: str) -> bool:
+    value = record.get(key)
+    return isinstance(value, str) and value.strip() != ""
+
+
+def load_acceptance(
+    run_dir: Path,
+    manifest: dict,
+    config: dict,
+    acceptance_file: Path | None,
+    repo_root: Path,
+) -> dict | None:
+    """Load and validate the C/E acceptance record for a clinical run.
+
+    Synthetic runs never use an acceptance record (they use --validation-only).
+    A clinical run without a signed record is refused: a candidate or otherwise
+    unaccepted run must not be turned into paper figures.
+    """
+    synthetic = bool(manifest.get("synthetic"))
+    if synthetic:
+        if acceptance_file is not None:
+            raise ProvenanceError("--acceptance-file is only valid for clinical runs")
+        return None
+
+    run_id = str(manifest.get("run_id"))
+    path = Path(acceptance_file) if acceptance_file is not None else (
+        repo_root / "reviews" / "acceptance" / f"{run_id}.json"
+    )
+    if not path.is_file():
+        raise ProvenanceError(
+            "Clinical runs require a C/E-signed acceptance record before figures may be "
+            f"generated. Expected {path}. A candidate or unaccepted run must not be used "
+            "for paper figures; see paper/d002_readiness.md."
+        )
+    try:
+        record = load_json(path)
+    except Exception as error:
+        raise ProvenanceError(f"cannot parse acceptance record {path}: {error}") from error
+    if not isinstance(record, dict):
+        raise ProvenanceError(f"acceptance record {path} must be a JSON object")
+
+    def require(condition: bool, message: str) -> None:
+        if not condition:
+            raise ProvenanceError(f"acceptance record {path}: {message}")
+
+    require(record.get("schema_version") == ACCEPTANCE_SCHEMA_VERSION, f"schema_version must be {ACCEPTANCE_SCHEMA_VERSION}")
+    require(record.get("synthetic") is False, "synthetic must be false")
+    require(record.get("status") in ACCEPTANCE_STATUSES, f"status must be one of {sorted(ACCEPTANCE_STATUSES)}")
+    require(record.get("run_id") == run_id, f"run_id must match {run_id!r}")
+    require(
+        record.get("manifest_sha256") == sha256_file(run_dir / "manifest.json"),
+        "manifest_sha256 must match this run's manifest.json",
+    )
+    require(
+        record.get("protocol_version") == config.get("protocol_version", "v1"),
+        "protocol_version must match config.yaml",
+    )
+    if manifest.get("data_version") is not None:
+        require(record.get("data_version") == manifest.get("data_version"), "data_version must match the run manifest")
+    require(_nonempty_text(record, "scope"), "scope must describe what was accepted")
+    require(_nonempty_text(record, "accepted_at"), "accepted_at must be a non-empty timestamp")
+    signoffs = record.get("signoffs")
+    require(isinstance(signoffs, dict), "signoffs must be an object with C and E entries")
+    for role in ("C", "E"):
+        signoff = signoffs.get(role)
+        require(isinstance(signoff, dict), f"missing {role} signoff")
+        require(_nonempty_text(signoff, "name"), f"{role}.name is required")
+        require(_nonempty_text(signoff, "date"), f"{role}.date is required")
+        require(signoff.get("decision") in ACCEPTANCE_DECISIONS, f"{role}.decision must be one of {sorted(ACCEPTANCE_DECISIONS)}")
+        require(_nonempty_text(signoff, "evidence"), f"{role}.evidence is required")
+    return {"path": path, "sha256": sha256_file(path), "record": record}
 
 
 def load_config(run_dir: Path) -> dict:
@@ -967,7 +1048,7 @@ def figure_missingness(missingness: pd.DataFrame, out_dir: Path, formats: list[s
     return _save(fig, out_dir, "fig1_missingness", formats, synthetic)
 
 
-def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_path: Path | None, formats: list[str], validation_only: bool, overwrite: bool, repo_root: Path) -> dict:
+def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_path: Path | None, formats: list[str], validation_only: bool, overwrite: bool, repo_root: Path, acceptance_file: Path | None = None) -> dict:
     manifest_path = run_dir / "manifest.json"
     if not manifest_path.is_file():
         raise ProvenanceError(f"missing manifest.json in {run_dir}")
@@ -977,8 +1058,9 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
     if str(manifest.get("run_id")) != run_dir.name:
         raise ProvenanceError("manifest run_id does not match the run directory name")
     ensure_synthetic_policy(manifest, validation_only)
-    verified = verify_artifact_hashes(run_dir, manifest)
     config = load_config(run_dir)
+    acceptance = load_acceptance(run_dir, manifest, config, acceptance_file, repo_root)
+    verified = verify_artifact_hashes(run_dir, manifest)
 
     metrics = _load_csv(run_dir, "metrics.csv")
     coverage = _load_csv(run_dir, "coverage_strata.csv")
@@ -1079,6 +1161,20 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
             "protocol_version": config.get("protocol_version", "v1"),
             "config_sha256": manifest.get("config_sha256"),
         },
+        "acceptance": None if acceptance is None else {
+            "path": display_path(acceptance["path"], repo_root),
+            "sha256": acceptance["sha256"],
+            "status": acceptance["record"].get("status"),
+            "scope": acceptance["record"].get("scope"),
+            "accepted_at": acceptance["record"].get("accepted_at"),
+            "signoffs": {
+                role: {
+                    "decision": acceptance["record"]["signoffs"][role].get("decision"),
+                    "date": acceptance["record"]["signoffs"][role].get("date"),
+                }
+                for role in ("C", "E")
+            },
+        },
         "filters": {
             "primary_seed": ctx["split_seed"],
             "model": ctx["model"],
@@ -1099,7 +1195,7 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
         "warning": (
             "Synthetic software-validation outputs only; not clinical evidence."
             if synthetic
-            else "Clinical run; verify acceptance and C's independent audit before citing."
+            else "Clinical run with a C/E acceptance record; check the record's scope and evidence before citing."
         ),
     }
     provenance_path = out_dir / "provenance.json"
@@ -1110,6 +1206,7 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
             f"run_id: {manifest.get('run_id')}\n"
             f"synthetic: {synthetic}\n"
             f"validation_only: {validation_only}\n"
+            f"acceptance: {display_path(acceptance['path'], repo_root) if acceptance else 'not required (synthetic validation)'}\n"
             "Every table/figure here is computed from the run listed in provenance.json.\n"
             "Do not hand-edit numbers; regenerate from a new immutable run instead.\n"
             + ("\nTHIS IS SYNTHETIC SOFTWARE VALIDATION, NOT CLINICAL EVIDENCE.\n" if synthetic else "")
@@ -1133,6 +1230,11 @@ def parse_args(argv=None):
     parser.add_argument("--audit", default=None, help="cohort audit JSON for Table 1")
     parser.add_argument("--formats", default="pdf,png", help="comma-separated figure formats (default: pdf,png)")
     parser.add_argument("--validation-only", action="store_true", help="required to render a synthetic run; outputs are watermarked QA artifacts")
+    parser.add_argument(
+        "--acceptance-file",
+        default=None,
+        help="C/E-signed acceptance JSON for a clinical run; defaults to reviews/acceptance/<run_id>.json",
+    )
     parser.add_argument("--overwrite", action="store_true", help="allow replacing a non-empty output directory")
     return parser.parse_args(argv)
 
@@ -1152,6 +1254,7 @@ def main(argv=None) -> int:
         raise SystemExit(f"--formats must be a comma-separated subset of {sorted(allowed)}")
     cohort_path = Path(args.cohort).resolve() if args.cohort else None
     audit_path = Path(args.audit).resolve() if args.audit else None
+    acceptance_file = Path(args.acceptance_file).resolve() if args.acceptance_file else None
     try:
         result = build_outputs(
             run_dir=run_dir,
@@ -1162,6 +1265,7 @@ def main(argv=None) -> int:
             validation_only=args.validation_only,
             overwrite=args.overwrite,
             repo_root=repo_root,
+            acceptance_file=acceptance_file,
         )
     except ProvenanceError as error:
         print(f"ERROR: {error}", file=sys.stderr)

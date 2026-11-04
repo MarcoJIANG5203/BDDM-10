@@ -5,6 +5,7 @@ per-method M selection that previously could silently drop B0 (M=1) or the
 median coverage baseline.
 """
 import importlib.util
+import json
 from pathlib import Path
 
 import pandas as pd
@@ -147,6 +148,93 @@ def test_coverage_table_keeps_median_m1():
     table = make_figures.build_coverage_table(pd.DataFrame(rows), context)
     assert set(table["predictor"]) == {"MI", "median"}
     assert len(table) == 12
+
+
+def _clinical_run(tmp_path):
+    run = tmp_path / "run-1"
+    run.mkdir()
+    manifest = {
+        "run_id": "run-1",
+        "synthetic": False,
+        "run_status": "completed",
+        "data_version": "data-v1",
+    }
+    (run / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+    (run / "config.yaml").write_text("protocol_version: v1\n", encoding="utf-8")
+    return run, manifest
+
+
+def _acceptance_record(run, manifest, **overrides):
+    record = {
+        "schema_version": 1,
+        "run_id": "run-1",
+        "manifest_sha256": make_figures.sha256_file(run / "manifest.json"),
+        "synthetic": False,
+        "protocol_version": "v1",
+        "data_version": "data-v1",
+        "status": "accepted",
+        "scope": "D-002 figures and tables",
+        "accepted_at": "2026-11-04T00:00:00Z",
+        "signoffs": {
+            "C": {
+                "name": "C",
+                "date": "2026-11-04",
+                "decision": "accepted",
+                "evidence": "handoffs/C/example.md",
+            },
+            "E": {
+                "name": "E",
+                "date": "2026-11-04",
+                "decision": "accepted",
+                "evidence": "handoffs/E/example.md",
+            },
+        },
+    }
+    record.update(overrides)
+    path = run.parent / "acceptance.json"
+    path.write_text(json.dumps(record), encoding="utf-8")
+    return path, record
+
+
+def test_clinical_run_requires_acceptance_record(tmp_path):
+    run, manifest = _clinical_run(tmp_path)
+    with pytest.raises(make_figures.ProvenanceError, match="require a C/E-signed acceptance record"):
+        make_figures.load_acceptance(run, manifest, {"protocol_version": "v1"}, None, tmp_path)
+
+
+def test_acceptance_record_requires_c_and_e_signoffs(tmp_path):
+    run, manifest = _clinical_run(tmp_path)
+    path, record = _acceptance_record(run, manifest)
+    del record["signoffs"]["E"]
+    path.write_text(json.dumps(record), encoding="utf-8")
+    with pytest.raises(make_figures.ProvenanceError, match="missing E signoff"):
+        make_figures.load_acceptance(run, manifest, {"protocol_version": "v1"}, path, tmp_path)
+
+
+def test_acceptance_record_must_match_manifest_hash(tmp_path):
+    run, manifest = _clinical_run(tmp_path)
+    path, record = _acceptance_record(run, manifest, manifest_sha256="0" * 64)
+    path.write_text(json.dumps(record), encoding="utf-8")
+    with pytest.raises(make_figures.ProvenanceError, match="manifest_sha256"):
+        make_figures.load_acceptance(run, manifest, {"protocol_version": "v1"}, path, tmp_path)
+
+
+def test_valid_acceptance_record_is_returned(tmp_path):
+    run, manifest = _clinical_run(tmp_path)
+    path, record = _acceptance_record(run, manifest)
+    result = make_figures.load_acceptance(run, manifest, {"protocol_version": "v1"}, path, tmp_path)
+    assert result is not None
+    assert result["record"]["run_id"] == "run-1"
+    assert result["sha256"] == make_figures.sha256_file(path)
+
+
+def test_synthetic_run_rejects_acceptance_file(tmp_path):
+    run = tmp_path / "run-1"
+    run.mkdir()
+    manifest = {"run_id": "run-1", "synthetic": True, "run_status": "completed"}
+    (run / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+    with pytest.raises(make_figures.ProvenanceError, match="only valid for clinical runs"):
+        make_figures.load_acceptance(run, manifest, {"protocol_version": "v1"}, tmp_path / "x.json", tmp_path)
 
 
 def test_wilson_interval_boundaries():
