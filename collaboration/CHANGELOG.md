@@ -2,6 +2,12 @@
 
 新记录放最上方，写日期、负责人、变更、影响的旧结果与处理方式。
 
+## 2026-11-04 · A formal technical data published and content frozen
+
+- Published immutable `a-data-v1-20261104-r1`, SHA256 `feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c`; actual download and restore match31 scientific hashes. Data/model methods, labels and five splits unchanged; version/audit metadata and approval provenance updated.
+- Owner explicitly requests formal delivery and reports E approval (`e已批准`). No E direct signer/date/original text, official custodian reply or result acceptance is fabricated. Official licensing conflict remains unresolved; both source notices are preserved. This records an owner-authorized publication exception to the prior waiting process.
+- A data content freeze is signed; B runs anew from exact formal bytes, with C/E result review and D gates retained. Prior candidate runs and source archive bytes remain immutable.
+
 ## 2026-11-04 · A retain-v1 owner confirmation and delivery cleanup
 
 - The user explicitly confirmed Yicheng Jiang / MarcoJIANG5203 as A owner, retaining full-r1/v1 and acknowledging automated technical checks and event-count limitations. This does not sign C/E or override E freeze deferral.

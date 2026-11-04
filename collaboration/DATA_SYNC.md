@@ -1,5 +1,10 @@
 # 数据和完整产物同步
 
+## Current formal A delivery —2026-11-04
+
+`a-data-v1-20261104-r1` is actually published and downloadable; use `python scripts/sync_artifacts.py fetch a-data-v1-20261104-r1` after obtaining its registry entry. A data content freeze is signed and binds exact hashes. Prior source/review assets are published historical prereleases. The A owner explicitly instructs publication and reports E approval; direct E signoff and official licensing resolution are not supplied. This is an owner-authorized publication exception to the earlier waiting workflow, not a claim those source-clearance steps occurred. C conditional review and B/D scientific result acceptance remain separate.
+
+
 ## A review update — 2026-11-04
 
 A owner confirmation and full raw PSV receipt are complete. The new review-data and immutable full-source assets are staged for a **draft** Release under tag `a-v1-review-delivery-20261104-r1`; actual remote state is recorded in the registry and transport receipt. These entries stay `prepared`, not formal `published`. Standard fetch intentionally refuses them; see [authenticated review recovery](A_DATA_REVIEW_2026-11-04.md). Source license clarification, C receipt review and E/team freeze remain outstanding. The old full source archive retains its original audit; the current review-data archive has an explicitly annotated audit metadata revision with the same cohort/split bytes.

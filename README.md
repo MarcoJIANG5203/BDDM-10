@@ -1,3 +1,5 @@
+A formal technical data: [a-data-v1-20261104-r1](https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/a-data-v1-20261104-r1). See [A freeze handoff](handoffs/A/2026-11-04_formal_data_freeze_EN.md). E approval is user-reported; official licensing conflict remains unresolved. This is dataset content freeze, not clinical result acceptance.
+
 # BDDM-10 · T1 团队协作仓库
 
 研究：**缺失临床数据中基于多重插补预测分歧的共形拒识评估**。

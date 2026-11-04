@@ -1,5 +1,10 @@
 # 成员交付要求与验收矩阵
 
+## Current formal A delivery —2026-11-04
+
+`a-data-v1-20261104-r1` is actually published and downloadable; use `python scripts/sync_artifacts.py fetch a-data-v1-20261104-r1` after obtaining its registry entry. A data content freeze is signed and binds exact hashes. Prior source/review assets are published historical prereleases. The A owner explicitly instructs publication and reports E approval; direct E signoff and official licensing resolution are not supplied. This is an owner-authorized publication exception to the earlier waiting workflow, not a claim those source-clearance steps occurred. C conditional review and B/D scientific result acceptance remain separate.
+
+
 更新日期：2026-11-02。要求变化时改本页并写[CHANGELOG](CHANGELOG.md)，验收用[交付模板](../handoffs/TEMPLATE.md)。
 
 统一交付仓库已切换为MarcoJIANG5203/BDDM-10。下列路径均相对此仓库，新的代码、数据版本、记录和PR不再提交到旧zsj-6/EI。

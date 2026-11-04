@@ -35,3 +35,6 @@ reviews/license/** whitespace=cr-at-eol
 reviews/A_raw_receipt_* -text
 tests/test_a_raw_psv_receipt.py -text
 reviews/A_remote_* -text
+reviews/freeze/** -text
+reviews/freeze/** whitespace=cr-at-eol
+reviews/A_formal_* -text

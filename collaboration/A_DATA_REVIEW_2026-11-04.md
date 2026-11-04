@@ -1,3 +1,5 @@
+> Superseded delivery status: A formal technical data version is now published at https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/a-data-v1-20261104-r1. See `handoffs/A/2026-11-04_formal_data_freeze_EN.md`. Older draft-state paragraphs below are historical. E approval is user-reported; licensing clarification remains unresolved; B results are not frozen.
+
 # A v1 review delivery and formal-release boundary
 
 The owner has confirmed retaining existing protocol-v1 data, labels, splits and methods. The data's scientific version remains `a-clinical-protocol-v1-20261103-full-r1`. Delivery revision `a-v1-review-data-20261104-r1` annotates the audit with the explicitly confirmed owner record and links to the original audit hash. No clinical value or split has changed.
