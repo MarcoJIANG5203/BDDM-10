@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "calls": 10,
+  "delivery_revision": "a-v1-review-data-20261104-r1",
+  "data_version": "a-clinical-protocol-v1-20261103-full-r1",
+  "parent_audit_sha256": "ea46bb5770faf0fa61f3049a42fa04dbb3a0e10e2def04375e70beab35eb102b",
+  "delivery_audit_sha256": "789938b95adc580a352ccd8f36f46962ad2eeeb851c2fb775e9aa23417db7cd2",
+  "B_commit": "f15fbc8d72f4a11a365d1e0eb4fd1e9749f19925",
+  "clinical_rows_splits_unchanged": true,
+  "owner_confirmation": "CONFIRMED_BY_USER",
+  "C_E_freeze": false
+}

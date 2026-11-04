@@ -1,0 +1,16 @@
+{
+  "b-candidate-natural-20261103-r1": {
+    "asset_id": 705559147,
+    "bytes": 21522751,
+    "digest": "sha256:5d5879dd112d329a5b3079dbdc8d5588a7bdf82c4c1e596e4b15b98751fabd33",
+    "metadata_verified": true,
+    "new_full_download_performed": false
+  },
+  "b-candidate-v1-matrix-20261104-r1": {
+    "asset_id": 707671693,
+    "bytes": 123342522,
+    "digest": "sha256:b701d0ee24156480235b9258b9be05a3640961c08d8cb3c2bbee046ceca3870f",
+    "metadata_verified": true,
+    "new_full_download_performed": false
+  }
+}

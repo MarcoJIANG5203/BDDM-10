@@ -1,0 +1,30 @@
+A: 10000 raw records checked
+A: 20000 raw records checked
+A: all 20336 checked
+B: 10000 raw records checked
+B: 20000 raw records checked
+B: all 20000 checked
+{
+  "verification_status": "VERIFIED_WITHIN_DECLARED_TECHNICAL_SCOPE",
+  "all_raw_records_sha256_md5_and_rules_verified": 40336,
+  "included_labels_verified": 24095,
+  "included_feature_cells_exactly_checked": 867420,
+  "B_loader_calls": 10,
+  "sequential_counts": {
+    "included": 24095,
+    "missing_initial_hours": 8793,
+    "insufficient_followup": 7448
+  },
+  "included_onset_categories": {
+    "A": {
+      "no_observed_positive_label": 9444,
+      "after_24": 673,
+      "13_to_24": 57
+    },
+    "B": {
+      "no_observed_positive_label": 13283,
+      "after_24": 600,
+      "13_to_24": 38
+    }
+  }
+}

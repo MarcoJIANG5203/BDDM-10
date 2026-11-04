@@ -2,6 +2,14 @@
 
 新记录放最上方，写日期、负责人、变更、影响的旧结果与处理方式。
 
+## 2026-11-04 · A retain-v1 owner confirmation and delivery cleanup
+
+- The user explicitly confirmed Yicheng Jiang / MarcoJIANG5203 as A owner, retaining full-r1/v1 and acknowledging automated technical checks and event-count limitations. This does not sign C/E or override E freeze deferral.
+- Exposed supplemental evidence at directly readable paths and added an independent raw PSV receipt:40336 raw files,24095 labels and867420 input cells. Current B interface passed ten calls.
+- Removed the full clinical tree from the current Git index; preserved original full ZIP and original manifests, and prepared current data plus per-record receipt in versioned review assets. Historical Git commits are not rewritten.
+- Delivery audit adds owner/review references and parent audit SHA; scientific cohort/splits/source clinical bytes and protocol remain unchanged. Original audit stays intact in the full source asset.
+- Official CC BY4.0 display versus ODbL downloadable LICENSE conflict reproduced. An English request is ready but not sent; no license selected. Formal publication, C raw-receipt acceptance and E joint freeze remain pending.
+
 ## 2026-11-02 · 切换至BDDM-10
 
 - 按用户要求改用MarcoJIANG5203/BDDM-10作为统一仓库，合并新仓库初始README提交并保留旧项目完整提交历史。

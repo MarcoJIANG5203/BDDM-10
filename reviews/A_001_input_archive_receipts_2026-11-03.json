@@ -1,0 +1,12 @@
+{
+  "B": {
+    "archive_name": "BDDM-10-b-core-methods-experiments.zip",
+    "sha256": "6ce44807b8b697b0a4b95e3902d27b31002806196bf1cd573ddf1a65829cd779",
+    "zip_entries": 207
+  },
+  "A": {
+    "archive_name": "T1_A_Day1_2026-11-03_v1_Rebuilt_Full.zip",
+    "sha256": "a57d16dc5432b2e2518bc5f754b706c60de7b94d3fb496870687d4a564770cb1",
+    "zip_entries": 126
+  }
+}

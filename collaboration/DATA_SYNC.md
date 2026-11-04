@@ -1,5 +1,10 @@
 # 数据和完整产物同步
 
+## A review update — 2026-11-04
+
+A owner confirmation and full raw PSV receipt are complete. The new review-data and immutable full-source assets are staged for a **draft** Release under tag `a-v1-review-delivery-20261104-r1`; actual remote state is recorded in the registry and transport receipt. These entries stay `prepared`, not formal `published`. Standard fetch intentionally refuses them; see [authenticated review recovery](A_DATA_REVIEW_2026-11-04.md). Source license clarification, C receipt review and E/team freeze remain outstanding. The old full source archive retains its original audit; the current review-data archive has an explicitly annotated audit metadata revision with the same cohort/split bytes.
+
+
 Git维护代码、协议、状态、小样本和版本索引；较大数据和完整run放**同一仓库GitHub Release**，无需另建网盘。
 
 当前发布目标为MarcoJIANG5203/BDDM-10，脚本读取artifacts/registry.json中的repository。历史报告里的zsj-6/EI仅用于溯源，新数据与产物交付均使用新仓库。

@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "tests": 9,
+  "failures": 0,
+  "source_script_sha256": "81a0e728239a8fd5c8db92948037daeac1fab89e8b6b5d97c344b4ebad501e4b",
+  "test_file_sha256": "b04869882fa116f8bd762745a83165bc0fe77ed80a2601b169615c760a913960",
+  "log_sha256": "374956ea7d59c0b1b05aa6dbeb6a79baf58c37661c16233712bc7a78b822fca0",
+  "log": "reviews/A_raw_receipt_boundary_tests_2026-11-04.log",
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_a_raw_psv_receipt.py"
+  ],
+  "scope": "Automated critical v1 receipt boundaries; not C acceptance"
+}

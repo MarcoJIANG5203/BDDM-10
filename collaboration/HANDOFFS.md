@@ -19,3 +19,7 @@
 每次记录生产者/接收人、日期、交付ID、协议/数据/commit、相对路径或bundle/run、完成/未完成、验证命令输出、问题和下一步。不要用截图或个人盘符作为唯一交付。
 
 A新增原始队列提取脚本另建文件，衔接现有接口，不覆盖B已验证data.py/models.py。B不重划分患者。C独立核查而非复制汇总。D用已验收真实结果。E协调变更，不代替岗位实质验收。
+
+## 2026-11-04 A retain-v1 review delivery
+
+A owner explicitly confirmed using existing v1/full-r1 data and methods, with failed event-count limits. Current evidence is exposed in the A closeout; full40336-record raw PSV receipt is provided to C in the review bundle. Clinical data are removed from the current Git tree. Current registry entries remain prepared/draft; formal publication still requires the actual C/E decision and source-license clarification. See [A handoff](../handoffs/A/2026-11-04_A-001_closeout_EN.md) and [recovery instructions](A_DATA_REVIEW_2026-11-04.md). This updates delivery/evidence handling, not the v1 scientific algorithm, endpoint or split.

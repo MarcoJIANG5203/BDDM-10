@@ -2,7 +2,7 @@
 
 研究：**缺失临床数据中基于多重插补预测分歧的共形拒识评估**。
 
-这里统一维护代码、协议、成员交付要求、进度和数据/产物版本。**目前B程序及合成验证完成，A正式队列尚未交付；模拟结果不能作为论文效果结论。**
+This repository tracks protocol, scientific code and reviewable delivery evidence. A has confirmed retaining the existing v1 candidate and supplied a full raw-hour receipt. Formal data publication and freeze remain pending; see [A review delivery](collaboration/A_DATA_REVIEW_2026-11-04.md) and [current status](collaboration/STATUS.md). Candidate or synthetic results are not accepted clinical evidence.
 
 ## 每次同步后先读
 
