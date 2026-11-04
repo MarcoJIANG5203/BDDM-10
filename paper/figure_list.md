@@ -10,11 +10,20 @@
 |---|---|
 | `READY-QA` | 脚本已生成并通过合成 run 验证；仅软件证据 |
 | `READY-DRAFT` | 已从正式 A data Release 生成；DRAFT_PENDING_ACCEPTANCE，不能作为最终论文表 |
+| `READY-DRAFT-CANDIDATE` | 已从 B 候选 run 生成；DRAFT_CANDIDATE_NOT_ACCEPTED，不能进投稿稿 |
 | `PENDING-A` | 依赖 A-001 正式队列/审计 |
 | `PENDING-A-MERGE` | A 数据/PR 尚未合并/接收；草稿已生成 |
 | `PENDING-B` | 依赖 B-002 已验收临床 run |
 | `PENDING-C` | 依赖 C-001/C-002 独立核验/文献 |
 | `ACCEPTED` | 接收人已签字；数字可用于论文 |
+
+## DRAFT candidate outputs（2026-11-04，不合并 main）
+
+- Run：`20261104T002604_e3a5a42b`（B 候选矩阵，`synthetic=false`，预冻结，无 C/E acceptance）。
+- 输出：`paper/draft-runs/20261104T002604_e3a5a42b/`，provenance 状态 `DRAFT_CANDIDATE_NOT_ACCEPTED`。
+- 已生成：Fig 2 / Fig 3 / Fig 4 / Fig 6；Table 2 / 2b / 3a / 3b / 4 / 5。
+- **Fig 5 跳过**：`patient_predictions.csv` 599 MB，本次只取到部分字节；provenance `skipped` 已记录。
+- 这些图/表带 DRAFT 水印与 `draft=True`/`draft_reason`，**不能进论文或投稿**；正式 `paper/runs/` 仍需 C/E acceptance。
 
 ## 主图
 

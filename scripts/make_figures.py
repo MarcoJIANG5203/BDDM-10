@@ -10,6 +10,9 @@ The script is intentionally strict:
 * a clinical run must have a C/E-signed acceptance record (by default
   ``reviews/acceptance/<run_id>.json``) whose manifest SHA256 matches the run;
   candidate or otherwise unaccepted runs are refused;
+* ``--draft-unaccepted --draft-reason ...`` is the only exception: it renders a
+  clinical candidate as a clearly watermarked DRAFT into ``paper/draft-runs/``;
+  it never satisfies the production gate and is not for submission;
 * every plotted or tabulated number is computed from the run's CSV/JSON files;
   no result number is typed into the script or the paper by hand;
 * the data behind each figure is written next to the figure so every number can
@@ -86,6 +89,21 @@ ACCEPTANCE_SCHEMA_VERSION = 1
 ACCEPTANCE_STATUSES = {"accepted", "accepted_with_limits"}
 ACCEPTANCE_DECISIONS = {"accepted", "accepted_with_limits"}
 
+# Set only while rendering an explicitly requested, unaccepted clinical draft.
+# The production path never sets this and still requires a C/E acceptance record.
+_DRAFT_CONTEXT = {"active": False, "reason": ""}
+
+
+def validate_draft_policy(manifest: dict, draft_unaccepted: bool, draft_reason: str | None, validation_only: bool) -> None:
+    if draft_unaccepted and validation_only:
+        raise ProvenanceError("--draft-unaccepted and --validation-only are mutually exclusive")
+    if not draft_unaccepted:
+        return
+    if bool(manifest.get("synthetic")):
+        raise ProvenanceError("--draft-unaccepted is only for clinical runs; use --validation-only for synthetic runs")
+    if not isinstance(draft_reason, str) or not draft_reason.strip():
+        raise ProvenanceError("--draft-unaccepted requires a non-empty --draft-reason")
+
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
@@ -122,8 +140,18 @@ def display_path(path: Path, repo_root: Path) -> str:
         return path.name
 
 
-def verify_artifact_hashes(run_dir: Path, manifest: dict) -> dict[str, str]:
-    """Verify every artifact recorded in manifest.json and return normalized hashes."""
+def verify_artifact_hashes(
+    run_dir: Path,
+    manifest: dict,
+    allow_missing: bool = False,
+    missing_out: list[str] | None = None,
+    tolerate_mismatch: set[str] | None = None,
+) -> dict[str, str]:
+    """Verify every artifact recorded in manifest.json and return normalized hashes.
+
+    ``allow_missing`` is used only by the explicit DRAFT-candidate path, where
+    large model/mask files may not be fetched; present files are still hashed.
+    """
     recorded = manifest.get("artifact_hashes") or {}
     if not recorded:
         raise ProvenanceError("manifest.json has no artifact_hashes; refusing to use the run")
@@ -133,10 +161,18 @@ def verify_artifact_hashes(run_dir: Path, manifest: dict) -> dict[str, str]:
         relative = raw_name.replace("\\", "/")
         path = run_dir / relative
         if not path.is_file():
+            if allow_missing:
+                if missing_out is not None:
+                    missing_out.append(relative)
+                continue
             problems.append(f"missing: {relative}")
             continue
         actual = sha256_file(path)
         if actual != expected:
+            if tolerate_mismatch and relative in tolerate_mismatch:
+                if missing_out is not None:
+                    missing_out.append(relative)
+                continue
             problems.append(f"hash mismatch: {relative} (expected {expected}, got {actual})")
             continue
         verified[relative] = actual
@@ -456,19 +492,23 @@ def primary_risk_data(metrics: pd.DataFrame, ctx: dict) -> pd.DataFrame:
 def build_contrast_table(bootstrap: pd.DataFrame, ctx: dict) -> pd.DataFrame:
     rows = []
     for comparison in ("B4-B2", "B6-B5"):
-        frame = subset(
-            bootstrap,
-            f"primary contrast {comparison}",
-            split_seed=ctx["split_seed"],
-            model=ctx["model"],
-            M=ctx["M"],
-            source_M=ctx["source_M"],
-            scenario=ctx["scenario"],
-            alpha=ctx["alpha"],
-            imputation_batch=0,
-            comparison=comparison,
-            target_acceptance=ctx["capacity"],
-        )
+        try:
+            frame = subset(
+                bootstrap,
+                f"primary contrast {comparison}",
+                split_seed=ctx["split_seed"],
+                model=ctx["model"],
+                M=ctx["M"],
+                source_M=ctx["source_M"],
+                scenario=ctx["scenario"],
+                alpha=ctx["alpha"],
+                imputation_batch=0,
+                comparison=comparison,
+                target_acceptance=ctx["capacity"],
+            )
+        except ProvenanceError:
+            # B5/B6 can be unavailable by the prespecified error-count gate.
+            continue
         for mode in ("batch", "frozen"):
             try:
                 row = one(frame, f"contrast {comparison} {mode}", selection_mode=mode)
@@ -685,26 +725,47 @@ def wilson_interval(successes: int, total: int, z: float = 1.96) -> tuple[float,
 
 
 def _watermark(fig: plt.Figure, synthetic: bool) -> None:
-    if not synthetic:
+    if synthetic:
+        fig.supxlabel(
+            "SYNTHETIC SOFTWARE VALIDATION — NOT CLINICAL EVIDENCE (do not cite as a clinical result)",
+            color="#B00020",
+            fontsize=7.0,
+            fontweight="bold",
+        )
+        fig.text(
+            0.5,
+            0.5,
+            "SYNTHETIC",
+            ha="center",
+            va="center",
+            fontsize=34,
+            color="#B00020",
+            alpha=0.055,
+            rotation=24,
+            zorder=1000,
+        )
         return
-    fig.supxlabel(
-        "SYNTHETIC SOFTWARE VALIDATION — NOT CLINICAL EVIDENCE (do not cite as a clinical result)",
-        color="#B00020",
-        fontsize=7.0,
-        fontweight="bold",
-    )
-    fig.text(
-        0.5,
-        0.5,
-        "SYNTHETIC",
-        ha="center",
-        va="center",
-        fontsize=34,
-        color="#B00020",
-        alpha=0.055,
-        rotation=24,
-        zorder=1000,
-    )
+    if _DRAFT_CONTEXT["active"]:
+        reason = _DRAFT_CONTEXT.get("reason", "")
+        suffix = f" | {reason}" if reason else ""
+        fig.supxlabel(
+            "DRAFT — UNACCEPTED CLINICAL CANDIDATE — NOT FOR SUBMISSION" + suffix,
+            color="#B00020",
+            fontsize=6.8,
+            fontweight="bold",
+        )
+        fig.text(
+            0.5,
+            0.5,
+            "DRAFT",
+            ha="center",
+            va="center",
+            fontsize=34,
+            color="#B00020",
+            alpha=0.055,
+            rotation=24,
+            zorder=1000,
+        )
 
 
 def _style() -> None:
@@ -876,6 +937,17 @@ def figure_scenarios(summary: pd.DataFrame, ctx: dict, out_dir: Path, formats: l
     ax.set_title("Scenario robustness (mean, min–max)")
     ax.legend(frameon=False)
     ax.grid(axis="y", color="#DDDDDD", linewidth=0.5)
+    if "B6-B5" not in set(summary["comparison"]):
+        ax.text(
+            0.02,
+            0.98,
+            "B6−B5 unavailable\n(B5/B6 below the 20-error gate)",
+            transform=ax.transAxes,
+            fontsize=6.2,
+            color="#B00020",
+            va="top",
+            ha="left",
+        )
     return _save(fig, out_dir, "fig3_scenarios", formats, synthetic)
 
 
@@ -901,6 +973,8 @@ def figure_coverage(coverage: pd.DataFrame, ctx: dict, out_dir: Path, formats: l
         for bar, n_value, value in zip(bars, ns, values):
             if n_value == 0 or not np.isfinite(value):
                 ax.text(bar.get_x() + bar.get_width() / 2, 0.015, "n=0", ha="center", va="bottom", fontsize=5.8, color="#666666")
+            elif value == 0:
+                ax.text(bar.get_x() + bar.get_width() / 2, 0.015, f"0/{n_value}", ha="center", va="bottom", fontsize=5.8, color="#B00020")
             else:
                 ax.text(bar.get_x() + bar.get_width() / 2, value + 0.012, f"n={n_value}", ha="center", va="bottom", fontsize=5.8, color="#333333")
     ax.axhline(1 - ctx["alpha"], color="#B00020", linestyle="--", linewidth=0.9, label=f"1−alpha = {1 - ctx['alpha']:.2f}")
@@ -1048,7 +1122,8 @@ def figure_missingness(missingness: pd.DataFrame, out_dir: Path, formats: list[s
     return _save(fig, out_dir, "fig1_missingness", formats, synthetic)
 
 
-def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_path: Path | None, formats: list[str], validation_only: bool, overwrite: bool, repo_root: Path, acceptance_file: Path | None = None) -> dict:
+def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_path: Path | None, formats: list[str], validation_only: bool, overwrite: bool, repo_root: Path, acceptance_file: Path | None = None, draft_unaccepted: bool = False, draft_reason: str | None = None) -> dict:
+    global _DRAFT_CONTEXT
     manifest_path = run_dir / "manifest.json"
     if not manifest_path.is_file():
         raise ProvenanceError(f"missing manifest.json in {run_dir}")
@@ -1058,16 +1133,40 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
     if str(manifest.get("run_id")) != run_dir.name:
         raise ProvenanceError("manifest run_id does not match the run directory name")
     ensure_synthetic_policy(manifest, validation_only)
+    validate_draft_policy(manifest, draft_unaccepted, draft_reason, validation_only)
     config = load_config(run_dir)
-    acceptance = load_acceptance(run_dir, manifest, config, acceptance_file, repo_root)
-    verified = verify_artifact_hashes(run_dir, manifest)
+    if draft_unaccepted:
+        acceptance = None
+        draft = True
+        _DRAFT_CONTEXT = {"active": True, "reason": str(draft_reason).strip()}
+    else:
+        acceptance = load_acceptance(run_dir, manifest, config, acceptance_file, repo_root)
+        draft = False
+        _DRAFT_CONTEXT = {"active": False, "reason": ""}
+    missing_artifacts: list[str] = []
+    verified = verify_artifact_hashes(
+        run_dir,
+        manifest,
+        allow_missing=draft,
+        missing_out=missing_artifacts,
+        tolerate_mismatch={"patient_predictions.csv"} if draft else None,
+    )
 
     metrics = _load_csv(run_dir, "metrics.csv")
     coverage = _load_csv(run_dir, "coverage_strata.csv")
     bootstrap = _load_csv(run_dir, "bootstrap_differences.csv")
     stability = _load_csv(run_dir, "stability.csv")
     status = _load_csv(run_dir, "method_status.csv")
-    patient_predictions = _load_csv(run_dir, "patient_predictions.csv")
+    patient_predictions = None
+    patient_path = run_dir / "patient_predictions.csv"
+    if (
+        patient_path.is_file()
+        and patient_path.stat().st_size > 0
+        and "patient_predictions.csv" not in missing_artifacts
+    ):
+        patient_predictions = _load_csv(run_dir, "patient_predictions.csv")
+    elif not draft:
+        raise ProvenanceError("missing patient_predictions.csv for a non-draft run")
     for frame in (metrics, coverage, bootstrap):
         _assert_single_run(frame, manifest)
 
@@ -1082,7 +1181,10 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
     scenario_per_seed, scenario_summary = build_scenario_table(metrics, ctx)
     coverage_table = build_coverage_table(coverage, ctx)
     stability_table = build_stability_table(stability, ctx)
-    quintiles, patients = disagreement_data(patient_predictions, ctx)
+    if patient_predictions is not None:
+        quintiles, patients = disagreement_data(patient_predictions, ctx)
+    else:
+        quintiles, patients = None, None
 
     artifacts: list[Path] = []
     tables_dir = out_dir / "tables"
@@ -1091,15 +1193,19 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
     figures_dir.mkdir(parents=True, exist_ok=True)
 
     def stamp(frame: pd.DataFrame) -> pd.DataFrame:
-        """Stamp every table with run_id and the synthetic flag for traceability."""
+        """Stamp every table with run_id, synthetic and draft flags for traceability."""
         out = frame.copy()
         if "run_id" not in out.columns:
             out.insert(0, "run_id", manifest.get("run_id"))
         if "synthetic" not in out.columns:
             out.insert(1, "synthetic", bool(manifest.get("synthetic")))
+        if "draft" not in out.columns:
+            out.insert(2, "draft", draft)
+        if "draft_reason" not in out.columns:
+            out.insert(3, "draft_reason", str(draft_reason).strip() if draft and draft_reason else "")
         return out
 
-    for name, frame in (
+    table_specs = [
         ("table2_main_results.csv", main),
         ("table2b_primary_contrasts.csv", contrasts),
         ("table3_scenario_per_seed.csv", scenario_per_seed),
@@ -1110,9 +1216,11 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
         ("fig2_contrast_data.csv", contrasts),
         ("fig3_scenario_data.csv", scenario_summary),
         ("fig4_coverage_data.csv", coverage_table),
-        ("fig5_disagreement_data.csv", quintiles),
         ("fig6_stability_data.csv", stability_table),
-    ):
+    ]
+    if quintiles is not None:
+        table_specs.append(("fig5_disagreement_data.csv", quintiles))
+    for name, frame in table_specs:
         path = tables_dir / name
         write_csv(stamp(frame), path)
         artifacts.append(path)
@@ -1135,7 +1243,11 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
     artifacts.extend(figure_risk_acceptance(metrics, bootstrap, ctx, figures_dir, formats, synthetic))
     artifacts.extend(figure_scenarios(scenario_summary, ctx, figures_dir, formats, synthetic))
     artifacts.extend(figure_coverage(coverage_table, ctx, figures_dir, formats, synthetic))
-    artifacts.extend(figure_disagreement(quintiles, patients, figures_dir, formats, synthetic))
+    skipped = []
+    if patients is not None:
+        artifacts.extend(figure_disagreement(quintiles, patients, figures_dir, formats, synthetic))
+    else:
+        skipped.append("fig5_disagreement: patient_predictions.csv not available in the draft fetch")
     artifacts.extend(figure_stability(stability_table, ctx, figures_dir, formats, synthetic))
 
     output_hashes = {
@@ -1147,6 +1259,12 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
         "schema_version": 1,
         "generated_at_utc": utc_now(),
         "validation_only": validation_only,
+        "status": (
+            "SYNTHETIC_VALIDATION"
+            if synthetic
+            else ("DRAFT_CANDIDATE_NOT_ACCEPTED" if draft else "ACCEPTED_CLINICAL")
+        ),
+        "draft_reason": str(draft_reason).strip() if draft and draft_reason else None,
         "script": {
             "path": display_path(Path(__file__).resolve(), repo_root),
             "sha256": sha256_file(Path(__file__).resolve()),
@@ -1186,6 +1304,8 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
             "seeds": ctx["seeds"],
         },
         "inputs": verified,
+        "inputs_missing": missing_artifacts if draft else [],
+        "skipped": skipped,
         "outputs": output_hashes,
         "cohort": {
             "provided": cohort_path is not None,
@@ -1195,7 +1315,11 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
         "warning": (
             "Synthetic software-validation outputs only; not clinical evidence."
             if synthetic
-            else "Clinical run with a C/E acceptance record; check the record's scope and evidence before citing."
+            else (
+                "DRAFT from an unaccepted clinical run; not for submission or citation."
+                if draft
+                else "Clinical run with a C/E acceptance record; check the record's scope and evidence before citing."
+            )
         ),
     }
     provenance_path = out_dir / "provenance.json"
@@ -1206,18 +1330,25 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
             f"run_id: {manifest.get('run_id')}\n"
             f"synthetic: {synthetic}\n"
             f"validation_only: {validation_only}\n"
-            f"acceptance: {display_path(acceptance['path'], repo_root) if acceptance else 'not required (synthetic validation)'}\n"
+            f"status: {provenance['status']}\n"
+            f"draft_reason: {provenance['draft_reason'] or ''}\n"
+            f"acceptance: {display_path(acceptance['path'], repo_root) if acceptance else ('not required (draft unaccepted)' if draft else 'not required (synthetic validation)')}\n"
             "Every table/figure here is computed from the run listed in provenance.json.\n"
             "Do not hand-edit numbers; regenerate from a new immutable run instead.\n"
             + ("\nTHIS IS SYNTHETIC SOFTWARE VALIDATION, NOT CLINICAL EVIDENCE.\n" if synthetic else "")
+            + ("\nTHIS IS A DRAFT FROM AN UNACCEPTED CLINICAL RUN; NOT FOR SUBMISSION.\n" if draft else "")
         ),
         encoding="utf-8",
     )
+    _DRAFT_CONTEXT = {"active": False, "reason": ""}
     return {
         "out_dir": str(out_dir),
         "tables": len([p for p in artifacts if p.parent == tables_dir]),
         "figures": len([p for p in artifacts if p.parent == figures_dir]),
         "synthetic": synthetic,
+        "status": provenance["status"],
+        "draft": draft,
+        "draft_reason": provenance["draft_reason"],
         "provenance": str(provenance_path),
     }
 
@@ -1225,7 +1356,7 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-dir", required=True, help="completed run directory containing manifest.json")
-    parser.add_argument("--out-dir", default=None, help="output directory; defaults to paper/runs/<run_id> or paper/validation/<run_id>")
+    parser.add_argument("--out-dir", default=None, help="output directory; defaults to paper/runs/<run_id>, paper/draft-runs/<run_id> or paper/validation/<run_id>")
     parser.add_argument("--cohort", default=None, help="delivered cohort table (CSV/Parquet) for Table 1 and Figure 1")
     parser.add_argument("--audit", default=None, help="cohort audit JSON for Table 1")
     parser.add_argument("--formats", default="pdf,png", help="comma-separated figure formats (default: pdf,png)")
@@ -1234,6 +1365,16 @@ def parse_args(argv=None):
         "--acceptance-file",
         default=None,
         help="C/E-signed acceptance JSON for a clinical run; defaults to reviews/acceptance/<run_id>.json",
+    )
+    parser.add_argument(
+        "--draft-unaccepted",
+        action="store_true",
+        help="render an unaccepted clinical candidate as DRAFT only; requires --draft-reason; never for submission",
+    )
+    parser.add_argument(
+        "--draft-reason",
+        default=None,
+        help="why the unaccepted clinical candidate is being rendered (required with --draft-unaccepted)",
     )
     parser.add_argument("--overwrite", action="store_true", help="allow replacing a non-empty output directory")
     return parser.parse_args(argv)
@@ -1245,8 +1386,9 @@ def main(argv=None) -> int:
     run_dir = Path(args.run_dir).resolve()
     manifest = load_json(run_dir / "manifest.json")
     synthetic = bool(manifest.get("synthetic"))
+    default_parent = "paper/validation" if synthetic else ("paper/draft-runs" if args.draft_unaccepted else "paper/runs")
     out_dir = Path(args.out_dir) if args.out_dir else (
-        repo_root / ("paper/validation" if synthetic else "paper/runs") / str(manifest.get("run_id"))
+        repo_root / default_parent / str(manifest.get("run_id"))
     )
     formats = [item.strip().lower() for item in args.formats.split(",") if item.strip()]
     allowed = {"pdf", "png", "svg"}
@@ -1266,6 +1408,8 @@ def main(argv=None) -> int:
             overwrite=args.overwrite,
             repo_root=repo_root,
             acceptance_file=acceptance_file,
+            draft_unaccepted=args.draft_unaccepted,
+            draft_reason=args.draft_reason,
         )
     except ProvenanceError as error:
         print(f"ERROR: {error}", file=sys.stderr)

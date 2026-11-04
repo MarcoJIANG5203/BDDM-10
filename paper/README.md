@@ -1,6 +1,6 @@
 # D 岗位 · 论文与图表工作区
 
-本目录由 **D（图表与论文负责人）** 维护。当前状态：**D-001 / D-001a 已提交待验收；D-002 准备（引用核实 + 英文稿骨架 + Table 1/Fig 1 DRAFT）已提交待验收**。D-002 的真实结果稿、提交版 PDF 与材料清单要等 A-001、C-001/C-002 与 B-002 真实结果验收后才能完成。**D-002 的前置条件与 A/B/C/E 待办见 [d002_readiness.md](d002_readiness.md)；引用范围见 [references_checklist.md](references_checklist.md)。**
+本目录由 **D（图表与论文负责人）** 维护。当前状态：**D-001 / D-001a 已提交待验收；D-002 准备（引用核实 + 英文稿骨架 + Table 1/Fig 1 DRAFT + B 候选 DRAFT 模型图）已提交待验收**。D-002 的真实结果稿、提交版 PDF 与材料清单仍需 C/E acceptance；**不需要合并 main**。**D-002 的前置条件与 A/B/C/E 待办见 [d002_readiness.md](d002_readiness.md)；引用范围见 [references_checklist.md](references_checklist.md)。**
 
 ## 目录约定
 
@@ -18,6 +18,7 @@ paper/
   inputs/<data_version>/ A 正式数据生成的 Table 1 / Fig 1 DRAFT（仅数据描述，待接收）
   runs/<run_id>/figures/ 真实临床 run 生成的论文图（D-002；当前未生成）
   runs/<run_id>/tables/  真实临床 run 生成的论文表（D-002；当前未生成）
+  draft-runs/<run_id>/   未验收临床候选的 DRAFT 图表；全部标 DRAFT_CANDIDATE_NOT_ACCEPTED
   validation/<run_id>/   仅合成 run 的软件验证输出，全部带“非临床证据”水印
 ```
 
@@ -46,6 +47,18 @@ python scripts/make_figures.py `
 
 签认记录必须匹配 run 的 `manifest_sha256`、`run_id`、协议与数据版本，并包含 C/E 的姓名、日期、决定和证据路径；模板见 `paper/acceptance_record_template.json`。
 
+未验收临床候选的 DRAFT 图表（不合并 main、不进投稿稿）：
+
+```powershell
+python scripts/make_figures.py `
+  --run-dir results/candidate-clinical/<run_id> `
+  --draft-unaccepted `
+  --draft-reason "B candidate matrix; not accepted by C/E" `
+  --overwrite
+```
+
+默认输出 `paper/draft-runs/<run_id>/`；所有图带 DRAFT 水印，表带 `draft=True`/`draft_reason`，provenance 状态为 `DRAFT_CANDIDATE_NOT_ACCEPTED`。正式 `paper/runs/` 仍只能由 accepted run 生成。
+
 正式 A 数据 Release 的 Table 1 / Fig 1（D-002 数据描述；输出强制标 DRAFT，等 A PR 合并与 C/E 接收）：
 
 ```powershell
@@ -71,8 +84,9 @@ python scripts/make_figures.py `
 1. 读取 `manifest.json`，要求 `run_status=completed`，并逐个核对 `artifact_hashes`；任何文件缺失或被改动都会拒绝生成。
 2. 合成 run 未加 `--validation-only` 时直接报错，不允许生成论文图；加了该参数后，所有输出带 “SYNTHETIC SOFTWARE VALIDATION — NOT CLINICAL EVIDENCE” 水印。
 3. 真实临床 run 必须有 C/E 签认记录（默认 `reviews/acceptance/<run_id>.json`）；缺少、哈希不匹配、run_id/协议/数据版本不符或 C/E 未签，脚本都直接拒绝。候选 run 和未冻结 run 不能生成论文图。
-4. 输出表格、图、**图背后的数据 CSV**、`provenance.json`（输入/输出 SHA256、run、过滤器、脚本哈希、acceptance 记录）。
-5. 不覆盖已有输出，除非显式 `--overwrite`；历史 run 不被改写。
+4. 唯一例外是 DRAFT 模式：`--draft-unaccepted --draft-reason "..."` 显式渲染未验收候选，输出到 `paper/draft-runs/<run_id>/`，图带 “DRAFT — UNACCEPTED CLINICAL CANDIDATE” 水印，表带 `draft=True`/`draft_reason`，provenance 状态为 `DRAFT_CANDIDATE_NOT_ACCEPTED`。该模式永远不能替代正式 acceptance，也不能进投稿稿。
+5. 输出表格、图、**图背后的数据 CSV**、`provenance.json`（输入/输出 SHA256、run、过滤器、脚本哈希、acceptance 记录）。
+6. 不覆盖已有输出，除非显式 `--overwrite`；历史 run 不被改写。
 
 依赖：`matplotlib==3.11.2` 已加入 `requirements.txt` / `requirements-lock.txt`（D-001 新增）。
 
@@ -89,7 +103,8 @@ python scripts/make_figures.py `
 |---|---|---|
 | 图表/表格脚本 | `scripts/make_figures.py` | 已提交待验收 |
 | A 数据 Table 1/Fig 1 脚本 | `scripts/make_cohort_tables.py` | 已提交待验收 |
-| 正式 A 数据 Table 1/Fig 1 DRAFT | `paper/inputs/a-data-v1-20261104-r1/` | DRAFT，待 A PR 合并/C/E 接收 |
+| 正式 A 数据 Table 1/Fig 1 DRAFT | `paper/inputs/a-data-v1-20261104-r1/` | DRAFT，待 C/E 接收 |
+| B 候选 DRAFT 模型图 | `paper/draft-runs/20261104T002604_e3a5a42b/` | DRAFT_CANDIDATE_NOT_ACCEPTED；Fig 5 跳过 |
 | 临床 run 签认门槛（D-001a） | `scripts/make_figures.py`、`paper/acceptance_record_template.json` | 已提交待验收 |
 | 论文提纲 | `paper/outline.md` | 已提交待验收 |
 | 图表清单 | `paper/figure_list.md` | 已提交待验收 |
@@ -104,3 +119,4 @@ python scripts/make_figures.py `
 | D-002 准备记录 | `handoffs/D/2026-11-04_D-002_prep.md` | 已提交待验收 |
 | D-002 引用更新（C-004） | `handoffs/D/2026-11-04_D-002_prep_C004.md` | 已提交待验收 |
 | D-002 Table 1/Fig 1 DRAFT | `handoffs/D/2026-11-04_D-002_cohort_tables.md` | 已提交待验收 |
+| D-002 B 候选 DRAFT 模型图 | `handoffs/D/2026-11-04_D-002_draft_figures.md` | 已提交待验收 |

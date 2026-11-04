@@ -198,7 +198,8 @@ We do not claim clinical benefit, deployment readiness, cost-effectiveness, or t
 | References | `paper/references.bib` (7 verified entries) |
 | Citation claims | R1 “LOCF” unverified; R3 FDR verified by C-004; R5 verified by C-004 |
 | Figures/tables | `paper/figure_list.md`; model figures only after acceptance |
-| Table 1 / Fig 1 | DRAFT generated from `a-data-v1-20261104-r1` in `paper/inputs/`; not inserted until A PR merges and C/E accepts |
+| Table 1 / Fig 1 | DRAFT generated from `a-data-v1-20261104-r1` in `paper/inputs/`; not inserted until C/E accepts |
+| Model figures/tables | DRAFT candidate outputs in `paper/draft-runs/20261104T002604_e3a5a42b/` (Fig 2/3/4/6, Table 2–5); not inserted; not for submission |
 | Accepted clinical run | **MISSING** |
 | C/E acceptance record | **MISSING** |
 | C-002 verified citation list | **7/7 metadata verified**; only R1 “LOCF” claim remains unconfirmed |

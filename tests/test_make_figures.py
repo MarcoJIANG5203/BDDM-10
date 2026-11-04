@@ -17,6 +17,16 @@ make_figures = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(make_figures)
 
 
+def test_draft_policy_requires_reason_for_clinical_candidate():
+    with pytest.raises(make_figures.ProvenanceError, match="draft-reason"):
+        make_figures.validate_draft_policy({"synthetic": False}, True, None, False)
+    make_figures.validate_draft_policy({"synthetic": False}, True, "candidate not accepted", False)
+    with pytest.raises(make_figures.ProvenanceError, match="only for clinical"):
+        make_figures.validate_draft_policy({"synthetic": True}, True, "candidate", False)
+    with pytest.raises(make_figures.ProvenanceError, match="mutually exclusive"):
+        make_figures.validate_draft_policy({"synthetic": False}, True, "candidate", True)
+
+
 def test_synthetic_policy_requires_explicit_validation_flag():
     with pytest.raises(make_figures.ProvenanceError):
         make_figures.ensure_synthetic_policy({"synthetic": True}, validation_only=False)
@@ -24,6 +34,39 @@ def test_synthetic_policy_requires_explicit_validation_flag():
     make_figures.ensure_synthetic_policy({"synthetic": False}, validation_only=False)
     with pytest.raises(make_figures.ProvenanceError):
         make_figures.ensure_synthetic_policy({"synthetic": False}, validation_only=True)
+
+
+def test_partial_hash_verification_allows_missing_for_draft(tmp_path):
+    present = tmp_path / "metrics.csv"
+    present.write_text("a,b\n1,2\n", encoding="utf-8")
+    manifest = {
+        "artifact_hashes": {
+            "metrics.csv": make_figures.sha256_file(present),
+            "models/big.joblib": "0" * 64,
+        }
+    }
+    missing = []
+    verified = make_figures.verify_artifact_hashes(
+        tmp_path, manifest, allow_missing=True, missing_out=missing
+    )
+    assert verified["metrics.csv"] == manifest["artifact_hashes"]["metrics.csv"]
+    assert missing == ["models/big.joblib"]
+
+
+def test_partial_hash_verification_can_tolerate_known_mismatch(tmp_path):
+    path = tmp_path / "patient_predictions.csv"
+    path.write_text("partial\n", encoding="utf-8")
+    manifest = {"artifact_hashes": {"patient_predictions.csv": "0" * 64}}
+    missing = []
+    verified = make_figures.verify_artifact_hashes(
+        tmp_path,
+        manifest,
+        allow_missing=True,
+        missing_out=missing,
+        tolerate_mismatch={"patient_predictions.csv"},
+    )
+    assert verified == {}
+    assert missing == ["patient_predictions.csv"]
 
 
 def test_artifact_hash_verification_detects_tampering(tmp_path):

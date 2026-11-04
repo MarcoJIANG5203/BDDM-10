@@ -46,6 +46,19 @@
 
 脚本生成的 `provenance.json` 是来源链的一部分；论文附录/补充材料可以引用它，但不要把哈希写进正文。
 
+## DRAFT candidate 条目（不得用于论文）
+
+以下条目只用于 D-002 草稿排版与流程检查，**不是**论文数字来源。正式 `S-xxx` 仍等 C/E acceptance。
+
+| ID | 用途 | 文件 | run / 状态 | 限制 |
+|---|---|---|---|---|
+| D-001 | Table 2 主结果草稿 | `paper/draft-runs/20261104T002604_e3a5a42b/tables/table2_main_results.csv` | `20261104T002604_e3a5a42b` / `DRAFT_CANDIDATE_NOT_ACCEPTED` | B5/B6 unavailable；不得进论文 |
+| D-002 | Table 2b 主对比草稿 | `.../tables/table2b_primary_contrasts.csv` | 同上 | 仅 B4-B2；无 B6-B5 |
+| D-003 | Table 3 scenario 草稿 | `.../tables/table3_scenario_per_seed.csv`、`table3_scenario_summary.csv` | 同上 | 方向不稳定；不得写成效果结论 |
+| D-004 | Table 4 coverage 草稿 | `.../tables/table4_coverage_strata.csv` | 同上 | 阳性覆盖 0/8；不能替代安全声明 |
+| D-005 | Table 5 stability 草稿 | `.../tables/table5_stability.csv` | 同上 | 候选预冻结 |
+| D-006 | Fig 2/3/4/6 草稿 | `.../figures/fig2_*`、`fig3_*`、`fig4_*`、`fig6_*` | 同上 | 带 DRAFT 水印；Fig 5 因 patient_predictions 未完整取回而跳过 |
+
 ## 合成验证条目（不得用于论文）
 
 | ID | 用途 | 位置 | 限制 |
