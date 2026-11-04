@@ -49,3 +49,5 @@ The current Git tree carries code, aggregate evidence, source notices and this i
 Actual draft URL: https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/untagged-40b4eacb5c149f33ac90
 
 Remote review-data asset709374298 (4,663,092bytes) and complete-source asset709375176 (50,674,324bytes) were both downloaded and restored with matching SHA256. See the transport receipt; this confirms bytes, not a published formal release.
+
+A review PR: https://github.com/MarcoJIANG5203/BDDM-10/pull/3 (draft; recipient review pending).

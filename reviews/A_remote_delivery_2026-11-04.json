@@ -36,5 +36,16 @@
   "C_raw_receipt_review": "PENDING",
   "E_joint_freeze": "DEFERRED_PENDING_JOINT_DECISION",
   "license_clarification_request": "DRAFT_NOT_SENT",
-  "repository_tests_passed": 56
+  "repository_tests_passed": 56,
+  "pull_request": {
+    "number": 3,
+    "url": "https://github.com/MarcoJIANG5203/BDDM-10/pull/3",
+    "state": "open",
+    "draft": true,
+    "head": "a/resource-researching-and-pre-processing",
+    "source_head_at_creation": "5dfa69ad8c0b3775aeca9c3a9f62858347da932e",
+    "base": "main",
+    "merged": false
+  },
+  "release_target_commit": "5dfa69ad8c0b3775aeca9c3a9f62858347da932e"
 }
