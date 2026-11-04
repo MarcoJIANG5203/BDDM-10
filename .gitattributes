@@ -32,3 +32,6 @@ scripts/verify_a_raw_psv_receipt.py whitespace=cr-at-eol
 scripts/build_a_cohort_v1.py whitespace=cr-at-eol
 docs/A_001_source_provenance_correction_EN.md whitespace=cr-at-eol
 reviews/license/** whitespace=cr-at-eol
+reviews/A_raw_receipt_* -text
+tests/test_a_raw_psv_receipt.py -text
+reviews/A_remote_* -text

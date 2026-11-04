@@ -45,3 +45,7 @@ For the complete original source, replace the ID with `a-v1-full-source-20261104
 4. Actual release and metadata checks precede `published`; downstream B run and D C/E acceptance must name exact accepted data/audit/run hashes. No existing candidate run is silently renamed as formal.
 
 The current Git tree carries code, aggregate evidence, source notices and this index. Original clinical files were removed from the current Git index and retained in ignored storage/versioned assets. Earlier commits still contain historical files; no force push or history rewrite was performed.
+
+Actual draft URL: https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/untagged-40b4eacb5c149f33ac90
+
+Remote review-data asset709374298 (4,663,092bytes) and complete-source asset709375176 (50,674,324bytes) were both downloaded and restored with matching SHA256. See the transport receipt; this confirms bytes, not a published formal release.

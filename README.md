@@ -29,9 +29,9 @@ python -m pytest -q
 python scripts/run_experiments.py --config configs/demo.yaml
 ```
 
-本地验证环境为Python 3.14.5。macOS/Linux使用`source .venv/bin/activate`。仓库附有明确标记的合成输入，可直接运行demo。重新生成可运行`python scripts/create_demo_data.py --output data/synthetic`，它会重写本机demo配置路径，不要提交个人绝对路径。
+本次A交付验证环境为Python 3.14.7，科学依赖保持锁定；历史B记录中的Python版本保留作溯源。macOS/Linux使用`source .venv/bin/activate`。仓库附有明确标记的合成输入，可直接运行demo。重新生成可运行`python scripts/create_demo_data.py --output data/synthetic`，它会重写本机demo配置路径，不要提交个人绝对路径。
 
-当前完整测试32项通过（原科学验证18项，同步及跨机器路径14项），证据见reviews/repository_tests.log；新克隆也执行完整测试。
+本次A交付整合测试56项通过（原B32项、A提取15项、A原始回执9项），证据见reviews/A_closeout_tests_2026-11-04.json及对应日志；D分支的绘图测试不在此次范围内。
 
 这份固定合成验证包有随Git同步的备用ZIP，以下命令会先校验并使用本地副本，无需额外下载。对于只有Release的其他版本，先安装GitHub CLI并`gh auth login`。
 
