@@ -2,6 +2,8 @@
 
 输入版本`a-data-v1-20261104-r1`，协议v1。本目录保存正式输入上的两个新run的小型摘要与原字节表格；完整逐患者结果、p_m、模型、mask和抽样种子通过`b-clinical-v1-20261104-r1`版本包交付。生产者计算/核验与C/E独立验收分开记录，不将旧候选验收转移到新run。
 
+[完整结果Release](https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/b-clinical-v1-20261104-r1)已上传为待审pre-release，实际下载SHA256及空目录恢复复核通过，见[发布回执](../../reviews/B_formal_release_2026-11-04.json)。包SHA256 `2328d26682a39ccb895553d3cee3dc6dd11bd6506c41a5a0ac0f5d49890e8426`。
+
 - [主模型五种子五场景](20261105T055420_02d05b15/SUMMARY.md)
 - [RF/M/alpha补充](20261105T055445_54dd08de/SUMMARY.md)
 - [队列计数](cohort_counts.csv)、[两院36输入缺失统计](cohort_missingness.csv)

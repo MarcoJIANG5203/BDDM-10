@@ -12,7 +12,9 @@ A许可元数据冲突与E批准仅用户转述的限制随冻结记录保留；
 
 ## B-002正式输入结果包（2026-11-04）
 
-`b-clinical-v1-20261104-r1`已打包prepared、尚待上传；112文件、155,365,045字节、SHA256 `2328d26682a39ccb895553d3cee3dc6dd11bd6506c41a5a0ac0f5d49890e8426`。含`results/clinical/20261105T055420_02d05b15`主矩阵及`20261105T055445_54dd08de`补充、正式最小输入/五split、源码/锁文件和来源/冻结证据。见[B交接](../handoffs/B/2026-11-04_B-002_formal_v1.md)。正式输入新run计算核验完成不表示C/E结果接受或D正式图稿可用。
+`b-clinical-v1-20261104-r1`已发布为待审pre-release（draft=false）；112文件、155,365,045字节、SHA256 `2328d26682a39ccb895553d3cee3dc6dd11bd6506c41a5a0ac0f5d49890e8426`。含`results/clinical/20261105T055420_02d05b15`主矩阵及`20261105T055445_54dd08de`补充、正式最小输入/五split、源码/锁文件和来源/冻结证据。实际下载与空目录恢复后1,140指标及全部哈希再次通过，见[发布回执](../reviews/B_formal_release_2026-11-04.json)及[B交接](../handoffs/B/2026-11-04_B-002_formal_v1.md)。Release指向B计算提交a95aa30；正式输入新run交付完成不表示C/E结果接受或D正式图稿可用。
+
+同步B分支后运行`python scripts/sync_artifacts.py fetch b-clinical-v1-20261104-r1`，再按B交接的四条命令复核两个run。若常规Release下载失败，采用下文资产API二进制流方案，将entry键换为`b-clinical-v1-20261104-r1`；registry已登记实际`asset_api`，始终核对SHA256后恢复。已同步A包的同字节cohort/audit/split安全跳过；不同版本默认拒绝覆盖。B包不包含cohort.csv和完整原始PSV receipt，需要这两项时另取正式A包。
 
 11月4日A后续草稿交付：A分支`6b2650e`把原始临床树从当前Git索引移除，保留不可变历史。草稿Release的review-data ZIP为4,663,092字节、SHA256 `3a84a2432d6d2332c68b7e49199da597df2b5c3d724ea208b490f2c609dd1527`；原始full-source ZIP为50,674,324字节、SHA256 `a57d16dc5432b2e2518bc5f754b706c60de7b94d3fb496870687d4a564770cb1`。A回执记载两个资产均实际下载、校验和空目录恢复；A分支registry保持`prepared`、`draft=true`，标准`fetch`不得当作正式数据。来源许可证冲突尚待数据保管方澄清，见[E协调记录](../handoffs/E/2026-11-04_A_C_D_B_coordination.md)。
 

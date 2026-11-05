@@ -9,10 +9,10 @@ B岗位当前工作分支为`b/core-methods-experiments`。按用户新要求，
 | 岗位 | 当前状态 | 证据 | 下一项交付 / 接收人 |
 |---|---|---|---|
 | A 数据与基础实验 | 正式技术版本a-data-v1-20261104-r1已发布、A内容冻结已交付；B输入身份/接口核验通过 | A分支`b717d1a`；[A正式交接](../handoffs/A/2026-11-04_formal_data_freeze_EN.md)、[冻结记录](../reviews/freeze/A_formal_data_freeze_v1_2026-11-04.json)、[B接收证据](../reviews/B_formal_A_receipt_2026-11-04.json) | 保留许可冲突及E批准来源限制；C/E结果验收另行完成 |
-| B 核心方法与实验 | B-002正式输入五种子五场景及RF/M/alpha补充计算核验完成；1,140指标行/78区间通过，完整包prepared待上传；C/E独立验收待办 | [正式交接](../handoffs/B/2026-11-04_B-002_formal_v1.md)、[结果索引](../reports/clinical-v1/README.md)、[核验回执](../reviews/B_formal_verification_2026-11-04.json)；[draft PR #5](https://github.com/MarcoJIANG5203/BDDM-10/pull/5) | 上传完整包并复核实际下载/恢复后提交B分支；C核验两个新run，E记录结果接受/冻结；main不合并 |
+| B 核心方法与实验 | B-002正式输入五种子五场景及RF/M/alpha补充生产者交付完成，已提交待验收；1,140指标行/78区间及完整包远端下载/恢复通过；C/E独立验收待办 | [正式交接](../handoffs/B/2026-11-04_B-002_formal_v1.md)、[结果索引](../reports/clinical-v1/README.md)、[发布回执](../reviews/B_formal_release_2026-11-04.json)；[draft PR #5](https://github.com/MarcoJIANG5203/BDDM-10/pull/5) | C核验两个新run并记录结论，E记录结果接受/冻结，D据签认范围使用；仅提交B分支，main不合并 |
 | C 文献与独立核验 | C-003边界断言与候选逐患者/区间核验、C-004引用更正、C-005原始receipt有条件接受均已提交C分支；C未亲自逐份重跑原始PSV；B已范围内接收C-003 | C分支`f4d9736`；[B复跑记录](../handoffs/B/2026-11-04_v1_candidate_supplements_C003_receipt.md)；PR #4 | D处理R5；E核专场通知，正式run仍由C独立签收 |
-| D 图表与论文 | D-001图表流程及D-001a临床签认门槛已提交，E流程范围内接收，C数字/引用核验仍独立；D-002骨架存在，真实结果稿仍被正式run阻塞 | D分支`1960f88`、PR #2；[E流程复核](../handoffs/E/2026-11-04_A_C_D_B_coordination.md) | C核验D数字/引用；D按C-004补R5；待正式结果后写临床图文 |
-| E 统筹与整合 | 原书面记录暂缓正式冻结；A现已授权发布并报告E批准，未提供E批准原文；B按用户直接授权运行正式输入 | [E原协调记录](../handoffs/E/2026-11-04_A_C_D_B_coordination.md)、[A正式冻结及批准来源](../reviews/freeze/A_formal_data_freeze_v1_2026-11-04.json) | 保留许可/批准来源限制；取得C/E新run独立签认、结果冻结、专场通知和投稿细则证据 |
+| D 图表与论文 | D-001图表流程及D-001a临床签认门槛已提交，E流程范围内接收，C数字/引用核验仍独立；D-002骨架存在，真实结果稿待B新run的C/E独立签认 | D分支`1960f88`、PR #2；[E流程复核](../handoffs/E/2026-11-04_A_C_D_B_coordination.md)；[B新run交接](../handoffs/B/2026-11-04_B-002_formal_v1.md) | C核验D数字/引用；D按C-004补R5；取得新run的C/E签认后写临床图文 |
+| E 统筹与整合 | 原书面记录暂缓正式冻结；A现已授权发布并报告E批准，未提供E批准原文；B已按用户直接授权交付正式输入新run，结果签认另行待办 | [E原协调记录](../handoffs/E/2026-11-04_A_C_D_B_coordination.md)、[A正式冻结及批准来源](../reviews/freeze/A_formal_data_freeze_v1_2026-11-04.json)、[B新交接](../handoffs/B/2026-11-04_B-002_formal_v1.md) | 保留许可/批准来源限制；取得C/E新run独立签认、结果冻结、专场通知和投稿细则证据 |
 
 11月4日后续同步：A原始自动receipt报告40,336份原始记录、24,095位纳入患者、867,420个输入单元一致；56项测试为A分支记录。两个A附件在草稿Release中已上传、下载核对SHA256并空目录恢复，但A分支registry仍为`prepared`，不是正式data发布。C-003对B候选矩阵完成独立逐患者/区间复算；C-005仅就parquet/audit与receipt算术给出**有条件接受**，未亲自从原始PSV逐例重算。C-004找到R5 MC²的卫星工作坊出处，D旧的禁止引用结论待修订。
 

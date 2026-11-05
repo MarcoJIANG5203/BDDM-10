@@ -193,7 +193,7 @@
       "official_license_clarified": false
     },
     "b-clinical-v1-20261104-r1": {
-      "status": "prepared",
+      "status": "published",
       "kind": "clinical_results",
       "tag": "b-clinical-v1-20261104-r1",
       "asset": "b-clinical-v1-20261104-r1.zip",
@@ -263,7 +263,16 @@
       "recipient_C_E_result_acceptance": false,
       "project_scientific_result_freeze": false,
       "official_license_clarified": false,
-      "purpose": "B-002 formal input main matrix and prescribed supplements; C/E independent result acceptance pending"
+      "purpose": "B-002 formal input main matrix and prescribed supplements; C/E independent result acceptance pending",
+      "url": "https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/b-clinical-v1-20261104-r1",
+      "draft": false,
+      "asset_id": 712314210,
+      "asset_api": "repos/MarcoJIANG5203/BDDM-10/releases/assets/712314210",
+      "remote_digest": "sha256:2328d26682a39ccb895553d3cee3dc6dd11bd6506c41a5a0ac0f5d49890e8426",
+      "release_tag_commit": "a95aa30c877ca22e7831e6b1df1634a5cfddcf79",
+      "download_fallback": "authenticated_gh_asset_api",
+      "transport_verified": true,
+      "independent_remote_restore": "PASS"
     }
   }
 }
