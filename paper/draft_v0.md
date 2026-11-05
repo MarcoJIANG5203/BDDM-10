@@ -199,7 +199,7 @@ We do not claim clinical benefit, deployment readiness, cost-effectiveness, or t
 | Citation claims | R1 “LOCF” unverified; R3 FDR verified by C-004; R5 verified by C-004 |
 | Figures/tables | `paper/figure_list.md`; formal model figures only after acceptance |
 | Table 1 / Fig 1 | DRAFT generated from `a-data-v1-20261104-r1` in `paper/inputs/`; not inserted until C/E accepts |
-| Model figures/tables | DRAFT formal B-002 outputs in `paper/draft-runs/20261105T055420_02d05b15/` (Fig 2/3/4/6, Table 2–5); not inserted; not for submission |
+| Model figures/tables | DRAFT formal B-002 outputs in `paper/draft-runs/20261105T055420_02d05b15/` (Fig 2/3/4/5/6, Table 2–5); Fig 5 sparse (4 errors/1,388 singleton predictions); not inserted; not for submission |
 | Accepted clinical run | Formal B-002 run `20261105T055420_02d05b15` exists; **not accepted** |
 | C/E acceptance record | **MISSING** |
 | C-002 verified citation list | **7/7 metadata verified**; only R1 “LOCF” claim remains unconfirmed |

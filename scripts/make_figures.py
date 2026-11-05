@@ -88,6 +88,24 @@ class ProvenanceError(RuntimeError):
 ACCEPTANCE_SCHEMA_VERSION = 1
 ACCEPTANCE_STATUSES = {"accepted", "accepted_with_limits"}
 ACCEPTANCE_DECISIONS = {"accepted", "accepted_with_limits"}
+PATIENT_COLUMNS = [
+    "split_seed",
+    "model",
+    "M",
+    "source_M",
+    "scenario",
+    "alpha",
+    "imputation_batch",
+    "method",
+    "target_acceptance",
+    "selection_mode",
+    "set_0",
+    "set_1",
+    "y_true",
+    "p_mean",
+    "p_std",
+    "patient_id",
+]
 
 # Set only while rendering an explicitly requested, unaccepted clinical draft.
 # The production path never sets this and still requires a C/E acceptance record.
@@ -103,6 +121,14 @@ def validate_draft_policy(manifest: dict, draft_unaccepted: bool, draft_reason: 
         raise ProvenanceError("--draft-unaccepted is only for clinical runs; use --validation-only for synthetic runs")
     if not isinstance(draft_reason, str) or not draft_reason.strip():
         raise ProvenanceError("--draft-unaccepted requires a non-empty --draft-reason")
+
+
+def validate_patient_override(draft_unaccepted: bool, patient_predictions_file: Path | None) -> None:
+    if patient_predictions_file is not None and not draft_unaccepted:
+        raise ProvenanceError(
+            "--patient-predictions is only valid with --draft-unaccepted; "
+            "a non-draft run must use its own patient_predictions.csv"
+        )
 
 
 def utc_now() -> str:
@@ -349,11 +375,19 @@ def write_csv(frame: pd.DataFrame, path: Path) -> None:
     frame.to_csv(path, index=False, encoding="utf-8")
 
 
-def _load_csv(run_dir: Path, name: str) -> pd.DataFrame:
-    path = run_dir / name
+def _load_csv_path(path: Path, usecols: list[str] | None = None) -> pd.DataFrame:
     if not path.is_file():
         raise ProvenanceError(f"missing result file: {path}")
+    if usecols:
+        try:
+            return pd.read_csv(path, usecols=usecols)
+        except ValueError:
+            return pd.read_csv(path)
     return pd.read_csv(path)
+
+
+def _load_csv(run_dir: Path, name: str, usecols: list[str] | None = None) -> pd.DataFrame:
+    return _load_csv_path(run_dir / name, usecols=usecols)
 
 
 def _assert_single_run(frame: pd.DataFrame, manifest: dict) -> None:
@@ -1045,8 +1079,33 @@ def figure_disagreement(quintiles: pd.DataFrame, patients: pd.DataFrame, out_dir
     ax1.set_xticks(quintiles["quintile"], quintiles["quintile"])
     ax1.set_xlabel("Imputation-disagreement quintile (low → high)")
     ax1.set_ylabel("Error rate among singleton predictions")
-    ax1.set_ylim(0, 1.12)
+    total_errors = int(patients["error"].sum())
+    total_n = int(len(patients))
+    upper = float(pd.to_numeric(quintiles["ci_high"], errors="coerce").max())
+    upper = 0.05 if not np.isfinite(upper) else max(0.05, min(1.0, upper * 1.15))
+    ax1.set_ylim(0, upper)
     ax1.set_title("A. Error by disagreement quintile")
+    ax1.text(
+        0.02,
+        0.98,
+        f"{total_n} singleton predictions, {total_errors} errors",
+        transform=ax1.transAxes,
+        fontsize=6.5,
+        va="top",
+        ha="left",
+        color="#333333",
+    )
+    if total_errors < 10:
+        ax1.text(
+            0.02,
+            0.90,
+            "Sparse errors; descriptive only",
+            transform=ax1.transAxes,
+            fontsize=6.2,
+            va="top",
+            ha="left",
+            color="#B00020",
+        )
     ax1.grid(axis="y", color="#DDDDDD", linewidth=0.5)
 
     correct = patients[~patients["error"].astype(bool)]
@@ -1122,7 +1181,7 @@ def figure_missingness(missingness: pd.DataFrame, out_dir: Path, formats: list[s
     return _save(fig, out_dir, "fig1_missingness", formats, synthetic)
 
 
-def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_path: Path | None, formats: list[str], validation_only: bool, overwrite: bool, repo_root: Path, acceptance_file: Path | None = None, draft_unaccepted: bool = False, draft_reason: str | None = None) -> dict:
+def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_path: Path | None, formats: list[str], validation_only: bool, overwrite: bool, repo_root: Path, acceptance_file: Path | None = None, draft_unaccepted: bool = False, draft_reason: str | None = None, patient_predictions_file: Path | None = None) -> dict:
     global _DRAFT_CONTEXT
     manifest_path = run_dir / "manifest.json"
     if not manifest_path.is_file():
@@ -1157,14 +1216,24 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
     bootstrap = _load_csv(run_dir, "bootstrap_differences.csv")
     stability = _load_csv(run_dir, "stability.csv")
     status = _load_csv(run_dir, "method_status.csv")
+    validate_patient_override(draft, patient_predictions_file)
     patient_predictions = None
+    patient_source = None
     patient_path = run_dir / "patient_predictions.csv"
-    if (
+    if patient_predictions_file is not None:
+        patient_predictions = _load_csv_path(patient_predictions_file, usecols=PATIENT_COLUMNS)
+        patient_source = {
+            "path": display_path(patient_predictions_file, repo_root),
+            "sha256": sha256_file(patient_predictions_file),
+            "rows": int(len(patient_predictions)),
+            "note": "DRAFT-mode pre-filtered patient-level extract; full-file hash recorded in the run manifest",
+        }
+    elif (
         patient_path.is_file()
         and patient_path.stat().st_size > 0
         and "patient_predictions.csv" not in missing_artifacts
     ):
-        patient_predictions = _load_csv(run_dir, "patient_predictions.csv")
+        patient_predictions = _load_csv(run_dir, "patient_predictions.csv", usecols=PATIENT_COLUMNS)
     elif not draft:
         raise ProvenanceError("missing patient_predictions.csv for a non-draft run")
     for frame in (metrics, coverage, bootstrap):
@@ -1305,6 +1374,7 @@ def build_outputs(run_dir: Path, out_dir: Path, cohort_path: Path | None, audit_
         },
         "inputs": verified,
         "inputs_missing": missing_artifacts if draft else [],
+        "patient_predictions_source": patient_source,
         "skipped": skipped,
         "outputs": output_hashes,
         "cohort": {
@@ -1376,6 +1446,11 @@ def parse_args(argv=None):
         default=None,
         help="why the unaccepted clinical candidate is being rendered (required with --draft-unaccepted)",
     )
+    parser.add_argument(
+        "--patient-predictions",
+        default=None,
+        help="DRAFT-only pre-filtered patient_predictions CSV (e.g., one condition extracted from the bundle); requires --draft-unaccepted",
+    )
     parser.add_argument("--overwrite", action="store_true", help="allow replacing a non-empty output directory")
     return parser.parse_args(argv)
 
@@ -1397,6 +1472,7 @@ def main(argv=None) -> int:
     cohort_path = Path(args.cohort).resolve() if args.cohort else None
     audit_path = Path(args.audit).resolve() if args.audit else None
     acceptance_file = Path(args.acceptance_file).resolve() if args.acceptance_file else None
+    patient_predictions_file = Path(args.patient_predictions).resolve() if args.patient_predictions else None
     try:
         result = build_outputs(
             run_dir=run_dir,
@@ -1410,6 +1486,7 @@ def main(argv=None) -> int:
             acceptance_file=acceptance_file,
             draft_unaccepted=args.draft_unaccepted,
             draft_reason=args.draft_reason,
+            patient_predictions_file=patient_predictions_file,
         )
     except ProvenanceError as error:
         print(f"ERROR: {error}", file=sys.stderr)

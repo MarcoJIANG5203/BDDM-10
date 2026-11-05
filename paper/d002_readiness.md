@@ -23,7 +23,7 @@
 | E precision/freeze | ⚠️ E-001 已记录正式 v1 技术接收与有限结论范围；但明确 **C 对正式 run 独立签认仍待**，未创建 `reviews/acceptance`；E 承认本轮非第二名独立统计审稿人 |
 | D-001 / D-001a | D-001 图表脚本/提纲/索引已提交；D-001a 增加“临床 run 必须有 C/E 签认”门槛 |
 | D-002 准备 | ✅ `paper/references_checklist.md`（7/7）、`paper/references.bib`（7 条）、`paper/draft_v0.md`（结果全占位） |
-| D-002 DRAFT（正式 B-002） | ✅ `paper/draft-runs/20261105T055420_02d05b15/`：Fig 2/3/4/6 + Table 2/2b/3/4/5，`DRAFT_CANDIDATE_NOT_ACCEPTED`；Fig 5 跳过 |
+| D-002 DRAFT（正式 B-002） | ✅ `paper/draft-runs/20261105T055420_02d05b15/`：Fig 2/3/4/5/6 + Table 2/2b/3/4/5，`DRAFT_CANDIDATE_NOT_ACCEPTED`；Fig 5 为稀疏诊断 |
 
 ## D 已完成的准备（不依赖真实结果）
 
@@ -34,7 +34,7 @@
 - `scripts/make_cohort_tables.py` + `paper/inputs/a-data-v1-20261104-r1/`：从 A 正式 data Release 生成 **Table 1 / Fig 1 DRAFT**（`DRAFT_PENDING_ACCEPTANCE`）；校验 release SHA256、audit、cohort、5 splits、site/阳性数、role 互斥完备。
 - `make_figures.py --draft-unaccepted --draft-reason ...`：在**不合并 main**的情况下，用 B 正式 B-002 小表（或候选 bundle）生成 `paper/draft-runs/<run_id>/` 的 DRAFT 模型图表；provenance 状态 `DRAFT_CANDIDATE_NOT_ACCEPTED`，图带 DRAFT 水印，表带 `draft=True`/`draft_reason`。正式 `paper/runs/` 仍只接受 C/E acceptance。
 - 已生成候选 DRAFT：`paper/draft-runs/20261104T002604_e3a5a42b/` 的 Fig 2/3/4/6 与 Table 2/2b/3a/3b/4/5。
-- 已生成**正式 B-002 DRAFT**：`paper/draft-runs/20261105T055420_02d05b15/` 的 Fig 2/3/4/6 与 Table 2/2b/3a/3b/4/5；Fig 5 因 `patient_predictions.csv` 未取而跳过（provenance `skipped`）。正式包已含完整逐患者表，后续可补 Fig5。
+- 已生成**正式 B-002 DRAFT**：`paper/draft-runs/20261105T055420_02d05b15/` 的 Fig 2/3/4/5/6 与 Table 2/2b/3a/3b/4/5。Fig 5 从 bundle 流式解压 `patient_predictions.csv`（完整 SHA256 `aa23c961...` 与 manifest 一致），过滤后 1,525 行；患者级过滤文件不入库，聚合数据见 `fig5_disagreement_data.csv` 与 `FIG5_SOURCE.md`。
 - 以上都只是 D 侧准备，不代表 A/B/C 验收或论文可以提交。
 
 ## D-002 开始门槛（全部满足才可生成论文图）

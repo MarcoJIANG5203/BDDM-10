@@ -27,6 +27,13 @@ def test_draft_policy_requires_reason_for_clinical_candidate():
         make_figures.validate_draft_policy({"synthetic": False}, True, "candidate", True)
 
 
+def test_patient_override_is_draft_only(tmp_path):
+    with pytest.raises(make_figures.ProvenanceError, match="only valid with --draft-unaccepted"):
+        make_figures.validate_patient_override(False, tmp_path / "patient_predictions.csv")
+    make_figures.validate_patient_override(True, tmp_path / "patient_predictions.csv")
+    make_figures.validate_patient_override(False, None)
+
+
 def test_synthetic_policy_requires_explicit_validation_flag():
     with pytest.raises(make_figures.ProvenanceError):
         make_figures.ensure_synthetic_policy({"synthetic": True}, validation_only=False)

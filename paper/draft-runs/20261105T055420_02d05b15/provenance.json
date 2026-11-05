@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-11-05T10:17:52.815980+00:00",
+  "generated_at_utc": "2026-11-05T10:43:14.534267+00:00",
   "validation_only": false,
   "status": "DRAFT_CANDIDATE_NOT_ACCEPTED",
   "draft_reason": "B-002 formal run 20261105T055420_02d05b15; C/E acceptance pending; D-002 DRAFT only",
   "script": {
     "path": "scripts/make_figures.py",
-    "sha256": "09df925ed28581b05dbdc9289719e8e3ddbe1135a5c973d5a3f0a92b10065baa"
+    "sha256": "dc2dcf0360ff12bd8f8e04e97c51eaa5af6cc18fbb62b172e3111b313606a4a4"
   },
   "run": {
     "run_id": "20261105T055420_02d05b15",
@@ -90,22 +90,29 @@
     "models/seed2029_LR_M10_alpha0.1.joblib",
     "models/seed2030_LR_M10_alpha0.1.joblib"
   ],
-  "skipped": [
-    "fig5_disagreement: patient_predictions.csv not available in the draft fetch"
-  ],
+  "patient_predictions_source": {
+    "path": "patient_predictions_filtered.csv",
+    "sha256": "1fd235356954cc85d6d650496ae427efb24f6d5754978c18140e32bd86fd9732",
+    "rows": 1525,
+    "note": "DRAFT-mode pre-filtered patient-level extract; full-file hash recorded in the run manifest"
+  },
+  "skipped": [],
   "outputs": {
-    "figures/fig2_risk_acceptance.pdf": "e5f726fee1657eae1feaa5e9525a2aaff80efb15c36f0ded33580bb002c4c359",
+    "figures/fig2_risk_acceptance.pdf": "51d5b1b84bdad069b3b63d3741e71e28bb67dc5407a50740dedf733ec690b7f1",
     "figures/fig2_risk_acceptance.png": "d46183779e1d94672ee3b9167e1d58613e5d1c589f163430da34584aa4d71fda",
-    "figures/fig3_scenarios.pdf": "993ca4f5f5ec6ed11450b952b72643ff15b7d50b235dbb474e1d2f9914b5dc2e",
+    "figures/fig3_scenarios.pdf": "904680df39124af5b7c99d52f5941feab115d54ffb813f4df544c9182288ee8e",
     "figures/fig3_scenarios.png": "7fda97084631338b962c118981eea0e221fb6f00f29b85198f43cc9c960d515d",
-    "figures/fig4_coverage.pdf": "1872a25fc546b072ffe07885ec76776f86312733c878ed5fda2c15316aee85a6",
+    "figures/fig4_coverage.pdf": "3d4828f23e413ae73fdee5c97147ff242d8554d68ff26d3ca54047d8780f9b87",
     "figures/fig4_coverage.png": "18f54cc494c7984aecc6a963383bbf188a391b69cd927ad7c94b7c864586edfb",
-    "figures/fig6_stability.pdf": "4cd143d97c94ba6eea447599a7dfc16acd56b734e7c89a0980f9d7890d19130f",
+    "figures/fig5_disagreement.pdf": "8c94840e43a3d679fe6ed93a082178b106ff3c95a5c55ccbf15a4e66b6369725",
+    "figures/fig5_disagreement.png": "f142ff3f6e228f0b34d8916ef2f905c27797e8457f74a3f46cb4217492b06ccb",
+    "figures/fig6_stability.pdf": "b7083dbd47d72e3b07f9226bb92b241d41461cfe252d24e7bbb920289d20b51d",
     "figures/fig6_stability.png": "39a9ffcf8b86e713cf2469a34dc17756a4f2623fd81dd93a4bce72e399bfae60",
     "tables/fig2_contrast_data.csv": "5d673925fea1fc2879432efac5c485ff44ac6699ce269afb5b7aeac050e52b42",
     "tables/fig2_risk_acceptance_data.csv": "0ee7d657ca8ec9892a1904c1762c7d57e9457f22800c4ee3f6687fd68661043d",
     "tables/fig3_scenario_data.csv": "16e771708e01cf1c687efa31fa2b50aeb0092bf7142d6bffd7ea4d39a8460aae",
     "tables/fig4_coverage_data.csv": "e932bc7181f9c43732920587dfa8584e827bfb32dd713162a6e037169137880d",
+    "tables/fig5_disagreement_data.csv": "99b93a2d6f6c3482fa617d472eee66de885f601e931fc0609491a76d374d0c38",
     "tables/fig6_stability_data.csv": "fc837ee360d174223f0b54976ebba0968741b060dd178b15b563817fbb8643c3",
     "tables/table2_main_results.csv": "9ba8044cec47e3d6dd946105032a23260cefbfc82b01517acb99126e9fb9437c",
     "tables/table2b_primary_contrasts.csv": "5d673925fea1fc2879432efac5c485ff44ac6699ce269afb5b7aeac050e52b42",

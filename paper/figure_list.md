@@ -23,8 +23,9 @@
 - Run：`20261105T055420_02d05b15`（B 正式 B-002 主矩阵，`synthetic=false`，来自正式 A Release）。
 - Bundle：`b-clinical-v1-20261104-r1`，155,365,045 B，SHA256 `2328d266...`，pre-release。
 - 输出：`paper/draft-runs/20261105T055420_02d05b15/`，provenance 状态 `DRAFT_CANDIDATE_NOT_ACCEPTED`。
-- 已生成：Fig 2 / Fig 3 / Fig 4 / Fig 6；Table 2 / 2b / 3a / 3b / 4 / 5。
-- **Fig 5 跳过**：本次只从 Git 小表生成；完整 `patient_predictions.csv` 在 bundle 中，待需要时补取。
+- 已生成：Fig 2 / Fig 3 / Fig 4 / **Fig 5** / Fig 6；Table 2 / 2b / 3a / 3b / 4 / 5。
+- Fig 5 使用从 bundle 流式解压的 **filtered patient-level extract**：完整 `patient_predictions.csv` 解压后 SHA256 `aa23c961...` 与 manifest 一致；过滤后 1,525 行，过滤文件 SHA256 `1fd235...`。患者级过滤文件不提交 Git，见 `paper/draft-runs/20261105T055420_02d05b15/FIG5_SOURCE.md`。
+- Fig 5 结果很稀疏：1,388 个单元素预测中仅 4 个错误；图中已标 “Sparse errors; descriptive only”。
 - **仍无 C/E acceptance**，这些图/表带 DRAFT 水印，不能进论文或投稿；正式 `paper/runs/` 仍需 acceptance。
 
 ## DRAFT candidate outputs（2026-11-04，历史）

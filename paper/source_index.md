@@ -57,7 +57,8 @@
 | D-103 | Table 3 scenario 草稿 | `.../tables/table3_scenario_per_seed.csv`、`table3_scenario_summary.csv` | 同上 | 方向不稳定；不得写成效果结论 |
 | D-104 | Table 4 coverage 草稿 | `.../tables/table4_coverage_strata.csv` | 同上 | 阳性覆盖 0/8；不能替代安全声明 |
 | D-105 | Table 5 stability 草稿 | `.../tables/table5_stability.csv` | 同上 | 无 C/E acceptance |
-| D-106 | Fig 2/3/4/6 草稿 | `.../figures/fig2_*`、`fig3_*`、`fig4_*`、`fig6_*` | 同上 | 带 DRAFT 水印；Fig 5 未生成 |
+| D-106 | Fig 2/3/4/5/6 草稿 | `.../figures/fig2_*`、`fig3_*`、`fig4_*`、`fig5_*`、`fig6_*` | 同上 | 带 DRAFT 水印；Fig 5 为稀疏诊断（1,388 单元素预测/4 错误） |
+| D-107 | Fig 5 聚合数据 | `.../tables/fig5_disagreement_data.csv` | 同上 | 仅描述性；患者级过滤文件未入库，见 `FIG5_SOURCE.md` |
 
 ## DRAFT candidate 条目（历史，不得用于论文）
 
