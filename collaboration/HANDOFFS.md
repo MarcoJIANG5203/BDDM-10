@@ -1,6 +1,12 @@
 # 成员交付要求与验收矩阵
 
-更新日期：2026-11-03。要求变化时改本页并写[CHANGELOG](CHANGELOG.md)，验收用[交付模板](../handoffs/TEMPLATE.md)。
+更新日期：2026-11-04。要求变化时改本页并写[CHANGELOG](CHANGELOG.md)，验收用[交付模板](../handoffs/TEMPLATE.md)。
+
+## 当前正式输入与B-002交付口径
+
+A正式技术版本`a-data-v1-20261104-r1`已发布，A内容冻结记录已交付；见[A正式交接](../handoffs/A/2026-11-04_formal_data_freeze_EN.md)。A明确授权发布并报告E批准，但未提供E原文签名，官方CC BY4.0/ODbL元数据冲突仍保留。当前用户直接授权完成B并要求提交B分支、不要合并main；B按冻结身份实际恢复正式包，另起主矩阵和规定补充run，旧候选不可改名或回写manifest。此前“等待正式data发布”的要求已由实际发布满足，其他岗位独立验收及限制不被替代。
+
+B交付状态为生产者“已提交待验收”。完整逐患者/p_m、模型、mask、随机种子、阈值、配置/环境/manifest与正式输入、来源/冻结证据在clinical_results版本包；Git保留小型汇总和可重放验证记录。C对两个新run独立核算，E记录结果冻结；D按其`reviews/acceptance/<run_id>.json`门槛取得C/E独立签认后使用。B不创建接收方接受记录，也不把旧候选C-003验收移用到新run。下列历史候选交付段落保留原日期口径。
 
 统一交付仓库已切换为MarcoJIANG5203/BDDM-10。下列路径均相对此仓库，新的代码、数据版本、记录和PR不再提交到旧zsj-6/EI。
 

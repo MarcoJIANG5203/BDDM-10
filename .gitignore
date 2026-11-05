@@ -7,6 +7,8 @@ venv/
 .env.*
 !.env.example
 .artifact-cache/
+/private_receipt/
+/sources/physionet2019/
 dist/
 *.tmp
 task_plan.md

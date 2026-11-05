@@ -1,0 +1,54 @@
+{
+  "record_id": "A-data-content-freeze-v1-20261104-r1",
+  "status": "A_OWNER_CONTENT_FROZEN",
+  "scope": "A immutable clinical data identities; not E project/result freeze or completed formal Release publication",
+  "owner": {
+    "name": "Yicheng Jiang",
+    "github_login": "MarcoJIANG5203",
+    "date": "2026-11-04",
+    "authorization": "Prior explicit owner confirmation plus current request for formal A data and freeze delivery",
+    "evidence": "reviews/A_owner_confirmation_2026-11-04.json"
+  },
+  "protocol_version": "v1",
+  "source_data_version": "a-clinical-protocol-v1-20261103-full-r1",
+  "delivery_revision": "a-v1-review-data-20261104-r1",
+  "formal_data_version_reserved": "a-data-v1-20261104-r1",
+  "cohort_sha256": "27d58cc44e17d7c1a01993ce76aa604f9b306f51ed1619dcd0704a1d038c0a81",
+  "cohort_csv_sha256": "e5e88ebcfb755da9d610b0c9587733c8d87ba477cd8fcb2161c0459107946b16",
+  "delivery_audit_sha256": "789938b95adc580a352ccd8f36f46962ad2eeeb851c2fb775e9aa23417db7cd2",
+  "split_sha256": {
+    "splits/seed_2026.json": "ec125595db148070351f237ad052f2754265cad061d96783beebfc3dc99d351f",
+    "splits/seed_2027.json": "b3f5cc23996d8d9f1150e377ab79fd121ec4037d57bb89c61b0cee4e27827ecb",
+    "splits/seed_2028.json": "a19b7dfbdf8d457cb57baa1e68d989b000752d22afb3c8e4b0d4957dbe5a4ce9",
+    "splits/seed_2029.json": "15a57fc26f91c2a6bc1ff1c219d7279c0bafba68bba0d7569e0ca99949b6f23c",
+    "splits/seed_2030.json": "8800012eac62a1aacc73b3d43b8a9ba1b3ce0b76df57a86e0d81bcf0c4649c47"
+  },
+  "included": 24095,
+  "positive_counts": {
+    "A": 57,
+    "B": 38,
+    "internal_test_each_seed": 8
+  },
+  "method_endpoint_labels_splits_changed": false,
+  "C_evidence": {
+    "commit": "f4d973662f9d97c7a9891f46399c34ef8d78f58c",
+    "path": "handoffs/C/2026-11-04_原始receipt复核_A001.md",
+    "sha256": "234102ec0714a4f06672b003d9bdf1c9ac8f3fd69ba282dff55623210e61bc18",
+    "decision": "CONDITIONAL_TECHNICAL_ACCEPTANCE",
+    "limitation": "C has not personally replayed40336 raw PSV files; do not assert otherwise"
+  },
+  "last_published_E_record": {
+    "commit": "9b640c2f0f05fb5f6b4aec52bb8216666d81c9f8",
+    "path": "handoffs/E/2026-11-04_A_C_D_B_coordination.md",
+    "sha256": "67ec9e97bd53cdd8615bf00ecb668cab0004e6eb73516ad6133f83c5ae7aed87",
+    "decision": "Formal data publication and formal B002/result freeze deferred pending stated gates"
+  },
+  "new_E_official_approval": {
+    "status": "USER_REPORTS_NEW_APPROVAL_TEXT_NOT_YET_SUPPLIED",
+    "user_statement": "已有 E/官方新批准，我会提供原文"
+  },
+  "formal_publication_completed": false,
+  "B_formal_B002_gate": "WAIT_FOR_APPROVAL_SCOPE_AND_OFFICIAL_LICENSE_EVIDENCE",
+  "B_pre_freeze_reproducibility": "Permitted within actual E stated finite-event analysis scope; no accepted result claims",
+  "recorded_at_beijing": "2026-11-04T21:55:04.811963+08:00"
+}

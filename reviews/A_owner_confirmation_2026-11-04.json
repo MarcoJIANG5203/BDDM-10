@@ -1,0 +1,13 @@
+{
+  "status": "CONFIRMED_BY_USER",
+  "name": "Yicheng Jiang",
+  "github_login": "MarcoJIANG5203",
+  "date": "2026-11-04",
+  "recorded_at_beijing": "2026-11-04T20:03:34.801540+08:00",
+  "decision": "Retain existing v1/full-r1 clinical rows, labels, splits and methods; acknowledge automated technical verification and failed precision gates. No C/E acceptance or freeze asserted.",
+  "user_confirmation_verbatim": "确认，使用这段署名与结论",
+  "confirmed_statement_verbatim": "我（GitHub 署名 Yicheng Jiang，MarcoJIANG5203）确认继续交付现有 full-r1/v1 数据，认可所附自动技术核验记录，并接受阳性数不足的限制；此确认不代表 C/E 已验收或冻结。",
+  "prior_owner_direction_verbatim": "就用之前的东西，不需要新的方法来调整数据",
+  "evidence": "Explicit user confirmation in this Codex chat on2026-11-04; public GitHub name separately observed from authenticated profile",
+  "scope": "Owner technical handoff confirmation; not personal manual review of40336 records, independent C review, clinical adjudication or E freeze"
+}

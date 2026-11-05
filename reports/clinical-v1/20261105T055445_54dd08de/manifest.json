@@ -1,0 +1,77 @@
+{
+  "run_id": "20261105T055445_54dd08de",
+  "synthetic": false,
+  "run_status": "completed",
+  "start": {
+    "utc": "2026-11-05T05:54:45.652355+00:00",
+    "beijing": "2026-11-05T13:54:45.652355+08:00"
+  },
+  "python": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26100-SP0",
+  "versions": {
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.0",
+    "PyYAML": "6.0.3",
+    "joblib": "1.5.3",
+    "pyarrow": "26.0.0"
+  },
+  "source_hashes": {
+    "src\\conformal.py": "a80d2502e733bdd625fb9ab1d49640441c183b1ffd488cef9e09ff883a0c6382",
+    "src\\data.py": "09f3863af2f735bdd2a8f546caf3674cc66c2e2dab1b59dde56637b29dbe7193",
+    "src\\experiment.py": "25cf004a469ea028a7024e0793c094a8250f506f6773a81007586a4a28a40665",
+    "src\\imputation.py": "b7d9c435f1a0998f9c6e6e1997541058f239955d285a1adf5ed5d187e6beb1d4",
+    "src\\metrics.py": "7fc438f3752eed037535e5547bf7e339ecc68d84bf74b63a948425013c0197ab",
+    "src\\models.py": "fc5c24f4c354ce071d1f975d62fc91fb739bb7cb4b716390abee9db975d15c01",
+    "src\\scenarios.py": "6e386520ada0d94494f75ff58152adfd2388e944b14b223436d982a495c4aac4",
+    "src\\selection.py": "19e638a3b8d70b85bdff0ed171f75b27c780ea9cbd567defbffe5339c53409e6",
+    "src\\utils.py": "7eba90711d1f3ef6e63edb58e6a4a3e573f2be7ba78214301d149639d5ea5315",
+    "src\\__init__.py": "1ec2fb88e4f4434f588c49d21a183ca84b154622f5fe59092f340ac33268cede",
+    "scripts\\create_demo_data.py": "a33cb46001c6cd65c7320fd619a3db0d97a2dd846ec6a0734b0cbd13a43f9a81",
+    "scripts\\run_experiments.py": "7d7dfecc0af58a28783445717479cfe788d5d199523c1cf33fa92cc0b58b3d39",
+    "scripts\\sync_artifacts.py": "937a6576aae77cd7c20e4b8ce092d193a7cfbb135d04ed8b00829b415559224a"
+  },
+  "warnings": [],
+  "supplements": {
+    "rf": true,
+    "m_sensitivity": true,
+    "alpha_sensitivity": true
+  },
+  "config_sha256": "00d9c7f2b000c5caa9a9aaf3b093b6f6113515d3b6bd96db2759cb81da04d4aa",
+  "data_sha256": "27d58cc44e17d7c1a01993ce76aa604f9b306f51ed1619dcd0704a1d038c0a81",
+  "audit_sha256": "8c81cd1fafae04bcfd8c5925ffb9f0a1cd5111129aa1a937e8420fa9cfb4919c",
+  "split_sha256": {
+    "2026": "ec125595db148070351f237ad052f2754265cad061d96783beebfc3dc99d351f"
+  },
+  "data_version": "a-data-v1-20261104-r1",
+  "end": {
+    "utc": "2026-11-05T06:01:34.051318+00:00",
+    "beijing": "2026-11-05T14:01:34.051318+08:00"
+  },
+  "elapsed_seconds": 408.3989968999995,
+  "artifact_hashes": {
+    "bootstrap_differences.csv": "8f03d9213ce530c841e84c5aaa509bbc10788c9aa778b409bf3d098f8af02d1a",
+    "clipping.json": "350022b1b3e97805fe3444c67413163d363bee170c42d84fa2afc0c3c7668e05",
+    "config.yaml": "00d9c7f2b000c5caa9a9aaf3b093b6f6113515d3b6bd96db2759cb81da04d4aa",
+    "coverage_strata.csv": "63c802b2ef983374b9333255a8b10e5e5cdbe2fd13532ed7128a3c0116a56e4e",
+    "imputation_seeds.csv": "da4248ced9e55eab362f87ce644d2c5e31a71a3d70431b48b6505f0d182a3085",
+    "masks.json": "95fd82ae9ed20a37b900fa811b1da58a014c143722fc12921c48c9e6be7c82c9",
+    "method_status.csv": "497b6093a7169ac6445995b514556ca4578af00707de1890f75d6090473dcd61",
+    "metrics.csv": "3acfe414ab59c268d51d0e98fe30b9e12d9e94db902689a209a244c53c97894a",
+    "model_parameters.json": "bac0bc9f1d1d0ef704852e38fa20b3b8c53c4be837b448bc894f9d74452b5c03",
+    "patient_predictions.csv": "204326fabe42ec3247d83901e4c8d912da62b9ed88f7a7d32b846fa614d64fde",
+    "p_m.csv": "fec185ce455a9c9bc49fc0d7f6111f60f60b8485aa59f3547ae6b05a4e690c3c",
+    "stability.csv": "1faa719e38c547dc8bf72e3075b952121b6741fdd60ba06288b7fc0372d08dd6",
+    "thresholds.csv": "af7b0d42480e37d78f9aa67b0dc7d815e5fbf4c4c585f28ebb701782db4afbb4",
+    "timing.json": "f2305ea2c3496a16e5075262fbe6181896ce4ba02a469b24553d039df6cc95e5",
+    "warnings.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "masks\\seed2026_S0.csv": "6edccafed409a0f84ca36073c959f06b9e9c03c1aa376d45e435e8889f2ed22f",
+    "masks\\seed2026_S2.csv": "94250d43c8e6c0992397e50f8ccada3cd2fbd9a1aee5397927ce01ab314cf8d1",
+    "models\\seed2026_LR_M10_alpha0.05.joblib": "3fd5f9bd1a93ef53892d462c9aa023b45d92b982cbcd49f37e7d96cc6440b9e8",
+    "models\\seed2026_LR_M10_alpha0.1.joblib": "c666c828e8d3a4b581d5059dac2552fa946376e92d303e49aeac33cb230eca5f",
+    "models\\seed2026_LR_M20_alpha0.1.joblib": "c288cbedc4dce2dc7d2569ae119ce7b5ead6e3269ffc6953ef267e73fb1ea478",
+    "models\\seed2026_LR_M5_alpha0.1.joblib": "b16e6207db5978a8363a80111f33972317902f9b0b4f96dac9251caaf654135c",
+    "models\\seed2026_RF_M10_alpha0.1.joblib": "f8bdbb1e204fbfa651d23430b6597c8806e3c2653fdb58d36e96219d4a796c78"
+  }
+}

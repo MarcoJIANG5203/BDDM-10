@@ -4,6 +4,16 @@ Git维护代码、协议、状态、小样本和版本索引；较大数据和�
 
 当前发布目标为MarcoJIANG5203/BDDM-10，脚本读取artifacts/registry.json中的repository。历史报告里的zsj-6/EI仅用于溯源，新数据与产物交付均使用新仓库。
 
+## 当前正式A输入（2026-11-04）
+
+`a-data-v1-20261104-r1`已正式发布，SHA256 `feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c`，4,666,169字节。B分支已同步A registry与原字节冻结记录；B实际资产API下载、8项冻结身份和五种子×两格式loader检查通过，见[接收证据](../reviews/B_formal_A_receipt_2026-11-04.json)。`fetch a-data-v1-20261104-r1`恢复cohort/audit/五split及来源/私有receipt，后两目录也已加入Git忽略。若已有不同版本audit，先在别处保留再恢复，默认不覆盖。A历史source/review两个包保留为pre-release，正式包另有独立ID。
+
+A许可元数据冲突与E批准仅用户转述的限制随冻结记录保留；published仅表示实际字节已发布，A内容冻结不代表C/E已验收B结果。以下草稿/候选段落为历史记录，其当时的未发布状态已由本段取代。
+
+## B-002正式输入结果包（2026-11-04）
+
+`b-clinical-v1-20261104-r1`已打包prepared、尚待上传；112文件、155,365,045字节、SHA256 `2328d26682a39ccb895553d3cee3dc6dd11bd6506c41a5a0ac0f5d49890e8426`。含`results/clinical/20261105T055420_02d05b15`主矩阵及`20261105T055445_54dd08de`补充、正式最小输入/五split、源码/锁文件和来源/冻结证据。见[B交接](../handoffs/B/2026-11-04_B-002_formal_v1.md)。正式输入新run计算核验完成不表示C/E结果接受或D正式图稿可用。
+
 11月4日A后续草稿交付：A分支`6b2650e`把原始临床树从当前Git索引移除，保留不可变历史。草稿Release的review-data ZIP为4,663,092字节、SHA256 `3a84a2432d6d2332c68b7e49199da597df2b5c3d724ea208b490f2c609dd1527`；原始full-source ZIP为50,674,324字节、SHA256 `a57d16dc5432b2e2518bc5f754b706c60de7b94d3fb496870687d4a564770cb1`。A回执记载两个资产均实际下载、校验和空目录恢复；A分支registry保持`prepared`、`draft=true`，标准`fetch`不得当作正式数据。来源许可证冲突尚待数据保管方澄清，见[E协调记录](../handoffs/E/2026-11-04_A_C_D_B_coordination.md)。
 
 B候选补充包`b-candidate-v1-supplements-20261104-r1`已本地pack并空目录恢复核对：26文件、32,655,716字节、SHA256 `808537f305e7acb47fa01ce0eb5012d950b1224b92ca9c86ece470a1ee2e5e7f`。registry状态`prepared`且**未上传**，含临床逐患者结果与最小输入，许可澄清前不改标published；本地运行摘要随Git同步。
@@ -64,7 +74,7 @@ git pull不会自动下载Release大文件，先读STATUS和registry再获取所
 
 ## 生产者
 
-A完成且C核查后发布新版本（当前正式数据未就绪，以下为将来交付格式）：
+A完成且C核查后发布新版本（以下为通用格式；当前实际正式输入使用上文A版本）：
 
 ```powershell
 python scripts/sync_artifacts.py pack data-v1 --paths data/processed splits --tag data-v1 --kind data
@@ -87,7 +97,7 @@ python scripts/sync_artifacts.py publish clinical-main-v1
 ## 当前边界
 
 - b-synthetic-20261102仅含两份最终合成run及对应合成输入；可重建全部验证产物。
-- A候选已提交并经B接口核对；负责人确认、C独立复核、E精度/冻结决定及正式Release尚待完成，审核后发布登记。
+- A正式技术版本已发布并内容冻结，B已核对输入；许可冲突、E批准来源限制和C/E新run结果验收仍分别记录，不因published自动消失。
 - 原始大文件、正式患者表、split和完整results默认不入普通Git，使用版本包；Git保留目录说明和元数据。
 
 历史manifest中的本机绝对路径保留作溯源；复核脚本在当前项目定位同字节输入，只有SHA256匹配才接受，不依赖原电脑盘符。.gitattributes保留合成输入字节，避免换行转换破坏校验。

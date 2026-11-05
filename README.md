@@ -2,9 +2,9 @@
 
 研究：**缺失临床数据中基于多重插补预测分歧的共形拒识评估**。
 
-这里统一维护代码、协议、成员交付要求、进度和数据/产物版本。**11月4日已按用户授权在A的v1候选数据上完成五种子五场景主模型矩阵及RF/M/alpha候选补充；正式数据发布、B-002新run和C/E结果签认仍待完成。** 见[五种子候选摘要](reports/candidate-trials/20261104T002604_e3a5a42b/SUMMARY.md)、[补充摘要](reports/candidate-trials/20261104T132609_45c03e76/SUMMARY.md)及[E后续协调](handoffs/E/2026-11-04_A_C_D_B_coordination.md)。当前结果未显示稳定分歧优势，阳性覆盖为0，不能解释为临床安全证据；合成结果也不能用于临床结论。
+这里统一维护代码、协议、成员交付要求、进度和数据/产物版本。**A正式技术数据 `a-data-v1-20261104-r1` 已发布并交付内容冻结记录；B已从正式字节完成B-002主矩阵和规定补充，1,140行指标/78个配对区间独立重算通过。C/E新结果验收仍待独立完成。** 见[正式结果索引](reports/clinical-v1/README.md)及[B交接](handoffs/B/2026-11-04_B-002_formal_v1.md)，完整包同步状态以[registry](artifacts/registry.json)为准。此前候选run完整保留。正式新run同样未显示稳定分歧优势，阳性覆盖为0，B5/B6不可用；不能解释为临床安全证据，合成结果也不能用于临床结论。
 
-下一步及证据见[B原因诊断](reports/diagnostics/20261103T122334_93a9a266/DIAGNOSIS.md)：已复现阳性覆盖零的阈值机制和五批排序/稳定性；A已确认保留v1，C完成候选指标复核但原始receipt为有条件接受，E协调许可、正式数据与冻结决定。
+正式输入见[A交接](handoffs/A/2026-11-04_formal_data_freeze_EN.md)与[A内容冻结](reviews/freeze/A_formal_data_freeze_v1_2026-11-04.json)。A明确授权发布并报告E批准，E原文签名未提供，官方许可元数据冲突尚未澄清；保留这些来源限制，不推断C/E已验收B结果。此前[B原因诊断](reports/diagnostics/20261103T122334_93a9a266/DIAGNOSIS.md)仅解释候选数值机制。
 
 ## 每次同步后先读
 

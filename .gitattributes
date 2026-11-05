@@ -7,6 +7,13 @@ data/synthetic/** whitespace=cr-at-eol
 reports/candidate-trials/20261103T122334_93a9a266/*.csv -text whitespace=cr-at-eol
 reports/candidate-trials/20261103T122334_93a9a266/*.json -text whitespace=cr-at-eol
 reports/candidate-trials/20261103T122334_93a9a266/*.yaml -text whitespace=cr-at-eol
+# Preserve A's imported signed evidence and byte copies from formal B runs.
+reviews/freeze/A_*.json -text whitespace=cr-at-eol
+reviews/A_formal*.json -text whitespace=cr-at-eol
+reviews/A_owner_confirmation_2026-11-04.json -text whitespace=cr-at-eol
+reports/clinical-v1/**/*.csv -text whitespace=cr-at-eol
+reports/clinical-v1/**/*.json -text whitespace=cr-at-eol
+reports/clinical-v1/**/*.yaml -text whitespace=cr-at-eol
 *.docx binary
 *.pdf binary
 *.jpg binary
