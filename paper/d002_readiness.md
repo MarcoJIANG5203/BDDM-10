@@ -7,7 +7,7 @@
 | 项目 | 状态 |
 |---|---|
 | `main` 的 `data/processed/cohort.parquet`、`splits/seed_2026..2030.json` | ❌ 不存在；`data/processed/` 只有 README |
-| A 分支 `a/resource-researching-and-pre-processing` | ✅ `b717d1ae`；PR **#3 open**（57 files）；完整 full-r1 包 + 正式 data Release |
+| A 分支 `a/resource-researching-and-pre-processing` | ✅ `68ce9d11`；PR **#3 open**；11-05 技术收尾完成；完整 full-r1 包 + 正式 data Release |
 | A 正式数据 | ✅ `a-data-v1-20261104-r1.zip`（4,666,169 B，SHA256 `feb69777...`）已发布；A owner 确认、C-005 有条件技术接收；E 批准为 **user-attested**，不是 E 直接签名 |
 | A PR #3 | ⚠️ open、mergeable；main 仍未合并，`data/processed/` 仍只有 README |
 | A 精度门槛 | ❌ A 10,174 人/57 阳性；B 13,921 人/38 阳性；内部测试 1,525 人/8 阳性；门槛 200/200/50 未过；A 明确保留 v1 并限定结论 |
@@ -15,12 +15,13 @@
 | B 完整 bundle | ✅ `b-clinical-v1-20261104-r1`，155,365,045 B，SHA256 `2328d266...`，已发布 pre-release；含两个 run 与完整逐患者/p_m/模型/mask |
 | B PR #5 | ⚠️ open **draft**；B/E 正式交付与 coordination；main 不合并；**没有 C/E acceptance** |
 | B 正式结果限制 | ❌ 阳性集合覆盖 0/8（内部）、0/38（外部）；B5/B6 因仅 6 个选择错误不可用；B4−B2 跨种子/场景方向不一致 |
-| C 分支 | ✅ `f4d97366`；PR **#4 open**（9 files） |
+| C 分支 | ✅ `b6d7c329`；PR **#4 open**；C-006 正式 run 独立复核已提交 |
 | C-001 标签复核 | ✅ 20/20 例标签一致；C-005 对 A 原始 receipt 做条件接受（parquet/audit 层一致，未字节级重跑 40,336 .psv） |
 | C-003 时间边界/候选指标 | ✅ 14 个边界断言 0 失败；900 行指标、30 个配对区间、p_m 抽样独立重算 0 失败 |
+| C-006 正式 run 复核 | ✅ 对主 run `…02d05b15` 与补充 `…54dd08de` 独立重算：2,612,100/366,000 行、900/240 指标、30/48 区间、覆盖与 p_m **0 失败**；结论“有条件接受算术/协议保真” |
 | C-004 引用核验 | ✅ R5 已补出（MICCAI 2026 Satellite/MLMI, LNCS 17272；预印 DOI 10.21203/rs.3.rs-10336064/v1）；R3 FDR 已由全文证实；R1 LOCF 仍未证实 |
 | C-002 文献/投稿 | ✅ 7/7 元数据可引用；R1 “LOCF”不写；组内 11-20 通知证据仍待留存 |
-| E precision/freeze | ⚠️ E-001 已记录正式 v1 技术接收与有限结论范围；但明确 **C 对正式 run 独立签认仍待**，未创建 `reviews/acceptance`；E 承认本轮非第二名独立统计审稿人 |
+| E precision/freeze | ⚠️ E-001 已记录正式 v1 技术接收与有限结论范围；C-006 已出正式 run 独立结论，但 B/E 接收意见与联合 C/E 结果接受仍待；**`reviews/acceptance` 仍不存在** |
 | D-001 / D-001a | D-001 图表脚本/提纲/索引已提交；D-001a 增加“临床 run 必须有 C/E 签认”门槛 |
 | D-002 准备 | ✅ `paper/references_checklist.md`（7/7）、`paper/references.bib`（7 条）、`paper/draft_v0.md`（结果全占位） |
 | D-002 DRAFT（正式 B-002） | ✅ `paper/draft-runs/20261105T055420_02d05b15/`：Fig 2/3/4/5/6 + Table 2/2b/3/4/5，`DRAFT_CANDIDATE_NOT_ACCEPTED`；Fig 5 为稀疏诊断 |
@@ -30,6 +31,7 @@
 - `paper/references_checklist.md`：把 C 的 7 条候选文献逐条核实；C-004 补出 R5 后 **7 条均可引用**；R3 FDR 已证实，R1 LOCF 仍不写。
 - `paper/references.bib`：7 条已核实条目，含 `wong2026mc2`。
 - `paper/draft_v0.md`：英文稿骨架（Abstract/Intro/Related Work/Methods/Results 占位/Discussion/Statements），所有结果处为 `[RESULT:S-xxx]`，没有临床数字。
+- `paper/results_draft.md`：DRAFT 结果段落草稿，含正式 B-002 DRAFT 数字与 D-xxx 标签；**不得进论文**，只用于内部审阅与后续替换为 S-xxx。
 - `paper/acceptance_record_template.json` + D-001a：临床 run 的 C/E 签认门槛。
 - `scripts/make_cohort_tables.py` + `paper/inputs/a-data-v1-20261104-r1/`：从 A 正式 data Release 生成 **Table 1 / Fig 1 DRAFT**（`DRAFT_PENDING_ACCEPTANCE`）；校验 release SHA256、audit、cohort、5 splits、site/阳性数、role 互斥完备。
 - `make_figures.py --draft-unaccepted --draft-reason ...`：在**不合并 main**的情况下，用 B 正式 B-002 小表（或候选 bundle）生成 `paper/draft-runs/<run_id>/` 的 DRAFT 模型图表；provenance 状态 `DRAFT_CANDIDATE_NOT_ACCEPTED`，图带 DRAFT 水印，表带 `draft=True`/`draft_reason`。正式 `paper/runs/` 仍只接受 C/E acceptance。
@@ -64,7 +66,7 @@
 
 ## A 还需要做什么
 
-A 已完成：正式 data Release `a-data-v1-20261104-r1`（4,666,169 B，SHA256 `feb69777...`）、A owner confirmation、C-005 条件技术接收、PR #3 open。剩余：
+A 已完成：正式 data Release `a-data-v1-20261104-r1`（4,666,169 B，SHA256 `feb69777...`）、A owner confirmation、C-005 条件技术接收、`68ce9d11` 11-05 技术收尾（125 项恢复/完整性检查）、PR #3 open。许可冲突仍未解决。剩余：
 
 1. **PR #3 可保持 open**：用户明确不需要合并 main；D 直接使用正式 Release `a-data-v1-20261104-r1` 的字节。A 只需保证 Release 字节与 PR #3 的 cohort/splits/audit 一致，且不替换既有 Release 资产。
 2. **确认 raw 不入普通 Git**：A PR #3 已修改 `.gitignore`/`.gitattributes`，声称不添加普通 Git 临床表/raw 归档；即使不合并，也建议保持这一边界。
@@ -87,7 +89,7 @@ A 已完成：正式 data Release `a-data-v1-20261104-r1`（4,666,169 B，SHA256
 
 ## C 还需要做什么
 
-C 已完成：C-001 20/20 标签、C-003 时间边界 14 断言、候选 run 900 行指标/30 个配对区间/p_m 独立重算（0 失败）、C-004 引用核验、C-005 A receipt 条件复核。以下是把这些转成可接受交接的剩余工作：
+C 已完成：C-001 20/20 标签、C-003 时间边界 14 断言、候选 run 900/30 独立重算（0 失败）、C-004 引用核验、C-005 A receipt 条件复核、**C-006 两个正式 run 独立复核（900/240 指标、30/48 区间、0 失败，结论为有条件接受算术/协议保真）**。以下是把这些转成可接受交接的剩余工作：
 
 1. **C PR #4 可保持 open**：用户明确不需要合并 main；D 直接从 C 分支读取 C-004/C-005 回执。C 只需保证分支 commit 不被改写，并把接受结论写在可见记录里。
 2. **完成 C-003 的接收闭环**：B 需确认 `tie_key=sha256(patient_id)`、排序键与 frozen 阈值语义；B/E 在 C-003 记录上填写接收结论，不能只由 C 自报“0 失败”。
@@ -97,7 +99,7 @@ C 已完成：C-001 20/20 标签、C-003 时间边界 14 断言、候选 run 900
    - R3 的 FDR 已由 C-004 全文证实，D 可写；R1 的 LOCF 仍未证实，C/D 不写，除非逐字读全文并给页码。
    - 组内“11-20 前可投稿”通知证据仍需 C 记录核对日期，并由 E/通讯作者留存原件。
 5. **给 D 的最终引用结论**：D 已建 `paper/references_checklist.md`（7 条可引用）；C-004 的结论已采用。C 只需确认 R1 是否补 LOCF 页码，否则保持不写。
-6. **正式 run 后 C-003 复核**：E 冻结、B 在正式 data Release 上重跑后，C 需独立复算主表/区间并签 acceptance record。目前**没有任何 `reviews/acceptance` 记录**。
+6. **C-006 的接收与签认**：C 已完成两个正式 run 的独立复核并写“有条件接受算术/协议保真”；还需要 B/E 回填接收意见，并在 `reviews/acceptance/<run_id>.json` 记录 C/E 的正式签认。目前**没有任何 acceptance 记录**；C 的交接本身不是 acceptance 文件。
 7. **许可/来源**：与 A/E 一起记录 PhysioNet CC BY 4.0 与 LICENSE.txt 的 ODbL 差异；A PR #3 已把两者证据保留，但未解决。
 
 ## E 需要做什么（与 A/B/C 联动）
