@@ -4,7 +4,7 @@ A formal technical data: [a-data-v1-20261104-r1](https://github.com/MarcoJIANG52
 
 研究：**缺失临床数据中基于多重插补预测分歧的共形拒识评估**。
 
-This repository tracks protocol, scientific code and reviewable delivery evidence. A has confirmed retaining the existing v1 candidate and supplied a full raw-hour receipt. Formal data publication and freeze remain pending; see [A review delivery](collaboration/A_DATA_REVIEW_2026-11-04.md) and [current status](collaboration/STATUS.md). Candidate or synthetic results are not accepted clinical evidence.
+This repository tracks protocol, scientific code and reviewable delivery evidence. A's formal technical data version is published and content-frozen; B/E technical receipts and the newer C006 submission are indexed in [the 5 November handoff](handoffs/A/2026-11-05_A_daily_closeout_EN.md). Use [current recovery instructions](collaboration/A_SOURCE_REPLAY_2026-11-05.md) and [current status](collaboration/STATUS.md). Source licensing remains unresolved; A content freeze does not grant joint C/E result acceptance.
 
 ## 每次同步后先读
 

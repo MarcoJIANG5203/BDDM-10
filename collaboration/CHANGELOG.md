@@ -2,6 +2,14 @@
 
 新记录放最上方，写日期、负责人、变更、影响的旧结果与处理方式。
 
+## 2026-11-05 · A daily delivery status and source recovery correction
+
+- Re-downloaded the unchanged formal A asset and original full-source asset; checked their registered SHA-256, eight frozen inputs/embedded freeze, site/event counts, five split roles and original ZIP integrity/raw membership.
+- Indexed actual B input/interface and newer E technical/retain-v1 receipts. Indexed C006's conditional independent arithmetic/protocol conclusion and D's formal-run Fig5 draft with pinned source commits; no recipient signature or joint result acceptance created.
+- Corrected obsolete current-state statements that A was still unpublished or that the original source was draft-only. Added current source replay instructions for C. Historical records remain available at fixed commits; source availability is not a C personal replay.
+- Rechecked five official PhysioNet resources; CC BY 4.0 web/ODbL file conflict persists. Updated English correspondence is saved and **not sent**, as explicitly requested by the owner; no official reply or legal resolution recorded.
+- Documentation and aggregate delivery evidence only: no new data version, changed scientific code, labels, split, frozen audit/record, registry or Release asset; no main merge and no model rerun.
+
 ## 2026-11-04 · A formal technical data published and content frozen
 
 - Published immutable `a-data-v1-20261104-r1`, SHA256 `feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c`; actual download and restore match31 scientific hashes. Data/model methods, labels and five splits unchanged; version/audit metadata and approval provenance updated.

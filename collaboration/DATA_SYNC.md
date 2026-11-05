@@ -1,11 +1,16 @@
 # 数据和完整产物同步
 
-## Current formal A delivery —2026-11-04
+## Current recovery correction — 5 November 2026
+
+Both A data and the original source archive are published and were actually downloaded and hashed again today. See [source recovery](A_SOURCE_REPLAY_2026-11-05.md) and [daily evidence](../reviews/A_daily_delivery_verification_2026-11-05.json). The draft/prepared paragraph below is a historical record only. B/E technical receipts are indexed; C006 has now been submitted. No scientific bytes, registry entry or existing asset changed.
+
+
+## Current formal A delivery — checked 2026-11-05
 
 `a-data-v1-20261104-r1` is actually published and downloadable; use `python scripts/sync_artifacts.py fetch a-data-v1-20261104-r1` after obtaining its registry entry. A data content freeze is signed and binds exact hashes. Prior source/review assets are published historical prereleases. The A owner explicitly instructs publication and reports E approval; direct E signoff and official licensing resolution are not supplied. This is an owner-authorized publication exception to the earlier waiting workflow, not a claim those source-clearance steps occurred. C conditional review and B/D scientific result acceptance remain separate.
 
 
-## A review update — 2026-11-04
+## Historical prepublication review state — 2026-11-04 (superseded)
 
 A owner confirmation and full raw PSV receipt are complete. The new review-data and immutable full-source assets are staged for a **draft** Release under tag `a-v1-review-delivery-20261104-r1`; actual remote state is recorded in the registry and transport receipt. These entries stay `prepared`, not formal `published`. Standard fetch intentionally refuses them; see [authenticated review recovery](A_DATA_REVIEW_2026-11-04.md). Source license clarification, C receipt review and E/team freeze remain outstanding. The old full source archive retains its original audit; the current review-data archive has an explicitly annotated audit metadata revision with the same cohort/split bytes.
 
@@ -32,7 +37,7 @@ git pull不会自动下载Release大文件，先读STATUS和registry再获取所
 
 ## 生产者
 
-A完成且C核查后发布新版本（当前正式数据未就绪，以下为将来交付格式）：
+For future versions, publish only under the actual applicable review decision. The following are generic new-version commands; the current A technical version is already published:
 
 ```powershell
 python scripts/sync_artifacts.py pack data-v1 --paths data/processed splits --tag data-v1 --kind data
@@ -55,7 +60,7 @@ python scripts/sync_artifacts.py publish clinical-main-v1
 ## 当前边界
 
 - b-synthetic-20261102仅含两份最终合成run及对应合成输入；可重建全部验证产物。
-- 正式队列尚未交付，待A发布并经C核对后登记。
+- The current formal A technical version is published as `a-data-v1-20261104-r1`; use the registry. C/E clinical result acceptance remains separate.
 - 原始大文件、正式患者表、split和完整results默认不入普通Git，使用版本包；Git保留目录说明和元数据。
 
 历史manifest中的本机绝对路径保留作溯源；复核脚本在当前项目定位同字节输入，只有SHA256匹配才接受，不依赖原电脑盘符。.gitattributes保留合成输入字节，避免换行转换破坏校验。
