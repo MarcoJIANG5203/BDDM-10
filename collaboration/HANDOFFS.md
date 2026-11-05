@@ -1,5 +1,15 @@
 # 成员交付要求与验收矩阵
 
+## Current A delivery and recipient evidence — 5 November 2026
+
+A formal technical data and the original full-source archive are published; the former draft-only recovery instructions are superseded by [current source replay](A_SOURCE_REPLAY_2026-11-05.md). B identity/interface and E technical/retain-v1 reception are indexed in [A's dated evidence index](../reviews/A_recipient_receipt_index_2026-11-05.json). C006 now submits its own conditional arithmetic/protocol conclusion for both formal runs; B/E result reception and joint acceptance remain separate. No new delivery requirement or scientific protocol is introduced here. Source licensing remains unresolved; the owner explicitly deferred sending the prepared correspondence. See [A daily handoff](../handoffs/A/2026-11-05_A_daily_closeout_EN.md).
+
+
+## Current formal A delivery —2026-11-04
+
+`a-data-v1-20261104-r1` is actually published and downloadable; use `python scripts/sync_artifacts.py fetch a-data-v1-20261104-r1` after obtaining its registry entry. A data content freeze is signed and binds exact hashes. Prior source/review assets are published historical prereleases. The A owner explicitly instructs publication and reports E approval; direct E signoff and official licensing resolution are not supplied. This is an owner-authorized publication exception to the earlier waiting workflow, not a claim those source-clearance steps occurred. C conditional review and B/D scientific result acceptance remain separate.
+
+
 更新日期：2026-11-02。要求变化时改本页并写[CHANGELOG](CHANGELOG.md)，验收用[交付模板](../handoffs/TEMPLATE.md)。
 
 统一交付仓库已切换为MarcoJIANG5203/BDDM-10。下列路径均相对此仓库，新的代码、数据版本、记录和PR不再提交到旧zsj-6/EI。
@@ -19,3 +29,7 @@
 每次记录生产者/接收人、日期、交付ID、协议/数据/commit、相对路径或bundle/run、完成/未完成、验证命令输出、问题和下一步。不要用截图或个人盘符作为唯一交付。
 
 A新增原始队列提取脚本另建文件，衔接现有接口，不覆盖B已验证data.py/models.py。B不重划分患者。C独立核查而非复制汇总。D用已验收真实结果。E协调变更，不代替岗位实质验收。
+
+## Historical prepublication state — 2026-11-04 A retain-v1 review delivery (superseded)
+
+A owner explicitly confirmed using existing v1/full-r1 data and methods, with failed event-count limits. Current evidence is exposed in the A closeout; full40336-record raw PSV receipt is provided to C in the review bundle. Clinical data are removed from the current Git tree. Current registry entries remain prepared/draft; formal publication still requires the actual C/E decision and source-license clarification. See [A handoff](../handoffs/A/2026-11-04_A-001_closeout_EN.md) and [recovery instructions](A_DATA_REVIEW_2026-11-04.md). This updates delivery/evidence handling, not the v1 scientific algorithm, endpoint or split.

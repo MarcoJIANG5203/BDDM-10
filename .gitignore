@@ -26,3 +26,8 @@ splits/*
 !splits/README.md
 results/*
 !results/README.md
+
+# Full clinical delivery is restored from a versioned Release, not ordinary Git.
+/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/*
+!/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/README.md
+/raw_receipt/

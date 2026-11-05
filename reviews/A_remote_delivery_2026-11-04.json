@@ -1,0 +1,51 @@
+{
+  "release_id": 433871307,
+  "tag": "a-v1-review-delivery-20261104-r1",
+  "url": "https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/untagged-40b4eacb5c149f33ac90",
+  "draft": true,
+  "prerelease": true,
+  "target_commit": "fa2c6d9a5c3ad12d01895cc194ddc62928e15050",
+  "formal_published": false,
+  "scientific_freeze": false,
+  "assets": [
+    {
+      "name": "a-v1-review-data-20261104-r1.zip",
+      "asset_id": 709374298,
+      "bytes": 4663092,
+      "sha256": "3a84a2432d6d2332c68b7e49199da597df2b5c3d724ea208b490f2c609dd1527",
+      "remote_digest": "sha256:3a84a2432d6d2332c68b7e49199da597df2b5c3d724ea208b490f2c609dd1527",
+      "asset_api": "repos/MarcoJIANG5203/BDDM-10/releases/assets/709374298",
+      "actual_download_sha256_matches": true,
+      "downloaded_bytes": 4663092,
+      "empty_directory_restore_current_scientific_hashes": 31
+    },
+    {
+      "name": "T1_A_Day1_2026-11-03_v1_Rebuilt_Full.zip",
+      "asset_id": 709375176,
+      "bytes": 50674324,
+      "sha256": "a57d16dc5432b2e2518bc5f754b706c60de7b94d3fb496870687d4a564770cb1",
+      "remote_digest": "sha256:a57d16dc5432b2e2518bc5f754b706c60de7b94d3fb496870687d4a564770cb1",
+      "asset_api": "repos/MarcoJIANG5203/BDDM-10/releases/assets/709375176",
+      "actual_download_sha256_matches": true,
+      "downloaded_bytes": 50674324,
+      "empty_directory_restore_original_manifest_hashes": 125
+    }
+  ],
+  "all_uploaded_assets_downloaded_and_verified": true,
+  "owner_confirmation": "CONFIRMED_BY_USER",
+  "C_raw_receipt_review": "PENDING",
+  "E_joint_freeze": "DEFERRED_PENDING_JOINT_DECISION",
+  "license_clarification_request": "DRAFT_NOT_SENT",
+  "repository_tests_passed": 56,
+  "pull_request": {
+    "number": 3,
+    "url": "https://github.com/MarcoJIANG5203/BDDM-10/pull/3",
+    "state": "open",
+    "draft": true,
+    "head": "a/resource-researching-and-pre-processing",
+    "source_head_at_creation": "5dfa69ad8c0b3775aeca9c3a9f62858347da932e",
+    "base": "main",
+    "merged": false
+  },
+  "release_target_commit": "5dfa69ad8c0b3775aeca9c3a9f62858347da932e"
+}

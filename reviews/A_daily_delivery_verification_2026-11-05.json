@@ -1,0 +1,303 @@
+{
+  "record_id": "A-daily-closeout-20261105",
+  "date": "2026-11-05",
+  "timezone": "Asia/Hong_Kong",
+  "started_at": "2026-11-05T22:43:51.913916+08:00",
+  "completed_at": "2026-11-05T22:44:41.711836+08:00",
+  "scope": "A read-only identity verification and delivery-status maintenance; not independent C/E scientific acceptance",
+  "formal_data": {
+    "tag": "a-data-v1-20261104-r1",
+    "url": "https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/a-data-v1-20261104-r1",
+    "draft": false,
+    "prerelease": false,
+    "asset_id": 709705860,
+    "bytes": 4666169,
+    "sha256": "feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c",
+    "actual_download_verified": true,
+    "archive_members": 52,
+    "frozen_input_hashes_verified": {
+      "data/processed/cohort.parquet": "27d58cc44e17d7c1a01993ce76aa604f9b306f51ed1619dcd0704a1d038c0a81",
+      "data/processed/cohort.csv": "e5e88ebcfb755da9d610b0c9587733c8d87ba477cd8fcb2161c0459107946b16",
+      "data/processed/cohort_audit.json": "8c81cd1fafae04bcfd8c5925ffb9f0a1cd5111129aa1a937e8420fa9cfb4919c",
+      "splits/seed_2026.json": "ec125595db148070351f237ad052f2754265cad061d96783beebfc3dc99d351f",
+      "splits/seed_2027.json": "b3f5cc23996d8d9f1150e377ab79fd121ec4037d57bb89c61b0cee4e27827ecb",
+      "splits/seed_2028.json": "a19b7dfbdf8d457cb57baa1e68d989b000752d22afb3c8e4b0d4957dbe5a4ce9",
+      "splits/seed_2029.json": "15a57fc26f91c2a6bc1ff1c219d7279c0bafba68bba0d7569e0ca99949b6f23c",
+      "splits/seed_2030.json": "8800012eac62a1aacc73b3d43b8a9ba1b3ce0b76df57a86e0d81bcf0c4649c47"
+    },
+    "embedded_freeze_matches_git": true,
+    "freeze_record_sha256": "9e5187a0d8d73a28b7a9d9d2db8acdeda1b5125988ae848d70c58cbb0b3453ba",
+    "included": 24095,
+    "positives": 95,
+    "site_counts": {
+      "A": {
+        "n": 10174,
+        "positives": 57
+      },
+      "B": {
+        "n": 13921,
+        "positives": 38
+      }
+    },
+    "split_counts": {
+      "2026": {
+        "train": {
+          "n": 6104,
+          "positives": 34
+        },
+        "selection": {
+          "n": 1018,
+          "positives": 6
+        },
+        "calibration": {
+          "n": 1527,
+          "positives": 9
+        },
+        "test": {
+          "n": 1525,
+          "positives": 8
+        },
+        "external": {
+          "n": 13921,
+          "positives": 38
+        }
+      },
+      "2027": {
+        "train": {
+          "n": 6104,
+          "positives": 34
+        },
+        "selection": {
+          "n": 1018,
+          "positives": 6
+        },
+        "calibration": {
+          "n": 1527,
+          "positives": 9
+        },
+        "test": {
+          "n": 1525,
+          "positives": 8
+        },
+        "external": {
+          "n": 13921,
+          "positives": 38
+        }
+      },
+      "2028": {
+        "train": {
+          "n": 6104,
+          "positives": 34
+        },
+        "selection": {
+          "n": 1018,
+          "positives": 6
+        },
+        "calibration": {
+          "n": 1527,
+          "positives": 9
+        },
+        "test": {
+          "n": 1525,
+          "positives": 8
+        },
+        "external": {
+          "n": 13921,
+          "positives": 38
+        }
+      },
+      "2029": {
+        "train": {
+          "n": 6104,
+          "positives": 34
+        },
+        "selection": {
+          "n": 1018,
+          "positives": 6
+        },
+        "calibration": {
+          "n": 1527,
+          "positives": 9
+        },
+        "test": {
+          "n": 1525,
+          "positives": 8
+        },
+        "external": {
+          "n": 13921,
+          "positives": 38
+        }
+      },
+      "2030": {
+        "train": {
+          "n": 6104,
+          "positives": 34
+        },
+        "selection": {
+          "n": 1018,
+          "positives": 6
+        },
+        "calibration": {
+          "n": 1527,
+          "positives": 9
+        },
+        "test": {
+          "n": 1525,
+          "positives": 8
+        },
+        "external": {
+          "n": 13921,
+          "positives": 38
+        }
+      }
+    }
+  },
+  "original_source": {
+    "tag": "a-v1-source-archive-20261104-r1",
+    "url": "https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/a-v1-source-archive-20261104-r1",
+    "draft": false,
+    "prerelease": true,
+    "asset_id": 709375176,
+    "bytes": 50674324,
+    "sha256": "a57d16dc5432b2e2518bc5f754b706c60de7b94d3fb496870687d4a564770cb1",
+    "actual_download_verified": true,
+    "zip_crc_passed": true,
+    "raw_member_counts": {
+      "A": 20336,
+      "B": 20000
+    },
+    "manifest_members": [
+      "T1_A_Day1_2026-11-03_v1_Rebuilt_Full/history/previous_candidate_v2/PACKAGE_SHA256SUMS.txt",
+      "T1_A_Day1_2026-11-03_v1_Rebuilt_Full/history/previous_candidate_v2/reports/derived_data_sha256.json",
+      "T1_A_Day1_2026-11-03_v1_Rebuilt_Full/sources/official_SHA256SUMS.txt",
+      "T1_A_Day1_2026-11-03_v1_Rebuilt_Full/PACKAGE_SHA256SUMS.txt"
+    ],
+    "scope_limit": "Archive availability and identity checked today; no new C raw-PSV replay claimed"
+  },
+  "pinned_sources": [
+    {
+      "label": "B",
+      "branch": "b/core-methods-experiments",
+      "commit": "75ccea28e591376e163a2bc6199666c0b6e6acd4",
+      "path": "handoffs/B/2026-11-04_B-002_formal_v1.md",
+      "sha256": "c398ae8d61339088264f2bf2b4be7c4a39d06e20dc1926e08fc2923b38b3624b",
+      "bytes": 6185,
+      "url": "https://github.com/MarcoJIANG5203/BDDM-10/blob/75ccea28e591376e163a2bc6199666c0b6e6acd4/handoffs/B/2026-11-04_B-002_formal_v1.md"
+    },
+    {
+      "label": "B_receipt",
+      "branch": "b/core-methods-experiments",
+      "commit": "75ccea28e591376e163a2bc6199666c0b6e6acd4",
+      "path": "reviews/B_formal_A_receipt_2026-11-04.json",
+      "sha256": "8d6ecfc0c5292da318fe7ca32876f5df54d71b392c5bd7649cb7e8394219e4be",
+      "bytes": 2994,
+      "url": "https://github.com/MarcoJIANG5203/BDDM-10/blob/75ccea28e591376e163a2bc6199666c0b6e6acd4/reviews/B_formal_A_receipt_2026-11-04.json"
+    },
+    {
+      "label": "E",
+      "branch": "b/core-methods-experiments",
+      "commit": "75ccea28e591376e163a2bc6199666c0b6e6acd4",
+      "path": "handoffs/E/2026-11-05_E-001_formal_v1_integration.md",
+      "sha256": "4089848ccf6342a28238feaeb3a0629af739e55b48b65ed4f15d35f207c39225",
+      "bytes": 6511,
+      "url": "https://github.com/MarcoJIANG5203/BDDM-10/blob/75ccea28e591376e163a2bc6199666c0b6e6acd4/handoffs/E/2026-11-05_E-001_formal_v1_integration.md"
+    },
+    {
+      "label": "E_checks",
+      "branch": "b/core-methods-experiments",
+      "commit": "75ccea28e591376e163a2bc6199666c0b6e6acd4",
+      "path": "reviews/E/2026-11-05_integration_checks.json",
+      "sha256": "e1580fe885ab2571ac04c80e3e3bdd48366ad59d3bcc439c35ec53ee079472b4",
+      "bytes": 7918,
+      "url": "https://github.com/MarcoJIANG5203/BDDM-10/blob/75ccea28e591376e163a2bc6199666c0b6e6acd4/reviews/E/2026-11-05_integration_checks.json"
+    },
+    {
+      "label": "C",
+      "branch": "c/Literature-Review-and-Independent-Test",
+      "commit": "b6d7c3293db1c2263bc6ae4a25ce3e178415aeb8",
+      "path": "handoffs/C/2026-11-05_正式run独立复核.md",
+      "sha256": "4bf2772165b5bbeacf0b1f60930fb5d9f158e0fd6e3584819abedd3b2e5c7973",
+      "bytes": 6322,
+      "url": "https://github.com/MarcoJIANG5203/BDDM-10/blob/b6d7c3293db1c2263bc6ae4a25ce3e178415aeb8/handoffs/C/2026-11-05_%E6%AD%A3%E5%BC%8Frun%E7%8B%AC%E7%AB%8B%E5%A4%8D%E6%A0%B8.md"
+    },
+    {
+      "label": "D",
+      "branch": "d/figure-and-paper",
+      "commit": "33f85eac390dbaae8a1caa2f0a77a855dbbd101d",
+      "path": "handoffs/D/2026-11-05_D-002_fig5.md",
+      "sha256": "810d7e08941d801e369eeeeee1724b72a153a85749113edd6dbdf0b781062adf",
+      "bytes": 3659,
+      "url": "https://github.com/MarcoJIANG5203/BDDM-10/blob/33f85eac390dbaae8a1caa2f0a77a855dbbd101d/handoffs/D/2026-11-05_D-002_fig5.md"
+    }
+  ],
+  "license": {
+    "status": "UNRESOLVED_OFFICIAL_METADATA_CONFLICT",
+    "web_license": "CC BY 4.0",
+    "downloaded_file_license": "ODbL",
+    "license_sha256": "bcdfcd4f31c790e30fb645dc36414907172405897adff329ad379eed85d12017",
+    "matches_official_checksum": true,
+    "contact": "contact@physionet.org",
+    "official_captures": {
+      "landing": {
+        "url": "https://physionet.org/content/challenge-2019/1.0.0/",
+        "final_url": "https://physionet.org/content/challenge-2019/1.0.0/",
+        "http_status": 200,
+        "retrieved_at": "2026-11-05T22:44:31.276395+08:00",
+        "bytes": 104876,
+        "sha256": "6007c91bc276a3c38ff7701b4ac868c6cb2541e3c69823012da0e34af826b2c9"
+      },
+      "view_license": {
+        "url": "https://physionet.org/content/challenge-2019/view-license/1.0.0/",
+        "final_url": "https://physionet.org/content/challenge-2019/view-license/1.0.0/",
+        "http_status": 200,
+        "retrieved_at": "2026-11-05T22:44:31.682656+08:00",
+        "bytes": 28248,
+        "sha256": "feb4fe94f09640846b69a387693a6f67c4d2d7ab92a867736860d21f6896e46d"
+      },
+      "license_file": {
+        "url": "https://physionet.org/files/challenge-2019/1.0.0/LICENSE.txt",
+        "final_url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/LICENSE.txt",
+        "http_status": 200,
+        "retrieved_at": "2026-11-05T22:44:32.818680+08:00",
+        "bytes": 25815,
+        "sha256": "bcdfcd4f31c790e30fb645dc36414907172405897adff329ad379eed85d12017"
+      },
+      "checksums": {
+        "url": "https://physionet.org/files/challenge-2019/1.0.0/SHA256SUMS.txt",
+        "final_url": "https://physionet.org/files/challenge-2019/1.0.0/SHA256SUMS.txt",
+        "http_status": 200,
+        "retrieved_at": "2026-11-05T22:44:30.468225+08:00",
+        "bytes": 264,
+        "sha256": "ba025b2702297c202592a01d4eb31532938a2f6b3aab3afe125e75a52bd281a5"
+      },
+      "contact": {
+        "url": "https://physionet.org/about/",
+        "final_url": "https://physionet.org/about/",
+        "http_status": 200,
+        "retrieved_at": "2026-11-05T22:44:30.732131+08:00",
+        "bytes": 18861,
+        "sha256": "8a65f92d4620c1261ce11a6d72bbf2995dff88305a96e21232f553c196d51ee4"
+      }
+    },
+    "clarification_request_status": "USER_DEFERRED_NOT_SENT",
+    "official_reply_supplied_to_this_task": false,
+    "applicable_license_selected": false,
+    "user_instruction_verbatim": "暂时不发送"
+  },
+  "acceptance_files_at_checked_commits": {
+    "b/core-methods-experiments": [],
+    "c/Literature-Review-and-Independent-Test": [],
+    "d/figure-and-paper": [],
+    "main": []
+  },
+  "A_PR_before_update": {
+    "number": 3,
+    "html_url": "https://github.com/MarcoJIANG5203/BDDM-10/pull/3",
+    "state": "open",
+    "draft": false,
+    "merged_at": null
+  },
+  "scientific_code_labels_splits_changed": false,
+  "full_scientific_tests_rerun": false,
+  "models_trained": false
+}
