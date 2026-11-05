@@ -1,6 +1,6 @@
 # Draft v0 — D-002 preparation (not for submission)
 
-**Status:** English manuscript skeleton prepared on 2026-11-04. **No accepted clinical run exists yet.** Every `[RESULT:S-xxx]` is an unresolved placeholder; no result number in this draft may be quoted, submitted, or circulated as a finding. Synthetic and candidate-run outputs are excluded.
+**Status:** English manuscript skeleton prepared on 2026-11-04; updated 2026-11-05. **A formal B-002 run exists, but no C/E acceptance record exists.** Every `[RESULT:S-xxx]` is an unresolved placeholder; no result number in this draft may be quoted, submitted, or circulated as a finding. Synthetic, candidate-run and unaccepted formal-B-002 DRAFT outputs are excluded from the manuscript.
 
 **Citation policy:** only the seven entries in `paper/references.bib`, all verified in `paper/references_checklist.md` (R5 source supplied by C-004). R5 is cited only for modality-level missingness; R1’s “LOCF” is not claimed because it remains unverified. Claims marked `[CLAIM-CHECK]` require full-text confirmation before submission.
 
@@ -197,10 +197,10 @@ We do not claim clinical benefit, deployment readiness, cost-effectiveness, or t
 | Discussion/Limitations | Drafted; final claims pending accepted run |
 | References | `paper/references.bib` (7 verified entries) |
 | Citation claims | R1 “LOCF” unverified; R3 FDR verified by C-004; R5 verified by C-004 |
-| Figures/tables | `paper/figure_list.md`; model figures only after acceptance |
+| Figures/tables | `paper/figure_list.md`; formal model figures only after acceptance |
 | Table 1 / Fig 1 | DRAFT generated from `a-data-v1-20261104-r1` in `paper/inputs/`; not inserted until C/E accepts |
-| Model figures/tables | DRAFT candidate outputs in `paper/draft-runs/20261104T002604_e3a5a42b/` (Fig 2/3/4/6, Table 2–5); not inserted; not for submission |
-| Accepted clinical run | **MISSING** |
+| Model figures/tables | DRAFT formal B-002 outputs in `paper/draft-runs/20261105T055420_02d05b15/` (Fig 2/3/4/6, Table 2–5); not inserted; not for submission |
+| Accepted clinical run | Formal B-002 run `20261105T055420_02d05b15` exists; **not accepted** |
 | C/E acceptance record | **MISSING** |
 | C-002 verified citation list | **7/7 metadata verified**; only R1 “LOCF” claim remains unconfirmed |
 

@@ -2,7 +2,7 @@
 
 更新：2026-11-04。负责人：D。验收：C 核对数字/引用，E 检查全文一致性。
 
-**当前状态：** A 的正式 data Release `a-data-v1-20261104-r1` 已发布，D 已从该 Release 生成 **Table 1 / Fig 1 DRAFT**（`paper/inputs/a-data-v1-20261104-r1/`）；它们是数据描述草稿，等 A PR #3 合并与 C/E 接收后才可进论文。合成 run 的软件验证在 `paper/validation/20261102T063118_fa76f8a8/`，不得进入论文。真实临床模型图表要等 B-002 正式 run，用 `scripts/make_figures.py` 生成到 `paper/runs/<run_id>/`。**临床 run 还必须附带 C/E 签认记录 `reviews/acceptance/<run_id>.json`；脚本会拒绝任何没有签认的临床 run，包括当前 B 的候选矩阵。** 前置条件见 [d002_readiness.md](d002_readiness.md)。
+**当前状态：** A 的正式 data Release `a-data-v1-20261104-r1` 已发布，D 已从该 Release 生成 **Table 1 / Fig 1 DRAFT**。B 的正式 B-002 run `20261105T055420_02d05b15` 与完整 bundle `b-clinical-v1-20261104-r1` 已交付，D 已生成 **正式 B-002 DRAFT 模型图**（`paper/draft-runs/20261105T055420_02d05b15/`）。**C 对正式 run 的独立结论与 C/E acceptance 仍缺**，所以还不能生成 `paper/runs/`。合成 run 的软件验证在 `paper/validation/20261102T063118_fa76f8a8/`，不得进入论文。**脚本会拒绝任何没有 C/E 签认的临床 run；DRAFT 模式不能替代。** 前置条件见 [d002_readiness.md](d002_readiness.md)。
 
 ## 状态图例
 
@@ -11,13 +11,25 @@
 | `READY-QA` | 脚本已生成并通过合成 run 验证；仅软件证据 |
 | `READY-DRAFT` | 已从正式 A data Release 生成；DRAFT_PENDING_ACCEPTANCE，不能作为最终论文表 |
 | `READY-DRAFT-CANDIDATE` | 已从 B 候选 run 生成；DRAFT_CANDIDATE_NOT_ACCEPTED，不能进投稿稿 |
+| `READY-DRAFT-FORMAL-B002` | 已从正式 B-002 run 生成；仍无 C/E acceptance，不能进投稿稿 |
 | `PENDING-A` | 依赖 A-001 正式队列/审计 |
 | `PENDING-A-MERGE` | A 数据/PR 尚未合并/接收；草稿已生成 |
 | `PENDING-B` | 依赖 B-002 已验收临床 run |
 | `PENDING-C` | 依赖 C-001/C-002 独立核验/文献 |
 | `ACCEPTED` | 接收人已签字；数字可用于论文 |
 
-## DRAFT candidate outputs（2026-11-04，不合并 main）
+## DRAFT formal B-002 outputs（2026-11-05，不合并 main）
+
+- Run：`20261105T055420_02d05b15`（B 正式 B-002 主矩阵，`synthetic=false`，来自正式 A Release）。
+- Bundle：`b-clinical-v1-20261104-r1`，155,365,045 B，SHA256 `2328d266...`，pre-release。
+- 输出：`paper/draft-runs/20261105T055420_02d05b15/`，provenance 状态 `DRAFT_CANDIDATE_NOT_ACCEPTED`。
+- 已生成：Fig 2 / Fig 3 / Fig 4 / Fig 6；Table 2 / 2b / 3a / 3b / 4 / 5。
+- **Fig 5 跳过**：本次只从 Git 小表生成；完整 `patient_predictions.csv` 在 bundle 中，待需要时补取。
+- **仍无 C/E acceptance**，这些图/表带 DRAFT 水印，不能进论文或投稿；正式 `paper/runs/` 仍需 acceptance。
+
+## DRAFT candidate outputs（2026-11-04，历史）
+
+以下候选 DRAFT 保留作历史记录，不再作为当前 D-002 的最近产物。
 
 - Run：`20261104T002604_e3a5a42b`（B 候选矩阵，`synthetic=false`，预冻结，无 C/E acceptance）。
 - 输出：`paper/draft-runs/20261104T002604_e3a5a42b/`，provenance 状态 `DRAFT_CANDIDATE_NOT_ACCEPTED`。

@@ -1,6 +1,6 @@
 # D 岗位 · 论文与图表工作区
 
-本目录由 **D（图表与论文负责人）** 维护。当前状态：**D-001 / D-001a 已提交待验收；D-002 准备（引用核实 + 英文稿骨架 + Table 1/Fig 1 DRAFT + B 候选 DRAFT 模型图）已提交待验收**。D-002 的真实结果稿、提交版 PDF 与材料清单仍需 C/E acceptance；**不需要合并 main**。**D-002 的前置条件与 A/B/C/E 待办见 [d002_readiness.md](d002_readiness.md)；引用范围见 [references_checklist.md](references_checklist.md)。**
+本目录由 **D（图表与论文负责人）** 维护。当前状态：**D-001 / D-001a 已提交待验收；D-002 准备（引用核实 + 英文稿骨架 + Table 1/Fig 1 DRAFT + B 候选/正式 B-002 DRAFT 模型图）已提交待验收**。D-002 的真实结果稿、提交版 PDF 与材料清单仍需 C/E acceptance；**不需要合并 main**。**D-002 的前置条件与 A/B/C/E 待办见 [d002_readiness.md](d002_readiness.md)；引用范围见 [references_checklist.md](references_checklist.md)。**
 
 ## 目录约定
 
@@ -105,6 +105,7 @@ python scripts/make_figures.py `
 | A 数据 Table 1/Fig 1 脚本 | `scripts/make_cohort_tables.py` | 已提交待验收 |
 | 正式 A 数据 Table 1/Fig 1 DRAFT | `paper/inputs/a-data-v1-20261104-r1/` | DRAFT，待 C/E 接收 |
 | B 候选 DRAFT 模型图 | `paper/draft-runs/20261104T002604_e3a5a42b/` | DRAFT_CANDIDATE_NOT_ACCEPTED；Fig 5 跳过 |
+| B 正式 B-002 DRAFT 模型图 | `paper/draft-runs/20261105T055420_02d05b15/` | DRAFT_CANDIDATE_NOT_ACCEPTED；Fig 5 跳过；无 C/E acceptance |
 | 临床 run 签认门槛（D-001a） | `scripts/make_figures.py`、`paper/acceptance_record_template.json` | 已提交待验收 |
 | 论文提纲 | `paper/outline.md` | 已提交待验收 |
 | 图表清单 | `paper/figure_list.md` | 已提交待验收 |
@@ -120,3 +121,4 @@ python scripts/make_figures.py `
 | D-002 引用更新（C-004） | `handoffs/D/2026-11-04_D-002_prep_C004.md` | 已提交待验收 |
 | D-002 Table 1/Fig 1 DRAFT | `handoffs/D/2026-11-04_D-002_cohort_tables.md` | 已提交待验收 |
 | D-002 B 候选 DRAFT 模型图 | `handoffs/D/2026-11-04_D-002_draft_figures.md` | 已提交待验收 |
+| D-002 正式 B-002 DRAFT 模型图 | `handoffs/D/2026-11-05_D-002_formal_draft.md` | 已提交待验收 |

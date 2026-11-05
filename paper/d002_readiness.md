@@ -2,7 +2,7 @@
 
 更新：2026-11-04。维护：D。用途：明确 D-002 何时可以开始，以及 A/B/C/E 各自还缺什么。**本文件不是验收记录，不改变任何状态。**
 
-## 当前快照（2026-11-04）
+## 当前快照（2026-11-05）
 
 | 项目 | 状态 |
 |---|---|
@@ -11,17 +11,19 @@
 | A 正式数据 | ✅ `a-data-v1-20261104-r1.zip`（4,666,169 B，SHA256 `feb69777...`）已发布；A owner 确认、C-005 有条件技术接收；E 批准为 **user-attested**，不是 E 直接签名 |
 | A PR #3 | ⚠️ open、mergeable；main 仍未合并，`data/processed/` 仍只有 README |
 | A 精度门槛 | ❌ A 10,174 人/57 阳性；B 13,921 人/38 阳性；内部测试 1,525 人/8 阳性；门槛 200/200/50 未过；A 明确保留 v1 并限定结论 |
-| B 候选 run | ✅ `20261104T002604_e3a5a42b`；PR #5 另加补充 run `20261104T132609_45c03e76`；**没有正式 B-002 run** |
-| B PR #5 | ⚠️ open **draft**；候选补充与 coordination；完整临床 bundle 仍本地 prepared、未上传（许可冲突） |
-| B 候选结果限制 | ❌ 阳性集合覆盖 0/8（内部）、0/38（外部）；B5/B6 因仅 6 个选择错误不可用；B4−B2 跨种子/场景方向不一致 |
+| B 正式 B-002 run | ✅ 主 run `20261105T055420_02d05b15`（5 seeds × S0–S4）+ 补充 `20261105T055445_54dd08de`；来自正式 A Release |
+| B 完整 bundle | ✅ `b-clinical-v1-20261104-r1`，155,365,045 B，SHA256 `2328d266...`，已发布 pre-release；含两个 run 与完整逐患者/p_m/模型/mask |
+| B PR #5 | ⚠️ open **draft**；B/E 正式交付与 coordination；main 不合并；**没有 C/E acceptance** |
+| B 正式结果限制 | ❌ 阳性集合覆盖 0/8（内部）、0/38（外部）；B5/B6 因仅 6 个选择错误不可用；B4−B2 跨种子/场景方向不一致 |
 | C 分支 | ✅ `f4d97366`；PR **#4 open**（9 files） |
 | C-001 标签复核 | ✅ 20/20 例标签一致；C-005 对 A 原始 receipt 做条件接受（parquet/audit 层一致，未字节级重跑 40,336 .psv） |
 | C-003 时间边界/候选指标 | ✅ 14 个边界断言 0 失败；900 行指标、30 个配对区间、p_m 抽样独立重算 0 失败 |
 | C-004 引用核验 | ✅ R5 已补出（MICCAI 2026 Satellite/MLMI, LNCS 17272；预印 DOI 10.21203/rs.3.rs-10336064/v1）；R3 FDR 已由全文证实；R1 LOCF 仍未证实 |
 | C-002 文献/投稿 | ✅ 7/7 元数据可引用；R1 “LOCF”不写；组内 11-20 通知证据仍待留存 |
-| E precision/freeze | ⚠️ A PR #3 记录 E 批准但为 **user-attested**；没有 E 直接签名；**`reviews/acceptance` 在任何分支都不存在** |
+| E precision/freeze | ⚠️ E-001 已记录正式 v1 技术接收与有限结论范围；但明确 **C 对正式 run 独立签认仍待**，未创建 `reviews/acceptance`；E 承认本轮非第二名独立统计审稿人 |
 | D-001 / D-001a | D-001 图表脚本/提纲/索引已提交；D-001a 增加“临床 run 必须有 C/E 签认”门槛 |
 | D-002 准备 | ✅ `paper/references_checklist.md`（7/7）、`paper/references.bib`（7 条）、`paper/draft_v0.md`（结果全占位） |
+| D-002 DRAFT（正式 B-002） | ✅ `paper/draft-runs/20261105T055420_02d05b15/`：Fig 2/3/4/6 + Table 2/2b/3/4/5，`DRAFT_CANDIDATE_NOT_ACCEPTED`；Fig 5 跳过 |
 
 ## D 已完成的准备（不依赖真实结果）
 
@@ -30,8 +32,9 @@
 - `paper/draft_v0.md`：英文稿骨架（Abstract/Intro/Related Work/Methods/Results 占位/Discussion/Statements），所有结果处为 `[RESULT:S-xxx]`，没有临床数字。
 - `paper/acceptance_record_template.json` + D-001a：临床 run 的 C/E 签认门槛。
 - `scripts/make_cohort_tables.py` + `paper/inputs/a-data-v1-20261104-r1/`：从 A 正式 data Release 生成 **Table 1 / Fig 1 DRAFT**（`DRAFT_PENDING_ACCEPTANCE`）；校验 release SHA256、audit、cohort、5 splits、site/阳性数、role 互斥完备。
-- `make_figures.py --draft-unaccepted --draft-reason ...`：在**不合并 main**的情况下，用 B 候选 bundle 生成 `paper/draft-runs/<run_id>/` 的 DRAFT 模型图表；provenance 状态 `DRAFT_CANDIDATE_NOT_ACCEPTED`，图带 DRAFT 水印，表带 `draft=True`/`draft_reason`。正式 `paper/runs/` 仍只接受 C/E acceptance。
-- 已生成 DRAFT：`paper/draft-runs/20261104T002604_e3a5a42b/` 的 Fig 2/3/4/6 与 Table 2/2b/3a/3b/4/5；Fig 5 因 `patient_predictions.csv` 599 MB 未完整取回而跳过（provenance `skipped`）。
+- `make_figures.py --draft-unaccepted --draft-reason ...`：在**不合并 main**的情况下，用 B 正式 B-002 小表（或候选 bundle）生成 `paper/draft-runs/<run_id>/` 的 DRAFT 模型图表；provenance 状态 `DRAFT_CANDIDATE_NOT_ACCEPTED`，图带 DRAFT 水印，表带 `draft=True`/`draft_reason`。正式 `paper/runs/` 仍只接受 C/E acceptance。
+- 已生成候选 DRAFT：`paper/draft-runs/20261104T002604_e3a5a42b/` 的 Fig 2/3/4/6 与 Table 2/2b/3a/3b/4/5。
+- 已生成**正式 B-002 DRAFT**：`paper/draft-runs/20261105T055420_02d05b15/` 的 Fig 2/3/4/6 与 Table 2/2b/3a/3b/4/5；Fig 5 因 `patient_predictions.csv` 未取而跳过（provenance `skipped`）。正式包已含完整逐患者表，后续可补 Fig5。
 - 以上都只是 D 侧准备，不代表 A/B/C 验收或论文可以提交。
 
 ## D-002 开始门槛（全部满足才可生成论文图）
@@ -39,14 +42,14 @@
 **不需要合并 main。** D 直接使用 A 的正式 Release、B 的 run bundle、C 的分支回执；以下门槛针对这些不可变产物，不要求 PR 合并。
 
 1. **正式数据**：A 发布正式 data Release（已发布 `a-data-v1-20261104-r1`，SHA256 `feb69777...`）；D 直接按 Release 字节生成 Table 1/Fig 1，不依赖 main registry 合并。C-005 是条件接收。
-2. **正式临床 run**：B-002 在冻结数据上重跑并验收；当前 **没有** 正式 B-002 run，`results/clinical/` 不存在；B PR #5 的 run 是候选补充。正式 run 必须在分支/Release 上可下载、可校验，不要求合并 main。
+2. **正式临床 run**：B-002 已在正式 A Release 上重跑：主 run `20261105T055420_02d05b15`、补充 `20261105T055445_54dd08de`；完整 bundle `b-clinical-v1-20261104-r1` 已发布 pre-release。**C 本人对两个新 run 的独立结论仍待**；E 的技术接收不等于 C/E 联合结果接受。
 3. **签认记录**：`reviews/acceptance/<run_id>.json` 存在且通过脚本校验；当前 **A/B/C/D 任何分支都没有 `reviews/acceptance`**：
    - `run_id` 与 run 目录一致；
    - `manifest_sha256` 与 `manifest.json` 一致；
    - `status` 为 `accepted` / `accepted_with_limits`；
    - C 与 E 均有 `name`、`date`、`decision`、`evidence`。
    - 模板：`paper/acceptance_record_template.json`。
-4. **冻结决定**：E 记录 v1 限定/v2 重建/暂停的最终选择；协议、数据版本、CHANGELOG 已更新。
+4. **结果接受与冻结**：E-001 已记录继续 v1 有限事件数分析的范围；但 C 对正式 run 的独立结论与联合 C/E 结果接受仍待，项目科学冻结未完成。
 5. **文献与投稿**：C-002 给出已核对引用清单、页数/模板/截止/披露要求。
 6. **来源索引**：`paper/source_index.md` 的 `S-xxx` 已填入该 run 的路径、过滤条件、哈希。
 
@@ -55,7 +58,7 @@
 ## DRAFT 模式边界（不合并 main）
 
 - D 可以**不合并 main**，直接用 A 的正式 Release、B 的候选 bundle、C 的分支回执工作。
-- 但未验收的 B 候选 run 只能走 `--draft-unaccepted --draft-reason ...`，输出到 `paper/draft-runs/<run_id>/`，provenance 为 `DRAFT_CANDIDATE_NOT_ACCEPTED`，图表带 DRAFT 水印，表格带 `draft=True`/`draft_reason`。
+- 但未验收的 B 正式 B-002 run 或候选 run 只能走 `--draft-unaccepted --draft-reason ...`，输出到 `paper/draft-runs/<run_id>/`，provenance 为 `DRAFT_CANDIDATE_NOT_ACCEPTED`，图表带 DRAFT 水印，表格带 `draft=True`/`draft_reason`。
 - DRAFT 产物**不能**进入 `paper/runs/`、不能写入论文结果、不能作为投稿材料。
 - 正式 `paper/runs/<run_id>/` 仍必须有 C/E acceptance record；这一条不因“不合并 main”而改变。
 
@@ -73,14 +76,14 @@ A 已完成：正式 data Release `a-data-v1-20261104-r1`（4,666,169 B，SHA256
 
 ## B 还需要做什么
 
-1. **PR #1 已关闭，PR #5 仍是 draft**：PR #1 于 2026-11-04 02:28 关闭（未合并）；PR #5 open/draft 是候选补充与 coordination，不是正式 B-002。不要把候选 run `20261104T002604_e3a5a42b` 或补充 run `20261104T132609_45c03e76` 改称“已验收”。
-2. **给 C 可独立复核的材料**：完整 run/Release、manifest、逐患者表、p_m、模型、mask、种子；提供与 `reviews/verify_b_artifacts.py`、bootstrap 复算脚本一致的命令；C 的结论由 C 自己填写。
-3. **正式 B-002 重跑**：用 A 正式 data Release `a-data-v1-20261104-r1` 的字节重跑，产生新的不可变 run；放在 B 分支/Release 即可，不需要合并 main。当前没有正式 B-002 run，`results/clinical/` 不存在。
-4. **上传完整临床 bundle**：B PR #5 自述完整临床 bundle 仍本地 `prepared`、未上传（许可冲突）；正式 B-002 需要可下载、可校验的 bundle。
-5. **补充实验按优先级**：主 run 验收后再跑 RF（S0/S2）、M=5/20（S0）、alpha=0.05；作为敏感性分析，不升格为主结论。
-6. **如实记录不利结果**：阳性覆盖 0/8 与 0/38、B5/B6 不可用（6 个选择错误）、B4−B2 跨种子方向不一致；不得换种子、换容量、改阈值或删场景来制造优势。
-7. **v2 情况**：若团队选 v2，按新协议重新实现/运行，不能把 v1 结果当确认性证据；旧 run 保留作历史。
-8. **更新记录**：正式 run 被接收后才更新 registry、STATUS、CHANGELOG、handoffs/B；候选 run 标记为历史/预冻结。
+1. **B 生产任务已完成，PR #5 仍 draft**：B-002 主 run `20261105T055420_02d05b15`、补充 `20261105T055445_54dd08de` 已跑完；完整 bundle `b-clinical-v1-20261104-r1` 已发布 pre-release。PR #5 保持 draft 供接收人检查，main 不合并。
+2. **给 C 可独立复核的材料已齐**：完整 run/Release、manifest、逐患者表、p_m、模型、mask、种子、复算脚本都在 bundle/分支；C 的个人结论仍待。
+3. **正式 B-002 已重跑**：来自正式 A Release 字节，`run_status=completed`，`synthetic=false`；C 对两个新 run 的独立结论未提交。
+4. **完整 bundle 已上传**：155,365,045 B，SHA256 `2328d266...`；不再是本地 prepared。
+5. **补充实验已完成**：RF（S0/S2）、M=5/20（S0）、alpha=.05（S0/S2）；C 需按混合上下文独立核验，不能把主矩阵 900/30 结果冒充补充的 240/48。
+6. **B 已如实记录不利结果**：阳性覆盖 0/8 与 0/38、B5/B6 不可用（6 个选择错误）、B4−B2 跨种子方向不一致。
+7. **v2 情况**：若团队选 v2，按新协议重新实现/运行；v1 结果只作历史。
+8. **更新记录**：C/E 接受后才可把 B-002 标为已验收/冻结；当前仍是生产者交付完成、接收待审。
 
 ## C 还需要做什么
 
@@ -115,7 +118,7 @@ C 已完成：C-001 20/20 标签、C-003 时间边界 14 断言、候选 run 900
    ```
    默认输出 `paper/runs/<run_id>/{figures,tables}/`，并校验 `reviews/acceptance/<run_id>.json`。
 2. 更新 `paper/source_index.md` 的 `S-001`–`S-012`，把 `[RESULT:S-xxx]` 替换为真实数字。
-3. 按 `paper/outline.md` 整合英文稿；以 `paper/draft_v0.md` 为骨架，引用只用 `paper/references.bib` 中已核实条目（R5 禁止引用），不补未核对文献。
+3. 按 `paper/outline.md` 整合英文稿；以 `paper/draft_v0.md` 为骨架，引用只用 `paper/references.bib` 中已核实条目（R5 已由 C-004 补出），不补未核对文献。
 4. C 核对表 2/2b 与摘要；E 检查摘要—正文—图表—结论一致；然后生成提交版 PDF 与材料清单。
 
 ## 明确禁止
