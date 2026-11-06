@@ -1,0 +1,89 @@
+{
+  "status": "PASS_AUTOMATED_A_RAW_RECEIPT",
+  "created_at": "2026-11-04T19:56:52.645231+08:00",
+  "protocol_version": "v1",
+  "data_version": "a-clinical-protocol-v1-20261103-full-r1",
+  "source_package": "T1_A_Day1_2026-11-03_v1_Rebuilt_Full",
+  "source_package_manifest_sha256": "4d716715e7d46de060c8dd3c803f531eb20ba07845323275f8fa2b3d2b8086a6",
+  "source_archive_sha256": {
+    "training_setA.zip": "dd488baf1d85e0eebf627be56a8e09c7d79664a8660eb9760b1882ecd5279a71",
+    "training_setB.zip": "4ea0379fde2596b838904aef0f0942899670ab78c48d13f916eb61f7bb01d739"
+  },
+  "input_hashes": {
+    "data/processed/cohort.parquet": "27d58cc44e17d7c1a01993ce76aa604f9b306f51ed1619dcd0704a1d038c0a81",
+    "data/processed/cohort.csv": "e5e88ebcfb755da9d610b0c9587733c8d87ba477cd8fcb2161c0459107946b16",
+    "data/processed/cohort_audit.json": "ea46bb5770faf0fa61f3049a42fa04dbb3a0e10e2def04375e70beab35eb102b",
+    "data/processed/record_audit.csv": "038da035e342e541fb20138cd86cbc40de45ad0cba765a73f7ec94c967944173",
+    "sources/raw_file_manifest.csv": "aee7ea89969ecd1ccfad5e5bcb58725583c5546f011b136c138ec665d474c0b5"
+  },
+  "verification_code_sha256": "81a0e728239a8fd5c8db92948037daeac1fab89e8b6b5d97c344b4ebad501e4b",
+  "raw_records_checked": 40336,
+  "source_sha256_md5_bytes_matches": 40336,
+  "record_audit_metadata_reason_label_matches": 40336,
+  "included_membership_label_and_36_feature_matches": 24095,
+  "included_feature_cells_checked": 867420,
+  "parquet_csv_exact_numeric_equivalence": true,
+  "feature_cutoff_max_iculos": 12,
+  "package_hash_entries_before_and_after": 125,
+  "inputs_unchanged": true,
+  "site_counts": {
+    "A": {
+      "included": 10174,
+      "positive": 57,
+      "raw": 20336
+    },
+    "B": {
+      "included": 13921,
+      "positive": 38,
+      "raw": 20000
+    }
+  },
+  "sequential_reason_counts": {
+    "invalid_hourly_records": 0,
+    "missing_initial_hours": 8793,
+    "insufficient_followup": 7448,
+    "first_observation_positive": 0,
+    "onset_at_or_before_12": 0,
+    "invalid_input_demographics": 0,
+    "included": 24095
+  },
+  "overlapping_diagnostics_by_site": {
+    "A": {
+      "first_observation_positive": 203,
+      "onset_at_or_before_12_diagnostic": 180,
+      "onset_after_last_record": 2,
+      "observed_onset_in_12_24_diagnostic": 334
+    },
+    "B": {
+      "first_observation_positive": 223,
+      "onset_at_or_before_12_diagnostic": 103,
+      "onset_after_last_record": 13,
+      "observed_onset_in_12_24_diagnostic": 152
+    }
+  },
+  "private_receipt": {
+    "path": "private_receipt/raw_psv_receipt.csv",
+    "rows": 40336,
+    "sha256": "20677fbde3eba28dcaa89437b9ad2ebf20931477ac4940bdefe4e057190555e2",
+    "ordinary_git": false
+  },
+  "human_or_recipient_acceptance": false,
+  "C_raw_receipt_review": "PENDING_C_REVIEW_OF_THIS_DELIVERY",
+  "clinical_ground_truth_adjudication": false,
+  "models_fitted": false,
+  "labels_splits_or_raw_files_changed": false,
+  "limits": [
+    "Independent implementation of written v1 rules, not independent clinical adjudication.",
+    "Recovered onset is label-derived; first-observation-positive has no fabricated exact onset.",
+    "Early-onset and left-censored diagnostics overlap earlier sequential exclusions.",
+    "No positive label outside an eligible record is not a universal no-sepsis assertion.",
+    "Source MD5/ETag and SHA256 match the preserved inventory; this is not a fresh network download.",
+    "No patient-level CSV or source PSV is intended for ordinary Git."
+  ],
+  "environment": {
+    "python": "3.14.7",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3"
+  },
+  "elapsed_seconds": 37.399
+}

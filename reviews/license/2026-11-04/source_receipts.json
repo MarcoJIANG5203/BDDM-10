@@ -1,0 +1,162 @@
+{
+  "task_date_hong_kong": "2026-11-04",
+  "case_status": "PENDING_NO_CUSTODIAN_RESPONSE",
+  "external_message_sent": false,
+  "form_submitted": false,
+  "clinical_data_uploaded": false,
+  "original_A_files_modified": false,
+  "captures": [
+    {
+      "requested_url": "https://physionet.org/content/challenge-2019/1.0.0/",
+      "retrieval_started_utc": "2026-11-04T11:54:58.540251+00:00",
+      "retrieval_started_hong_kong": "2026-11-04T19:54:58.540251+08:00",
+      "method": "HTTPS GET; no cookies or authentication supplied",
+      "saved_file": "official_landing_page.html",
+      "http_status": 200,
+      "final_url": "https://physionet.org/content/challenge-2019/1.0.0/",
+      "redirects": [],
+      "response_headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": null,
+        "Last-Modified": null,
+        "ETag": null,
+        "Date": "Wed, 04 Nov 2026 11:55:01 GMT"
+      },
+      "status": "RETRIEVED",
+      "bytes": 104634,
+      "sha256": "3f3ccb45c12024a7c6d1e01d3c440e4e675f72acfa5340e235708fda479c0ada",
+      "retrieval_finished_utc": "2026-11-04T11:55:01.412261+00:00"
+    },
+    {
+      "requested_url": "https://physionet.org/files/challenge-2019/1.0.0/LICENSE.txt",
+      "retrieval_started_utc": "2026-11-04T11:54:58.540937+00:00",
+      "retrieval_started_hong_kong": "2026-11-04T19:54:58.540937+08:00",
+      "method": "HTTPS GET; no cookies or authentication supplied",
+      "saved_file": "official_LICENSE.txt",
+      "http_status": 200,
+      "final_url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/LICENSE.txt",
+      "redirects": [
+        {
+          "url": "https://physionet.org/files/challenge-2019/1.0.0/LICENSE.txt",
+          "status": 302,
+          "location": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/LICENSE.txt"
+        }
+      ],
+      "response_headers": {
+        "Content-Type": "binary/octet-stream",
+        "Content-Length": "25815",
+        "Last-Modified": "Mon, 04 Mar 2024 04:21:12 GMT",
+        "ETag": "\"734701fd4f937b32f173044b68a8ea44\"",
+        "Date": "Wed, 04 Nov 2026 11:55:06 GMT"
+      },
+      "status": "RETRIEVED",
+      "bytes": 25815,
+      "sha256": "bcdfcd4f31c790e30fb645dc36414907172405897adff329ad379eed85d12017",
+      "retrieval_finished_utc": "2026-11-04T11:55:06.151330+00:00"
+    },
+    {
+      "requested_url": "https://physionet.org/files/challenge-2019/1.0.0/SHA256SUMS.txt",
+      "retrieval_started_utc": "2026-11-04T11:54:58.541293+00:00",
+      "retrieval_started_hong_kong": "2026-11-04T19:54:58.541293+08:00",
+      "method": "HTTPS GET; no cookies or authentication supplied",
+      "saved_file": "official_SHA256SUMS.txt",
+      "http_status": 200,
+      "final_url": "https://physionet.org/files/challenge-2019/1.0.0/SHA256SUMS.txt",
+      "redirects": [],
+      "response_headers": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Content-Length": "264",
+        "Last-Modified": "Mon, 05 Aug 2019 21:59:32 GMT",
+        "ETag": "\"5d48a6c4-108\"",
+        "Date": "Wed, 04 Nov 2026 11:55:01 GMT"
+      },
+      "status": "RETRIEVED",
+      "bytes": 264,
+      "sha256": "ba025b2702297c202592a01d4eb31532938a2f6b3aab3afe125e75a52bd281a5",
+      "retrieval_finished_utc": "2026-11-04T11:55:00.845733+00:00"
+    },
+    {
+      "requested_url": "https://physionet.org/about/",
+      "retrieval_started_utc": "2026-11-04T11:54:58.541700+00:00",
+      "retrieval_started_hong_kong": "2026-11-04T19:54:58.541700+08:00",
+      "method": "HTTPS GET; no cookies or authentication supplied",
+      "saved_file": "official_about_contact.html",
+      "http_status": 200,
+      "final_url": "https://physionet.org/about/",
+      "redirects": [],
+      "response_headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": null,
+        "Last-Modified": null,
+        "ETag": null,
+        "Date": "Wed, 04 Nov 2026 11:55:01 GMT"
+      },
+      "status": "RETRIEVED",
+      "bytes": 18861,
+      "sha256": "8a65f92d4620c1261ce11a6d72bbf2995dff88305a96e21232f553c196d51ee4",
+      "retrieval_finished_utc": "2026-11-04T11:55:00.895675+00:00"
+    },
+    {
+      "requested_url": "https://physionet.org/content/challenge-2019/view-license/1.0.0/",
+      "retrieval_started_utc": "2026-11-04T11:55:38.324323+00:00",
+      "retrieval_started_hong_kong": "2026-11-04T19:55:38.324323+08:00",
+      "method": "HTTPS GET; no cookies or authentication supplied",
+      "saved_file": "official_view_license.html",
+      "http_status": 200,
+      "final_url": "https://physionet.org/content/challenge-2019/view-license/1.0.0/",
+      "redirects": [],
+      "response_headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": null,
+        "Last-Modified": null,
+        "ETag": null,
+        "Date": "Wed, 04 Nov 2026 11:55:40 GMT"
+      },
+      "status": "RETRIEVED",
+      "bytes": 28248,
+      "sha256": "feb4fe94f09640846b69a387693a6f67c4d2d7ab92a867736860d21f6896e46d",
+      "retrieval_finished_utc": "2026-11-04T11:55:39.955893+00:00"
+    }
+  ],
+  "immutable_original_comparisons": [
+    {
+      "path": "C:\\Users\\ASUS\\Documents\\Codex\\2026-11-03\\azhe-fang-mian-de\\outputs\\T1_A_Day1_2026-11-03_v1_Rebuilt_Full\\sources\\LICENSE.txt",
+      "exists": true,
+      "bytes": 25815,
+      "sha256": "bcdfcd4f31c790e30fb645dc36414907172405897adff329ad379eed85d12017",
+      "read_only": true
+    },
+    {
+      "path": "C:\\Users\\ASUS\\Documents\\Codex\\2026-11-03\\azhe-fang-mian-de\\outputs\\T1_A_Day1_2026-11-03_v1_Rebuilt_Full\\sources\\official_SHA256SUMS.txt",
+      "exists": true,
+      "bytes": 264,
+      "sha256": "ba025b2702297c202592a01d4eb31532938a2f6b3aab3afe125e75a52bd281a5",
+      "read_only": true
+    },
+    {
+      "path": "C:\\Users\\ASUS\\Documents\\Codex\\2026-11-03\\azhe-fang-mian-de\\outputs\\T1_A_Day1_2026-11-03_v1_Rebuilt_Full\\sources\\physionet_dataset_page.html",
+      "exists": true,
+      "bytes": 103243,
+      "sha256": "fa52712f6f1b32cbf0c14879b308c994277e4920c3fa6360d2450aa67dfa347f",
+      "read_only": true
+    }
+  ],
+  "tool_access_limitation": "Web reader could not access redirected LICENSE URL; separate direct HTTPS receipt records its own outcome.",
+  "license_integrity": {
+    "official_expected_sha256": "bcdfcd4f31c790e30fb645dc36414907172405897adff329ad379eed85d12017",
+    "downloaded_sha256": "bcdfcd4f31c790e30fb645dc36414907172405897adff329ad379eed85d12017",
+    "official_checksum_match": true,
+    "immutable_original_sha256": "bcdfcd4f31c790e30fb645dc36414907172405897adff329ad379eed85d12017",
+    "immutable_original_equal_to_current_download": true,
+    "license_file_first_line": "## ODC Open Database License (ODbL)"
+  },
+  "landing_license_links": [
+    {
+      "href": "/content/challenge-2019/view-license/1.0.0/",
+      "text": "Creative Commons Attribution 4.0 International Public License"
+    }
+  ],
+  "landing_contact_identifiers": [
+    "challenge@physionet.org"
+  ]
+}

@@ -20,3 +20,32 @@ reports/clinical-v1/**/*.yaml -text whitespace=cr-at-eol
 *.png binary
 *.zip binary
 *.joblib binary
+
+# A audit evidence is hashed before and after Git transport.
+reviews/A_001_* -text
+reviews/A_raw_psv_* -text
+reviews/A_current_B_* -text
+reviews/license/** -text
+scripts/verify_a001_delivery.py -text
+scripts/verify_a_raw_psv_receipt.py -text
+scripts/build_a_cohort_v1.py -text
+docs/A_001_source_provenance_correction_EN.md -text
+reviews/A_closeout_* -text
+reviews/C_supplied_* -text
+reviews/C_time_boundary_* -text
+reviews/A_owner_* -text
+reviews/A_delivery_* -text
+reviews/A_review_* -text
+reviews/A_* whitespace=cr-at-eol
+reviews/C_* whitespace=cr-at-eol
+scripts/verify_a001_delivery.py whitespace=cr-at-eol
+scripts/verify_a_raw_psv_receipt.py whitespace=cr-at-eol
+scripts/build_a_cohort_v1.py whitespace=cr-at-eol
+docs/A_001_source_provenance_correction_EN.md whitespace=cr-at-eol
+reviews/license/** whitespace=cr-at-eol
+reviews/A_raw_receipt_* -text
+tests/test_a_raw_psv_receipt.py -text
+reviews/A_remote_* -text
+reviews/freeze/** -text
+reviews/freeze/** whitespace=cr-at-eol
+reviews/A_formal_* -text

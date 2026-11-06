@@ -8,12 +8,34 @@
 
 新记录放最上方，写日期、负责人、变更、影响的旧结果与处理方式。
 
+## 2026-11-05 · A daily delivery status and source recovery correction
+
+- Re-downloaded the unchanged formal A asset and original full-source asset; checked their registered SHA-256, eight frozen inputs/embedded freeze, site/event counts, five split roles and original ZIP integrity/raw membership.
+- Indexed actual B input/interface and newer E technical/retain-v1 receipts. Indexed C006's conditional independent arithmetic/protocol conclusion and D's formal-run Fig5 draft with pinned source commits; no recipient signature or joint result acceptance created.
+- Corrected obsolete current-state statements that A was still unpublished or that the original source was draft-only. Added current source replay instructions for C. Historical records remain available at fixed commits; source availability is not a C personal replay.
+- Rechecked five official PhysioNet resources; CC BY 4.0 web/ODbL file conflict persists. Updated English correspondence is saved and **not sent**, as explicitly requested by the owner; no official reply or legal resolution recorded.
+- Documentation and aggregate delivery evidence only: no new data version, changed scientific code, labels, split, frozen audit/record, registry or Release asset; no main merge and no model rerun.
+
 ## 2026-11-05 · E正式v1接收与协调范围
 
 - 用户委托执行E，并确认11月20日前投稿、其他资料不再追问；更新HANDOFFS与阶段排期，移除通知/入口/联系信息催补作为当前等待用户的阻塞，保留原内部投稿节点，不伪造官方通知或实际投稿。当前分支协作入口明确不合并main。
 - 固定A b717d1a/B 7fefa32/C f4d9736/D 1eff019；E核对正式A/B包与冻结身份、两份run及67产物/各自13源码哈希。E复跑C原脚本在正式主run的900指标/30区间/逐患者决策及p_m0失败；补充240指标产物复核通过。E记录技术交付和公平性范围接收、继续原v1有限事件数分析；同一聊天曾参与B的来源边界明确保留，不冒充C本人新签认或联合结果冻结。
 - D新增16测试通过、四份队列/缺失/划分表由正式A包重生成一致、25份DRAFT输出哈希匹配，正式未签认run被拒；E在流程/DRAFT范围接收，不标D-002完成。登记C混合补充核验上下文缺失、D就绪清单过期B状态及R5禁用残留为具体下一项。
 - 新增ACCEPTANCE_INDEX、ISSUES、SUBMISSION_PLAN、日期E交接及小型核验回执；源码、协议、标签、划分、输入、run/manifest、registry、Release资产与历史签认记录均不改写，无新数据/算法版本。
+
+## 2026-11-04 · A formal technical data published and content frozen
+
+- Published immutable `a-data-v1-20261104-r1`, SHA256 `feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c`; actual download and restore match31 scientific hashes. Data/model methods, labels and five splits unchanged; version/audit metadata and approval provenance updated.
+- Owner explicitly requests formal delivery and reports E approval (`e已批准`). No E direct signer/date/original text, official custodian reply or result acceptance is fabricated. Official licensing conflict remains unresolved; both source notices are preserved. This records an owner-authorized publication exception to the prior waiting process.
+- A data content freeze is signed; B runs anew from exact formal bytes, with C/E result review and D gates retained. Prior candidate runs and source archive bytes remain immutable.
+
+## 2026-11-04 · A retain-v1 owner confirmation and delivery cleanup
+
+- The user explicitly confirmed Yicheng Jiang / MarcoJIANG5203 as A owner, retaining full-r1/v1 and acknowledging automated technical checks and event-count limitations. This does not sign C/E or override E freeze deferral.
+- Exposed supplemental evidence at directly readable paths and added an independent raw PSV receipt:40336 raw files,24095 labels and867420 input cells. Current B interface passed ten calls.
+- Removed the full clinical tree from the current Git index; preserved original full ZIP and original manifests, and prepared current data plus per-record receipt in versioned review assets. Historical Git commits are not rewritten.
+- Delivery audit adds owner/review references and parent audit SHA; scientific cohort/splits/source clinical bytes and protocol remain unchanged. Original audit stays intact in the full source asset.
+- Official CC BY4.0 display versus ODbL downloadable LICENSE conflict reproduced. An English request is ready but not sent; no license selected. Formal publication, C raw-receipt acceptance and E joint freeze remain pending.
 
 ## 2026-11-04 · B-002正式输入与新run交付
 
