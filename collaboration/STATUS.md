@@ -20,7 +20,7 @@ B岗位当前工作分支为`b/core-methods-experiments`。按用户新要求，
 | B 核心方法与实验 | B-002生产交付及C-006接收完成；正式两run已获算术/协议保真限定接受 | [B接收](../handoffs/B/2026-11-06_B_C006_receipt.md)、[E核验](../reviews/E/2026-11-06_C006_receipt_checks.json)；1,140指标/78区间零失败 | B范围本轮完成；为D按实际问题提供方法/数字支持；不重训或更改原run |
 | C 文献与独立核验 | C-006正式两run独立复核已提交，B/E在实际算术/协议范围接收；原始PSV个人全量重跑未完成 | C `b6d7c32`；[C原交接](../handoffs/C/2026-11-05_正式run独立复核.md)、[B接收](../handoffs/B/2026-11-06_B_C006_receipt.md) | 后续独立核D正式图文数字/引用；不把有条件算术结论扩大为安全或原始标签验收 |
 | D 图表与论文 | 正式run DRAFT图表、Fig5及结果段落已提交；正式D-002未完成 | D `f61c9cb`；[D交接](https://github.com/MarcoJIANG5203/BDDM-10/blob/f61c9cb/handoffs/D/2026-11-06_D-002_status.md)；固定D门槛15测试与正反例核验通过 | 同步B接受记录，按原门槛重新生成正式图文，补S-xxx、全文及PDF；旧DRAFT不直接去水印 |
-| E 统筹与整合 | 本轮C-006接收、限定数值结果冻结及签认记录完成；材料交组内复核；最终稿/投稿未完成 | [E本轮](../handoffs/E/2026-11-06_E-001_C006_result_scope.md)、[接受记录](../reviews/acceptance/20261105T055420_02d05b15.json)、[补充](../reviews/acceptance/20261105T055445_54dd08de.json) | D交付后核全文一致性，C核数字/引用；E-002稿号/回执须待实际投稿 |
+| E 统筹与整合 | 本轮C-006接收、限定数值结果冻结及签认记录完成；材料交组内复核；最终稿/投稿未完成 | [E本轮](../handoffs/E/2026-11-06_E-001_C006_result_scope.md)、[接受记录](../reviews/acceptance/20261105T055420_02d05b15.json)、[补充](../reviews/acceptance/20261105T055445_54dd08de.json)、[Workshop 3 模拟审稿意见](../handoffs/E/2026-11-06_workshop3_reviewer_assessment.md)、[两周建议与聚合预查](../handoffs/E/2026-11-06_workshop3_two_week_plan.md) | D交付后核全文一致性，C核数字/引用；E-002稿号/回执须待实际投稿 |
 
 ## 历史同步记录（保留原时点口径）
 
