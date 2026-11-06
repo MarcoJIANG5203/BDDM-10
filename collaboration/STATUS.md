@@ -1,6 +1,12 @@
 # 团队当前状态
 
-更新日期：2026-11-05（本轮E交付使用用户所在地America/Los_Angeles日期；run ID使用UTC）。A—E由组内对应到姓名；本页只记录已交付事实，详见[交付要求](HANDOFFS.md)及[验收索引](ACCEPTANCE_INDEX.md)。
+## 当前口径 · 2026-11-06
+
+B/E本轮已接收C-006，按两份固定正式run的算术/协议保真记录`accepted_with_limits`及限定数值结果冻结；C原有条件结论引用与E本轮决定分别注明来源。[E本轮接收与范围决定](../handoffs/E/2026-11-06_E-001_C006_result_scope.md)及[核验](../reviews/E/2026-11-06_C006_receipt_checks.json)为当前入口。下文11月5日及更早“C新run未核验/未提交”“没有接受记录”“联合结果冻结待办”是历史快照，以本段为准；A原冻结、registry/Release及历史交接不改写。
+
+接受范围允许D从原run重新生成正式图表和有限事件数描述性稿件，尚不接受D最终稿/PDF或E-002投稿。C未全量独立重跑原始PSV、许可冲突/暂缓发信、低事件数、阳性覆盖0、B5/B6为NA、无稳定优势均保留。E由用户委托本聊天，此前参与B，不冒称第二名独立人工统计审稿人。
+
+更新日期：2026-11-06（本轮E交付使用用户所在地America/Los_Angeles日期；run ID使用UTC）。A—E由组内对应到姓名；本页只记录已交付事实，详见[交付要求](HANDOFFS.md)及[验收索引](ACCEPTANCE_INDEX.md)。
 
 当前统一仓库为[MarcoJIANG5203/BDDM-10](https://github.com/MarcoJIANG5203/BDDM-10)。代码、完整合成包及Release已迁移，新克隆32测试、完整产物恢复及2016指标行复核通过。成员改用新地址同步，原zsj-6/EI记录保留作历史证据。岗位实质进展不因迁移改变。
 
@@ -10,11 +16,13 @@ B岗位当前工作分支为`b/core-methods-experiments`。按用户新要求，
 
 | 岗位 | 当前状态 | 证据 | 下一项交付 / 接收人 |
 |---|---|---|---|
-| A 数据与基础实验 | 正式技术版本已发布并A内容冻结；B身份/接口接收，E本轮技术交付及保留v1范围接收，来源限制保留 | A `b717d1a`；[A交接](../handoffs/A/2026-11-04_formal_data_freeze_EN.md)、[A冻结](../reviews/freeze/A_formal_data_freeze_v1_2026-11-04.json)、[E接收](../handoffs/E/2026-11-05_E-001_formal_v1_integration.md) | 既有C-005条件边界及许可冲突不冒称已解决；不再等待A正式Release |
-| B 核心方法与实验 | B-002生产者交付完成，E技术完整性/公平性范围接收；1,140指标/78区间及远端恢复有证据；C本人正式新run复核与联合接受仍待 | B `7fefa32`；[B交接](../handoffs/B/2026-11-04_B-002_formal_v1.md)、[结果](../reports/clinical-v1/README.md)、[E核验](../reviews/E/2026-11-05_integration_checks.json)；PR #5 | C分别核验主/补充新run并记录本人结论；E按实际结论记录结果冻结，D据签认范围使用 |
-| C 文献与独立核验 | 既有C-001/003/004/005已提交且按范围登记；E复跑C原代码在正式主run0失败，不等于C本人新签认；C未亲自逐份重跑原始PSV | C `f4d9736`；[验收索引](ACCEPTANCE_INDEX.md)、[E复跑证据](../reviews/E/2026-11-05_integration_checks.json)；PR #4 | 优先正式主/补充run独立核验；混合补充需完整任务上下文；引用按C-004，通知资料不再催补 |
-| D 图表与论文 | D已补R5、交正式A队列表DRAFT及旧候选DRAFT图；E16测试/四表复现/25输出哈希和正式拒绝门槛通过；D-002尚未完成 | D `1eff019`、PR #2；[E接收](../handoffs/E/2026-11-05_E-001_formal_v1_integration.md)、[任务](ISSUES.md) | 修就绪清单过期B状态和R5禁用残留；C签认后按原门槛从正式run重生成，补Fig5、来源索引、英文全文 |
-| E 统筹与整合 | 本轮E-001统筹复核、技术接收、继续v1范围决定、验收/问题索引与排期已提交；C新run独立签认和联合结果冻结未完成；11月20日前投稿按用户确认 | [E本轮交接](../handoffs/E/2026-11-05_E-001_formal_v1_integration.md)、[验收索引](ACCEPTANCE_INDEX.md)、[问题](ISSUES.md)、[排期](SUBMISSION_PLAN.md) | 按真实C/D交付继续维护；C核数字/引用、E核全文一致；E-002实际稿号/回执待投稿发生后记录，不追问其他投稿资料 |
+| A 数据与基础实验 | A正式内容冻结不变；11月5日技术收尾补件在身份/恢复说明范围接收；许可保留 | A `68ce9d1`；[A交接](https://github.com/MarcoJIANG5203/BDDM-10/blob/68ce9d110e105dadc01e0abba5b7f2d4cdf7fec0/handoffs/A/2026-11-05_A_daily_closeout_EN.md)、[E本轮](../handoffs/E/2026-11-06_E-001_C006_result_scope.md) | 原始来源通道已发布；C未全量个人重跑；澄清信USER_DEFERRED_NOT_SENT，不催发 |
+| B 核心方法与实验 | B-002生产交付及C-006接收完成；正式两run已获算术/协议保真限定接受 | [B接收](../handoffs/B/2026-11-06_B_C006_receipt.md)、[E核验](../reviews/E/2026-11-06_C006_receipt_checks.json)；1,140指标/78区间零失败 | B范围本轮完成；为D按实际问题提供方法/数字支持；不重训或更改原run |
+| C 文献与独立核验 | C-006正式两run独立复核已提交，B/E在实际算术/协议范围接收；原始PSV个人全量重跑未完成 | C `b6d7c32`；[C原交接](../handoffs/C/2026-11-05_正式run独立复核.md)、[B接收](../handoffs/B/2026-11-06_B_C006_receipt.md) | 后续独立核D正式图文数字/引用；不把有条件算术结论扩大为安全或原始标签验收 |
+| D 图表与论文 | 正式run DRAFT图表、Fig5及结果段落已提交；正式D-002未完成 | D `f61c9cb`；[D交接](https://github.com/MarcoJIANG5203/BDDM-10/blob/f61c9cb/handoffs/D/2026-11-06_D-002_status.md)；固定D门槛15测试与正反例核验通过 | 同步B接受记录，按原门槛重新生成正式图文，补S-xxx、全文及PDF；旧DRAFT不直接去水印 |
+| E 统筹与整合 | 本轮C-006接收、限定数值结果冻结及签认记录完成；材料交组内复核；最终稿/投稿未完成 | [E本轮](../handoffs/E/2026-11-06_E-001_C006_result_scope.md)、[接受记录](../reviews/acceptance/20261105T055420_02d05b15.json)、[补充](../reviews/acceptance/20261105T055445_54dd08de.json) | D交付后核全文一致性，C核数字/引用；E-002稿号/回执须待实际投稿 |
+
+## 历史同步记录（保留原时点口径）
 
 11月4日后续同步：A原始自动receipt报告40,336份原始记录、24,095位纳入患者、867,420个输入单元一致；56项测试为A分支记录。两个A附件在草稿Release中已上传、下载核对SHA256并空目录恢复，但A分支registry仍为`prepared`，不是正式data发布。C-003对B候选矩阵完成独立逐患者/区间复算；C-005仅就parquet/audit与receipt算术给出**有条件接受**，未亲自从原始PSV逐例重算。C-004找到R5 MC²的卫星工作坊出处，D旧的禁止引用结论待修订。
 

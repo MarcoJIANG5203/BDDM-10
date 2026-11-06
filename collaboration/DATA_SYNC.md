@@ -1,5 +1,11 @@
 # 数据和完整产物同步
 
+## 2026-11-06 当前接收与恢复口径
+
+A/B正式包及所有registry SHA256保持原样，本轮重新核验两ZIP及A八项冻结身份通过。B两正式run接受记录见`reviews/acceptance/`，只改变接收/使用范围，不改变Release的pre-release或registry历史科学状态；旧“发布不等于接受”仍适用，实际接受另读记录。
+
+A完整来源包已发布，非等待草稿下载；见[A固定恢复说明](https://github.com/MarcoJIANG5203/BDDM-10/blob/68ce9d1/collaboration/A_SOURCE_REPLAY_2026-11-05.md)。来源ZIP SHA256 `a57d16dc5432b2e2518bc5f754b706c60de7b94d3fb496870687d4a564770cb1`，50,674,324字节；本轮来源下载/125项恢复沿用A证据，不声称C已全量独立重跑。后文11月4日的草稿下载状态为历史。许可澄清信暂缓发送，不增加重分发许可或临床Git文件。
+
 Git维护代码、协议、状态、小样本和版本索引；较大数据和完整run放**同一仓库GitHub Release**，无需另建网盘。
 
 当前发布目标为MarcoJIANG5203/BDDM-10，脚本读取artifacts/registry.json中的repository。历史报告里的zsj-6/EI仅用于溯源，新数据与产物交付均使用新仓库。

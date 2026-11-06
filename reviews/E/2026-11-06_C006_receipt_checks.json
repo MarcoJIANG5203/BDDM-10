@@ -1,0 +1,186 @@
+{
+  "date_user_local": "2026-11-06",
+  "timezone": "America/Los_Angeles",
+  "date_basis": "user client calendar date",
+  "pinned_commits": {
+    "A": "68ce9d110e105dadc01e0abba5b7f2d4cdf7fec0",
+    "C": "b6d7c3293db1c2263bc6ae4a25ce3e178415aeb8",
+    "D": "f61c9cb9a3ed3b22b33c4745d7ca1ce7447ca5c1",
+    "B": "75ccea28e591376e163a2bc6199666c0b6e6acd4"
+  },
+  "identity": {
+    "a-data-v1-20261104-r1": {
+      "sha256": "feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c",
+      "bytes": 4666169,
+      "registry_match": true
+    },
+    "b-clinical-v1-20261104-r1": {
+      "sha256": "2328d26682a39ccb895553d3cee3dc6dd11bd6506c41a5a0ac0f5d49890e8426",
+      "bytes": 155365045,
+      "registry_match": true
+    },
+    "A_freeze_identities_checked": 8,
+    "C_commit": "b6d7c3293db1c2263bc6ae4a25ce3e178415aeb8",
+    "C_script_sha256": "95313adadcbdb1cf6df3fb3d01a4ee9ecedbcf541cda56c74094c8d5b8a85832",
+    "C_handoff_sha256": "4bf2772165b5bbeacf0b1f60930fb5d9f158e0fd6e3584819abedd3b2e5c7973",
+    "registry_sha256_before": "5071800e628b96a473279b4fe464643391ca5650da1bbf712ab822257c21cfd4",
+    "manifests_before": {
+      "20261105T055420_02d05b15": "f05827893e1eac44fa0c566e3da0f33e2149c30d4739f2f980d6776bf83b15d5",
+      "20261105T055445_54dd08de": "8d6612735d87744d62aaac2806d5d8c1df484fc40f3d55a64f0417484fc85f29"
+    }
+  },
+  "limits": [
+    "Finite-event protocol v1 only: A/B positives 57/38, internal positives 8 per seed; precision targets 200/200/50 unmet.",
+    "MI positive-class set coverage is zero; no clinical safety or positive-protection claim.",
+    "B5/B6 unavailable with 6 errors and 1012 correct selection cases; B6-B5 is NA, not zero.",
+    "No stable B4-B2 superiority across seeds/scenarios; retain all prespecified results.",
+    "C has not independently replayed all 40336 raw PSV records; cohort-level arithmetic acceptance is not clinical adjudication.",
+    "Official source-license metadata conflict remains unresolved. Correspondence is USER_DEFERRED_NOT_SENT. This record grants no new data redistribution rights.",
+    "E is user-delegated coordination in the same chat that produced B, not a second independent human statistical reviewer.",
+    "Acceptance allows traceable figures/tables and bounded writing from these exact runs, not final manuscript/PDF acceptance or actual submission."
+  ],
+  "C_conclusion_provenance": {
+    "path": "handoffs/C/2026-11-05_正式run独立复核.md",
+    "commit": "b6d7c3293db1c2263bc6ae4a25ce3e178415aeb8",
+    "sha256": "4bf2772165b5bbeacf0b1f60930fb5d9f158e0fd6e3584819abedd3b2e5c7973",
+    "kind": "verbatim existing C-authored conclusion; not a new C signature"
+  },
+  "E_provenance": {
+    "authorization": "现在完成B/E的工作",
+    "same_chat_previously_produced_B": true,
+    "independent_human_statistical_review": false
+  },
+  "runs": {
+    "20261105T055420_02d05b15": {
+      "C_authored_checker_BE_replay": {
+        "failed_checks": [],
+        "cohort_rows": 24095,
+        "cohort_positive_total": 95,
+        "cohort_positive_A": 57,
+        "cohort_positive_B": 38,
+        "patient_method_rows": 2612100,
+        "p_m_rows": 1436655,
+        "metric_rows_saved": 900,
+        "metric_rows_recomputed": 900,
+        "bootstrap_intervals_saved": 30,
+        "bootstrap_ok": "30/30",
+        "y_true_mismatch": 0,
+        "acceptance_mismatch": 0
+      },
+      "B_artifact_recheck": {
+        "run": "results/clinical/20261105T055420_02d05b15",
+        "synthetic": false,
+        "run_status": "completed",
+        "patient_method_rows": 2612100,
+        "imputation_probability_rows": 1436655,
+        "independently_checked_metric_rows": 900,
+        "artifact_hashes_checked": 45,
+        "source_hashes_checked": 13,
+        "split_hashes_checked": 5,
+        "checks": [
+          "all artifact hashes",
+          "current source/config/data/split hashes",
+          "unique output keys",
+          "hospital identity",
+          "singleton eligibility",
+          "independent counts and proportions",
+          "same batch K",
+          "shared MI predictions and sets",
+          "p_m mean and ddof=1 std and class flips",
+          "B0 M=1",
+          "q frozen across batches"
+        ]
+      },
+      "manifest_sha256": "f05827893e1eac44fa0c566e3da0f33e2149c30d4739f2f980d6776bf83b15d5",
+      "source_M_guard": {
+        "B2_B4_contexts": 270,
+        "unique_source_M_per_C_bootstrap_context": true,
+        "note": "C bootstrap omits explicit source_M filter; uniqueness verified only for these exact runs, not a general checker guarantee."
+      },
+      "command": "python reviews/verify_c_formal_runs.py results/clinical/20261105T055420_02d05b15 data/processed/cohort.parquet --output <local-summary.json>"
+    },
+    "20261105T055445_54dd08de": {
+      "C_authored_checker_BE_replay": {
+        "failed_checks": [],
+        "cohort_rows": 24095,
+        "cohort_positive_total": 95,
+        "cohort_positive_A": 57,
+        "cohort_positive_B": 38,
+        "patient_method_rows": 366000,
+        "p_m_rows": 208925,
+        "metric_rows_saved": 240,
+        "metric_rows_recomputed": 240,
+        "bootstrap_intervals_saved": 48,
+        "bootstrap_ok": "48/48",
+        "y_true_mismatch": 0,
+        "acceptance_mismatch": 0
+      },
+      "B_artifact_recheck": {
+        "run": "results/clinical/20261105T055445_54dd08de",
+        "synthetic": false,
+        "run_status": "completed",
+        "patient_method_rows": 366000,
+        "imputation_probability_rows": 208925,
+        "independently_checked_metric_rows": 240,
+        "artifact_hashes_checked": 22,
+        "source_hashes_checked": 13,
+        "split_hashes_checked": 1,
+        "checks": [
+          "all artifact hashes",
+          "current source/config/data/split hashes",
+          "unique output keys",
+          "hospital identity",
+          "singleton eligibility",
+          "independent counts and proportions",
+          "same batch K",
+          "shared MI predictions and sets",
+          "p_m mean and ddof=1 std and class flips",
+          "B0 M=1",
+          "q frozen across batches"
+        ]
+      },
+      "manifest_sha256": "8d6612735d87744d62aaac2806d5d8c1df484fc40f3d55a64f0417484fc85f29",
+      "source_M_guard": {
+        "B2_B4_contexts": 72,
+        "unique_source_M_per_C_bootstrap_context": true,
+        "note": "C bootstrap omits explicit source_M filter; uniqueness verified only for these exact runs, not a general checker guarantee."
+      },
+      "command": "python reviews/verify_c_formal_runs.py results/clinical/20261105T055445_54dd08de data/processed/cohort.parquet --output <local-summary.json>"
+    }
+  },
+  "D_gate_tests": "...............                                                          [100%]\n15 passed in 2.14s",
+  "D_gate_validation": {
+    "source_commit": "f61c9cb9a3ed3b22b33c4745d7ca1ce7447ca5c1",
+    "positive": {
+      "20261105T055420_02d05b15": "accepted_with_limits",
+      "20261105T055445_54dd08de": "accepted_with_limits"
+    },
+    "negative": {
+      "20261105T055420_02d05b15/missing": "refused",
+      "20261105T055420_02d05b15/bad_manifest": "refused",
+      "20261105T055445_54dd08de/missing": "refused",
+      "20261105T055445_54dd08de/bad_manifest": "refused"
+    },
+    "main_render": {
+      "status": "ACCEPTED_CLINICAL",
+      "output": "ignored review cache only",
+      "fig5_requires_D_patient_source": true
+    },
+    "script_sha256": "dc2dcf0360ff12bd8f8e04e97c51eaa5af6cc18fbb62b172e3111b313606a4a4",
+    "formal_preview_provenance_sha256": "8f2561ba815e32b45d558eb01bdcee2733952f41a0e425cd76131c697963b24c"
+  },
+  "final_immutability_checks": {
+    "20261105T055420_02d05b15": {
+      "manifest_unchanged": true,
+      "artifact_hashes_unchanged": 45
+    },
+    "20261105T055445_54dd08de": {
+      "manifest_unchanged": true,
+      "artifact_hashes_unchanged": 22
+    },
+    "registry_unchanged": true
+  },
+  "copied_C_originals_exact": true,
+  "repository_tests": "................................                                         [100%]\n32 passed in 29.12s",
+  "local_markdown_links_checked": 88
+}
