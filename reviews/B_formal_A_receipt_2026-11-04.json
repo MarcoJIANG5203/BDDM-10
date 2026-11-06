@@ -1,0 +1,79 @@
+{
+  "formal_data_version": "a-data-v1-20261104-r1",
+  "source_commit": "b717d1ae1fc59108932aa0ab2b76dd43c1bcf97b",
+  "bundle_sha256": "feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c",
+  "bytes": 4666169,
+  "freeze_hashes_checked": {
+    "data/processed/cohort.parquet": "27d58cc44e17d7c1a01993ce76aa604f9b306f51ed1619dcd0704a1d038c0a81",
+    "data/processed/cohort.csv": "e5e88ebcfb755da9d610b0c9587733c8d87ba477cd8fcb2161c0459107946b16",
+    "data/processed/cohort_audit.json": "8c81cd1fafae04bcfd8c5925ffb9f0a1cd5111129aa1a937e8420fa9cfb4919c",
+    "splits/seed_2026.json": "ec125595db148070351f237ad052f2754265cad061d96783beebfc3dc99d351f",
+    "splits/seed_2027.json": "b3f5cc23996d8d9f1150e377ab79fd121ec4037d57bb89c61b0cee4e27827ecb",
+    "splits/seed_2028.json": "a19b7dfbdf8d457cb57baa1e68d989b000752d22afb3c8e4b0d4957dbe5a4ce9",
+    "splits/seed_2029.json": "15a57fc26f91c2a6bc1ff1c219d7279c0bafba68bba0d7569e0ca99949b6f23c",
+    "splits/seed_2030.json": "8800012eac62a1aacc73b3d43b8a9ba1b3ce0b76df57a86e0d81bcf0c4649c47"
+  },
+  "loader_checks": 10,
+  "patients": 24095,
+  "audit_data_version": "a-data-v1-20261104-r1",
+  "acceptance_scope": "B input identity and interface only; C/E result acceptance pending",
+  "candidate_byte_identity_checked": [
+    "data/processed/cohort.parquet",
+    "data/processed/cohort.csv",
+    "splits/seed_2026.json",
+    "splits/seed_2027.json",
+    "splits/seed_2028.json",
+    "splits/seed_2029.json",
+    "splits/seed_2030.json"
+  ],
+  "audit_changed_fields": [
+    "data_version",
+    "delivery_metadata_change",
+    "delivery_revision",
+    "human_review",
+    "license_provenance",
+    "parent_audit_sha256",
+    "parent_delivery_audit_sha256",
+    "release_status",
+    "source_data_version"
+  ],
+  "unchanged_scientific_audit_fields": [
+    "protocol_version",
+    "feature_window_end",
+    "outcome_window",
+    "label_shift_hours",
+    "site_meanings",
+    "exclusion_counts",
+    "feature_order",
+    "aggregation",
+    "split_algorithm",
+    "site_counts",
+    "split_counts",
+    "precision_gates"
+  ],
+  "prior_candidate_integrity": [
+    {
+      "run": "results/candidate-clinical/20261103T122334_93a9a266",
+      "manifest_sha256": "c156c8b2fa61a76dbaf0fa93c6363b18523648484fa76f1031f2a4ecd0b07e12",
+      "artifact_hashes_checked": 18
+    },
+    {
+      "run": "results/candidate-clinical/20261104T002604_e3a5a42b",
+      "manifest_sha256": "a53d5b2cdb2c1e6ad294384d282496c6d9554514fdea3151412b1100723e454b",
+      "artifact_hashes_checked": 45
+    },
+    {
+      "run": "results/candidate-clinical/20261104T132609_45c03e76",
+      "manifest_sha256": "707a2e7eca349c1444b72414f9304560a420f940fb87629e6d443bce0ce24487",
+      "artifact_hashes_checked": 22
+    }
+  ],
+  "independent_remote_metadata": {
+    "release_id": 433994662,
+    "draft": false,
+    "prerelease": false,
+    "asset_id": 709705860,
+    "digest": "sha256:feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c",
+    "size": 4666169
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "_instructions": "Template only. Copy to reviews/acceptance/<run_id>.json, fill every field from the accepted run's manifest and the C/E handoff records, then commit. Do not edit this template into an acceptance record.",
+  "schema_version": 1,
+  "run_id": "<accepted_run_id>",
+  "manifest_sha256": "<sha256 of results/clinical/<run_id>/manifest.json>",
+  "synthetic": false,
+  "protocol_version": "v1",
+  "data_version": "<data_version from the run manifest>",
+  "status": "template_not_accepted",
+  "scope": "D-002 figures and tables for the manuscript, limited to the accepted run and frozen data version",
+  "accepted_at": "PENDING",
+  "signoffs": {
+    "C": {
+      "name": "PENDING",
+      "date": "PENDING",
+      "decision": "pending",
+      "evidence": "handoffs/C/<record>.md"
+    },
+    "E": {
+      "name": "PENDING",
+      "date": "PENDING",
+      "decision": "pending",
+      "evidence": "handoffs/E/<record>.md"
+    }
+  },
+  "notes": "C independently audits labels/metrics/references; E records the freeze/scope decision. Both sign. The figure script validates this record and refuses any run without one."
+}

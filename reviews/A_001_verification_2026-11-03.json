@@ -1,0 +1,352 @@
+{
+  "date_beijing": "2026-11-03T22:25:14.055623+08:00",
+  "scope": "A-001 automated technical verification; not independent human C review, clinical adjudication, or E freeze",
+  "data_version": "a-clinical-protocol-v1-20261103-full-r1",
+  "protocol_version": "v1",
+  "verification_status": "VERIFIED_WITHIN_DECLARED_TECHNICAL_SCOPE",
+  "package_manifest_sha256": "4d716715e7d46de060c8dd3c803f531eb20ba07845323275f8fa2b3d2b8086a6",
+  "package_files_sha256_verified": 125,
+  "current_audit_files_verified": 31,
+  "all_raw_records_sha256_md5_and_rules_verified": 40336,
+  "included_labels_verified": 24095,
+  "included_feature_cells_exactly_checked": 867420,
+  "parquet_csv_exact_equivalence": true,
+  "B_loader_calls": 10,
+  "fixed_split_algorithms_exactly_matched": 5,
+  "raw_review_cases_checked": 20,
+  "source_contracts_exact_A_B_bytes": {
+    "T1_\u7edf\u4e00\u5b9e\u9a8c\u8bf4\u660e_v1.md": "14769c88162ea086b07d8bccb6db091ad54e6640934309b107bafe430a4d6390",
+    "T1_\u6280\u672f\u4ea4\u63a5\u7ea6\u5b9a.md": "55b1136f582c98bb10dc785c80132dc034a5fd4eb630d7f5c572ebf46815b652",
+    "docs/A\u5230B_\u6570\u636e\u4ea4\u63a5\u8bf4\u660e.md": "607c4b573ffbdc3dd340d450b40a42a121e443ce4a8fef61b8268a189b3c1245",
+    "configs/protocol_v1.yaml": "90686937e41a99818540fb971f97209136e6169163322b8ecf3c885a43b0c8a6",
+    "src/data.py": "09f3863af2f735bdd2a8f546caf3674cc66c2e2dab1b59dde56637b29dbe7193"
+  },
+  "independent_endpoint_and_feature_boundary_checks": [
+    {
+      "case": "onset_12_excluded",
+      "status": "PASS",
+      "expected_reason": "onset_at_or_before_12",
+      "expected_label": null
+    },
+    {
+      "case": "onset_13_positive",
+      "status": "PASS",
+      "expected_reason": "included",
+      "expected_label": 1
+    },
+    {
+      "case": "onset_24_positive",
+      "status": "PASS",
+      "expected_reason": "included",
+      "expected_label": 1
+    },
+    {
+      "case": "onset_25_negative",
+      "status": "PASS",
+      "expected_reason": "included",
+      "expected_label": 0
+    },
+    {
+      "case": "never_positive",
+      "status": "PASS",
+      "expected_reason": "included",
+      "expected_label": 0
+    },
+    {
+      "case": "left_censored_first_positive",
+      "status": "PASS",
+      "expected_reason": "first_observation_positive",
+      "expected_label": null
+    }
+  ],
+  "B_trial_manifest_exact_A_input_hashes": true,
+  "B_trial_scientific_source_files_matched": 13,
+  "B_trial_available_summary_files_matched": 10,
+  "sequential_counts": {
+    "included": 24095,
+    "missing_initial_hours": 8793,
+    "insufficient_followup": 7448
+  },
+  "site_flow": {
+    "A": {
+      "stages": {
+        "raw": {
+          "n": 20336,
+          "any_observed_positive_label": 1790,
+          "observed_onset_in_12_24": 334
+        },
+        "starts_at_1": {
+          "n": 12839,
+          "any_observed_positive_label": 1216,
+          "observed_onset_in_12_24": 241
+        },
+        "full_hours_1_to_24": {
+          "n": 10174,
+          "any_observed_positive_label": 730,
+          "observed_onset_in_12_24": 57
+        },
+        "included": {
+          "n": 10174,
+          "any_observed_positive_label": 730,
+          "observed_onset_in_12_24": 57
+        }
+      },
+      "sequential_exclusions": {
+        "invalid_hourly_records": {},
+        "missing_initial_hours": {
+          "n": 7497,
+          "any_observed_positive_label": 574,
+          "observed_onset_in_12_24": 93
+        },
+        "insufficient_followup": {
+          "n": 2665,
+          "any_observed_positive_label": 486,
+          "observed_onset_in_12_24": 184
+        },
+        "first_observation_positive": {},
+        "onset_at_or_before_12": {},
+        "invalid_input_demographics": {},
+        "included": {
+          "n": 10174,
+          "any_observed_positive_label": 730,
+          "observed_onset_in_12_24": 57
+        }
+      }
+    },
+    "B": {
+      "stages": {
+        "raw": {
+          "n": 20000,
+          "any_observed_positive_label": 1142,
+          "observed_onset_in_12_24": 152
+        },
+        "starts_at_1": {
+          "n": 18704,
+          "any_observed_positive_label": 1059,
+          "observed_onset_in_12_24": 143
+        },
+        "full_hours_1_to_24": {
+          "n": 13921,
+          "any_observed_positive_label": 638,
+          "observed_onset_in_12_24": 38
+        },
+        "included": {
+          "n": 13921,
+          "any_observed_positive_label": 638,
+          "observed_onset_in_12_24": 38
+        }
+      },
+      "sequential_exclusions": {
+        "invalid_hourly_records": {},
+        "missing_initial_hours": {
+          "n": 1296,
+          "any_observed_positive_label": 83,
+          "observed_onset_in_12_24": 9
+        },
+        "insufficient_followup": {
+          "n": 4783,
+          "any_observed_positive_label": 421,
+          "observed_onset_in_12_24": 105
+        },
+        "first_observation_positive": {},
+        "onset_at_or_before_12": {},
+        "invalid_input_demographics": {},
+        "included": {
+          "n": 13921,
+          "any_observed_positive_label": 638,
+          "observed_onset_in_12_24": 38
+        }
+      }
+    }
+  },
+  "overlapping_exclusion_diagnostics_not_additive": {
+    "A": {
+      "first_record_positive": 203,
+      "observed_onset_at_or_before_12": 180
+    },
+    "B": {
+      "first_record_positive": 223,
+      "observed_onset_at_or_before_12": 103
+    }
+  },
+  "included_onset_categories": {
+    "A": {
+      "no_observed_positive_label": 9444,
+      "after_24": 673,
+      "13_to_24": 57
+    },
+    "B": {
+      "no_observed_positive_label": 13283,
+      "after_24": 600,
+      "13_to_24": 38
+    }
+  },
+  "split_counts": {
+    "2026": {
+      "train": {
+        "n": 6104,
+        "positive": 34,
+        "negative": 6070
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6,
+        "negative": 1012
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9,
+        "negative": 1518
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8,
+        "negative": 1517
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38,
+        "negative": 13883
+      }
+    },
+    "2027": {
+      "train": {
+        "n": 6104,
+        "positive": 34,
+        "negative": 6070
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6,
+        "negative": 1012
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9,
+        "negative": 1518
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8,
+        "negative": 1517
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38,
+        "negative": 13883
+      }
+    },
+    "2028": {
+      "train": {
+        "n": 6104,
+        "positive": 34,
+        "negative": 6070
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6,
+        "negative": 1012
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9,
+        "negative": 1518
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8,
+        "negative": 1517
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38,
+        "negative": 13883
+      }
+    },
+    "2029": {
+      "train": {
+        "n": 6104,
+        "positive": 34,
+        "negative": 6070
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6,
+        "negative": 1012
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9,
+        "negative": 1518
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8,
+        "negative": 1517
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38,
+        "negative": 13883
+      }
+    },
+    "2030": {
+      "train": {
+        "n": 6104,
+        "positive": 34,
+        "negative": 6070
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6,
+        "negative": 1012
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9,
+        "negative": 1518
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8,
+        "negative": 1517
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38,
+        "negative": 13883
+      }
+    }
+  },
+  "precision_gates": {
+    "site_positive_minimum": 200,
+    "internal_test_positive_minimum": 50,
+    "site_pass": {
+      "A": false,
+      "B": false
+    },
+    "internal_test_pass": {
+      "2026": false,
+      "2027": false,
+      "2028": false,
+      "2029": false,
+      "2030": false
+    },
+    "status": "NOT_MET_REQUIRES_PRE_FREEZE_DISCUSSION_NO_SILENT_ENDPOINT_CHANGE"
+  },
+  "raw_source_integrity_scope": "Compared with supplied acquisition manifest; no new live 40336-file re-download",
+  "B_metrics_scope": "B supplied reports inspected; original clinical run Release not supplied, no patient-level B metric replay in this audit",
+  "A_personal_attestation": "PENDING_USER_REVIEW",
+  "C_independent_review": "PENDING",
+  "E_precision_and_freeze_decision": "PENDING",
+  "formal_data_release": "NOT_PUBLISHED_BY_THIS_RUN",
+  "source_archives_modified": false,
+  "labels_or_splits_modified": false,
+  "new_models_trained": false,
+  "audit_script_sha256": "b613b87083fd675aa6b723e37128ae34b087cadce59addbe750d5385d6407b49",
+  "python": "3.14.7",
+  "packages": {
+    "numpy": "2.4.6",
+    "pandas": "3.0.3"
+  }
+}

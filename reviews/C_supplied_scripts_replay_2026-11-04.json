@@ -1,0 +1,38 @@
+{
+  "purpose": "A executes unmodified C-supplied scripts; not new C acceptance",
+  "encoding_note": "Prior PowerShell pipeline output showed decoding damage. These logs capture original UTF-8 stdout bytes via subprocess.",
+  "receipts": [
+    {
+      "source_script": "work/A_closeout_20261104/snapshots/C/reviews/verify_c_labels.py",
+      "source_script_sha256": "d5bf06aefc5f866c425421dff3e69351d2676c069168517498471446effc97ee",
+      "source_snapshot_commit": "f2eb560a",
+      "invocation": [
+        "python",
+        "reviews/verify_c_labels.py",
+        "<unchanged A full-r1 package>"
+      ],
+      "exit_code": 0,
+      "log": "private_receipt/C_20_case_script_replay_utf8_2026-11-04.log",
+      "log_sha256": "f340c9e1c17b1218f6f94a6fbfc2ba0b5b64479ef0b501ef80c77f3336e556a3",
+      "status": "PASS_AUTOMATED_REPLAY",
+      "human_C_acceptance": false,
+      "patient_identifiers_in_log": true
+    },
+    {
+      "source_script": "work/A_closeout_20261104/snapshots/C/reviews/verify_c_time_boundary.py",
+      "source_script_sha256": "01290570884ab46eb12534674b4de11da24723f6bce09eb826723606385aaa08",
+      "source_snapshot_commit": "f2eb560a",
+      "invocation": [
+        "python",
+        "reviews/verify_c_time_boundary.py",
+        "<unchanged A full-r1 cohort_audit.json>"
+      ],
+      "exit_code": 0,
+      "log": "reviews/C_time_boundary_script_replay_utf8_2026-11-04.log",
+      "log_sha256": "4c2b42a749ad1d68dba1ca2b1ecf8050b2f1ed9e59479d52a5f5c4c3eb333965",
+      "status": "PASS_AUTOMATED_REPLAY",
+      "human_C_acceptance": false,
+      "patient_identifiers_in_log": false
+    }
+  ]
+}

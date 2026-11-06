@@ -1,0 +1,13 @@
+Raw receipt site A: 5000/20336 records checked
+Raw receipt site A: 10000/20336 records checked
+Raw receipt site A: 15000/20336 records checked
+Raw receipt site A: 20000/20336 records checked
+Raw receipt site A complete: {'included': 10174, 'positive': 57, 'raw': 20336}
+Raw receipt site B: 5000/20000 records checked
+Raw receipt site B: 10000/20000 records checked
+Raw receipt site B: 15000/20000 records checked
+Raw receipt site B: 20000/20000 records checked
+Raw receipt site B complete: {'included': 13921, 'positive': 38, 'raw': 20000}
+PASS: 40336 raw records; 24095 included labels/36 features; source inputs unchanged
+Private per-record receipt: C:\Users\ASUS\Documents\Codex\2026-11-03\azhe-fang-mian-de\work\A_closeout_20261104\raw_receipt_work\private_receipt\raw_psv_receipt.csv
+Aggregate report: C:\Users\ASUS\Documents\Codex\2026-11-03\azhe-fang-mian-de\work\A_closeout_20261104\raw_receipt_work\reviews\A_raw_psv_receipt_2026-11-04.json

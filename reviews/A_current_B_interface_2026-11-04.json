@@ -1,0 +1,122 @@
+{
+  "date": "2026-11-04",
+  "B_source_commit": "f15fbc8d72f4a11a365d1e0eb4fd1e9749f19925",
+  "B_reader_sha256": "09f3863af2f735bdd2a8f546caf3674cc66c2e2dab1b59dde56637b29dbe7193",
+  "data_version": "a-clinical-protocol-v1-20261103-full-r1",
+  "loader_calls": 10,
+  "status": "PASS",
+  "split_counts": {
+    "2026": {
+      "train": {
+        "n": 6104,
+        "positive": 34
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38
+      }
+    },
+    "2027": {
+      "train": {
+        "n": 6104,
+        "positive": 34
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38
+      }
+    },
+    "2028": {
+      "train": {
+        "n": 6104,
+        "positive": 34
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38
+      }
+    },
+    "2029": {
+      "train": {
+        "n": 6104,
+        "positive": 34
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38
+      }
+    },
+    "2030": {
+      "train": {
+        "n": 6104,
+        "positive": 34
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38
+      }
+    }
+  },
+  "model_fitting": false,
+  "C_E_acceptance": false
+}

@@ -1,0 +1,178 @@
+{
+  "date_user_local": "2026-11-05",
+  "timezone": "America/Los_Angeles",
+  "scope": "E delegated coordination, exact delivery identity, protocol fairness and D workflow receipt",
+  "reviewer_provenance": {
+    "role": "E",
+    "authorization": "User: E的工作你做一下",
+    "same_chat_previously_produced_B": true,
+    "independent_human_statistical_review": false
+  },
+  "pinned_commits": {
+    "A": "b717d1ae1fc59108932aa0ab2b76dd43c1bcf97b",
+    "B": "7fefa32217563ee07be1dcfa4b46e0e3a86dd6ae",
+    "C": "f4d973662f9d97c7a9891f46399c34ef8d78f58c",
+    "D": "1eff019f6b205941ab3d9ea65e9a58bd15f89b8d"
+  },
+  "E_decision": {
+    "proceed_protocol": "v1",
+    "research_scope": "finite-event method evaluation; no stable superiority or clinical-safety claim",
+    "A_B_technical_delivery_receipt": "accepted_with_limits",
+    "C_formal_run_signoff": "pending",
+    "combined_C_E_result_acceptance": false,
+    "project_scientific_result_freeze": false
+  },
+  "runs": {
+    "main": {
+      "run_id": "20261105T055420_02d05b15",
+      "manifest_sha256": "f05827893e1eac44fa0c566e3da0f33e2149c30d4739f2f980d6776bf83b15d5",
+      "data_sha256": "27d58cc44e17d7c1a01993ce76aa604f9b306f51ed1619dcd0704a1d038c0a81",
+      "audit_sha256": "8c81cd1fafae04bcfd8c5925ffb9f0a1cd5111129aa1a937e8420fa9cfb4919c",
+      "data_version": "a-data-v1-20261104-r1",
+      "artifact_hashes_checked": 45,
+      "source_hashes_checked": 13,
+      "split_sha256": {
+        "2026": "ec125595db148070351f237ad052f2754265cad061d96783beebfc3dc99d351f",
+        "2027": "b3f5cc23996d8d9f1150e377ab79fd121ec4037d57bb89c61b0cee4e27827ecb",
+        "2028": "a19b7dfbdf8d457cb57baa1e68d989b000752d22afb3c8e4b0d4957dbe5a4ce9",
+        "2029": "15a57fc26f91c2a6bc1ff1c219d7279c0bafba68bba0d7569e0ca99949b6f23c",
+        "2030": "8800012eac62a1aacc73b3d43b8a9ba1b3ce0b76df57a86e0d81bcf0c4649c47"
+      }
+    },
+    "supplements": {
+      "run_id": "20261105T055445_54dd08de",
+      "manifest_sha256": "8d6612735d87744d62aaac2806d5d8c1df484fc40f3d55a64f0417484fc85f29",
+      "data_sha256": "27d58cc44e17d7c1a01993ce76aa604f9b306f51ed1619dcd0704a1d038c0a81",
+      "audit_sha256": "8c81cd1fafae04bcfd8c5925ffb9f0a1cd5111129aa1a937e8420fa9cfb4919c",
+      "data_version": "a-data-v1-20261104-r1",
+      "artifact_hashes_checked": 22,
+      "source_hashes_checked": 13,
+      "split_sha256": {
+        "2026": "ec125595db148070351f237ad052f2754265cad061d96783beebfc3dc99d351f"
+      }
+    }
+  },
+  "C_authored_script_E_replay": {
+    "script": "reviews/verify_c_candidate_metrics.py",
+    "source_commit": "f4d973662f9d97c7a9891f46399c34ef8d78f58c",
+    "script_sha256": "51f0d20e90e8ef158a7c9b3f258f2f8a89aa95a7bcc286257557fb12b278dfd5",
+    "run": "20261105T055420_02d05b15",
+    "result": {
+      "failed_checks": [],
+      "patient_method_rows": 2612100,
+      "y_true_mismatch": 0,
+      "acceptance_mismatch": 0,
+      "bootstrap_ok": "30/30"
+    },
+    "not_C_personal_signoff": true
+  },
+  "supplement_E_artifact_replay": {
+    "run": "results/clinical/20261105T055445_54dd08de",
+    "synthetic": false,
+    "run_status": "completed",
+    "patient_method_rows": 366000,
+    "imputation_probability_rows": 208925,
+    "independently_checked_metric_rows": 240,
+    "artifact_hashes_checked": 22,
+    "source_hashes_checked": 13,
+    "split_hashes_checked": 1,
+    "checks": [
+      "all artifact hashes",
+      "current source/config/data/split hashes",
+      "unique output keys",
+      "hospital identity",
+      "singleton eligibility",
+      "independent counts and proportions",
+      "same batch K",
+      "shared MI predictions and sets",
+      "p_m mean and ddof=1 std and class flips",
+      "B0 M=1",
+      "q frozen across batches"
+    ]
+  },
+  "D_workflow": {
+    "output_hash_checks": [
+      {
+        "path": "paper/inputs/a-data-v1-20261104-r1",
+        "files": 6,
+        "hash_mismatches": []
+      },
+      {
+        "path": "paper/draft-runs/20261104T002604_e3a5a42b",
+        "files": 19,
+        "hash_mismatches": []
+      }
+    ],
+    "bib_keys": 7,
+    "citation_keys_match": true,
+    "R5_present": true,
+    "result_placeholders_retained": true,
+    "stale_readiness_R5_prohibition": true,
+    "D_tests": "16 passed in 2.53s",
+    "cohort_tables_reproduced": 4
+  },
+  "D_formal_run_negative_gate": {
+    "returncode": 2,
+    "run_id": "20261105T055420_02d05b15",
+    "reason": "C/E-signed acceptance record missing",
+    "accepted_output_created": false
+  },
+  "C_supplement_checker_limit": "Pinned C script uses (seed,method,capacity) threshold keys and bootstrap filters without model/source_M/alpha; cannot directly validate mixed supplement run",
+  "submission_scope": {
+    "deadline": "before November20,2026",
+    "provenance": "Current user confirmation:11.20之前投稿，其余的不用管",
+    "other_venue_contact_questions": "user waived; not open blockers",
+    "actual_submission_receipt": false
+  },
+  "immutable_registry_sha256": "5071800e628b96a473279b4fe464643391ca5650da1bbf712ab822257c21cfd4",
+  "validation_commands": {
+    "D_tests": {
+      "fixed_commit": "1eff019f6b205941ab3d9ea65e9a58bd15f89b8d",
+      "command": "python -m pytest -q -p no:cacheprovider tests/test_make_figures.py tests/test_cohort_tables.py",
+      "working_directory": "clean copy of the fixed D commit",
+      "result": "16 passed in 2.53s"
+    },
+    "C_authored_main_checker_E_replay": {
+      "fixed_commit": "f4d973662f9d97c7a9891f46399c34ef8d78f58c",
+      "command": "python reviews/verify_c_candidate_metrics.py results/clinical/20261105T055420_02d05b15 data/processed/cohort.parquet --output <local-review-output.json>",
+      "working_directory": "B project root; script bytes from fixed C commit"
+    },
+    "supplement_artifacts": {
+      "command": "python reviews/verify_b_artifacts.py results/clinical/20261105T055445_54dd08de",
+      "result": "240 metrics,22 artifact/13 source/1 split hashes PASS"
+    },
+    "D_cohort_tables": {
+      "command": "python scripts/make_cohort_tables.py --release-zip <a-data-v1-20261104-r1.zip> --expected-sha256 feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c --out-dir <local-review-output>",
+      "fixed_commit": "1eff019f6b205941ab3d9ea65e9a58bd15f89b8d",
+      "result": "four tables numerically identical"
+    }
+  },
+  "prior_B_interval_audit_reference": "reviews/B_formal_verification_2026-11-04.json (producer evidence; not C signoff)",
+  "A_frozen_identities_checked": {
+    "data/processed/cohort.parquet": "27d58cc44e17d7c1a01993ce76aa604f9b306f51ed1619dcd0704a1d038c0a81",
+    "data/processed/cohort.csv": "e5e88ebcfb755da9d610b0c9587733c8d87ba477cd8fcb2161c0459107946b16",
+    "data/processed/cohort_audit.json": "8c81cd1fafae04bcfd8c5925ffb9f0a1cd5111129aa1a937e8420fa9cfb4919c",
+    "splits/seed_2026.json": "ec125595db148070351f237ad052f2754265cad061d96783beebfc3dc99d351f",
+    "splits/seed_2027.json": "b3f5cc23996d8d9f1150e377ab79fd121ec4037d57bb89c61b0cee4e27827ecb",
+    "splits/seed_2028.json": "a19b7dfbdf8d457cb57baa1e68d989b000752d22afb3c8e4b0d4957dbe5a4ce9",
+    "splits/seed_2029.json": "15a57fc26f91c2a6bc1ff1c219d7279c0bafba68bba0d7569e0ca99949b6f23c",
+    "splits/seed_2030.json": "8800012eac62a1aacc73b3d43b8a9ba1b3ce0b76df57a86e0d81bcf0c4649c47"
+  },
+  "published_archive_checks": {
+    "a-data-v1-20261104-r1": {
+      "tag": "a-data-v1-20261104-r1",
+      "asset_id": 709705860,
+      "sha256": "feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c",
+      "bytes": 4666169,
+      "status": "published"
+    },
+    "b-clinical-v1-20261104-r1": {
+      "tag": "b-clinical-v1-20261104-r1",
+      "asset_id": 712314210,
+      "sha256": "2328d26682a39ccb895553d3cee3dc6dd11bd6506c41a5a0ac0f5d49890e8426",
+      "bytes": 155365045,
+      "status": "published"
+    }
+  },
+  "published_archive_check_result": "PASS: actual local downloaded archive SHA256/bytes and current remote digest/published metadata"
+}

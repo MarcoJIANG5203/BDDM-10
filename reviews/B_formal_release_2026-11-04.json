@@ -1,0 +1,72 @@
+{
+  "date_user_local": "2026-11-04",
+  "timezone": "America/Los_Angeles",
+  "bundle_id": "b-clinical-v1-20261104-r1",
+  "release_id": 434847434,
+  "url": "https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/b-clinical-v1-20261104-r1",
+  "prerelease": true,
+  "draft": false,
+  "release_tag_commit": "a95aa30c877ca22e7831e6b1df1634a5cfddcf79",
+  "asset_id": 712314210,
+  "asset_api": "repos/MarcoJIANG5203/BDDM-10/releases/assets/712314210",
+  "bytes": 155365045,
+  "files": 112,
+  "sha256": "2328d26682a39ccb895553d3cee3dc6dd11bd6506c41a5a0ac0f5d49890e8426",
+  "remote_digest": "sha256:2328d26682a39ccb895553d3cee3dc6dd11bd6506c41a5a0ac0f5d49890e8426",
+  "actual_download_sha256_verified": true,
+  "isolated_empty_directory_restore": "PASS",
+  "restored_run_audits": [
+    {
+      "run": "results/clinical/20261105T055420_02d05b15",
+      "synthetic": false,
+      "run_status": "completed",
+      "patient_method_rows": 2612100,
+      "imputation_probability_rows": 1436655,
+      "independently_checked_metric_rows": 900,
+      "artifact_hashes_checked": 45,
+      "source_hashes_checked": 13,
+      "split_hashes_checked": 5,
+      "checks": [
+        "all artifact hashes",
+        "current source/config/data/split hashes",
+        "unique output keys",
+        "hospital identity",
+        "singleton eligibility",
+        "independent counts and proportions",
+        "same batch K",
+        "shared MI predictions and sets",
+        "p_m mean and ddof=1 std and class flips",
+        "B0 M=1",
+        "q frozen across batches"
+      ],
+      "project_root": "isolated_empty_directory_restored_from_remote_asset"
+    },
+    {
+      "run": "results/clinical/20261105T055445_54dd08de",
+      "synthetic": false,
+      "run_status": "completed",
+      "patient_method_rows": 366000,
+      "imputation_probability_rows": 208925,
+      "independently_checked_metric_rows": 240,
+      "artifact_hashes_checked": 22,
+      "source_hashes_checked": 13,
+      "split_hashes_checked": 1,
+      "checks": [
+        "all artifact hashes",
+        "current source/config/data/split hashes",
+        "unique output keys",
+        "hospital identity",
+        "singleton eligibility",
+        "independent counts and proportions",
+        "same batch K",
+        "shared MI predictions and sets",
+        "p_m mean and ddof=1 std and class flips",
+        "B0 M=1",
+        "q frozen across batches"
+      ],
+      "project_root": "isolated_empty_directory_restored_from_remote_asset"
+    }
+  ],
+  "recipient_C_E_acceptance": false,
+  "main_merged": false
+}

@@ -1,0 +1,17 @@
+{
+  "url": "https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/b-candidate-natural-20261103-r1",
+  "tag": "b-candidate-natural-20261103-r1",
+  "draft": false,
+  "prerelease": true,
+  "published_at": "2026-11-03T12:38:13Z",
+  "release_target_commitish": "main",
+  "release_tag_commit": "19689ec985278a757512cf87a4acd90c48f0d5b9",
+  "B_trial_code_commit": "e2822ad3c980510a5e2da398ee13a13d3a3c7f07",
+  "tag_source_hashes_match_run": 13,
+  "asset_name": "b-candidate-natural-20261103-r1.zip",
+  "asset_state": "uploaded",
+  "bytes": 21522751,
+  "digest": "sha256:5d5879dd112d329a5b3079dbdc8d5588a7bdf82c4c1e596e4b15b98751fabd33",
+  "scientific_acceptance": false,
+  "note": "Initial abbreviated-target create rejected; standard publisher uploaded at existing main. Release flag/title/notes corrected to pre-release. Tag/source and B configuration commits are recorded separately."
+}

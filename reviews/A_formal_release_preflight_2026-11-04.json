@@ -1,0 +1,17 @@
+{
+  "sha256": "feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c",
+  "bytes": 4666169,
+  "roots": [
+    "data/processed",
+    "splits",
+    "sources/physionet2019",
+    "private_receipt"
+  ],
+  "files": 52,
+  "id": "a-data-v1-20261104-r1",
+  "source_data_version": "a-clinical-protocol-v1-20261103-full-r1",
+  "delivery_audit_sha256": "8c81cd1fafae04bcfd8c5925ffb9f0a1cd5111129aa1a937e8420fa9cfb4919c",
+  "B_loader_calls": 10,
+  "clinical_files_identical": 31,
+  "formal_version_metadata_only_change": true
+}

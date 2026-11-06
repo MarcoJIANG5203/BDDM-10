@@ -1,0 +1,19 @@
+# Pre-freeze v1 candidate supplements. The original clinical input bytes and split are unchanged.
+protocol_version: v1
+synthetic: false
+features: [HR, O2Sat, Temp, SBP, MAP, DBP, Resp, EtCO2, BaseExcess, HCO3, FiO2, pH, PaCO2, SaO2, AST, BUN, Alkalinephos, Calcium, Chloride, Creatinine, Bilirubin_direct, Glucose, Lactate, Magnesium, Phosphate, Potassium, Bilirubin_total, TroponinI, Hct, Hgb, PTT, WBC, Fibrinogen, Platelets, Age, Gender]
+data_path: .artifact-cache/a-receipt/ec8fd750cc17038bb0a73c37e1537a1e7a4d780e/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/data/processed/cohort.parquet
+audit_path: .artifact-cache/a-receipt/ec8fd750cc17038bb0a73c37e1537a1e7a4d780e/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/data/processed/cohort_audit.json
+split_pattern: .artifact-cache/a-receipt/ec8fd750cc17038bb0a73c37e1537a1e7a4d780e/T1_A_Day1_2026-11-03_v1_Rebuilt_Full/splits/seed_{seed}.json
+seeds: [2026]
+M: 10
+rounds: 10
+alpha: 0.1
+capacities: [0.4, 0.6, 0.8]
+bootstrap: 1000
+scenarios: [S0, S2]
+batches: 5
+output_root: results/candidate-clinical
+run_purpose: pre_freeze_v1_supplements_rf_m5_m20_alpha005
+data_source_commit: ec8fd750cc17038bb0a73c37e1537a1e7a4d780e
+scientific_acceptance: PENDING_A_C_E_NOT_FORMAL_FROZEN_RESULTS

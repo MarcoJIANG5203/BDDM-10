@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-05",
+  "timezone": "Asia/Hong_Kong",
+  "status": "UNRESOLVED_OFFICIAL_METADATA_CONFLICT",
+  "captures": {
+    "landing": {
+      "url": "https://physionet.org/content/challenge-2019/1.0.0/",
+      "final_url": "https://physionet.org/content/challenge-2019/1.0.0/",
+      "http_status": 200,
+      "retrieved_at": "2026-11-05T22:44:31.276395+08:00",
+      "bytes": 104876,
+      "sha256": "6007c91bc276a3c38ff7701b4ac868c6cb2541e3c69823012da0e34af826b2c9"
+    },
+    "view_license": {
+      "url": "https://physionet.org/content/challenge-2019/view-license/1.0.0/",
+      "final_url": "https://physionet.org/content/challenge-2019/view-license/1.0.0/",
+      "http_status": 200,
+      "retrieved_at": "2026-11-05T22:44:31.682656+08:00",
+      "bytes": 28248,
+      "sha256": "feb4fe94f09640846b69a387693a6f67c4d2d7ab92a867736860d21f6896e46d"
+    },
+    "license_file": {
+      "url": "https://physionet.org/files/challenge-2019/1.0.0/LICENSE.txt",
+      "final_url": "https://physionet-open.s3.amazonaws.com/challenge-2019/1.0.0/LICENSE.txt",
+      "http_status": 200,
+      "retrieved_at": "2026-11-05T22:44:32.818680+08:00",
+      "bytes": 25815,
+      "sha256": "bcdfcd4f31c790e30fb645dc36414907172405897adff329ad379eed85d12017"
+    },
+    "checksums": {
+      "url": "https://physionet.org/files/challenge-2019/1.0.0/SHA256SUMS.txt",
+      "final_url": "https://physionet.org/files/challenge-2019/1.0.0/SHA256SUMS.txt",
+      "http_status": 200,
+      "retrieved_at": "2026-11-05T22:44:30.468225+08:00",
+      "bytes": 264,
+      "sha256": "ba025b2702297c202592a01d4eb31532938a2f6b3aab3afe125e75a52bd281a5"
+    },
+    "contact": {
+      "url": "https://physionet.org/about/",
+      "final_url": "https://physionet.org/about/",
+      "http_status": 200,
+      "retrieved_at": "2026-11-05T22:44:30.732131+08:00",
+      "bytes": 18861,
+      "sha256": "8a65f92d4620c1261ce11a6d72bbf2995dff88305a96e21232f553c196d51ee4"
+    }
+  },
+  "license_sha256_matches_official_checksums": true,
+  "license_file_unchanged_since_2026_11_04": true,
+  "contact": "contact@physionet.org",
+  "request_delivery": "USER_DEFERRED_NOT_SENT",
+  "user_instruction_verbatim": "暂时不发送",
+  "official_reply_supplied_to_this_task": false,
+  "applicable_license_selected": false,
+  "scope": "Verification of public notices, integrity and contact; not a legal resolution"
+}

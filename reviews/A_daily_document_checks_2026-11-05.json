@@ -1,0 +1,218 @@
+{
+  "date": "2026-11-05",
+  "timezone": "Asia/Hong_Kong",
+  "status": "PASS",
+  "verification_scope": "Documentation, recovery and preservation checks; no new scientific-result validation",
+  "source_recovery_command_smoke_check": "PASS_USING_EXISTING_SAFE_EXTRACTOR",
+  "original_package_manifest_entries_verified": 125,
+  "protected_tracked_git_blobs_unchanged": 30,
+  "protected_worktree_files_also_raw_byte_identical_to_A_base": 28,
+  "preexisting_checkout_line_ending_equivalence": [
+    ".gitattributes",
+    "artifacts/registry.json"
+  ],
+  "A_base_commit": "b717d1ae1fc59108932aa0ab2b76dd43c1bcf97b",
+  "local_markdown_links_checked": 45,
+  "local_markdown_links": [
+    {
+      "document": "README.md",
+      "target": "handoffs/A/2026-11-04_formal_data_freeze_EN.md"
+    },
+    {
+      "document": "README.md",
+      "target": "handoffs/A/2026-11-05_A_daily_closeout_EN.md"
+    },
+    {
+      "document": "README.md",
+      "target": "collaboration/A_SOURCE_REPLAY_2026-11-05.md"
+    },
+    {
+      "document": "README.md",
+      "target": "collaboration/STATUS.md"
+    },
+    {
+      "document": "README.md",
+      "target": "collaboration/STATUS.md"
+    },
+    {
+      "document": "README.md",
+      "target": "collaboration/HANDOFFS.md"
+    },
+    {
+      "document": "README.md",
+      "target": "collaboration/DATA_SYNC.md"
+    },
+    {
+      "document": "README.md",
+      "target": "collaboration/CHANGELOG.md"
+    },
+    {
+      "document": "README.md",
+      "target": "CONTRIBUTING.md"
+    },
+    {
+      "document": "README.md",
+      "target": "artifacts/registry.json"
+    },
+    {
+      "document": "README.md",
+      "target": "T1_统一实验说明_v1.md"
+    },
+    {
+      "document": "README.md",
+      "target": "T1_组内执行计划.md"
+    },
+    {
+      "document": "README.md",
+      "target": "T1_技术交接约定.md"
+    },
+    {
+      "document": "README.md",
+      "target": "B_程序使用与交接.md"
+    },
+    {
+      "document": "README.md",
+      "target": "B_方法说明_论文素材.md"
+    },
+    {
+      "document": "README.md",
+      "target": "reviews/B_最终验收.md"
+    },
+    {
+      "document": "README.md",
+      "target": "docs/A到B_数据交接说明.md"
+    },
+    {
+      "document": "README.md",
+      "target": "reports/validation/README.md"
+    },
+    {
+      "document": "collaboration/A_DATA_REVIEW_2026-11-04.md",
+      "target": "A_SOURCE_REPLAY_2026-11-05.md"
+    },
+    {
+      "document": "collaboration/A_DATA_REVIEW_2026-11-04.md",
+      "target": "../handoffs/A/2026-11-05_A_daily_closeout_EN.md"
+    },
+    {
+      "document": "collaboration/A_SOURCE_REPLAY_2026-11-05.md",
+      "target": "../reviews/A_daily_delivery_verification_2026-11-05.json"
+    },
+    {
+      "document": "collaboration/DATA_SYNC.md",
+      "target": "A_SOURCE_REPLAY_2026-11-05.md"
+    },
+    {
+      "document": "collaboration/DATA_SYNC.md",
+      "target": "../reviews/A_daily_delivery_verification_2026-11-05.json"
+    },
+    {
+      "document": "collaboration/DATA_SYNC.md",
+      "target": "A_DATA_REVIEW_2026-11-04.md"
+    },
+    {
+      "document": "collaboration/DATA_SYNC.md",
+      "target": "../docs/A到B_数据交接说明.md"
+    },
+    {
+      "document": "collaboration/HANDOFFS.md",
+      "target": "A_SOURCE_REPLAY_2026-11-05.md"
+    },
+    {
+      "document": "collaboration/HANDOFFS.md",
+      "target": "../reviews/A_recipient_receipt_index_2026-11-05.json"
+    },
+    {
+      "document": "collaboration/HANDOFFS.md",
+      "target": "../handoffs/A/2026-11-05_A_daily_closeout_EN.md"
+    },
+    {
+      "document": "collaboration/HANDOFFS.md",
+      "target": "CHANGELOG.md"
+    },
+    {
+      "document": "collaboration/HANDOFFS.md",
+      "target": "../handoffs/TEMPLATE.md"
+    },
+    {
+      "document": "collaboration/HANDOFFS.md",
+      "target": "../handoffs/A/2026-11-04_A-001_closeout_EN.md"
+    },
+    {
+      "document": "collaboration/HANDOFFS.md",
+      "target": "A_DATA_REVIEW_2026-11-04.md"
+    },
+    {
+      "document": "collaboration/STATUS.md",
+      "target": "HANDOFFS.md"
+    },
+    {
+      "document": "collaboration/STATUS.md",
+      "target": "../handoffs/A/2026-11-05_A_daily_closeout_EN.md"
+    },
+    {
+      "document": "collaboration/STATUS.md",
+      "target": "../reviews/freeze/A_formal_data_freeze_v1_2026-11-04.json"
+    },
+    {
+      "document": "collaboration/STATUS.md",
+      "target": "../reviews/A_recipient_receipt_index_2026-11-05.json"
+    },
+    {
+      "document": "collaboration/STATUS.md",
+      "target": "../reviews/license/2026-11-05/README.md"
+    },
+    {
+      "document": "collaboration/STATUS.md",
+      "target": "../handoffs/A/2026-11-05_A_daily_closeout_EN.md"
+    },
+    {
+      "document": "handoffs/A/2026-11-05_A_daily_closeout_EN.md",
+      "target": "../../reviews/A_daily_delivery_verification_2026-11-05.json"
+    },
+    {
+      "document": "handoffs/A/2026-11-05_A_daily_closeout_EN.md",
+      "target": "../../reviews/A_recipient_receipt_index_2026-11-05.json"
+    },
+    {
+      "document": "handoffs/A/2026-11-05_A_daily_closeout_EN.md",
+      "target": "../../collaboration/A_SOURCE_REPLAY_2026-11-05.md"
+    },
+    {
+      "document": "handoffs/A/2026-11-05_A_daily_closeout_EN.md",
+      "target": "../../reviews/license/2026-11-05/clarification_request_EN.md"
+    },
+    {
+      "document": "reviews/license/2026-11-05/README.md",
+      "target": "official_recheck.json"
+    },
+    {
+      "document": "reviews/license/2026-11-05/README.md",
+      "target": "../2026-11-04/"
+    },
+    {
+      "document": "reviews/license/2026-11-05/README.md",
+      "target": "clarification_request_EN.md"
+    }
+  ],
+  "git_diff_check": "PASS",
+  "changed_file_hashes": {
+    "README.md": "1d01a687d0a2fbaff8603ce4e4070c994b0fa65516bf535b8aa46d14dd9e7545",
+    "collaboration/A_DATA_REVIEW_2026-11-04.md": "0618bf5971dda9cbd9542742684d451ede4358bb4beaf86e3ec4803e9590e046",
+    "collaboration/A_SOURCE_REPLAY_2026-11-05.md": "cdf94893689a8e3ede14b6937d3360cbfa3df97be38c075dc3496e13b50691a8",
+    "collaboration/CHANGELOG.md": "6c2a8852388002cdf729765a76daa83b8ddcb7ca9bec85123e550e1f332bffab",
+    "collaboration/DATA_SYNC.md": "64451561eb1194d07e525b228066a5446175a6f69cbd410c1d67f1b4feb7f845",
+    "collaboration/HANDOFFS.md": "cf204b596505b355c6f3387dc94996a949f809a34b5685dc622af5369dc73a4a",
+    "collaboration/STATUS.md": "aea263de485771e4b96dcffb861a6bc86a17bdcf88b4b110c5823e8694e8a426",
+    "handoffs/A/2026-11-05_A_daily_closeout_EN.md": "12f31ec26bd4ab38dec2ef6b014221953e6d3d9f88bd3a345a6a4a8ebcec2ea1",
+    "reviews/A_daily_delivery_verification_2026-11-05.json": "02aade8122965d340e1f1c34684cf459eb5d7c816961d55c046bafb3cdc8f64a",
+    "reviews/A_recipient_receipt_index_2026-11-05.json": "89ffc533c04b0ee72b4d724ec808d18766cef97b299ec80ea9ca03d60f63ef3d",
+    "reviews/license/2026-11-05/README.md": "f9c5cdf6bb60645507c37a24947c05b4d961657851b57a156524d057916ca096",
+    "reviews/license/2026-11-05/clarification_request_EN.md": "5c3aaa01c9bd8f34f228cf04e9c9b0d4aa88225aab4bd7ee33b821a246a5f177",
+    "reviews/license/2026-11-05/official_recheck.json": "37ed282dae00466cbc1c4cca8fa4d05a53d82cd92c27126921f0063d72c1aa7e"
+  },
+  "ordinary_git_patient_tables_or_raw_archives_added": false,
+  "scientific_tests_rerun": false,
+  "mail_status": "USER_DEFERRED_NOT_SENT",
+  "new_recipient_acceptance_or_main_merge": false
+}
