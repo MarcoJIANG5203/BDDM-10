@@ -1,10 +1,11 @@
 # BDDM-10 · T1 团队协作仓库
 
-**2026-11-06 · 全组从 `main` 查看 A–E 进度。** B 的两份正式运行已有 C 的独立复核和限定范围接受记录。D 已交付主运行的 Fig 1–6、结果表与数字来源索引。补充表 S1–S3、完整英文稿、最终 PDF 和实际投稿仍待完成。
+**2026-11-06 · 全组从 `main` 查看 A–E 进度。** B 的两份正式运行已有 C 的独立复核和限定范围接受记录。D 已交付主运行 Fig 1–6、结果表、补充表 S1–S3 和完整英文初稿。稿件待 C/E 复核、排版和生成最终 PDF；实际投稿待完成。
 
 | 组员要看什么 | 入口 |
 |---|---|
 | 各岗位进展及待办 | [团队状态](collaboration/STATUS.md) · [本次整合交接](handoffs/E/2026-11-06_main_integration.md) |
+| 当前论文 | [完整英文初稿](paper/manuscript_draft.md) · [补充表 S1–S3](paper/runs/20261105T055445_54dd08de/tables/) · [提交清单](paper/submission_checklist.md) |
 | 正式图表、结果与限制 | [主运行图表](paper/runs/20261105T055420_02d05b15/) · [数字来源索引](paper/source_index.md) · [描述性结果段落](paper/results_accepted_with_limits.md) |
 | 接下来两周怎么分工 | [Workshop 3 投稿建议](handoffs/E/2026-11-06_workshop3_two_week_plan.md) · [投稿排期](collaboration/SUBMISSION_PLAN.md) |
 | 恢复正式数据与完整运行 | [Release 同步说明](collaboration/DATA_SYNC.md) · [冻结和验收范围](collaboration/ACCEPTANCE_INDEX.md) |

@@ -51,3 +51,6 @@ reviews/freeze/** whitespace=cr-at-eol
 reviews/A_formal_* -text
 # D's formal figure provenance hashes the original Git bytes of these receipts.
 reviews/acceptance/*.json -text
+# The published paper tables and provenance are verified byte-for-byte.
+paper/runs/**/*.csv -text whitespace=cr-at-eol
+paper/runs/**/*.json -text whitespace=cr-at-eol

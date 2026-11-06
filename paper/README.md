@@ -14,6 +14,8 @@ paper/
   references.bib         只含已核实元数据的 7 条 BibTeX（含 C-004 补出的 R5）
   draft_v0.md            英文稿骨架；结果全部占位，不可提交
   results_accepted_with_limits.md  正式 run 的 bounded results 草稿（accepted_with_limits）
+  manuscript_draft.md    完整英文稿草稿（bounded writing；非最终投稿版）
+  submission_checklist.md 提交材料清单与剩余门槛
   results_draft.md       旧 DRAFT 结果段落；已被 accepted-with-limits 版本取代
   d002_readiness.md      D-002 门槛、A/B/C/E 待办与当前数据状态
   acceptance_record_template.json  C/E 签认记录模板（模板本身不是验收）
@@ -106,6 +108,7 @@ python scripts/make_figures.py `
 | 图表/表格脚本 | `scripts/make_figures.py` | 已提交待验收 |
 | A 数据 Table 1/Fig 1 脚本 | `scripts/make_cohort_tables.py` | 已提交待验收 |
 | **正式 accepted run 图表** | `paper/runs/20261105T055420_02d05b15/` | **ACCEPTED_WITH_LIMITS**；Fig 1–6、Table 1–5；C/E acceptance 2026-11-06 |
+| **补充表 S1–S3** | `paper/runs/20261105T055445_54dd08de/tables/` | **ACCEPTED_WITH_LIMITS**；RF、M=5/10/20、alpha=.05 |
 | 正式 A 数据 Table 1/Fig 1 DRAFT（历史） | `paper/inputs/a-data-v1-20261104-r1/` | DRAFT；正式 run 已重新生成 Table 1/Fig 1 |
 | B 候选 DRAFT 模型图（历史） | `paper/draft-runs/20261104T002604_e3a5a42b/` | DRAFT_CANDIDATE_NOT_ACCEPTED |
 | B 正式 B-002 DRAFT 模型图（历史） | `paper/draft-runs/20261105T055420_02d05b15/` | DRAFT_CANDIDATE_NOT_ACCEPTED；已被 `paper/runs/` 取代 |
@@ -117,6 +120,8 @@ python scripts/make_figures.py `
 | 已核实 BibTeX | `paper/references.bib` | 7 条，含 `wong2026mc2` |
 | 英文稿骨架 v0 | `paper/draft_v0.md` | 结果全占位；不可提交 |
 | accepted-with-limits 结果段落 | `paper/results_accepted_with_limits.md` | 正式 run 的 bounded results；不是最终论文/PDF |
+| 完整英文稿草稿 | `paper/manuscript_draft.md` | bounded writing；需 C/E 最终一致性/模板 |
+| 提交材料清单 | `paper/submission_checklist.md` | 当前 NOT SUBMITTED |
 | 旧 DRAFT 结果段落 | `paper/results_draft.md` | 已被上一行取代；仅历史 |
 | D-002 就绪清单与 A/B/C 待办 | `paper/d002_readiness.md` | 已提交待验收 |
 | 合成 run 验证输出 | `paper/validation/20261102T063118_fa76f8a8/` | 仅软件验证，非临床证据 |
@@ -130,3 +135,5 @@ python scripts/make_figures.py `
 | D-002 Fig 5（稀疏诊断） | `handoffs/D/2026-11-05_D-002_fig5.md` | 已提交待验收 |
 | D-002 状态更新（C-006/A 收尾） | `handoffs/D/2026-11-06_D-002_status.md` | 已提交待验收 |
 | **D-002 正式 accepted run 图表** | `handoffs/D/2026-11-06_D-002_formal_run.md` | **ACCEPTED_WITH_LIMITS** |
+| **D-002 补充表 S1–S3** | `handoffs/D/2026-11-06_D-002_supplement_tables.md` | **ACCEPTED_WITH_LIMITS** |
+| **D-002 完整英文稿草稿** | `handoffs/D/2026-11-06_D-002_manuscript.md` | bounded writing；非最终投稿 |

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "ACCEPTED_WITH_LIMITS",
+  "run_id": "20261105T055445_54dd08de",
+  "manifest_sha256": "8d6612735d87744d62aaac2806d5d8c1df484fc40f3d55a64f0417484fc85f29",
+  "acceptance": {
+    "path": "20261105T055445_54dd08de.json",
+    "sha256": "f481c68c8e0160b03c59b88e6be17d7f500b8bd07b6b9fea4a0ece43e16f462c",
+    "status": "accepted_with_limits",
+    "scope": "Arithmetic and protocol fidelity; allow D to regenerate manuscript figures/tables and bounded descriptive writing from this exact run. No safety/superiority claim, no new raw-label adjudication, no final manuscript or submission acceptance.",
+    "accepted_at": "2026-11-06"
+  },
+  "inputs": {
+    "bootstrap_differences.csv": "8f03d9213ce530c841e84c5aaa509bbc10788c9aa778b409bf3d098f8af02d1a",
+    "clipping.json": "350022b1b3e97805fe3444c67413163d363bee170c42d84fa2afc0c3c7668e05",
+    "config.yaml": "00d9c7f2b000c5caa9a9aaf3b093b6f6113515d3b6bd96db2759cb81da04d4aa",
+    "coverage_strata.csv": "63c802b2ef983374b9333255a8b10e5e5cdbe2fd13532ed7128a3c0116a56e4e",
+    "imputation_seeds.csv": "da4248ced9e55eab362f87ce644d2c5e31a71a3d70431b48b6505f0d182a3085",
+    "masks.json": "95fd82ae9ed20a37b900fa811b1da58a014c143722fc12921c48c9e6be7c82c9",
+    "method_status.csv": "497b6093a7169ac6445995b514556ca4578af00707de1890f75d6090473dcd61",
+    "metrics.csv": "3acfe414ab59c268d51d0e98fe30b9e12d9e94db902689a209a244c53c97894a",
+    "model_parameters.json": "bac0bc9f1d1d0ef704852e38fa20b3b8c53c4be837b448bc894f9d74452b5c03",
+    "patient_predictions.csv": "204326fabe42ec3247d83901e4c8d912da62b9ed88f7a7d32b846fa614d64fde",
+    "p_m.csv": "fec185ce455a9c9bc49fc0d7f6111f60f60b8485aa59f3547ae6b05a4e690c3c",
+    "stability.csv": "1faa719e38c547dc8bf72e3075b952121b6741fdd60ba06288b7fc0372d08dd6",
+    "thresholds.csv": "af7b0d42480e37d78f9aa67b0dc7d815e5fbf4c4c585f28ebb701782db4afbb4",
+    "timing.json": "f2305ea2c3496a16e5075262fbe6181896ce4ba02a469b24553d039df6cc95e5",
+    "warnings.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "masks/seed2026_S0.csv": "6edccafed409a0f84ca36073c959f06b9e9c03c1aa376d45e435e8889f2ed22f",
+    "masks/seed2026_S2.csv": "94250d43c8e6c0992397e50f8ccada3cd2fbd9a1aee5397927ce01ab314cf8d1",
+    "models/seed2026_LR_M10_alpha0.05.joblib": "3fd5f9bd1a93ef53892d462c9aa023b45d92b982cbcd49f37e7d96cc6440b9e8",
+    "models/seed2026_LR_M10_alpha0.1.joblib": "c666c828e8d3a4b581d5059dac2552fa946376e92d303e49aeac33cb230eca5f",
+    "models/seed2026_LR_M20_alpha0.1.joblib": "c288cbedc4dce2dc7d2569ae119ce7b5ead6e3269ffc6953ef267e73fb1ea478",
+    "models/seed2026_LR_M5_alpha0.1.joblib": "b16e6207db5978a8363a80111f33972317902f9b0b4f96dac9251caaf654135c",
+    "models/seed2026_RF_M10_alpha0.1.joblib": "f8bdbb1e204fbfa651d23430b6597c8806e3c2653fdb58d36e96219d4a796c78"
+  },
+  "outputs": {
+    "tables/table_s1_rf.csv": "f865bf0d6214cb60628fce2da1569a8689123e20f8dab29f50921ee4d33e3c57",
+    "tables/table_s2_m_sensitivity.csv": "8ae0f3b5c057f39b5f88c9fac1182179d7540a891e102531acb60dc92a745a80",
+    "tables/table_s3_alpha005.csv": "be82fa3a2f7e2135755ab8d2091da21d2769fa925ecd8ab8418b78c669b344db"
+  },
+  "tables": [
+    "S1 RF",
+    "S2 M=5/10/20",
+    "S3 alpha=.05"
+  ],
+  "limitations": [
+    "B5/B6 unavailable; no B6-B5 contrast",
+    "positive-class coverage zero",
+    "finite-event protocol v1 only",
+    "acceptance is not final manuscript/PDF acceptance"
+  ]
+}

@@ -2,7 +2,7 @@
 
 ## D下一次交付要求 · 2026-11-06
 
-全组从 `main` 同步 C 原交接、B/E 接收记录与 D 产物。D 已提交[主运行正式图表](../paper/runs/20261105T055420_02d05b15/)、[数字来源索引](../paper/source_index.md)和[有限描述性结果](../paper/results_accepted_with_limits.md)。D 下一项是补充表 S1–S3、完整英文稿和提交版 PDF。C 核数字与引用，E 核全文一致性；两份正式运行的接受范围见[验收索引](ACCEPTANCE_INDEX.md)。
+全组从 `main` 同步 C 原交接、B/E 接收记录与 D 产物。D 已提交[主运行正式图表](../paper/runs/20261105T055420_02d05b15/)、[数字来源索引](../paper/source_index.md)和[有限描述性结果](../paper/results_accepted_with_limits.md)。D 已交[补充表 S1–S3](../paper/runs/20261105T055445_54dd08de/tables/)、[完整英文初稿](../paper/manuscript_draft.md)与[提交清单](../paper/submission_checklist.md)。C 核数字与引用，E 核全文一致性，D 随后制作提交版 PDF；两份正式运行的接受范围见[验收索引](ACCEPTANCE_INDEX.md)。
 
 ## 当前口径 · 2026-11-06
 
