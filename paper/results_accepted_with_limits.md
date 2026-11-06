@@ -48,7 +48,7 @@ Test-time three-state disagreement is reported for batch and frozen allocation i
 
 ## 5.7 Sensitivity analyses
 
-The supplement run `20261105T055445_54dd08de` is accepted with limits for RF (S0/S2), M=5/20 (S0) and alpha=.05 (S0/S2). D has not yet generated Tables S1–S3; do not insert these results until the tables exist and are checked. `[S-010 pending]`
+The supplement run `20261105T055445_54dd08de` is accepted with limits for RF (S0/S2), M=5/10/20 (S0) and alpha=.05 (S0/S2). Tables S1–S3 are generated under `paper/runs/20261105T055445_54dd08de/tables/` and bound to `S-010`; report them as sensitivity analyses, not as primary or safety evidence. `[S-010]`
 
 ## 5.8 Summary
 

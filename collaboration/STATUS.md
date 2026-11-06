@@ -9,7 +9,7 @@
 | A 数据与基础实验 | 待正式数据交付 | 已有[接口说明](../docs/A到B_数据交接说明.md)，暂无真实队列 | A-001：队列、五split、audit和时间标签核对；B接通，C核验，E定版本 |
 | B 核心方法与实验 | 程序和合成验证完成；临床实验待A | [交付记录](../handoffs/B/2026-11-02.md)、[原算法验收](../reviews/B_最终验收.md) | B-002：先主种子S0再正式矩阵；C核算、D制图、E核公平性 |
 | C 文献与独立核验 | 待成员提交文献及验收记录 | B代码已有独立复核，不替代C真实标签/指标核验 | C-001标签、C-002文献/投稿要求、C-003真实指标；交A/B/D/E |
-| D 图表与论文 | D-001/D-001a已验收流程；**D-002 正式 accepted run 图表/表已生成（ACCEPTED_WITH_LIMITS）**；bounded results 草稿已写 | [正式图表](../paper/runs/20261105T055420_02d05b15/provenance.json)、[bounded results](../paper/results_accepted_with_limits.md)、[来源索引](../paper/source_index.md)、[D-002就绪](../paper/d002_readiness.md) | 仍需：补充表 S1–S3、完整英文稿、提交版 PDF/材料；acceptance 不是最终论文/PDF 或投稿验收；A 许可未决；不需要合并main |
+| D 图表与论文 | D-001/D-001a已验收流程；**D-002 正式 accepted run 图表/表 + 补充表 S1–S3 已生成（ACCEPTED_WITH_LIMITS）**；bounded results 已写 | [正式图表](../paper/runs/20261105T055420_02d05b15/provenance.json)、[S1–S3](../paper/runs/20261105T055445_54dd08de/provenance_supplement.json)、[bounded results](../paper/results_accepted_with_limits.md)、[来源索引](../paper/source_index.md) | 仍需：完整英文稿、提交版 PDF/材料；acceptance 不是最终论文/PDF 或投稿验收；A 许可未决；不需要合并main |
 | E 统筹与整合 | 新仓库迁移及同步验证完成；持续统筹 | [新仓库交付记录](../handoffs/E/2026-11-02_repository_migration.md)；新Release已published；新克隆32测试和完整恢复核算通过 | E-001在BDDM-10维护状态/要求/版本，跟进11月3日数据门槛；全组检查各自范围 |
 
 正式数据版本：**未发布**。可下载包仅为B合成验证，版本索引见[registry](../artifacts/registry.json)。当前临床实验前置项是A-001及C的标签核查；B收到有效队列后才能产真实主表，D再写结果。

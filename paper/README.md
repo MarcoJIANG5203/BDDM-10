@@ -106,6 +106,7 @@ python scripts/make_figures.py `
 | 图表/表格脚本 | `scripts/make_figures.py` | 已提交待验收 |
 | A 数据 Table 1/Fig 1 脚本 | `scripts/make_cohort_tables.py` | 已提交待验收 |
 | **正式 accepted run 图表** | `paper/runs/20261105T055420_02d05b15/` | **ACCEPTED_WITH_LIMITS**；Fig 1–6、Table 1–5；C/E acceptance 2026-11-06 |
+| **补充表 S1–S3** | `paper/runs/20261105T055445_54dd08de/tables/` | **ACCEPTED_WITH_LIMITS**；RF、M=5/10/20、alpha=.05 |
 | 正式 A 数据 Table 1/Fig 1 DRAFT（历史） | `paper/inputs/a-data-v1-20261104-r1/` | DRAFT；正式 run 已重新生成 Table 1/Fig 1 |
 | B 候选 DRAFT 模型图（历史） | `paper/draft-runs/20261104T002604_e3a5a42b/` | DRAFT_CANDIDATE_NOT_ACCEPTED |
 | B 正式 B-002 DRAFT 模型图（历史） | `paper/draft-runs/20261105T055420_02d05b15/` | DRAFT_CANDIDATE_NOT_ACCEPTED；已被 `paper/runs/` 取代 |
@@ -130,3 +131,4 @@ python scripts/make_figures.py `
 | D-002 Fig 5（稀疏诊断） | `handoffs/D/2026-11-05_D-002_fig5.md` | 已提交待验收 |
 | D-002 状态更新（C-006/A 收尾） | `handoffs/D/2026-11-06_D-002_status.md` | 已提交待验收 |
 | **D-002 正式 accepted run 图表** | `handoffs/D/2026-11-06_D-002_formal_run.md` | **ACCEPTED_WITH_LIMITS** |
+| **D-002 补充表 S1–S3** | `handoffs/D/2026-11-06_D-002_supplement_tables.md` | **ACCEPTED_WITH_LIMITS** |

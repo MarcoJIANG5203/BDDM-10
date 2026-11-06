@@ -70,9 +70,9 @@
 | Table 3b | Scenario summary | 每个场景的 B4−B2、B6−B5 均值、最小、最大、种子数 | 由 Table 3a 聚合 | `tables/table3_scenario_summary.csv` | ACCEPTED_WITH_LIMITS |
 | Table 4 | Coverage strata | MI 与 median 的总体/类别/缺失分层覆盖、n、covered | `coverage_strata.csv` 主种子 S0；MI `M=10`，median `M=1` | `tables/table4_coverage_strata.csv` | ACCEPTED_WITH_LIMITS |
 | Table 5 | Stability | B0–B6 在 batch/frozen 下的三状态不一致率均值、最小、最大、对数 | `stability.csv` 主种子 S0；B0 `M=1,target_acceptance` 空；B1–B6 c=0.6 | `tables/table5_stability.csv` | ACCEPTED_WITH_LIMITS |
-| Table S1 | RF robustness (S0/S2) | 随机森林复核的方向与区间 | 补充 run 的 `metrics.csv`/`bootstrap_differences.csv`；过滤 `model=RF` | 待扩展脚本（同一过滤原则） | PENDING-B |
-| Table S2 | M sensitivity (M=5/20, S0) | 插补次数变化下的主效应 | 补充 run；`source_M=5/20` | 待扩展脚本 | PENDING-B |
-| Table S3 | Alpha sensitivity (0.05) | 更严格共形阈值下的主效应 | 补充 run；`alpha=0.05` | 待扩展脚本 | PENDING-B |
+| Table S1 | RF robustness (S0/S2) | 随机森林复核的方向与区间 | 补充 run `20261105T055445_54dd08de`；`model=RF`, c=.6 batch | `paper/runs/20261105T055445_54dd08de/tables/table_s1_rf.csv` | ACCEPTED_WITH_LIMITS |
+| Table S2 | M sensitivity (M=5/10/20, S0) | 插补次数变化下的主效应 | 补充 run；`source_M=5/10/20`, c=.6 batch | `.../tables/table_s2_m_sensitivity.csv` | ACCEPTED_WITH_LIMITS |
+| Table S3 | Alpha sensitivity (0.05) | 更严格共形阈值下的主效应 | 补充 run；`alpha=0.05`, S0/S2, c=.6 batch | `.../tables/table_s3_alpha005.csv` | ACCEPTED_WITH_LIMITS |
 
 ## 来源索引规则
 

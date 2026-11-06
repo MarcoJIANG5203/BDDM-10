@@ -110,14 +110,14 @@ C 已完成：C-001 20/20 标签、C-003 时间边界 14 断言、候选 run 900
 D 已完成：
 
 1. 用正式 run + acceptance 生成 `paper/runs/20261105T055420_02d05b15/`（Fig 1–6、Table 1–5），provenance 状态 `ACCEPTED_CLINICAL`。
-2. `paper/source_index.md` 的 `S-001`–`S-012` 已绑定正式 run；S-010 补充表待制。
+2. `paper/source_index.md` 的 `S-001`–`S-012` 已绑定正式 run，S-010 指向补充表。
 3. `paper/results_accepted_with_limits.md` 已写 bounded results。
+4. 补充 run `20261105T055445_54dd08de` 的 Table S1–S3（RF、M=5/10/20、alpha=.05）已生成，`ACCEPTED_WITH_LIMITS`。
 
 仍待 D 完成：
 
-4. 生成补充 run `20261105T055445_54dd08de` 的 Table S1–S3（RF、M=5/20、alpha=.05）。
 5. 按 `paper/outline.md` 整合完整英文稿；引用只用 `paper/references.bib` 中已核实条目。
-6. C 核对 Table 2/2b 与摘要；E 检查摘要—正文—图表—结论一致；生成提交版 PDF 与材料清单。
+6. C 核对 Table 2/2b/摘要与 S1–S3；E 检查摘要—正文—图表—结论一致；生成提交版 PDF 与材料清单。
 7. A 许可冲突解决或明确不重新分发原始数据后，才可做正式投稿材料。
 
 ## 明确禁止
