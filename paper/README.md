@@ -1,6 +1,6 @@
 # D 岗位 · 论文与图表工作区
 
-本目录由 **D（图表与论文负责人）** 维护。当前状态：**D-001 / D-001a 已提交待验收；D-002 准备（引用核实 + 英文稿骨架 + Table 1/Fig 1 DRAFT + B 候选/正式 B-002 DRAFT 模型图）已提交待验收**。D-002 的真实结果稿、提交版 PDF 与材料清单仍需 C/E acceptance；**不需要合并 main**。**D-002 的前置条件与 A/B/C/E 待办见 [d002_readiness.md](d002_readiness.md)；引用范围见 [references_checklist.md](references_checklist.md)。**
+本目录由 **D（图表与论文负责人）** 维护。当前状态：**D-001 / D-001a 已提交待验收；D-002 已从 accepted_with_limits 的正式 B-002 run 生成 `paper/runs/20261105T055420_02d05b15/`（Fig 1–6、Table 1–5）与 bounded results 草稿**。acceptance 明确不是最终论文/PDF 或投稿验收；最终稿仍需 C/E 全文一致性与 A 许可。**不需要合并 main。** 见 [d002_readiness.md](d002_readiness.md) 与 [source_index.md](source_index.md)。
 
 ## 目录约定
 
@@ -13,13 +13,14 @@ paper/
   references_checklist.md  引用核实清单（C-002 输入 → D 可引用范围）
   references.bib         只含已核实元数据的 7 条 BibTeX（含 C-004 补出的 R5）
   draft_v0.md            英文稿骨架；结果全部占位，不可提交
-  results_draft.md       DRAFT 结果段落草稿；含 DRAFT 数字，不得进论文
+  results_accepted_with_limits.md  正式 run 的 bounded results 草稿（accepted_with_limits）
+  results_draft.md       旧 DRAFT 结果段落；已被 accepted-with-limits 版本取代
   d002_readiness.md      D-002 门槛、A/B/C/E 待办与当前数据状态
   acceptance_record_template.json  C/E 签认记录模板（模板本身不是验收）
-  inputs/<data_version>/ A 正式数据生成的 Table 1 / Fig 1 DRAFT（仅数据描述，待接收）
-  runs/<run_id>/figures/ 真实临床 run 生成的论文图（D-002；当前未生成）
-  runs/<run_id>/tables/  真实临床 run 生成的论文表（D-002；当前未生成）
-  draft-runs/<run_id>/   未验收临床候选的 DRAFT 图表；全部标 DRAFT_CANDIDATE_NOT_ACCEPTED
+  inputs/<data_version>/ A 正式数据生成的 Table 1 / Fig 1 DRAFT
+  runs/<run_id>/figures/ 正式 accepted_with_limits run 的论文图（已生成）
+  runs/<run_id>/tables/  正式 accepted_with_limits run 的论文表（已生成）
+  draft-runs/<run_id>/   未验收/候选 run 的历史 DRAFT 图表；不得进论文
   validation/<run_id>/   仅合成 run 的软件验证输出，全部带“非临床证据”水印
 ```
 
@@ -104,9 +105,10 @@ python scripts/make_figures.py `
 |---|---|---|
 | 图表/表格脚本 | `scripts/make_figures.py` | 已提交待验收 |
 | A 数据 Table 1/Fig 1 脚本 | `scripts/make_cohort_tables.py` | 已提交待验收 |
-| 正式 A 数据 Table 1/Fig 1 DRAFT | `paper/inputs/a-data-v1-20261104-r1/` | DRAFT，待 C/E 接收 |
-| B 候选 DRAFT 模型图 | `paper/draft-runs/20261104T002604_e3a5a42b/` | DRAFT_CANDIDATE_NOT_ACCEPTED；Fig 5 跳过 |
-| B 正式 B-002 DRAFT 模型图 | `paper/draft-runs/20261105T055420_02d05b15/` | DRAFT_CANDIDATE_NOT_ACCEPTED；Fig 5 已补（稀疏诊断）；无 C/E acceptance |
+| **正式 accepted run 图表** | `paper/runs/20261105T055420_02d05b15/` | **ACCEPTED_WITH_LIMITS**；Fig 1–6、Table 1–5；C/E acceptance 2026-11-06 |
+| 正式 A 数据 Table 1/Fig 1 DRAFT（历史） | `paper/inputs/a-data-v1-20261104-r1/` | DRAFT；正式 run 已重新生成 Table 1/Fig 1 |
+| B 候选 DRAFT 模型图（历史） | `paper/draft-runs/20261104T002604_e3a5a42b/` | DRAFT_CANDIDATE_NOT_ACCEPTED |
+| B 正式 B-002 DRAFT 模型图（历史） | `paper/draft-runs/20261105T055420_02d05b15/` | DRAFT_CANDIDATE_NOT_ACCEPTED；已被 `paper/runs/` 取代 |
 | 临床 run 签认门槛（D-001a） | `scripts/make_figures.py`、`paper/acceptance_record_template.json` | 已提交待验收 |
 | 论文提纲 | `paper/outline.md` | 已提交待验收 |
 | 图表清单 | `paper/figure_list.md` | 已提交待验收 |
@@ -114,7 +116,8 @@ python scripts/make_figures.py `
 | 引用核实清单 | `paper/references_checklist.md` | 7/7 可引用；R5 由 C-004 补出；R1 LOCF 不写 |
 | 已核实 BibTeX | `paper/references.bib` | 7 条，含 `wong2026mc2` |
 | 英文稿骨架 v0 | `paper/draft_v0.md` | 结果全占位；不可提交 |
-| DRAFT 结果段落 | `paper/results_draft.md` | 含 DRAFT 数字；不得进论文 |
+| accepted-with-limits 结果段落 | `paper/results_accepted_with_limits.md` | 正式 run 的 bounded results；不是最终论文/PDF |
+| 旧 DRAFT 结果段落 | `paper/results_draft.md` | 已被上一行取代；仅历史 |
 | D-002 就绪清单与 A/B/C 待办 | `paper/d002_readiness.md` | 已提交待验收 |
 | 合成 run 验证输出 | `paper/validation/20261102T063118_fa76f8a8/` | 仅软件验证，非临床证据 |
 | D-001 交付记录 | `handoffs/D/2026-11-04_D-001.md` | 已提交待验收 |
@@ -126,3 +129,4 @@ python scripts/make_figures.py `
 | D-002 正式 B-002 DRAFT 模型图 | `handoffs/D/2026-11-05_D-002_formal_draft.md` | 已提交待验收 |
 | D-002 Fig 5（稀疏诊断） | `handoffs/D/2026-11-05_D-002_fig5.md` | 已提交待验收 |
 | D-002 状态更新（C-006/A 收尾） | `handoffs/D/2026-11-06_D-002_status.md` | 已提交待验收 |
+| **D-002 正式 accepted run 图表** | `handoffs/D/2026-11-06_D-002_formal_run.md` | **ACCEPTED_WITH_LIMITS** |

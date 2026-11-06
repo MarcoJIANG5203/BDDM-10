@@ -21,10 +21,11 @@
 | C-006 正式 run 复核 | ✅ 对主 run `…02d05b15` 与补充 `…54dd08de` 独立重算：2,612,100/366,000 行、900/240 指标、30/48 区间、覆盖与 p_m **0 失败**；结论“有条件接受算术/协议保真” |
 | C-004 引用核验 | ✅ R5 已补出（MICCAI 2026 Satellite/MLMI, LNCS 17272；预印 DOI 10.21203/rs.3.rs-10336064/v1）；R3 FDR 已由全文证实；R1 LOCF 仍未证实 |
 | C-002 文献/投稿 | ✅ 7/7 元数据可引用；R1 “LOCF”不写；组内 11-20 通知证据仍待留存 |
-| E precision/freeze | ⚠️ E-001 已记录正式 v1 技术接收与有限结论范围；C-006 已出正式 run 独立结论，但 B/E 接收意见与联合 C/E 结果接受仍待；**`reviews/acceptance` 仍不存在** |
+| C/E acceptance | ✅ B 分支 `4de19ab6` 新增 `reviews/acceptance/20261105T055420_02d05b15.json` 与补充 run 的 acceptance：`accepted_with_limits`，C/E 均有记录；C 是转录既有 C-006 结论（`new_signature=false`），E 是用户授权统筹（非独立统计审稿人） |
 | D-001 / D-001a | D-001 图表脚本/提纲/索引已提交；D-001a 增加“临床 run 必须有 C/E 签认”门槛 |
 | D-002 准备 | ✅ `paper/references_checklist.md`（7/7）、`paper/references.bib`（7 条）、`paper/draft_v0.md`（结果全占位） |
-| D-002 DRAFT（正式 B-002） | ✅ `paper/draft-runs/20261105T055420_02d05b15/`：Fig 2/3/4/5/6 + Table 2/2b/3/4/5，`DRAFT_CANDIDATE_NOT_ACCEPTED`；Fig 5 为稀疏诊断 |
+| **D-002 正式 accepted run 图表** | ✅ `paper/runs/20261105T055420_02d05b15/`：Fig 1–6、Table 1–5、acceptance binding；provenance 状态 `ACCEPTED_CLINICAL` |
+| D-002 bounded results | ✅ `paper/results_accepted_with_limits.md`；不是最终论文/PDF |
 
 ## D 已完成的准备（不依赖真实结果）
 
@@ -44,16 +45,11 @@
 **不需要合并 main。** D 直接使用 A 的正式 Release、B 的 run bundle、C 的分支回执；以下门槛针对这些不可变产物，不要求 PR 合并。
 
 1. **正式数据**：A 发布正式 data Release（已发布 `a-data-v1-20261104-r1`，SHA256 `feb69777...`）；D 直接按 Release 字节生成 Table 1/Fig 1，不依赖 main registry 合并。C-005 是条件接收。
-2. **正式临床 run**：B-002 已在正式 A Release 上重跑：主 run `20261105T055420_02d05b15`、补充 `20261105T055445_54dd08de`；完整 bundle `b-clinical-v1-20261104-r1` 已发布 pre-release。**C 本人对两个新 run 的独立结论仍待**；E 的技术接收不等于 C/E 联合结果接受。
-3. **签认记录**：`reviews/acceptance/<run_id>.json` 存在且通过脚本校验；当前 **A/B/C/D 任何分支都没有 `reviews/acceptance`**：
-   - `run_id` 与 run 目录一致；
-   - `manifest_sha256` 与 `manifest.json` 一致；
-   - `status` 为 `accepted` / `accepted_with_limits`；
-   - C 与 E 均有 `name`、`date`、`decision`、`evidence`。
-   - 模板：`paper/acceptance_record_template.json`。
-4. **结果接受与冻结**：E-001 已记录继续 v1 有限事件数分析的范围；但 C 对正式 run 的独立结论与联合 C/E 结果接受仍待，项目科学冻结未完成。
-5. **文献与投稿**：C-002 给出已核对引用清单、页数/模板/截止/披露要求。
-6. **来源索引**：`paper/source_index.md` 的 `S-xxx` 已填入该 run 的路径、过滤条件、哈希。
+2. **正式临床 run**：✅ 主 run `20261105T055420_02d05b15`、补充 `20261105T055445_54dd08de`；完整 bundle `b-clinical-v1-20261104-r1` 已发布。
+3. **签认记录**：✅ B 分支 `4de19ab6` 有 `reviews/acceptance/20261105T055420_02d05b15.json` 与补充 run 的 acceptance，状态 `accepted_with_limits`，C/E 均有记录；D 通过 `--acceptance-file` 使用。
+4. **结果接受与冻结**：✅ scoped v1 numerical result freeze（算术/协议保真）；**不是最终论文/PDF 或投稿验收**；临床安全未验证，原始 .psv 未逐例重放。
+5. **文献与投稿**：C-002/C-004 引用已核对；R1 LOCF 不写；投稿材料仍需 D 的最终稿与 A 许可结论。
+6. **来源索引**：✅ `paper/source_index.md` 的 `S-001`–`S-012` 已绑定 `paper/runs/20261105T055420_02d05b15/`；S-010 补充表待制。
 
 任一项缺失，`scripts/make_figures.py` 会拒绝临床 run；不要用 `--validation-only` 绕过临床稿，也不要手改数字。
 
@@ -111,17 +107,18 @@ C 已完成：C-001 20/20 标签、C-003 时间边界 14 断言、候选 run 900
 
 ## D 在门槛满足后会做什么
 
-1. 用正式 run 运行：
-   ```powershell
-   python scripts/make_figures.py `
-     --run-dir results/clinical/<accepted_run_id> `
-     --cohort data/processed/cohort.parquet `
-     --audit data/processed/cohort_audit.json
-   ```
-   默认输出 `paper/runs/<run_id>/{figures,tables}/`，并校验 `reviews/acceptance/<run_id>.json`。
-2. 更新 `paper/source_index.md` 的 `S-001`–`S-012`，把 `[RESULT:S-xxx]` 替换为真实数字。
-3. 按 `paper/outline.md` 整合英文稿；以 `paper/draft_v0.md` 为骨架，引用只用 `paper/references.bib` 中已核实条目（R5 已由 C-004 补出），不补未核对文献。
-4. C 核对表 2/2b 与摘要；E 检查摘要—正文—图表—结论一致；然后生成提交版 PDF 与材料清单。
+D 已完成：
+
+1. 用正式 run + acceptance 生成 `paper/runs/20261105T055420_02d05b15/`（Fig 1–6、Table 1–5），provenance 状态 `ACCEPTED_CLINICAL`。
+2. `paper/source_index.md` 的 `S-001`–`S-012` 已绑定正式 run；S-010 补充表待制。
+3. `paper/results_accepted_with_limits.md` 已写 bounded results。
+
+仍待 D 完成：
+
+4. 生成补充 run `20261105T055445_54dd08de` 的 Table S1–S3（RF、M=5/20、alpha=.05）。
+5. 按 `paper/outline.md` 整合完整英文稿；引用只用 `paper/references.bib` 中已核实条目。
+6. C 核对 Table 2/2b 与摘要；E 检查摘要—正文—图表—结论一致；生成提交版 PDF 与材料清单。
+7. A 许可冲突解决或明确不重新分发原始数据后，才可做正式投稿材料。
 
 ## 明确禁止
 

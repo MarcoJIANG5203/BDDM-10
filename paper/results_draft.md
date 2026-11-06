@@ -1,6 +1,6 @@
-# Results draft — DRAFT, NOT FOR SUBMISSION
+# Results draft — historical, superseded
 
-**Status:** DRAFT_CANDIDATE_NOT_ACCEPTED. Numbers below come from the formal B-002 run `20261105T055420_02d05b15`, but **no C/E acceptance record exists** and C’s formal-run conclusion is a conditional technical acceptance, not a result freeze. Do not copy these numbers into the manuscript or submission materials until `reviews/acceptance/<run_id>.json` exists and `paper/source_index.md` has final `S-xxx` entries.
+**Status:** Superseded by `paper/results_accepted_with_limits.md` after the 2026-11-06 accepted_with_limits record. Kept for history only. Do not use this file for the manuscript.
 
 **Run:** `20261105T055420_02d05b15`; bundle `b-clinical-v1-20261104-r1` (SHA256 `2328d266...`); data `a-data-v1-20261104-r1`.
 
