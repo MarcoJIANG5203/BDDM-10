@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-04T15:40:58.083492+00:00",
+  "validation_only": false,
+  "status": "DRAFT_CANDIDATE_NOT_ACCEPTED",
+  "draft_reason": "B candidate matrix 20261104T002604_e3a5a42b; pre-freeze; no C/E acceptance; D-002 draft only",
+  "script": {
+    "path": "scripts/make_figures.py",
+    "sha256": "09df925ed28581b05dbdc9289719e8e3ddbe1135a5c973d5a3f0a92b10065baa"
+  },
+  "run": {
+    "run_id": "20261104T002604_e3a5a42b",
+    "run_dir": "20261104T002604_e3a5a42b",
+    "manifest_sha256": "a53d5b2cdb2c1e6ad294384d282496c6d9554514fdea3151412b1100723e454b",
+    "synthetic": false,
+    "run_status": "completed",
+    "data_version": "a-clinical-protocol-v1-20261103-full-r1",
+    "protocol_version": "v1",
+    "config_sha256": "25fa9cb828dd533120938db52ea262a30c05b4c4e7c1b5a29f0ee19c7428c5b7"
+  },
+  "acceptance": null,
+  "filters": {
+    "primary_seed": 2026,
+    "model": "LR",
+    "M": 10,
+    "alpha": 0.1,
+    "primary_scenario": "S0",
+    "primary_capacity": 0.6,
+    "scenarios": [
+      "S0",
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "seeds": [
+      2026,
+      2027,
+      2028,
+      2029,
+      2030
+    ]
+  },
+  "inputs": {
+    "bootstrap_differences.csv": "4901bf9f0bd885830dd3e48fd00f5f910b802d33cf543157b76ebcfc95f72350",
+    "config.yaml": "25fa9cb828dd533120938db52ea262a30c05b4c4e7c1b5a29f0ee19c7428c5b7",
+    "coverage_strata.csv": "2ed7ea44bcc555b3398e435c381c8e753e57fa5c4331dd5991006ff827aa7954",
+    "method_status.csv": "dda860be1ccc090b174151fcd99568aa5edc0123d1a3c967ef8ee5b71463c0cb",
+    "metrics.csv": "f37fdd4c28992f6ef24905db153949577fba0d0ae2c261840258a83aa83eea85",
+    "stability.csv": "fbb1c9d6b202894eb92201af34e3ab5894d1a776d68126c6ed9d1b36c7bc219e"
+  },
+  "inputs_missing": [
+    "clipping.json",
+    "imputation_seeds.csv",
+    "masks.json",
+    "model_parameters.json",
+    "patient_predictions.csv",
+    "p_m.csv",
+    "thresholds.csv",
+    "timing.json",
+    "warnings.log",
+    "masks/seed2026_S0.csv",
+    "masks/seed2026_S1.csv",
+    "masks/seed2026_S2.csv",
+    "masks/seed2026_S3.csv",
+    "masks/seed2026_S4.csv",
+    "masks/seed2027_S0.csv",
+    "masks/seed2027_S1.csv",
+    "masks/seed2027_S2.csv",
+    "masks/seed2027_S3.csv",
+    "masks/seed2027_S4.csv",
+    "masks/seed2028_S0.csv",
+    "masks/seed2028_S1.csv",
+    "masks/seed2028_S2.csv",
+    "masks/seed2028_S3.csv",
+    "masks/seed2028_S4.csv",
+    "masks/seed2029_S0.csv",
+    "masks/seed2029_S1.csv",
+    "masks/seed2029_S2.csv",
+    "masks/seed2029_S3.csv",
+    "masks/seed2029_S4.csv",
+    "masks/seed2030_S0.csv",
+    "masks/seed2030_S1.csv",
+    "masks/seed2030_S2.csv",
+    "masks/seed2030_S3.csv",
+    "masks/seed2030_S4.csv",
+    "models/seed2026_LR_M10_alpha0.1.joblib",
+    "models/seed2027_LR_M10_alpha0.1.joblib",
+    "models/seed2028_LR_M10_alpha0.1.joblib",
+    "models/seed2029_LR_M10_alpha0.1.joblib",
+    "models/seed2030_LR_M10_alpha0.1.joblib"
+  ],
+  "skipped": [
+    "fig5_disagreement: patient_predictions.csv not available in the draft fetch"
+  ],
+  "outputs": {
+    "figures/fig2_risk_acceptance.pdf": "a1831337773cf24ea10ed3048f4e6a6e5bf736131b43ef19b6e9ac35755263f1",
+    "figures/fig2_risk_acceptance.png": "9aee6af4caccda01065ad989d658a13e10bdd0ef334067657552c784916dac5d",
+    "figures/fig3_scenarios.pdf": "488de4cd65cc6eac689f554961f204c73ff528f85873763bb94c20f77c2c611b",
+    "figures/fig3_scenarios.png": "f646a40db0517ae382d8fe34296e84ecea1b3d250b6cb7c4f611d319e301ee28",
+    "figures/fig4_coverage.pdf": "da32fac52a363e634d3eb47452c29485777483c85904c9f33d6219fcf3d94499",
+    "figures/fig4_coverage.png": "e9e079c15504b1692a871039062d196dfc49be3a8915e4a7cd66aaa661129a6d",
+    "figures/fig6_stability.pdf": "315db746fd7037553d908fc619a80e79c0a3dae55569ceaeb6b0f891b931ffb5",
+    "figures/fig6_stability.png": "250ceaff25c25b0fb4254a4281586811a491057af5b92ecdd98aa4a9e4b3e1bf",
+    "tables/fig2_contrast_data.csv": "f8c8a8113d9702ab8f5ef61735edf42ede6061783f3bd6ba3c126c4951530678",
+    "tables/fig2_risk_acceptance_data.csv": "84668bc47fc18ecd088f4df64bb49936781bbb1ec4cd133ad7f6e743f8777190",
+    "tables/fig3_scenario_data.csv": "9fb23f904f1277f63b8fb256f8289a83ad208bf68f97e065a146fc55b3a44ded",
+    "tables/fig4_coverage_data.csv": "875f3be5d4db329db75d123c3160da9cb092ee595386b91e2b08e620f1718629",
+    "tables/fig6_stability_data.csv": "df185fc08ced8b223d3ed8e2151654487e9b3b204f46642fb2a6b711129422ed",
+    "tables/table2_main_results.csv": "f81ec346546bc7003ade644227aa369f0efec0650376a416a0eda90fa8704749",
+    "tables/table2b_primary_contrasts.csv": "f8c8a8113d9702ab8f5ef61735edf42ede6061783f3bd6ba3c126c4951530678",
+    "tables/table3_scenario_per_seed.csv": "b3af90f358b6e06dd3423f1dfaa567ce99eca77fc4b04d0e3e07c5bb4fa40751",
+    "tables/table3_scenario_summary.csv": "9fb23f904f1277f63b8fb256f8289a83ad208bf68f97e065a146fc55b3a44ded",
+    "tables/table4_coverage_strata.csv": "875f3be5d4db329db75d123c3160da9cb092ee595386b91e2b08e620f1718629",
+    "tables/table5_stability.csv": "df185fc08ced8b223d3ed8e2151654487e9b3b204f46642fb2a6b711129422ed"
+  },
+  "cohort": {
+    "provided": false,
+    "cohort": null,
+    "audit": null
+  },
+  "warning": "DRAFT from an unaccepted clinical run; not for submission or citation."
+}

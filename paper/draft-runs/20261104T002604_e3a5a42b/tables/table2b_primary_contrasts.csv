@@ -1,0 +1,3 @@
+run_id,synthetic,draft,draft_reason,comparison,target_acceptance,selection_mode,risk_difference,ci_low,ci_high,valid,invalid,capacity_recomputed
+20261104T002604_e3a5a42b,False,True,B candidate matrix 20261104T002604_e3a5a42b; pre-freeze; no C/E acceptance; D-002 draft only,B4-B2,0.6,batch,0.0010928961748633,0.0,0.0032786885245901,1000,0,True
+20261104T002604_e3a5a42b,False,True,B candidate matrix 20261104T002604_e3a5a42b; pre-freeze; no C/E acceptance; D-002 draft only,B4-B2,0.6,frozen,0.001067033131965,-6.787771037083995e-05,0.0032608695652173,1000,0,False

@@ -1,0 +1,13 @@
+run_id,synthetic,draft,draft_reason,predictor,stratum,n,covered,coverage
+20261105T055420_02d05b15,False,True,B-002 formal run 20261105T055420_02d05b15; C/E acceptance pending; D-002 DRAFT only,MI,all,1525,1384,0.9075409836065572
+20261105T055420_02d05b15,False,True,B-002 formal run 20261105T055420_02d05b15; C/E acceptance pending; D-002 DRAFT only,MI,y=0,1517,1384,0.9123269611074488
+20261105T055420_02d05b15,False,True,B-002 formal run 20261105T055420_02d05b15; C/E acceptance pending; D-002 DRAFT only,MI,y=1,8,0,0.0
+20261105T055420_02d05b15,False,True,B-002 formal run 20261105T055420_02d05b15; C/E acceptance pending; D-002 DRAFT only,MI,missing_0_1/3,614,546,0.8892508143322475
+20261105T055420_02d05b15,False,True,B-002 formal run 20261105T055420_02d05b15; C/E acceptance pending; D-002 DRAFT only,MI,missing_1/3_2/3,676,619,0.915680473372781
+20261105T055420_02d05b15,False,True,B-002 formal run 20261105T055420_02d05b15; C/E acceptance pending; D-002 DRAFT only,MI,missing_2/3_1,235,219,0.9319148936170212
+20261105T055420_02d05b15,False,True,B-002 formal run 20261105T055420_02d05b15; C/E acceptance pending; D-002 DRAFT only,median,all,1525,1376,0.9022950819672132
+20261105T055420_02d05b15,False,True,B-002 formal run 20261105T055420_02d05b15; C/E acceptance pending; D-002 DRAFT only,median,y=0,1517,1376,0.9070533948582729
+20261105T055420_02d05b15,False,True,B-002 formal run 20261105T055420_02d05b15; C/E acceptance pending; D-002 DRAFT only,median,y=1,8,0,0.0
+20261105T055420_02d05b15,False,True,B-002 formal run 20261105T055420_02d05b15; C/E acceptance pending; D-002 DRAFT only,median,missing_0_1/3,614,539,0.8778501628664495
+20261105T055420_02d05b15,False,True,B-002 formal run 20261105T055420_02d05b15; C/E acceptance pending; D-002 DRAFT only,median,missing_1/3_2/3,676,615,0.9097633136094676
+20261105T055420_02d05b15,False,True,B-002 formal run 20261105T055420_02d05b15; C/E acceptance pending; D-002 DRAFT only,median,missing_2/3_1,235,222,0.9446808510638298

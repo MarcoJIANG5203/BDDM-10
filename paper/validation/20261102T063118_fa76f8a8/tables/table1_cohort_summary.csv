@@ -1,0 +1,3 @@
+run_id,site,n,positives,base_rate,included,excluded,data_version,protocol_version,synthetic,warning
+20261102T063118_fa76f8a8,A,800,403,0.50375,920,0,synthetic-v1-1402,v1,True,Synthetic inputs and labels; no original ICU temporal audit performed
+20261102T063118_fa76f8a8,B,120,62,0.5166666666666667,920,0,synthetic-v1-1402,v1,True,Synthetic inputs and labels; no original ICU temporal audit performed
