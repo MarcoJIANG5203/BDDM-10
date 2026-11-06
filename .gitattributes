@@ -49,3 +49,5 @@ reviews/A_remote_* -text
 reviews/freeze/** -text
 reviews/freeze/** whitespace=cr-at-eol
 reviews/A_formal_* -text
+# D's formal figure provenance hashes the original Git bytes of these receipts.
+reviews/acceptance/*.json -text

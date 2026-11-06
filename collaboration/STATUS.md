@@ -10,17 +10,16 @@ B/E本轮已接收C-006，按两份固定正式run的算术/协议保真记录`a
 
 当前统一仓库为[MarcoJIANG5203/BDDM-10](https://github.com/MarcoJIANG5203/BDDM-10)。代码、完整合成包及Release已迁移，新克隆32测试、完整产物恢复及2016指标行复核通过。成员改用新地址同步，原zsj-6/EI记录保留作历史证据。岗位实质进展不因迁移改变。
 
-B岗位当前工作分支为`b/core-methods-experiments`。按用户新要求，后续B改动提交到该分支，经过接收人检查后再合并main；此分支包含完整迁移代码与交付材料。此前迁移已进入main的记录保留。
+全组从 `main` 读取各岗位已交付的材料；岗位分支继续用于开发和溯源。[整合范围、来源提交及核验](../handoffs/E/2026-11-06_main_integration.md)。
 
-本轮E统筹记录也提交该B分支；用户当前要求不合并main。各岗位可读取固定分支commit及Release，不以main合并作为字节恢复前提。E本轮为用户委托本聊天执行的统筹审阅，同一聊天此前参与B；不冒充C的独立人工签认。
 
 | 岗位 | 当前状态 | 证据 | 下一项交付 / 接收人 |
 |---|---|---|---|
 | A 数据与基础实验 | A正式内容冻结不变；11月5日技术收尾补件在身份/恢复说明范围接收；许可保留 | A `68ce9d1`；[A交接](https://github.com/MarcoJIANG5203/BDDM-10/blob/68ce9d110e105dadc01e0abba5b7f2d4cdf7fec0/handoffs/A/2026-11-05_A_daily_closeout_EN.md)、[E本轮](../handoffs/E/2026-11-06_E-001_C006_result_scope.md) | 原始来源通道已发布；C未全量个人重跑；澄清信USER_DEFERRED_NOT_SENT，不催发 |
 | B 核心方法与实验 | B-002生产交付及C-006接收完成；正式两run已获算术/协议保真限定接受 | [B接收](../handoffs/B/2026-11-06_B_C006_receipt.md)、[E核验](../reviews/E/2026-11-06_C006_receipt_checks.json)；1,140指标/78区间零失败 | B范围本轮完成；为D按实际问题提供方法/数字支持；不重训或更改原run |
 | C 文献与独立核验 | C-006正式两run独立复核已提交，B/E在实际算术/协议范围接收；原始PSV个人全量重跑未完成 | C `b6d7c32`；[C原交接](../handoffs/C/2026-11-05_正式run独立复核.md)、[B接收](../handoffs/B/2026-11-06_B_C006_receipt.md) | 后续独立核D正式图文数字/引用；不把有条件算术结论扩大为安全或原始标签验收 |
-| D 图表与论文 | D-001/D-001a已验收流程；**D-002 正式 accepted run 图表/表已生成（ACCEPTED_WITH_LIMITS）**；bounded results 草稿已写 | [正式图表](../paper/runs/20261105T055420_02d05b15/provenance.json)、[bounded results](../paper/results_accepted_with_limits.md)、[来源索引](../paper/source_index.md)、[D-002就绪](../paper/d002_readiness.md) | 仍需：补充表 S1–S3、完整英文稿、提交版 PDF/材料；acceptance 不是最终论文/PDF 或投稿验收；A 许可未决；不需要合并main |
-| E 统筹与整合 | 本轮C-006接收、限定数值结果冻结及签认记录完成；材料交组内复核；最终稿/投稿未完成 | [E本轮](../handoffs/E/2026-11-06_E-001_C006_result_scope.md)、[接受记录](../reviews/acceptance/20261105T055420_02d05b15.json)、[补充](../reviews/acceptance/20261105T055445_54dd08de.json)、[Workshop 3 模拟审稿意见](../handoffs/E/2026-11-06_workshop3_reviewer_assessment.md)、[两周建议与聚合预查](../handoffs/E/2026-11-06_workshop3_two_week_plan.md) | D交付后核全文一致性，C核数字/引用；E-002稿号/回执须待实际投稿 |
+| D 图表与论文 | 主运行正式 Fig 1–6、主表、来源索引和有限描述性结果段落已交付；全文待复核 | [D交接](../handoffs/D/2026-11-06_D-002_formal_run.md)、[正式图表](../paper/runs/20261105T055420_02d05b15/)、[数字来源](../paper/source_index.md) | D 补 S1–S3、完整英文稿、提交版 PDF；C 核数字和引用，E 核全文一致性 |
+| E 统筹与整合 | [main 整合交接](../handoffs/E/2026-11-06_main_integration.md)已汇总 A–E 可共享材料；本轮C-006接收、限定数值结果冻结及签认记录完成；材料交组内复核；最终稿/投稿未完成 | [E本轮](../handoffs/E/2026-11-06_E-001_C006_result_scope.md)、[接受记录](../reviews/acceptance/20261105T055420_02d05b15.json)、[补充](../reviews/acceptance/20261105T055445_54dd08de.json)、[Workshop 3 模拟审稿意见](../handoffs/E/2026-11-06_workshop3_reviewer_assessment.md)、[两周建议与聚合预查](../handoffs/E/2026-11-06_workshop3_two_week_plan.md) | D交付后核全文一致性，C核数字/引用；E-002稿号/回执须待实际投稿 |
 
 ## 历史同步记录（保留原时点口径）
 

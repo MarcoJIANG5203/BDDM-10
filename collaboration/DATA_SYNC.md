@@ -2,9 +2,11 @@
 
 ## 2026-11-06 当前接收与恢复口径
 
+从工作区干净的本地仓库执行 `git switch main`、`git pull --ff-only origin main`。普通 Git 提供代码、冻结身份、聚合表和图；正式患者数据、逐患者结果和原始来源按 [registry](../artifacts/registry.json) 从 Release 校验恢复。
+
 A/B正式包及所有registry SHA256保持原样，本轮重新核验两ZIP及A八项冻结身份通过。B两正式run接受记录见`reviews/acceptance/`，只改变接收/使用范围，不改变Release的pre-release或registry历史科学状态；旧“发布不等于接受”仍适用，实际接受另读记录。
 
-A完整来源包已发布，非等待草稿下载；见[A固定恢复说明](https://github.com/MarcoJIANG5203/BDDM-10/blob/68ce9d1/collaboration/A_SOURCE_REPLAY_2026-11-05.md)。来源ZIP SHA256 `a57d16dc5432b2e2518bc5f754b706c60de7b94d3fb496870687d4a564770cb1`，50,674,324字节；本轮来源下载/125项恢复沿用A证据，不声称C已全量独立重跑。后文11月4日的草稿下载状态为历史。许可澄清信暂缓发送，不增加重分发许可或临床Git文件。
+A完整来源包已发布，见[A 的来源恢复说明](A_SOURCE_REPLAY_2026-11-05.md)。来源ZIP SHA256 `a57d16dc5432b2e2518bc5f754b706c60de7b94d3fb496870687d4a564770cb1`，50,674,324字节；本轮来源下载/125项恢复沿用A证据，不声称C已全量独立重跑。后文11月4日的草稿下载状态为历史。许可澄清信暂缓发送，不增加重分发许可或临床Git文件。
 
 Git维护代码、协议、状态、小样本和版本索引；较大数据和完整run放**同一仓库GitHub Release**，无需另建网盘。
 
@@ -36,7 +38,7 @@ B候选补充包`b-candidate-v1-supplements-20261104-r1`已本地pack并空目�
 
 ```powershell
 git fetch origin
-git switch b/core-methods-experiments
+git switch main
 git pull --ff-only
 python scripts/sync_artifacts.py fetch b-candidate-natural-20261103-r1
 python reviews/verify_b_artifacts.py results/candidate-clinical/20261103T122334_93a9a266

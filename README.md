@@ -1,6 +1,13 @@
 # BDDM-10 · T1 团队协作仓库
 
-**2026-11-06最新：B/E已接收C-006，正式两run的1,140指标/78区间复跑零失败；已记录有条件算术/协议接受和限定数值结果冻结，D可按原门槛重新生成正式图文。** [本轮E决定](handoffs/E/2026-11-06_E-001_C006_result_scope.md)、[B接收](handoffs/B/2026-11-06_B_C006_receipt.md)、[验收索引](collaboration/ACCEPTANCE_INDEX.md)。D现有正式run草稿含Fig5/结果段落，正式稿/PDF与实际投稿未完成。下文上一轮“C新run结论待完成”等表述仅为历史快照。接受范围不包括临床安全、方法优势或全量原始标签独立核验；原v1限制及许可冲突保留。
+**2026-11-06 · 全组从 `main` 查看 A–E 进度。** B 的两份正式运行已有 C 的独立复核和限定范围接受记录。D 已交付主运行的 Fig 1–6、结果表与数字来源索引。补充表 S1–S3、完整英文稿、最终 PDF 和实际投稿仍待完成。
+
+| 组员要看什么 | 入口 |
+|---|---|
+| 各岗位进展及待办 | [团队状态](collaboration/STATUS.md) · [本次整合交接](handoffs/E/2026-11-06_main_integration.md) |
+| 正式图表、结果与限制 | [主运行图表](paper/runs/20261105T055420_02d05b15/) · [数字来源索引](paper/source_index.md) · [描述性结果段落](paper/results_accepted_with_limits.md) |
+| 接下来两周怎么分工 | [Workshop 3 投稿建议](handoffs/E/2026-11-06_workshop3_two_week_plan.md) · [投稿排期](collaboration/SUBMISSION_PLAN.md) |
+| 恢复正式数据与完整运行 | [Release 同步说明](collaboration/DATA_SYNC.md) · [冻结和验收范围](collaboration/ACCEPTANCE_INDEX.md) |
 
 研究：**缺失临床数据中基于多重插补预测分歧的共形拒识评估**。
 
@@ -23,7 +30,7 @@
 | [协作规则](CONTRIBUTING.md) | 分支、提交和动态更新要求 |
 | [版本索引](artifacts/registry.json) | Release标签、资产与发布状态 |
 
-成员交付时一起更新这些文件并提交岗位分支；当前按用户要求不合并main，其他人同步相应分支或固定commit读取。状态依据真实文件与验收更新，不自动从聊天中推断。
+组员在工作区干净时执行 `git switch main` 和 `git pull --ff-only origin main`。后续工作仍在各自岗位分支进行，通过评审汇入 main。
 
 ## 开始使用
 
