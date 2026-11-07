@@ -65,7 +65,8 @@
 | Table 1a | Cohort summary | 每院/总体的 n、阳性数、阳性率、纳排计数、数据版本 | A data release `a-data-v1-20261104-r1`；`cohort.parquet` + `cohort_audit.json`；按 `site`；`exclusion_counts` 来自审计 | `scripts/make_cohort_tables.py` → `paper/inputs/a-data-v1-20261104-r1/tables/table1_cohort_summary.csv` | ACCEPTED_WITH_LIMITS |
 | Table 1b | Feature missingness | 36 项输入总体及分院缺失率 | 同上；按 36 项特征列 | `paper/inputs/a-data-v1-20261104-r1/tables/table1_feature_missingness.csv` | ACCEPTED_WITH_LIMITS |
 | Table 2 | Main selective-risk results | B0–B6 的接受人数/比例、选择性风险、危险漏放、阴性残余风险、覆盖、AUROC/AUPRC、候选池大小、容量不足标记 | `metrics.csv` 主条件（见 Fig 2）；B0 `M=1,target_acceptance` 空；B1 `M=10,target_acceptance` 空；B2–B6 `M=10,target_acceptance=0.6`；状态取 `method_status.csv` | `tables/table2_main_results.csv` | ACCEPTED_WITH_LIMITS |
-| Table 2b | Primary contrasts | B4−B2、B6−B5 的风险差、95% CI、有效/无效重抽 | `bootstrap_differences.csv` 主条件 c=0.6；batch 与 frozen 各一行 | `tables/table2b_primary_contrasts.csv` | ACCEPTED_WITH_LIMITS |
+| Table 2b | Primary contrasts (S0 internal) | B4−B2、B6−B5 的风险差、95% CI、有效/无效重抽 | `bootstrap_differences.csv` 主条件 S0 c=0.6；batch 与 frozen 各一行 | `tables/table2b_primary_contrasts.csv` | ACCEPTED_WITH_LIMITS |
+| Table 2c | S4 external primary contrast | S4 的 B2/B4 accepted/errors 与 B4−B2 batch/frozen 区间 | `reports/clinical-v1/20261105T055420_02d05b15/metrics.csv`、`bootstrap_differences.csv`；S4 c=0.6 | `tables/table2c_s4_primary_contrast.csv`；`table2c_provenance.json` | ACCEPTED_WITH_LIMITS |
 | Table 3a | Scenario per-seed | 每种子 × S0–S4 的 B2/B4/B5/B6 风险及差值 | `metrics.csv` c=0.6 batch，5 seeds × 5 scenarios | `tables/table3_scenario_per_seed.csv` | ACCEPTED_WITH_LIMITS |
 | Table 3b | Scenario summary | 每个场景的 B4−B2、B6−B5 均值、最小、最大、种子数 | 由 Table 3a 聚合 | `tables/table3_scenario_summary.csv` | ACCEPTED_WITH_LIMITS |
 | Table 4 | Coverage strata | MI 与 median 的总体/类别/缺失分层覆盖、n、covered | `coverage_strata.csv` 主种子 S0；MI `M=10`，median `M=1` | `tables/table4_coverage_strata.csv` | ACCEPTED_WITH_LIMITS |

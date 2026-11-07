@@ -1,0 +1,16 @@
+﻿{
+    "schema_version":  1,
+    "status":  "ACCEPTED_WITH_LIMITS",
+    "run_id":  "20261105T055420_02d05b15",
+    "manifest_sha256":  "f05827893e1eac44fa0c566e3da0f33e2149c30d4739f2f980d6776bf83b15d5",
+    "acceptance_file":  "reviews/acceptance/20261105T055420_02d05b15.json",
+    "acceptance_sha256":  "942e56e34ef20242a623d2de4fb4c316dc7cd1c92155e7fa6fdbe87d3e247a91",
+    "inputs":  {
+                   "metrics_csv":  "c70f0163d10c0a768d91ceb86684d489a5ca2b7d5e8b15accfe9795e8b5f61ff",
+                   "bootstrap_differences_csv":  "49616181d02b6abb65a19ff1de1b984bab88738ec118fb3e90aee1c1088e80b5"
+               },
+    "outputs":  {
+                    "table2c_s4_primary_contrast_csv":  "33f7c62b8565629fe4bd91f16d4aec2d9d443285e3c85f3a13ffba1579c8e4d7"
+                },
+    "purpose":  "S4 external-hospital primary B4-B2 contrast and point estimates for S-013"
+}
