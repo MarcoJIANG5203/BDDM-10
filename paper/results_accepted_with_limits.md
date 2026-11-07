@@ -24,7 +24,7 @@ At the external hospital (S4):
 
 - B2: 8,352 accepted, 24 errors.
 - B4: 8,352 accepted, 21 errors.
-- B4−B2: **−0.00035920** `[−0.00107759, 0.00035920]`. `[S-002, S-003]`
+- B4−B2: **−0.00035920** `[−0.00107759, 0.00035920]`. `[S-005, S-013]`
 
 The direction is unstable across seeds and scenarios; the result does not support a stable advantage for B4. `[S-005]`
 

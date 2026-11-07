@@ -22,6 +22,7 @@
 | S-010 | 补充表 S1–S3：RF、M=5/20、alpha=0.05 | `paper/runs/20261105T055445_54dd08de/tables/table_s1_rf.csv`、`table_s2_m_sensitivity.csv`、`table_s3_alpha005.csv` | 补充 run `20261105T055445_54dd08de`；RF S0/S2；M=5/10/20 S0；alpha=.05 S0/S2；c=.6 batch | 方法行 + B4−B2 batch/frozen 对比；报告区间与分母 | ACCEPTED_WITH_LIMITS |
 | S-011 | 方法/结果：容量不足、实际接受比例、候选池大小 | `paper/runs/20261105T055420_02d05b15/tables/table2_main_results.csv`；`metrics.csv` | 同 S-002 | `pool_size`, `capacity_shortfall`, `accepted`, `acceptance` | ACCEPTED_WITH_LIMITS |
 | S-012 | 方法/结果：AUROC/AUPRC、阳性基率、事件数 | `paper/runs/20261105T055420_02d05b15/tables/table2_main_results.csv` | 同 S-002 | `auroc`, `auprc`, `base_rate`, `positives`, `n` | ACCEPTED_WITH_LIMITS |
+| S-013 | S4 external-hospital primary B4−B2 contrast | `paper/runs/20261105T055420_02d05b15/tables/table2c_s4_primary_contrast.csv`；`table2c_provenance.json` | run `20261105T055420_02d05b15`；`scenario=S4, comparison=B4-B2, target_acceptance=0.6`，batch/frozen | B2/B4 accepted/errors/selective_risk；`risk_difference`, `ci_low`, `ci_high`, `valid`, `invalid`；输入 hash 见 provenance | ACCEPTED_WITH_LIMITS |
 
 ## 计算口径（防止分母错误）
 

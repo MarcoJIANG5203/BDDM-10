@@ -14,7 +14,7 @@
 
 **Methods.** We used the PhysioNet/Computing in Cardiology Challenge 2019 data \cite{reyna2020early}, with a 12-hour feature window and an outcome in the subsequent 12 hours after restoring the challenge’s 6-hour label lead. Hospital A provided training, rule-selection, calibration and internal-test partitions; hospital B was held out for external testing. A stochastic chained-equation imputer generated ten completed versions per patient, and a shared logistic-regression classifier was trained across the completed records. Split conformal prediction \cite{angelopoulos2023conformal,zaffran2023conformal} defined singleton candidate sets; only singleton sets entered the automatic pool. At a prespecified capacity, we compared confidence, missingness, imputation disagreement, and two error-risk rankings. The primary contrast was B4−B2 at a 0.60 target; the conditional-increment contrast was B6−B5.
 
-**Results.** The cohort contained 24,095 patients (A 10,174; B 13,921), with 57 and 38 positive outcomes, respectively; the internal test contained 1,525 patients and 8 positives. At the 0.60 target, primary seed 2026, S0, B2 accepted 915 patients with 1 error and B4 accepted 915 with 2 errors; the B4−B2 risk difference was +0.00109290 (95% interval 0.00000000 to 0.00327869). In the external hospital, B2 accepted 8,352 with 24 errors and B4 accepted 8,352 with 21; the difference was −0.00035920 (−0.00107759 to 0.00035920). The direction was not stable across seeds and scenarios. B5/B6 were unavailable because the rule-selection partition had 6 errors and 1,012 correct cases. MI positive-class coverage was 0/8 internally. A disagreement diagnostic among 1,388 singleton predictions contained only 4 errors.
+**Results.** The cohort contained 24,095 patients (A 10,174; B 13,921), with 57 and 38 positive outcomes, respectively; the internal test contained 1,525 patients and 8 positives `[S-001]`. At the 0.60 target, primary seed 2026, S0, B2 accepted 915 patients with 1 error and B4 accepted 915 with 2 errors; the B4−B2 risk difference was +0.00109290 (95% interval 0.00000000 to 0.00327869) `[S-002, S-003]`. In the external hospital, B2 accepted 8,352 with 24 errors and B4 accepted 8,352 with 21; the difference was −0.00035920 (−0.00107759 to 0.00035920) `[S-005, S-013]`. The direction was not stable across seeds and scenarios. B5/B6 were unavailable because the rule-selection partition had 6 errors and 1,012 correct cases `[S-004]`. MI positive-class coverage was 0/8 internally `[S-006]`. A disagreement diagnostic among 1,388 singleton predictions contained only 4 errors `[S-007]`.
 
 **Conclusions.** The formal run reproduces the candidate arithmetic but does not support a stable disagreement advantage or clinical safety claim. The defensible conclusion is a limited or null finding under finite-event conditions.
 
@@ -137,7 +137,7 @@ At the external hospital (S4):
 
 - B2: 8,352 accepted, 24 errors.
 - B4: 8,352 accepted, 21 errors.
-- B4−B2: **−0.00035920** `[−0.00107759, 0.00035920]`. `[S-002, S-003]`
+- B4−B2: **−0.00035920** `[−0.00107759, 0.00035920]`. `[S-005, S-013]`
 
 The direction is unstable across seeds and scenarios; the result does not support a stable advantage for B4. `[S-005]`
 

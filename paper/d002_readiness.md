@@ -110,16 +110,17 @@ C 已完成：C-001 20/20 标签、C-003 时间边界 14 断言、候选 run 900
 D 已完成：
 
 1. 用正式 run + acceptance 生成 `paper/runs/20261105T055420_02d05b15/`（Fig 1–6、Table 1–5），provenance 状态 `ACCEPTED_CLINICAL`。
-2. `paper/source_index.md` 的 `S-001`–`S-012` 已绑定正式 run，S-010 指向补充表。
+2. `paper/source_index.md` 的 `S-001`–`S-013` 已绑定正式 run；S-010 指向补充表，S-013 为 S4 对比表。
 3. `paper/results_accepted_with_limits.md` 已写 bounded results。
 4. 补充 run `20261105T055445_54dd08de` 的 Table S1–S3（RF、M=5/10/20、alpha=.05）已生成，`ACCEPTED_WITH_LIMITS`。
-5. 完整英文稿草稿 `paper/manuscript_draft.md` 已写；`paper/submission_checklist.md` 已建立。
+5. 完整英文稿草稿 `paper/manuscript_draft.md`、`paper/submission/manuscript_draft.pdf`/`.docx`（通用 A4 DRAFT）、`paper/submission_checklist.md` 已建立。
+6. 已按 C PR #7 修正 S4 来源标注：点估计 S-005、区间 S-013；C 确认 0 数值错误。
 
 仍待完成：
 
-6. C 核对 Table 2/2b/摘要与 S1–S3；E 检查摘要—正文—图表—结论一致。acceptance 明确不是最终 manuscript/PDF 验收。
-7. 按官方 Word/LaTeX 模板排版，确认页数、作者、通讯作者、AI 披露，生成提交版 PDF 与材料清单。
-8. A 许可冲突解决或明确不重新分发原始数据后，才可投稿。
+7. C/E 最终全文一致性；E 检查摘要—正文—图表—结论一致。acceptance 明确不是最终 manuscript/PDF 验收。
+8. 套用官方 Word/LaTeX 模板，确认页数、作者、通讯作者、AI 披露，生成官方提交版 PDF 与材料清单。
+9. A 许可冲突解决或明确不重新分发原始数据后，才可投稿。
 
 ## 明确禁止
 

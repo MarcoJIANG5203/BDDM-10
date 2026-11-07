@@ -15,6 +15,7 @@ paper/
   draft_v0.md            英文稿骨架；结果全部占位，不可提交
   results_accepted_with_limits.md  正式 run 的 bounded results 草稿（accepted_with_limits）
   manuscript_draft.md    完整英文稿草稿（bounded writing；非最终投稿版）
+  submission/            DRAFT PDF/DOCX/HTML + materials manifest（通用模板，非官方投稿版）
   submission_checklist.md 提交材料清单与剩余门槛
   results_draft.md       旧 DRAFT 结果段落；已被 accepted-with-limits 版本取代
   d002_readiness.md      D-002 门槛、A/B/C/E 待办与当前数据状态
@@ -121,7 +122,8 @@ python scripts/make_figures.py `
 | 英文稿骨架 v0 | `paper/draft_v0.md` | 结果全占位；不可提交 |
 | accepted-with-limits 结果段落 | `paper/results_accepted_with_limits.md` | 正式 run 的 bounded results；不是最终论文/PDF |
 | 完整英文稿草稿 | `paper/manuscript_draft.md` | bounded writing；需 C/E 最终一致性/模板 |
-| 提交材料清单 | `paper/submission_checklist.md` | 当前 NOT SUBMITTED |
+| **DRAFT PDF/DOCX** | `paper/submission/manuscript_draft.pdf`、`.docx` | DRAFT；通用 A4，不是官方模板 |
+| 提交材料清单/哈希 | `paper/submission_checklist.md`、`paper/submission/materials_manifest.csv` | 当前 NOT SUBMITTED |
 | 旧 DRAFT 结果段落 | `paper/results_draft.md` | 已被上一行取代；仅历史 |
 | D-002 就绪清单与 A/B/C 待办 | `paper/d002_readiness.md` | 已提交待验收 |
 | 合成 run 验证输出 | `paper/validation/20261102T063118_fa76f8a8/` | 仅软件验证，非临床证据 |
@@ -137,3 +139,4 @@ python scripts/make_figures.py `
 | **D-002 正式 accepted run 图表** | `handoffs/D/2026-11-06_D-002_formal_run.md` | **ACCEPTED_WITH_LIMITS** |
 | **D-002 补充表 S1–S3** | `handoffs/D/2026-11-06_D-002_supplement_tables.md` | **ACCEPTED_WITH_LIMITS** |
 | **D-002 完整英文稿草稿** | `handoffs/D/2026-11-06_D-002_manuscript.md` | bounded writing；非最终投稿 |
+| **D-002 DRAFT PDF/DOCX** | `handoffs/D/2026-11-07_D-002_pdf_draft.md` | 通用模板；非官方投稿版 |
