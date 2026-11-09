@@ -275,7 +275,7 @@
       "independent_remote_restore": "PASS"
     },
     "b-exp02-v1-first-stage-20261108-r1": {
-      "status": "prepared",
+      "status": "published",
       "kind": "clinical_results",
       "tag": "b-exp02-v1-first-stage-20261108-r1",
       "asset": "b-exp02-v1-first-stage-20261108-r1.zip",
@@ -318,7 +318,14 @@
         "reviews/verify_b_artifacts.py",
         "reviews/verify_candidate_bootstrap.py"
       ],
-      "files": 74
+      "files": 74,
+      "url": "https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/b-exp02-v1-first-stage-20261108-r1",
+      "asset_api": "repos/MarcoJIANG5203/BDDM-10/releases/assets/726073855",
+      "draft": false,
+      "asset_id": 726073855,
+      "release_tag_commit": "ec7d5dc1d5b797969ce739dd97ef63f0267ae4c5",
+      "transport_verified": true,
+      "independent_remote_restore": "PASS"
     }
   }
 }

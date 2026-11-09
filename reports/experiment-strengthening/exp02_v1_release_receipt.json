@@ -1,0 +1,20 @@
+{
+  "bundle": "b-exp02-v1-first-stage-20261108-r1",
+  "sha256": "1daffbf722fc72bca620f94f843d38c8e108222e8d743774ac9e3b87a6d8a689",
+  "size": 36962511,
+  "release_id": 438710495,
+  "asset_id": 726073855,
+  "target": "ec7d5dc1d5b797969ce739dd97ef63f0267ae4c5",
+  "restored": {
+    "20261109T031529_545a3423": {
+      "manifest_sha256": "a50402434c929d89608a7833bbab13edf5810f340f3581ef6ea3d9c4c3d6a401",
+      "artifact_hashes": 18,
+      "source_hashes": 19
+    },
+    "20261109T031529_e842da06": {
+      "manifest_sha256": "02b1cdd9033b5820ea0a17e25e49c3ff7fbf8cd3f0358e1489e2ee6c3cfdc0ce",
+      "artifact_hashes": 17,
+      "source_hashes": 19
+    }
+  }
+}
