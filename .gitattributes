@@ -54,3 +54,6 @@ reviews/acceptance/*.json -text
 # The published paper tables and provenance are verified byte-for-byte.
 paper/runs/**/*.csv -text whitespace=cr-at-eol
 paper/runs/**/*.json -text whitespace=cr-at-eol
+
+# EXP-02 verification receipts also travel byte-identically in the Release ZIP.
+reports/experiment-strengthening/**/paired_bootstrap_verification.json -text whitespace=cr-at-eol

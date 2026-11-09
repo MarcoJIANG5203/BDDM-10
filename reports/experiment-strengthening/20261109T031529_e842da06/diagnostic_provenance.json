@@ -1,0 +1,13 @@
+{
+  "run_id": "20261109T031529_e842da06",
+  "run_manifest_sha256": "02b1cdd9033b5820ea0a17e25e49c3ff7fbf8cd3f0358e1489e2ee6c3cfdc0ce",
+  "patient_predictions_sha256": "2134071479adcab243d5c777f7acc139b68bdbfa1e3be92be782e88fa7cdb440",
+  "diagnostic_source_sha256": "fe13914241c610d9fa9b71945a9f8cb348c76854d893c6578fa29b88bfe79d73",
+  "bootstrap_seed": "split_seed, common sorted patient order within scenario",
+  "bootstrap_repetitions": 1000,
+  "output_sha256": {
+    "model_diagnostics.csv": "c915ff0f602fa28a34e5993dfc63f1dd630d18320b7865e701ccd2392cb47d4f",
+    "calibration_bins.csv": "18e80537021b857dde03c0b30ef2d4c564d2000f3d6cd8fd7db89d74657b6b81",
+    "probability_by_class.csv": "786e2e9cb6713e7de3a16777a2c4000bb7c1812c3fd83fb63af99676bc144069"
+  }
+}

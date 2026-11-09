@@ -1,0 +1,80 @@
+{
+  "run": "results/experiment-strengthening/20261109T031529_e842da06",
+  "independent_bootstrap": "PASS",
+  "interval_rows_checked": 6,
+  "checks": [
+    {
+      "scenario": "S4",
+      "comparison": "B4-B2",
+      "capacity": 0.4,
+      "mode": "batch",
+      "n": 13921,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": 0.00035919540229885057,
+      "ci_low": -0.00035919540229885057,
+      "ci_high": 0.0010775862068965517
+    },
+    {
+      "scenario": "S4",
+      "comparison": "B4-B2",
+      "capacity": 0.4,
+      "mode": "frozen",
+      "n": 13921,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": 4.7267789643656594e-05,
+      "ci_low": -0.0010287032810614466,
+      "ci_high": 0.00104241884571744
+    },
+    {
+      "scenario": "S4",
+      "comparison": "B4-B2",
+      "capacity": 0.6,
+      "mode": "batch",
+      "n": 13921,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": -0.00035919540229885057,
+      "ci_low": -0.0008411159003831418,
+      "ci_high": 0.00011973180076628345
+    },
+    {
+      "scenario": "S4",
+      "comparison": "B4-B2",
+      "capacity": 0.6,
+      "mode": "frozen",
+      "n": 13921,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": -0.00034215446114693607,
+      "ci_low": -0.0009408327523430626,
+      "ci_high": 0.0002178610446133055
+    },
+    {
+      "scenario": "S4",
+      "comparison": "B4-B2",
+      "capacity": 0.8,
+      "mode": "batch",
+      "n": 13921,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": 0.0,
+      "ci_low": -0.0003591954022988508,
+      "ci_high": 0.00035919540229885057
+    },
+    {
+      "scenario": "S4",
+      "comparison": "B4-B2",
+      "capacity": 0.8,
+      "mode": "frozen",
+      "n": 13921,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": -0.00015035897873913419,
+      "ci_low": -0.0006185309418257295,
+      "ci_high": 0.0002463433595304857
+    }
+  ],
+  "scientific_acceptance": false
+}

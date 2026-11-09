@@ -273,6 +273,52 @@
       "download_fallback": "authenticated_gh_asset_api",
       "transport_verified": true,
       "independent_remote_restore": "PASS"
+    },
+    "b-exp02-v1-first-stage-20261108-r1": {
+      "status": "prepared",
+      "kind": "clinical_results",
+      "tag": "b-exp02-v1-first-stage-20261108-r1",
+      "asset": "b-exp02-v1-first-stage-20261108-r1.zip",
+      "archive": "dist/artifacts/b-exp02-v1-first-stage-20261108-r1.zip",
+      "prerelease": true,
+      "requires": [
+        "a-data-v1-20261104-r1"
+      ],
+      "scientific_status": "exploratory_pending_independent_c_review",
+      "sha256": "1daffbf722fc72bca620f94f843d38c8e108222e8d743774ac9e3b87a6d8a689",
+      "bytes": 36962511,
+      "roots": [
+        "results/experiment-strengthening/20261109T031529_545a3423",
+        "results/experiment-strengthening/20261109T031529_e842da06",
+        "reports/experiment-strengthening/20261109T031529_545a3423",
+        "reports/experiment-strengthening/20261109T031529_e842da06",
+        "scripts/build_a_cohort_v1.py",
+        "scripts/create_demo_data.py",
+        "scripts/make_cohort_tables.py",
+        "scripts/make_figures.py",
+        "scripts/make_supplement_tables.py",
+        "scripts/run_experiments.py",
+        "scripts/sync_artifacts.py",
+        "scripts/verify_a001_delivery.py",
+        "scripts/verify_a_raw_psv_receipt.py",
+        "src/__init__.py",
+        "src/conformal.py",
+        "src/data.py",
+        "src/experiment.py",
+        "src/imputation.py",
+        "src/metrics.py",
+        "src/models.py",
+        "src/scenarios.py",
+        "src/selection.py",
+        "src/utils.py",
+        "requirements-lock.txt",
+        "configs/exp02_v1_lr_20261108.yaml",
+        "configs/exp02_v1_rf_20261108.yaml",
+        "reviews/summarize_exp02.py",
+        "reviews/verify_b_artifacts.py",
+        "reviews/verify_candidate_bootstrap.py"
+      ],
+      "files": 74
     }
   }
 }

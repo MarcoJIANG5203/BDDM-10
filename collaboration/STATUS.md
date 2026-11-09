@@ -2,7 +2,7 @@
 
 ## 当前工作 · 2026-11-08
 
-用户确定先完成实验与结论验证。按[实验补强计划](EXPERIMENT_PLAN_2026-11-08.md)立即启动 EXP-01/02，后续由 G1/G2/G3 检查决定推进范围。本轮计划已交付，各新增实验待开展。[本轮交接](../handoffs/E/2026-11-08_experiment_strengthening_plan.md)记录授权及工作范围。下文既有运行接受记录用于解释历史交付。
+用户确定先完成实验与结论验证。按[实验补强计划](EXPERIMENT_PLAN_2026-11-08.md)立即启动 EXP-01/02，后续由 G1/G2/G3 检查决定推进范围。B 已完成 EXP-02 首批现有数据诊断并提交待 C 独立核验。[本轮交接](../handoffs/E/2026-11-08_experiment_strengthening_plan.md)记录授权及工作范围。下文既有运行接受记录用于解释历史交付。
 
 ## 已交付背景 · 2026-11-06
 
@@ -20,7 +20,7 @@ B/E本轮已接收C-006，按两份固定正式run的算术/协议保真记录`a
 | 岗位 | 当前状态 | 证据 | 下一项交付 / 接收人 |
 |---|---|---|---|
 | A 数据与基础实验 | A正式内容冻结不变；11月5日技术收尾补件在身份/恢复说明范围接收；许可保留 | A `68ce9d1`；[A交接](https://github.com/MarcoJIANG5203/BDDM-10/blob/68ce9d110e105dadc01e0abba5b7f2d4cdf7fec0/handoffs/A/2026-11-05_A_daily_closeout_EN.md)、[E本轮](../handoffs/E/2026-11-06_E-001_C006_result_scope.md) | EXP-01 纳排/阳性流失与精度预算；交 C 核验、E 汇总 |
-| B 核心方法与实验 | B-002生产交付及C-006接收完成；正式两run已获算术/协议保真限定接受 | [B接收](../handoffs/B/2026-11-06_B_C006_receipt.md)、[E核验](../reviews/E/2026-11-06_C006_receipt_checks.json)；1,140指标/78区间零失败 | EXP-02 LR 诊断与固定 RF 外院补充；G1/G2 后推进 EXP-03/04 |
+| B 核心方法与实验 | EXP-02 首批已提交待 C 独立核验。LR S0/S4 与固定 RF S4 已运行 | [EXP-02 交接](../handoffs/B/2026-11-08_EXP-02.md)；[既有 B-002 接收](../handoffs/B/2026-11-06_B_C006_receipt.md) | 待 EXP-01 和 G1 决定后做三模型比较；EXP-03 待 G2，EXP-04 待 EXP-03 |
 | C 文献与独立核验 | C-006正式两run独立复核已提交，B/E在实际算术/协议范围接收；原始PSV个人全量重跑未完成 | C `b6d7c32`；[C原交接](../handoffs/C/2026-11-05_正式run独立复核.md)、[B接收](../handoffs/B/2026-11-06_B_C006_receipt.md) | 独立核 EXP-01 队列、EXP-02 模型及 EXP-04 统计精度，登记接收范围 |
 | D 图表与论文 | 主运行正式 Fig 1–6、主表、补充表 S1–S3、数字来源索引和完整英文初稿已交付 | [英文稿](../paper/manuscript_draft.md)、[主图表](../paper/runs/20261105T055420_02d05b15/)、[补充表](../paper/runs/20261105T055445_54dd08de/tables/)、[数字来源](../paper/source_index.md) | EXP-05 整理实验表、数据来源和复现交付；G3 后安排正文与排版 |
 | E 统筹与整合 | [main 整合交接](../handoffs/E/2026-11-06_main_integration.md)已汇总 A–E 可共享材料；本轮C-006接收、限定数值结果冻结及签认记录完成；材料交组内复核；最终稿/投稿未完成 | [E本轮](../handoffs/E/2026-11-06_E-001_C006_result_scope.md)、[接受记录](../reviews/acceptance/20261105T055420_02d05b15.json)、[补充](../reviews/acceptance/20261105T055445_54dd08de.json)、[Workshop 3 模拟审稿意见](../handoffs/E/2026-11-06_workshop3_reviewer_assessment.md)、[两周建议与聚合预查](../handoffs/E/2026-11-06_workshop3_two_week_plan.md) | 新实验计划已交付；汇总 EXP-01/02、记录 G1/G2/G3 决定与后续安排 |
