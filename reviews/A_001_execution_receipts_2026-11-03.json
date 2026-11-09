@@ -1,0 +1,76 @@
+{
+  "audit_run": {
+    "status": "completed",
+    "exit_code": 0,
+    "log": "reviews/A_001_verification_2026-11-03.log",
+    "script_sha256": "b613b87083fd675aa6b723e37128ae34b087cadce59addbe750d5385d6407b49",
+    "command": "python scripts/verify_a001_delivery.py --a-package <extracted-full-A> --b-root <extracted-B-snapshot> --output <aggregate-review-output>",
+    "output": "reviews/A_001_verification_2026-11-03.json"
+  },
+  "A_original_tests": {
+    "command": "python -m pytest -q -p no:cacheprovider tests/test_a_cohort_v1.py",
+    "working_directory": "supplied full A package",
+    "environment": "existing locked work/t1_handover_env",
+    "exit_code": 0,
+    "observed_stdout": "15 passed in 0.11s",
+    "receipt": "exec_command chunk b743c4; captured tool output, not a claim of rerunning B full tests"
+  },
+  "independent_boundary_cases": [
+    {
+      "case": "onset_12_excluded",
+      "status": "PASS",
+      "expected_reason": "onset_at_or_before_12",
+      "expected_label": null
+    },
+    {
+      "case": "onset_13_positive",
+      "status": "PASS",
+      "expected_reason": "included",
+      "expected_label": 1
+    },
+    {
+      "case": "onset_24_positive",
+      "status": "PASS",
+      "expected_reason": "included",
+      "expected_label": 1
+    },
+    {
+      "case": "onset_25_negative",
+      "status": "PASS",
+      "expected_reason": "included",
+      "expected_label": 0
+    },
+    {
+      "case": "never_positive",
+      "status": "PASS",
+      "expected_reason": "included",
+      "expected_label": 0
+    },
+    {
+      "case": "left_censored_first_positive",
+      "status": "PASS",
+      "expected_reason": "first_observation_positive",
+      "expected_label": null
+    }
+  ],
+  "reviewer": {
+    "kind": "separate native worker, inherited model family, shared surrounding context",
+    "model_id": "not separately attested",
+    "receipt": "reviews/A_001_methodological_review_2026-11-03_EN.md",
+    "human_C_signoff": false
+  },
+  "transient_tooling_issue": {
+    "failure": "A supplementary audit attempt reached B report decoding and failed because Windows default GBK was used for UTF-8 source JSON",
+    "fix": "Explicit UTF-8 decoding; final full audit completed successfully",
+    "failed_attempt_record": "retained in local work/A_001_review_20261103/audit_utf8_failure.log; not counted as a successful verification"
+  },
+  "not_executed": [
+    "new model training",
+    "fresh B patient-level clinical trial/metric/bootstrap replay",
+    "new live 40336-file acquisition",
+    "formal data publication",
+    "git commit/push",
+    "PR comment or merge",
+    "C/E or owner signature"
+  ]
+}

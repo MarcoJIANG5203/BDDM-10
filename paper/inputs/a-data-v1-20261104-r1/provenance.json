@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-04T14:46:27.088869+00:00",
+  "status": "DRAFT_PENDING_ACCEPTANCE",
+  "draft_reason": "A PR may not be merged; C/E acceptance record is not present; not for submission.",
+  "release": {
+    "data_version": "a-data-v1-20261104-r1",
+    "release_status": "A_FORMAL_TECHNICAL_DATA_FROZEN",
+    "source_data_version": "a-clinical-protocol-v1-20261103-full-r1",
+    "license_status": "UNRESOLVED_OFFICIAL_METADATA_CONFLICT",
+    "review_status": {
+      "A_owner_review": "CONFIRMED_BY_USER",
+      "C_independent_10_positive_10_negative": "CONDITIONAL_TECHNICAL_ACCEPTANCE",
+      "E_precision_decision": "APPROVAL_REPORTED_BY_A_OWNER"
+    },
+    "zip": "a-data-v1.zip",
+    "zip_sha256": "feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c",
+    "audit_sha256": "8c81cd1fafae04bcfd8c5925ffb9f0a1cd5111129aa1a937e8420fa9cfb4919c",
+    "cohort_sha256": "27d58cc44e17d7c1a01993ce76aa604f9b306f51ed1619dcd0704a1d038c0a81"
+  },
+  "script": {
+    "path": "scripts/make_cohort_tables.py",
+    "sha256": "8c98730d2ec56fd8f1d4f8a082c9aec8fd4ad384d9d6f9a79700a696f86ca961"
+  },
+  "inputs": {
+    "data/processed/cohort.csv": "e5e88ebcfb755da9d610b0c9587733c8d87ba477cd8fcb2161c0459107946b16",
+    "data/processed/cohort.parquet": "27d58cc44e17d7c1a01993ce76aa604f9b306f51ed1619dcd0704a1d038c0a81",
+    "data/processed/excluded_records.csv": "13b866c6668f41faa25823a545fca064fbac9658122772ff8c9468ac0a8efd01",
+    "data/processed/feature_missingness.csv": "cd93555261fd6bc226ef71d80ec4192d7ceba6c22feb771eff4883455178ce2a",
+    "data/processed/record_audit.csv": "038da035e342e541fb20138cd86cbc40de45ad0cba765a73f7ec94c967944173",
+    "data/processed/review_10_positive_10_negative.csv": "c821ba5dc821bbd57c5f01461e79e3e63b853e18e467d194c64bcb5f06e987ed",
+    "data/processed/review_cases/A/p001771.psv": "0c142689d9f9094ac968778c1ee75bc0d2cefbe53b0b679d1265004ab30816d3",
+    "data/processed/review_cases/A/p003213.psv": "b1379ebe7ea2686c44c9330496533ddc280b27a88b788aa058a6d90adaafeb6d",
+    "data/processed/review_cases/A/p005691.psv": "c670310de648ad956d6a631455639dd6c4ea262b6b68b972b65d93dff5c252ae",
+    "data/processed/review_cases/A/p006984.psv": "073cbefc7e1d4108c7aaf83149a3f6b40f70eb4dbcd788155e6824b6c04ed2e0",
+    "data/processed/review_cases/A/p011108.psv": "3d7a3798e406d66fbfe9437b0ec20be46571a30b47eddd412ce8458178b2733f",
+    "data/processed/review_cases/A/p013493.psv": "d4271682491ac89445bd42dc782439b2730842a2015186c05232ec3fbea26d84",
+    "data/processed/review_cases/A/p014055.psv": "c0fbd2cfce2d03e2c4155cbeb91b9d652ebc2cc91bca4633f1cebed9a556008b",
+    "data/processed/review_cases/A/p015733.psv": "c6a14e94de1873a193312325c5be033430330ba2e9bb42f8e2dbce56f01d59fb",
+    "data/processed/review_cases/A/p018884.psv": "bf7fadb725a11a294237fc2891c95c15a39ea94533fa5e2aec14af32fbf0ef7d",
+    "data/processed/review_cases/A/p020444.psv": "f4ad55281985d20504e18843f7b608cffef950f713817fba8169f40b8a8e72ff",
+    "data/processed/review_cases/B/p103821.psv": "5b781fbe2d15527baa3885da2a3a815e9e77ac233b49267ff12fedf55130cbff",
+    "data/processed/review_cases/B/p107263.psv": "2fe399650d98123e90a0eac20bb344c90a15ec6342bd693b701b3aac7a6193bd",
+    "data/processed/review_cases/B/p107721.psv": "5cd076fe7b430b433370c51e8f1a703b07a174165421d828948dc810bcc48512",
+    "data/processed/review_cases/B/p110744.psv": "ed065bb99544291713d0f4f4a5c2f9458b2c95059672d10aafcc64afab3870b6",
+    "data/processed/review_cases/B/p112872.psv": "68850f187f25cd254d7cae3c1219a9f24c61708627b28ece068a000048828f60",
+    "data/processed/review_cases/B/p113691.psv": "557186c791908c9855e105d65a3a4158ab171eef0961aa80291b06849f72c8f0",
+    "data/processed/review_cases/B/p114096.psv": "757f780cfe3c26e5e02cd01bc5cd87986afe1020322fcf1ae010dac9e2919880",
+    "data/processed/review_cases/B/p114568.psv": "bbdeaa4789cf5a42f49ac59878ce0d86938d38b940e65acee57690d3b2770175",
+    "data/processed/review_cases/B/p119117.psv": "0490057700c9a9260a3c9c016ab23402ac5a9eaef34e10ecb4162e75cba07a73",
+    "data/processed/review_cases/B/p119583.psv": "e86f048ae7cf477a307a4ea8f74795c48946a0ab0e79dce4fce0f8f08a51692a",
+    "splits/seed_2026.json": "ec125595db148070351f237ad052f2754265cad061d96783beebfc3dc99d351f",
+    "splits/seed_2027.json": "b3f5cc23996d8d9f1150e377ab79fd121ec4037d57bb89c61b0cee4e27827ecb",
+    "splits/seed_2028.json": "a19b7dfbdf8d457cb57baa1e68d989b000752d22afb3c8e4b0d4957dbe5a4ce9",
+    "splits/seed_2029.json": "15a57fc26f91c2a6bc1ff1c219d7279c0bafba68bba0d7569e0ca99949b6f23c",
+    "splits/seed_2030.json": "8800012eac62a1aacc73b3d43b8a9ba1b3ce0b76df57a86e0d81bcf0c4649c47"
+  },
+  "validation": {
+    "cohort_rows": 24095,
+    "patient_id_unique": 24095,
+    "positives": 95,
+    "features": 36,
+    "split_seeds": [
+      2026,
+      2027,
+      2028,
+      2029,
+      2030
+    ],
+    "roles_disjoint_exhaustive": true,
+    "external_is_hospital_b": true
+  },
+  "outputs": {
+    "tables/table1_cohort_summary.csv": "0cddea8b961e87b97d0fd14c4e47e9de9b9c4673e7c97f862d8b1286c01cf902",
+    "tables/table1_feature_missingness.csv": "c45daf560c0abd72c522d291fe639bd43e30b549f8973127cb574317fa254564",
+    "tables/split_counts.csv": "5e04a622dc5ef95011c42ac138457c12cef0da62059a732c57480b39317e1d32",
+    "tables/fig1_missingness_data.csv": "c45daf560c0abd72c522d291fe639bd43e30b549f8973127cb574317fa254564",
+    "figures/fig1_missingness.pdf": "513501991bf3b6dbf692dc4012c3674de1bd080a81f62cb324537aa1e31668e0",
+    "figures/fig1_missingness.png": "c6f522a0668f67f5d58277294a3fb1990c2e78011d418f023bed081ecf72edeb"
+  },
+  "warning": "DRAFT — formal A data release; pending PR merge and C/E acceptance; not for submission"
+}

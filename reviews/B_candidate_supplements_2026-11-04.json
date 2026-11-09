@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-04",
+  "scientific_status": "candidate_pre_freeze_not_accepted",
+  "artifact_verification": {
+    "run": "results/candidate-clinical/20261104T132609_45c03e76",
+    "synthetic": false,
+    "run_status": "completed",
+    "patient_method_rows": 366000,
+    "imputation_probability_rows": 208925,
+    "independently_checked_metric_rows": 240,
+    "artifact_hashes_checked": 22,
+    "source_hashes_checked": 13,
+    "split_hashes_checked": 1,
+    "checks": [
+      "all artifact hashes",
+      "current source/config/data/split hashes",
+      "unique output keys",
+      "hospital identity",
+      "singleton eligibility",
+      "independent counts and proportions",
+      "same batch K",
+      "shared MI predictions and sets",
+      "p_m mean and ddof=1 std and class flips",
+      "B0 M=1",
+      "q frozen across batches"
+    ]
+  },
+  "paired_bootstrap_verification": {
+    "interval_rows_checked": 48,
+    "status": "PASS"
+  },
+  "C_003_script_B_replay": {
+    "failed_checks": [],
+    "patient_method_rows": 2612100,
+    "y_true_mismatch": 0,
+    "acceptance_mismatch": 0,
+    "bootstrap_ok": "30/30"
+  },
+  "local_bundle": {
+    "status": "prepared",
+    "sha256": "808537f305e7acb47fa01ce0eb5012d950b1224b92ca9c86ece470a1ee2e5e7f",
+    "bytes": 32655716,
+    "files": 26,
+    "empty_directory_restore": "PASS",
+    "remote_uploaded": false
+  },
+  "repository_tests": "32 passed in 29.60s"
+}

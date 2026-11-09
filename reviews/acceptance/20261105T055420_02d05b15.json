@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "run_id": "20261105T055420_02d05b15",
+  "manifest_sha256": "f05827893e1eac44fa0c566e3da0f33e2149c30d4739f2f980d6776bf83b15d5",
+  "synthetic": false,
+  "protocol_version": "v1",
+  "data_version": "a-data-v1-20261104-r1",
+  "status": "accepted_with_limits",
+  "scope": "Arithmetic and protocol fidelity; allow D to regenerate manuscript figures/tables and bounded descriptive writing from this exact run. No safety/superiority claim, no new raw-label adjudication, no final manuscript or submission acceptance.",
+  "accepted_at": "2026-11-06",
+  "date_basis": "User client date, America/Los_Angeles; no exact signing time asserted.",
+  "signoffs": {
+    "C": {
+      "name": "黄思睿（既有 C-006 结论引用，非新增签名）",
+      "date": "2026-11-05",
+      "decision": "accepted_with_limits",
+      "evidence": "handoffs/C/2026-11-05_正式run独立复核.md",
+      "source_commit": "b6d7c3293db1c2263bc6ae4a25ce3e178415aeb8",
+      "evidence_sha256": "4bf2772165b5bbeacf0b1f60930fb5d9f158e0fd6e3584819abedd3b2e5c7973",
+      "provenance": "Transcribed existing conditional arithmetic/protocol acceptance. C original bytes preserved; scope not expanded.",
+      "new_signature": false
+    },
+    "E": {
+      "name": "E（用户授权本聊天统筹；此前参与B）",
+      "date": "2026-11-06",
+      "decision": "accepted_with_limits",
+      "evidence": "handoffs/E/2026-11-06_E-001_C006_result_scope.md",
+      "independent_human_statistical_review": false
+    }
+  },
+  "limitations": [
+    "Finite-event protocol v1 only: A/B positives 57/38, internal positives 8 per seed; precision targets 200/200/50 unmet.",
+    "MI positive-class set coverage is zero; no clinical safety or positive-protection claim.",
+    "B5/B6 unavailable with 6 errors and 1012 correct selection cases; B6-B5 is NA, not zero.",
+    "No stable B4-B2 superiority across seeds/scenarios; retain all prespecified results.",
+    "C has not independently replayed all 40336 raw PSV records; cohort-level arithmetic acceptance is not clinical adjudication.",
+    "Official source-license metadata conflict remains unresolved. Correspondence is USER_DEFERRED_NOT_SENT. This record grants no new data redistribution rights.",
+    "E is user-delegated coordination in the same chat that produced B, not a second independent human statistical reviewer.",
+    "Acceptance allows traceable figures/tables and bounded writing from these exact runs, not final manuscript/PDF acceptance or actual submission."
+  ],
+  "verification_evidence": "reviews/E/2026-11-06_C006_receipt_checks.json",
+  "freeze": {
+    "kind": "scoped_v1_numerical_result_freeze",
+    "frozen": true,
+    "clinical_safety_validated": false,
+    "raw_label_independent_replay_complete": false
+  },
+  "notes": "C/E record assembled by E from the original C-006 conditional conclusion and the new E decision. Does not impersonate C or rewrite A freeze/history. Release and registry scientific_status remain immutable historical producer metadata."
+}

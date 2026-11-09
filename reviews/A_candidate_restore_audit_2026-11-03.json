@@ -1,0 +1,28 @@
+{
+  "run": "results/candidate-clinical/20261103T122334_93a9a266",
+  "synthetic": false,
+  "run_status": "completed",
+  "patient_method_rows": 430920,
+  "imputation_probability_rows": 237006,
+  "independently_checked_metric_rows": 120,
+  "artifact_hashes_checked": 18,
+  "source_hashes_checked": 13,
+  "split_hashes_checked": 1,
+  "checks": [
+    "all artifact hashes",
+    "current source/config/data/split hashes",
+    "unique output keys",
+    "hospital identity",
+    "singleton eligibility",
+    "independent counts and proportions",
+    "same batch K",
+    "shared MI predictions and sets",
+    "p_m mean and ddof=1 std and class flips",
+    "B0 M=1",
+    "q frozen across batches"
+  ],
+  "restore_method": "local registered archive into an empty temporary workspace",
+  "bundle_sha256": "5d5879dd112d329a5b3079dbdc8d5588a7bdf82c4c1e596e4b15b98751fabd33",
+  "bundle_files": 28,
+  "scientific_acceptance": false
+}

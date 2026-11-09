@@ -1,8 +1,24 @@
 # BDDM-10 · T1 团队协作仓库
 
+**2026-11-08 · 当前先推进实验补强。** 全组按[新实验计划](collaboration/EXPERIMENT_PLAN_2026-11-08.md)开展 EXP-01 至 EXP-05，优先解决队列事件数、基础模型能力、共形筛选与分歧增量。正式写作在证据充分性复核通过后启动。下文 11 月 6 日为既有交付背景。
+
+**2026-11-06 · 全组从 `main` 查看 A–E 进度。** B 的两份正式运行已有 C 的独立复核和限定范围接受记录。D 已交付主运行 Fig 1–6、结果表、补充表 S1–S3 和完整英文初稿。稿件待 C/E 复核、排版和生成最终 PDF；实际投稿待完成。
+
+| 组员要看什么 | 入口 |
+|---|---|
+| 各岗位进展及待办 | [团队状态](collaboration/STATUS.md) · [本次整合交接](handoffs/E/2026-11-06_main_integration.md) |
+| 当前论文 | [完整英文初稿](paper/manuscript_draft.md) · [补充表 S1–S3](paper/runs/20261105T055445_54dd08de/tables/) · [提交清单](paper/submission_checklist.md) |
+| 正式图表、结果与限制 | [主运行图表](paper/runs/20261105T055420_02d05b15/) · [数字来源索引](paper/source_index.md) · [描述性结果段落](paper/results_accepted_with_limits.md) |
+| 当前实验分工 | [实验补强计划](collaboration/EXPERIMENT_PLAN_2026-11-08.md) · [阶段安排](collaboration/SUBMISSION_PLAN.md) |
+| 恢复正式数据与完整运行 | [Release 同步说明](collaboration/DATA_SYNC.md) · [冻结和验收范围](collaboration/ACCEPTANCE_INDEX.md) |
+
 研究：**缺失临床数据中基于多重插补预测分歧的共形拒识评估**。
 
-这里统一维护代码、协议、成员交付要求、进度和数据/产物版本。**目前B程序及合成验证完成，A正式队列尚未交付；模拟结果不能作为论文效果结论。**
+## 上轮交付背景（2026-11-05历史快照）
+
+这里统一维护代码、协议、成员交付要求、进度和数据/产物版本。**A正式技术数据 `a-data-v1-20261104-r1` 已发布并交付内容冻结记录；B已从正式字节完成B-002主矩阵和规定补充，1,140行指标/78个配对区间独立重算通过。E已完成技术交付与公平性范围接收，继续原v1有限事件数分析；C对两份新run的独立结论、联合结果签认及D正式图稿仍待完成。** 见[E本轮交接](handoffs/E/2026-11-05_E-001_formal_v1_integration.md)、[验收索引](collaboration/ACCEPTANCE_INDEX.md)及[正式结果索引](reports/clinical-v1/README.md)，完整包同步状态以[registry](artifacts/registry.json)为准。此前候选run完整保留。正式新run同样未显示稳定分歧优势，阳性覆盖为0，B5/B6不可用；不能解释为临床安全证据，合成结果也不能用于临床结论。
+
+正式输入见[A交接](handoffs/A/2026-11-04_formal_data_freeze_EN.md)与[A内容冻结](reviews/freeze/A_formal_data_freeze_v1_2026-11-04.json)。A历史交接的E批准为转述，官方许可元数据冲突尚未澄清；E本轮授权决定另行记录，不追认历史签名或替代C科学验收。本聊天曾参与B，E复跑C代码不冒充C本人签认。投稿按用户确认的11月20日前安排，其他通知/入口/联系资料不再催补，见[排期](collaboration/SUBMISSION_PLAN.md)。此前[B原因诊断](reports/diagnostics/20261103T122334_93a9a266/DIAGNOSIS.md)仅解释候选数值机制。
 
 ## 每次同步后先读
 
@@ -12,10 +28,12 @@
 | [交付要求](collaboration/HANDOFFS.md) | 文件路径、接收人和验收标准 |
 | [数据与产物同步](collaboration/DATA_SYNC.md) | 发布、下载、SHA256校验 |
 | [变更记录](collaboration/CHANGELOG.md) | 协议、数据、接口和要求变更 |
+| [接收与验收索引](collaboration/ACCEPTANCE_INDEX.md) | 每项交付的实际接收范围与剩余签认 |
+| [任务与阶段安排](collaboration/ISSUES.md) | C/D后续任务与[投稿排期](collaboration/SUBMISSION_PLAN.md) |
 | [协作规则](CONTRIBUTING.md) | 分支、提交和动态更新要求 |
 | [版本索引](artifacts/registry.json) | Release标签、资产与发布状态 |
 
-成员交付时一起更新这些文件并合并main，其他人`git pull`后即可读取。状态依据真实文件与验收更新，不自动从聊天中推断。
+组员在工作区干净时执行 `git switch main` 和 `git pull --ff-only origin main`。后续工作仍在各自岗位分支进行，通过评审汇入 main。
 
 ## 开始使用
 

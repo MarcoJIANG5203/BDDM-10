@@ -3,9 +3,54 @@
 # Synthetic input bytes are hashed by historical experiment manifests.
 data/synthetic/** -text
 data/synthetic/** whitespace=cr-at-eol
+# Preserve the original bytes of copied candidate-run artifacts and manifests.
+reports/candidate-trials/20261103T122334_93a9a266/*.csv -text whitespace=cr-at-eol
+reports/candidate-trials/20261103T122334_93a9a266/*.json -text whitespace=cr-at-eol
+reports/candidate-trials/20261103T122334_93a9a266/*.yaml -text whitespace=cr-at-eol
+# Preserve A's imported signed evidence and byte copies from formal B runs.
+reviews/freeze/A_*.json -text whitespace=cr-at-eol
+reviews/A_formal*.json -text whitespace=cr-at-eol
+reviews/A_owner_confirmation_2026-11-04.json -text whitespace=cr-at-eol
+reports/clinical-v1/**/*.csv -text whitespace=cr-at-eol
+reports/clinical-v1/**/*.json -text whitespace=cr-at-eol
+reports/clinical-v1/**/*.yaml -text whitespace=cr-at-eol
 *.docx binary
 *.pdf binary
 *.jpg binary
 *.png binary
 *.zip binary
 *.joblib binary
+
+# A audit evidence is hashed before and after Git transport.
+reviews/A_001_* -text
+reviews/A_raw_psv_* -text
+reviews/A_current_B_* -text
+reviews/license/** -text
+scripts/verify_a001_delivery.py -text
+scripts/verify_a_raw_psv_receipt.py -text
+scripts/build_a_cohort_v1.py -text
+docs/A_001_source_provenance_correction_EN.md -text
+reviews/A_closeout_* -text
+reviews/C_supplied_* -text
+reviews/C_time_boundary_* -text
+reviews/A_owner_* -text
+reviews/A_delivery_* -text
+reviews/A_review_* -text
+reviews/A_* whitespace=cr-at-eol
+reviews/C_* whitespace=cr-at-eol
+scripts/verify_a001_delivery.py whitespace=cr-at-eol
+scripts/verify_a_raw_psv_receipt.py whitespace=cr-at-eol
+scripts/build_a_cohort_v1.py whitespace=cr-at-eol
+docs/A_001_source_provenance_correction_EN.md whitespace=cr-at-eol
+reviews/license/** whitespace=cr-at-eol
+reviews/A_raw_receipt_* -text
+tests/test_a_raw_psv_receipt.py -text
+reviews/A_remote_* -text
+reviews/freeze/** -text
+reviews/freeze/** whitespace=cr-at-eol
+reviews/A_formal_* -text
+# D's formal figure provenance hashes the original Git bytes of these receipts.
+reviews/acceptance/*.json -text
+# The published paper tables and provenance are verified byte-for-byte.
+paper/runs/**/*.csv -text whitespace=cr-at-eol
+paper/runs/**/*.json -text whitespace=cr-at-eol

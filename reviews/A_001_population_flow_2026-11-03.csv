@@ -1,0 +1,9 @@
+site,stage,n,any_observed_positive_label,observed_onset_in_12_24
+A,raw,20336,1790,334
+A,starts_at_1,12839,1216,241
+A,full_hours_1_to_24,10174,730,57
+A,included,10174,730,57
+B,raw,20000,1142,152
+B,starts_at_1,18704,1059,143
+B,full_hours_1_to_24,13921,638,38
+B,included,13921,638,38

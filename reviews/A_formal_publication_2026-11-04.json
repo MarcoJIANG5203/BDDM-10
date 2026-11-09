@@ -1,0 +1,28 @@
+{
+  "formal_release_id": 433994662,
+  "tag": "a-data-v1-20261104-r1",
+  "url": "https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/a-data-v1-20261104-r1",
+  "draft": false,
+  "prerelease": false,
+  "asset_id": 709705860,
+  "asset_api": "repos/MarcoJIANG5203/BDDM-10/releases/assets/709705860",
+  "bytes": 4666169,
+  "sha256": "feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c",
+  "actual_download_sha256_verified": true,
+  "remote_restored_scientific_hashes": 31,
+  "A_data_content_frozen": true,
+  "E_approval_evidence": "User states e已批准; direct E text/name/date not supplied",
+  "official_license_clarified": false,
+  "C_acceptance": "conditional technical only",
+  "B_result_freeze": false,
+  "source_release": {
+    "id": 433871307,
+    "tag": "a-v1-source-archive-20261104-r1",
+    "url": "https://github.com/MarcoJIANG5203/BDDM-10/releases/tag/a-v1-source-archive-20261104-r1",
+    "draft": false,
+    "prerelease": true
+  },
+  "freeze_record_sha256": "9e5187a0d8d73a28b7a9d9d2db8acdeda1b5125988ae848d70c58cbb0b3453ba",
+  "B_data_inputs_ready": true,
+  "E_direct_signed_record_supplied": false
+}

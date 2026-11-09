@@ -1,0 +1,25 @@
+{
+  "bundle_id": "a-v1-review-data-20261104-r1",
+  "data_version": "a-clinical-protocol-v1-20261103-full-r1",
+  "delivery_revision": "a-v1-review-data-20261104-r1",
+  "parent_audit_sha256": "ea46bb5770faf0fa61f3049a42fa04dbb3a0e10e2def04375e70beab35eb102b",
+  "delivery_audit_sha256": "789938b95adc580a352ccd8f36f46962ad2eeeb851c2fb775e9aa23417db7cd2",
+  "source_full_archive_sha256": "a57d16dc5432b2e2518bc5f754b706c60de7b94d3fb496870687d4a564770cb1",
+  "scientific_files_verified": 31,
+  "cohort_labels_splits_unchanged": true,
+  "raw_receipt_sha256": "20677fbde3eba28dcaa89437b9ad2ebf20931477ac4940bdefe4e057190555e2",
+  "empty_directory_restore": "PASS",
+  "formal_freeze": false,
+  "status": "prepared_for_draft_release",
+  "metadata": {
+    "sha256": "3a84a2432d6d2332c68b7e49199da597df2b5c3d724ea208b490f2c609dd1527",
+    "bytes": 4663092,
+    "roots": [
+      "data/processed",
+      "splits",
+      "sources/physionet2019",
+      "private_receipt"
+    ],
+    "files": 50
+  }
+}

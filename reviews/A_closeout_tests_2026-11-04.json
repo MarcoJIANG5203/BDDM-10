@@ -1,0 +1,10 @@
+{
+  "command": "python -m pytest -q -p no:cacheprovider tests",
+  "working_directory": "repository root",
+  "exit_code": 0,
+  "passed": 56,
+  "log": "reviews/A_closeout_tests_2026-11-04.log",
+  "log_sha256": "39630edc40f9b39702541b40cbe316f30d969a5e7073a15633e7225333efc8c5",
+  "scope": "Original B32 tests + A extractor15 + rawreceipt9; no D scientific code merged",
+  "tooling_notes": "Earlier test collection included duplicate historical package trees; source cache moved to ignored .artifact-cache and command explicitly scoped to root tests. No scientific test failure was suppressed."
+}

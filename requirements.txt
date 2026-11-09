@@ -6,3 +6,4 @@ PyYAML
 joblib
 pytest
 pyarrow
+matplotlib

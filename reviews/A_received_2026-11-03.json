@@ -1,0 +1,234 @@
+{
+  "source_repository": "MarcoJIANG5203/BDDM-10",
+  "source_commit": "ec8fd750cc17038bb0a73c37e1537a1e7a4d780e",
+  "source_package": "T1_A_Day1_2026-11-03_v1_Rebuilt_Full",
+  "data_version": "a-clinical-protocol-v1-20261103-full-r1",
+  "protocol": "v1",
+  "verification_scope": "B receiving audit; no A-owned extractor/validator called",
+  "package_files_sha256_verified": 125,
+  "audit_files_sha256_verified": 31,
+  "source_contract_sha256": {
+    "T1_统一实验说明_v1.md": "14769c88162ea086b07d8bccb6db091ad54e6640934309b107bafe430a4d6390",
+    "T1_技术交接约定.md": "55b1136f582c98bb10dc785c80132dc034a5fd4eb630d7f5c572ebf46815b652",
+    "docs/A到B_数据交接说明.md": "607c4b573ffbdc3dd340d450b40a42a121e443ce4a8fef61b8268a189b3c1245",
+    "configs/protocol_v1.yaml": "90686937e41a99818540fb971f97209136e6169163322b8ecf3c885a43b0c8a6",
+    "src/data.py": "09f3863af2f735bdd2a8f546caf3674cc66c2e2dab1b59dde56637b29dbe7193"
+  },
+  "B_working_contract": {
+    "T1_统一实验说明_v1.md": {
+      "sha256": "bbaba0eb7effe02822e917f1cb687b21064fbf0dca64a69108f686cf11066ee7",
+      "exact_git_bytes": false,
+      "text_matches_git": true
+    },
+    "T1_技术交接约定.md": {
+      "sha256": "1ad728252d02c0331005f0cc01c452036398f6beb04e2d2ab51bfecfcd96b4b6",
+      "exact_git_bytes": false,
+      "text_matches_git": true
+    },
+    "docs/A到B_数据交接说明.md": {
+      "sha256": "607c4b573ffbdc3dd340d450b40a42a121e443ce4a8fef61b8268a189b3c1245",
+      "exact_git_bytes": true,
+      "text_matches_git": true
+    },
+    "configs/protocol_v1.yaml": {
+      "sha256": "46ae8a9284e31dfe849e67a4bcbd30cb2347b69fea0adc31c7a43c7b95115a0c",
+      "exact_git_bytes": false,
+      "text_matches_git": true
+    },
+    "src/data.py": {
+      "sha256": "09f3863af2f735bdd2a8f546caf3674cc66c2e2dab1b59dde56637b29dbe7193",
+      "exact_git_bytes": true,
+      "text_matches_git": true
+    }
+  },
+  "current_B_loader_invocations": 10,
+  "parquet_csv_equivalence": "PASS",
+  "all_raw_sha256_verified": 40336,
+  "all_raw_rule_checks": "PASS",
+  "all_included_labels_and_36_features": 24095,
+  "sequential_exclusion_counts": {
+    "included": 24095,
+    "missing_initial_hours": 8793,
+    "insufficient_followup": 7448
+  },
+  "overlapping_early_onset_diagnostics": {
+    "onset_at_or_before_12_any_eligibility": 283,
+    "first_observation_positive_any_eligibility": 426
+  },
+  "site_counts": {
+    "A": {
+      "raw": 20336,
+      "included": 10174,
+      "positive": 57
+    },
+    "B": {
+      "raw": 20000,
+      "included": 13921,
+      "positive": 38
+    }
+  },
+  "split_counts": {
+    "2026": {
+      "train": {
+        "n": 6104,
+        "positive": 34,
+        "negative": 6070
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6,
+        "negative": 1012
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9,
+        "negative": 1518
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8,
+        "negative": 1517
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38,
+        "negative": 13883
+      }
+    },
+    "2027": {
+      "train": {
+        "n": 6104,
+        "positive": 34,
+        "negative": 6070
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6,
+        "negative": 1012
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9,
+        "negative": 1518
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8,
+        "negative": 1517
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38,
+        "negative": 13883
+      }
+    },
+    "2028": {
+      "train": {
+        "n": 6104,
+        "positive": 34,
+        "negative": 6070
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6,
+        "negative": 1012
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9,
+        "negative": 1518
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8,
+        "negative": 1517
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38,
+        "negative": 13883
+      }
+    },
+    "2029": {
+      "train": {
+        "n": 6104,
+        "positive": 34,
+        "negative": 6070
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6,
+        "negative": 1012
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9,
+        "negative": 1518
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8,
+        "negative": 1517
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38,
+        "negative": 13883
+      }
+    },
+    "2030": {
+      "train": {
+        "n": 6104,
+        "positive": 34,
+        "negative": 6070
+      },
+      "selection": {
+        "n": 1018,
+        "positive": 6,
+        "negative": 1012
+      },
+      "calibration": {
+        "n": 1527,
+        "positive": 9,
+        "negative": 1518
+      },
+      "test": {
+        "n": 1525,
+        "positive": 8,
+        "negative": 1517
+      },
+      "external": {
+        "n": 13921,
+        "positive": 38,
+        "negative": 13883
+      }
+    }
+  },
+  "precision_gates": {
+    "site_positive_minimum": 200,
+    "internal_test_positive_minimum": 50,
+    "site_pass": {
+      "A": false,
+      "B": false
+    },
+    "internal_test_pass": {
+      "2026": false,
+      "2027": false,
+      "2028": false,
+      "2029": false,
+      "2030": false
+    }
+  },
+  "A_declared_human_review": {
+    "A_owner_review": "PENDING",
+    "C_independent_10_positive_10_negative": "PENDING",
+    "E_precision_decision": "PENDING",
+    "note": "Automated raw-level checks are not human attestation or recipient acceptance."
+  },
+  "B_interface_receipt": "ACCEPTED_FOR_INTEGRATION_ONLY",
+  "C_independent_review": "PENDING",
+  "E_freeze_decision": "PENDING",
+  "clinical_release": "NOT_PUBLISHED",
+  "clinical_experiments_run": false,
+  "formal_scientific_acceptance": false
+}

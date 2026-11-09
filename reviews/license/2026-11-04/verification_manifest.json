@@ -1,0 +1,27 @@
+{
+  "case_status": "PENDING_NO_CUSTODIAN_RESPONSE",
+  "request_delivery": "DRAFT_ONLY_NOT_SENT",
+  "license_conflict": "CC_BY_4_0_WEB_VS_ODBL_FILE",
+  "applicable_license": "UNRESOLVED_NOT_SELECTED",
+  "checks": {
+    "official_landing_page.html": true,
+    "official_LICENSE.txt": true,
+    "official_SHA256SUMS.txt": true,
+    "official_about_contact.html": true,
+    "official_view_license.html": true,
+    "LICENSE.txt_original_unchanged": true,
+    "official_SHA256SUMS.txt_original_unchanged": true,
+    "physionet_dataset_page.html_original_unchanged": true
+  },
+  "files": {
+    "capture_license_evidence.py": "8f940f02bc7b00337287770b0a7f8b9ad4c61e3760595d1c1c7c3e51d649a922",
+    "clarification_request_draft.md": "b9360da309bfa0015c80c59628e5da2a1abe5cc05e753132bddc51fbce5ca4f7",
+    "license_evidence_report.md": "16a22ac29f26ea2f19a20786f4c572443a3c614374ed7deb6cef4e272ad4f9b7",
+    "official_about_contact.html": "8a65f92d4620c1261ce11a6d72bbf2995dff88305a96e21232f553c196d51ee4",
+    "official_landing_page.html": "3f3ccb45c12024a7c6d1e01d3c440e4e675f72acfa5340e235708fda479c0ada",
+    "official_LICENSE.txt": "bcdfcd4f31c790e30fb645dc36414907172405897adff329ad379eed85d12017",
+    "official_SHA256SUMS.txt": "ba025b2702297c202592a01d4eb31532938a2f6b3aab3afe125e75a52bd281a5",
+    "official_view_license.html": "feb4fe94f09640846b69a387693a6f67c4d2d7ab92a867736860d21f6896e46d",
+    "source_receipts.json": "5164c6ddd27ae6d6ce8a1e09eba44cbf9ded4271e4f7f935393b322f0d52059a"
+  }
+}

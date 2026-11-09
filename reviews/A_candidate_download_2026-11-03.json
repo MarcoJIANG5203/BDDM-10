@@ -1,0 +1,15 @@
+{
+  "release_download_command": {
+    "status": "NETWORK_FETCH_FAILED",
+    "returncode": 1,
+    "error": "release not found\n"
+  },
+  "asset_api_fallback": {
+    "status": "DOWNLOADED_AND_SHA256_VERIFIED",
+    "method": "authenticated Release asset API",
+    "bytes": 21522751,
+    "sha256": "5d5879dd112d329a5b3079dbdc8d5588a7bdf82c4c1e596e4b15b98751fabd33"
+  },
+  "remote_metadata_and_local_restore_verified": true,
+  "scientific_acceptance": false
+}

@@ -1,0 +1,5 @@
+run_id,synthetic,comparison,target_acceptance,selection_mode,risk_difference,ci_low,ci_high,valid,invalid,capacity_recomputed
+20261102T063118_fa76f8a8,True,B4-B2,0.6,batch,0.0,0.0,0.0,1000,0,True
+20261102T063118_fa76f8a8,True,B4-B2,0.6,frozen,0.0,0.0,0.0,1000,0,False
+20261102T063118_fa76f8a8,True,B6-B5,0.6,batch,0.0,0.0,0.0,1000,0,True
+20261102T063118_fa76f8a8,True,B6-B5,0.6,frozen,0.0,0.0,0.0,1000,0,False

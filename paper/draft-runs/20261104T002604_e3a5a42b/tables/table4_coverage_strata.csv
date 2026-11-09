@@ -1,0 +1,13 @@
+run_id,synthetic,draft,draft_reason,predictor,stratum,n,covered,coverage
+20261104T002604_e3a5a42b,False,True,B candidate matrix 20261104T002604_e3a5a42b; pre-freeze; no C/E acceptance; D-002 draft only,MI,all,1525,1384,0.9075409836065572
+20261104T002604_e3a5a42b,False,True,B candidate matrix 20261104T002604_e3a5a42b; pre-freeze; no C/E acceptance; D-002 draft only,MI,y=0,1517,1384,0.9123269611074488
+20261104T002604_e3a5a42b,False,True,B candidate matrix 20261104T002604_e3a5a42b; pre-freeze; no C/E acceptance; D-002 draft only,MI,y=1,8,0,0.0
+20261104T002604_e3a5a42b,False,True,B candidate matrix 20261104T002604_e3a5a42b; pre-freeze; no C/E acceptance; D-002 draft only,MI,missing_0_1/3,614,546,0.8892508143322475
+20261104T002604_e3a5a42b,False,True,B candidate matrix 20261104T002604_e3a5a42b; pre-freeze; no C/E acceptance; D-002 draft only,MI,missing_1/3_2/3,676,619,0.915680473372781
+20261104T002604_e3a5a42b,False,True,B candidate matrix 20261104T002604_e3a5a42b; pre-freeze; no C/E acceptance; D-002 draft only,MI,missing_2/3_1,235,219,0.9319148936170212
+20261104T002604_e3a5a42b,False,True,B candidate matrix 20261104T002604_e3a5a42b; pre-freeze; no C/E acceptance; D-002 draft only,median,all,1525,1376,0.9022950819672132
+20261104T002604_e3a5a42b,False,True,B candidate matrix 20261104T002604_e3a5a42b; pre-freeze; no C/E acceptance; D-002 draft only,median,y=0,1517,1376,0.9070533948582729
+20261104T002604_e3a5a42b,False,True,B candidate matrix 20261104T002604_e3a5a42b; pre-freeze; no C/E acceptance; D-002 draft only,median,y=1,8,0,0.0
+20261104T002604_e3a5a42b,False,True,B candidate matrix 20261104T002604_e3a5a42b; pre-freeze; no C/E acceptance; D-002 draft only,median,missing_0_1/3,614,539,0.8778501628664495
+20261104T002604_e3a5a42b,False,True,B candidate matrix 20261104T002604_e3a5a42b; pre-freeze; no C/E acceptance; D-002 draft only,median,missing_1/3_2/3,676,615,0.9097633136094676
+20261104T002604_e3a5a42b,False,True,B candidate matrix 20261104T002604_e3a5a42b; pre-freeze; no C/E acceptance; D-002 draft only,median,missing_2/3_1,235,222,0.9446808510638298

@@ -1,0 +1,28 @@
+描述                                              y onset first+  结果
+--------------------------------------------------------------------------------------------
+首观测即阳性 t_first=1 -> onset=7（<=12，排除）            0     7   True  PASS
+t_first=5 -> onset=11（<=12，排除）                  0    11  False  PASS
+边界 t_first=6 -> onset=12（12<12 为假，排除）           0    12  False  PASS
+边界 t_first=7 -> onset=13（首个纳入阳性）                1    13  False  PASS
+t_first=8 -> onset=14（纳入）                       1    14  False  PASS
+t_first=17 -> onset=23（纳入）                      1    23  False  PASS
+边界 t_first=18 -> onset=24（24<=24 为真，末个纳入阳性）     1    24  False  PASS
+边界 t_first=19 -> onset=25（24<25，排除）             0    25  False  PASS
+t_first=20 -> onset=26（排除）                      0    26  False  PASS
+全程无阳性标签 -> onset=None（y=0）                      0  None  False  PASS
+
+半开区间 (12,24] 边界显式断言：
+  onset=12 (t_first= 6) -> y=0 期望 0  PASS
+  onset=13 (t_first= 7) -> y=1 期望 1  PASS
+  onset=24 (t_first=18) -> y=1 期望 1  PASS
+  onset=25 (t_first=19) -> y=0 期望 0  PASS
+
+cohort_audit.json 时间窗声明核验：
+  feature_window_end: 声明 12 期望 12  PASS
+  outcome_window: 声明 '(12,24]' 期望 '(12,24]'  PASS
+  label_shift_hours: 声明 6 期望 6  PASS
+  exclusion_counts.onset_at_or_before_12 = 0（协议：此类在入组前已被排除，最终队列应为 0）
+  exclusion_counts.first_observation_positive = 0（协议：此类在入组前已被排除，最终队列应为 0）
+
+============================================================
+时间边界合成案例：共 14 项断言，失败 0 项；审计声明 一致
