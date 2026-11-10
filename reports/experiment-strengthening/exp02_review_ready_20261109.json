@@ -1,0 +1,65 @@
+{
+  "scope": "B producer replay from an empty directory; independent C review pending",
+  "source_commit": "0d96a19ec68d8d86dc3f45569d5ffa221ef70741",
+  "archive_sha256": {
+    "a-data-v1-20261104-r1": "feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c",
+    "b-exp02-v1-first-stage-20261108-r1": "1daffbf722fc72bca620f94f843d38c8e108222e8d743774ac9e3b87a6d8a689"
+  },
+  "frozen_inputs_checked": 8,
+  "seed_2026_roles": {
+    "train": {
+      "patients": 6104,
+      "positives": 34
+    },
+    "selection": {
+      "patients": 1018,
+      "positives": 6
+    },
+    "calibration": {
+      "patients": 1527,
+      "positives": 9
+    },
+    "test": {
+      "patients": 1525,
+      "positives": 8
+    },
+    "external": {
+      "patients": 13921,
+      "positives": 38
+    }
+  },
+  "runs": {
+    "20261109T031529_545a3423": {
+      "model": "LR",
+      "manifest_sha256": "a50402434c929d89608a7833bbab13edf5810f340f3581ef6ea3d9c4c3d6a401",
+      "artifact_hashes": 18,
+      "source_hashes": 19,
+      "v1_metric_rows": 120,
+      "paired_interval_rows": 12,
+      "diagnostic_files_byte_identical": [
+        "model_diagnostics.csv",
+        "calibration_bins.csv",
+        "probability_by_class.csv",
+        "diagnostic_provenance.json"
+      ],
+      "diagnostic_metric_rows": 24,
+      "evaluation_contexts_matched_frozen_ids_site_labels": 6
+    },
+    "20261109T031529_e842da06": {
+      "model": "RF",
+      "manifest_sha256": "02b1cdd9033b5820ea0a17e25e49c3ff7fbf8cd3f0358e1489e2ee6c3cfdc0ce",
+      "artifact_hashes": 17,
+      "source_hashes": 19,
+      "v1_metric_rows": 20,
+      "paired_interval_rows": 6,
+      "diagnostic_files_byte_identical": [
+        "model_diagnostics.csv",
+        "calibration_bins.csv",
+        "probability_by_class.csv",
+        "diagnostic_provenance.json"
+      ],
+      "diagnostic_metric_rows": 4,
+      "evaluation_contexts_matched_frozen_ids_site_labels": 1
+    }
+  }
+}

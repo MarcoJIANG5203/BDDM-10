@@ -1,0 +1,46 @@
+{
+  "producer_check": {
+    "LR": {
+      "run_id": "20261109T031529_545a3423",
+      "model_metric_rows": 24,
+      "calibration_bins": 42,
+      "v1_metric_rows": 120,
+      "paired_interval_rows": 12,
+      "historical_lr_probability_max_abs_difference": 0.0,
+      "patient_context_rows": 21546,
+      "unique_evaluation_patients": 15446
+    },
+    "RF": {
+      "run_id": "20261109T031529_e842da06",
+      "model_metric_rows": 4,
+      "calibration_bins": 7,
+      "v1_metric_rows": 20,
+      "paired_interval_rows": 6,
+      "historical_rf_classifier_parameters_match": true,
+      "rf_classifier_parameters": {
+        "bootstrap": true,
+        "ccp_alpha": 0.0,
+        "class_weight": null,
+        "criterion": "gini",
+        "max_depth": null,
+        "max_features": "sqrt",
+        "max_leaf_nodes": null,
+        "max_samples": null,
+        "min_impurity_decrease": 0.0,
+        "min_samples_leaf": 10,
+        "min_samples_split": 2,
+        "min_weight_fraction_leaf": 0.0,
+        "monotonic_cst": null,
+        "n_estimators": 300,
+        "n_jobs": -1,
+        "oob_score": false,
+        "random_state": 2026,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "patient_context_rows": 13921,
+      "unique_evaluation_patients": 13921
+    }
+  },
+  "independent_c_acceptance": false
+}

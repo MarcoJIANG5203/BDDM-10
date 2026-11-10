@@ -1,0 +1,152 @@
+{
+  "run": "results/experiment-strengthening/20261109T031529_545a3423",
+  "independent_bootstrap": "PASS",
+  "interval_rows_checked": 12,
+  "checks": [
+    {
+      "scenario": "S0",
+      "comparison": "B4-B2",
+      "capacity": 0.4,
+      "mode": "batch",
+      "n": 1525,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "scenario": "S0",
+      "comparison": "B4-B2",
+      "capacity": 0.4,
+      "mode": "frozen",
+      "n": 1525,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": 1.8418144503499524e-05,
+      "ci_low": -9.284340013199921e-05,
+      "ci_high": 0.00018704126797836865
+    },
+    {
+      "scenario": "S0",
+      "comparison": "B4-B2",
+      "capacity": 0.6,
+      "mode": "batch",
+      "n": 1525,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": 0.001092896174863388,
+      "ci_low": 0.0,
+      "ci_high": 0.003278688524590164
+    },
+    {
+      "scenario": "S0",
+      "comparison": "B4-B2",
+      "capacity": 0.6,
+      "mode": "frozen",
+      "n": 1525,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": 0.0010670331319650294,
+      "ci_low": -6.787771037083995e-05,
+      "ci_high": 0.003260869565217391
+    },
+    {
+      "scenario": "S0",
+      "comparison": "B4-B2",
+      "capacity": 0.8,
+      "mode": "batch",
+      "n": 1525,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": -0.0008196721311475412,
+      "ci_low": -0.002459016393442623,
+      "ci_high": 0.0
+    },
+    {
+      "scenario": "S0",
+      "comparison": "B4-B2",
+      "capacity": 0.8,
+      "mode": "frozen",
+      "n": 1525,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": -0.0008466964988704119,
+      "ci_low": -0.002543735698011294,
+      "ci_high": 0.0
+    },
+    {
+      "scenario": "S4",
+      "comparison": "B4-B2",
+      "capacity": 0.4,
+      "mode": "batch",
+      "n": 13921,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": 0.0005387931034482756,
+      "ci_low": -0.00035919540229885057,
+      "ci_high": 0.0014367816091954018
+    },
+    {
+      "scenario": "S4",
+      "comparison": "B4-B2",
+      "capacity": 0.4,
+      "mode": "frozen",
+      "n": 13921,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": 2.5001844842212437e-05,
+      "ci_low": -0.0004334641900884404,
+      "ci_high": 0.00046589528905732335
+    },
+    {
+      "scenario": "S4",
+      "comparison": "B4-B2",
+      "capacity": 0.6,
+      "mode": "batch",
+      "n": 13921,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": -0.00035919540229885057,
+      "ci_low": -0.0010775862068965517,
+      "ci_high": 0.00035919540229885057
+    },
+    {
+      "scenario": "S4",
+      "comparison": "B4-B2",
+      "capacity": 0.6,
+      "mode": "frozen",
+      "n": 13921,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": 0.00017496707452466492,
+      "ci_low": -0.00017121758021573793,
+      "ci_high": 0.0005194702785816792
+    },
+    {
+      "scenario": "S4",
+      "comparison": "B4-B2",
+      "capacity": 0.8,
+      "mode": "batch",
+      "n": 13921,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": 8.979885057471297e-05,
+      "ci_low": -0.00035919540229885057,
+      "ci_high": 0.00044899425287356354
+    },
+    {
+      "scenario": "S4",
+      "comparison": "B4-B2",
+      "capacity": 0.8,
+      "mode": "frozen",
+      "n": 13921,
+      "valid": 1000,
+      "invalid": 0,
+      "risk_difference": -8.461261526227816e-05,
+      "ci_low": -0.00024185384278557618,
+      "ci_high": -3.1055232934547206e-06
+    }
+  ],
+  "scientific_acceptance": false
+}

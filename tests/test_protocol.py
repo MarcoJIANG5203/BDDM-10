@@ -225,3 +225,14 @@ def test_all_physiology_missing_train_keeps_demographics_and_original_indicators
         assert np.array_equal(z[:,1,:2],np.tile([30.,1.],(3,1)))
         assert np.all(z[:,1,2:]==1)
         assert all(d['dropped'] and d['missing_fills']==0 and d['clip_fraction'] is None for d in diag.values())
+
+
+def test_fixed_rf_can_run_external_as_the_primary_model(tmp_path):
+    from src.experiment import create_demo, run
+
+    cfg = create_demo(tmp_path / 'data', n_a=100, n_b=20)
+    cfg.update(primary_model='RF', scenarios=['S4'], bootstrap=2,
+               output_root=str(tmp_path / 'results'))
+    metrics = pd.read_csv(run(cfg) / 'metrics.csv')
+    assert set(metrics.model) == {'RF'}
+    assert set(metrics.scenario) == {'S4'}

@@ -1,0 +1,24 @@
+{
+  "run": "results/experiment-strengthening/20261109T031529_e842da06",
+  "synthetic": false,
+  "run_status": "completed",
+  "patient_method_rows": 278420,
+  "imputation_probability_rows": 153131,
+  "independently_checked_metric_rows": 20,
+  "artifact_hashes_checked": 17,
+  "source_hashes_checked": 19,
+  "split_hashes_checked": 1,
+  "checks": [
+    "all artifact hashes",
+    "current source/config/data/split hashes",
+    "unique output keys",
+    "hospital identity",
+    "singleton eligibility",
+    "independent counts and proportions",
+    "same batch K",
+    "shared MI predictions and sets",
+    "p_m mean and ddof=1 std and class flips",
+    "B0 M=1",
+    "q frozen across batches"
+  ]
+}

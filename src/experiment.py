@@ -95,6 +95,11 @@ def record_seeds(root,context,rows):
 
 def run(config,rf=False,m_sensitivity=False,alpha_sensitivity=False):
     cfg=dict(config)
+    primary_model=cfg.get('primary_model','LR')
+    if primary_model not in ('LR','RF'):
+        raise ValueError("primary_model must be LR or RF")
+    if primary_model=='RF' and (rf or m_sensitivity or alpha_sensitivity):
+        raise ValueError("primary_model RF cannot be combined with supplemental flags")
     run_id=datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S')+'_'+uuid.uuid4().hex[:8]
     root=Path(cfg['output_root'])/run_id;root.mkdir(parents=True,exist_ok=False)
     (root/'models').mkdir();(root/'masks').mkdir()
@@ -118,7 +123,7 @@ def run(config,rf=False,m_sensitivity=False,alpha_sensitivity=False):
             xs=roles['selection'][FEATURES];ys=roles['selection'].y_true.to_numpy()
             xc=roles['calibration'][FEATURES];yc=roles['calibration'].y_true.to_numpy()
             imputer=PosteriorImputer(cfg['rounds'],split_seed).fit(xt)
-            tasks=[('LR',cfg['M'],cfg['scenarios'])]
+            tasks=[(primary_model,cfg['M'],cfg['scenarios'])]
             if rf:tasks.append(('RF',10,['S0','S2']))
             if m_sensitivity and split_seed==2026:tasks.extend([('LR',m,['S0']) for m in [5,20]])
             for model_name,M,scenarios in tasks:
