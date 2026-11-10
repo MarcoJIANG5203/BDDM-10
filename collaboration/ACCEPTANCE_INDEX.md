@@ -1,5 +1,16 @@
 # 阶段接收与验收索引
 
+## 实验补强首批接收 · 2026-11-09（洛杉矶时间）
+
+| 交付 | 当前状态 | 后续独立核验与决定 |
+|---|---|---|
+| EXP-01 [A PR #11](https://github.com/MarcoJIANG5203/BDDM-10/pull/11) | 已提交；E 核对公开聚合表和正式包身份 | C 复算队列、标签边界与精度；G1 暂缓放行 |
+| EXP-02 [B PR #10](https://github.com/MarcoJIANG5203/BDDM-10/pull/10) | 首批已提交，B 生产者重放通过 | C 核验两份新运行，G2 待评估 |
+| EXP-01 精度预算 [C PR #7](https://github.com/MarcoJIANG5203/BDDM-10/pull/7) | E 接收为规划输入 | C 补充配对精度及病例复算范围；组内登记实际差异阈值 |
+| D-002 的 S4 来源修正 [D PR #8](https://github.com/MarcoJIANG5203/BDDM-10/pull/8) | C/E 限于 S-005/S-013 来源修正接收 | 正式稿和提交版 PDF 待 G3 与终稿复核 |
+
+[E 阶段决定与固定证据](../handoffs/E/2026-11-09_EXP-01_EXP-02_gate_review.md)
+
 ## 本轮实际接收表 · 2026-11-06
 
 | 交付 | 当前接收 | 剩余边界/交付 |

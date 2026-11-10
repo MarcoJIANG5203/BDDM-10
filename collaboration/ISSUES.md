@@ -1,16 +1,16 @@
 # 当前任务与问题
 
-## 新实验任务 · 2026-11-08
+## 当前实验任务 · 2026-11-09（洛杉矶时间）
 
 | ID | 状态 | 责任人 | 交付与依赖 |
 |---|---|---|---|
-| EXP-01 | 待开展 | A / C 核验 / E 汇总 | 队列与事件流失、精度预算；形成 G1 决定 |
-| EXP-02 | 待开展 | B / C 核验 | 立即诊断现有模型并补固定 RF 外院；G1 后完整比较，形成 G2 决定 |
+| EXP-01 | A 已提交；C 已交核验方案，实质复算待完成；G1 暂缓放行 | A / C 核验 / E 汇总 | 核对队列和阳性流失，明确可估计终点及配对精度预算。[A PR #11](https://github.com/MarcoJIANG5203/BDDM-10/pull/11) · [C PR #7](https://github.com/MarcoJIANG5203/BDDM-10/pull/7) |
+| EXP-02 | B 已提交首批 LR 与固定 RF 外院运行，待 C 独立核验 | B / C 核验 | 首批运行复核与角色隔离；G1 放行后做完整比较，形成 G2 决定。[B PR #10](https://github.com/MarcoJIANG5203/BDDM-10/pull/10) |
 | EXP-03 | 待 G1/G2 | B / D 整理 / C 核验 | 三类筛选、四种评分、共享池/K、公平比较 |
 | EXP-04 | 待 EXP-03 | B / C 统计 / E 汇总 | 条件增量、配对区间、精度和 G3 结论 |
 | EXP-05 | 待开展 | D / C / E | 实验表、来源与复现汇总；G3 后进入写作 |
 
-具体规则见[实验补强计划](EXPERIMENT_PLAN_2026-11-08.md)。既有 E-04 稿件工作转为等待 G3。
+具体规则见[实验补强计划](EXPERIMENT_PLAN_2026-11-08.md)和[E 阶段决定](../handoffs/E/2026-11-09_EXP-01_EXP-02_gate_review.md)。C/E 已接收 D 的 S4 来源修正，E-04 终稿继续等待 G3。[D PR #8](https://github.com/MarcoJIANG5203/BDDM-10/pull/8)
 
 ## 既有交付跟踪
 

@@ -1,5 +1,9 @@
 # 团队当前状态
 
+## 当前工作 · 2026-11-09（洛杉矶时间）
+
+A 已交 EXP-01 队列审计，B 已交 EXP-02 首批两份运行并通过生产者重放，均待 C 独立复核。C 已提交精度预算和核验清单；E 登记为规划输入，并接收 D 的 S4 来源修正。G1 暂缓放行，G2 待评估，G3 等待 EXP-03/04。[E 阶段决定](../handoffs/E/2026-11-09_EXP-01_EXP-02_gate_review.md) · [当前任务](ISSUES.md)
+
 ## 当前工作 · 2026-11-08
 
 用户确定先完成实验与结论验证。按[实验补强计划](EXPERIMENT_PLAN_2026-11-08.md)立即启动 EXP-01/02，后续由 G1/G2/G3 检查决定推进范围。本轮计划已交付，各新增实验待开展。[本轮交接](../handoffs/E/2026-11-08_experiment_strengthening_plan.md)记录授权及工作范围。下文既有运行接受记录用于解释历史交付。
@@ -23,7 +27,7 @@ B/E本轮已接收C-006，按两份固定正式run的算术/协议保真记录`a
 | B 核心方法与实验 | B-002生产交付及C-006接收完成；正式两run已获算术/协议保真限定接受 | [B接收](../handoffs/B/2026-11-06_B_C006_receipt.md)、[E核验](../reviews/E/2026-11-06_C006_receipt_checks.json)；1,140指标/78区间零失败 | EXP-02 LR 诊断与固定 RF 外院补充；G1/G2 后推进 EXP-03/04 |
 | C 文献与独立核验 | C-006正式两run独立复核已提交，B/E在实际算术/协议范围接收；原始PSV个人全量重跑未完成 | C `b6d7c32`；[C原交接](../handoffs/C/2026-11-05_正式run独立复核.md)、[B接收](../handoffs/B/2026-11-06_B_C006_receipt.md) | 独立核 EXP-01 队列、EXP-02 模型及 EXP-04 统计精度，登记接收范围 |
 | D 图表与论文 | 主运行正式 Fig 1–6、主表、补充表 S1–S3、数字来源索引和完整英文初稿已交付 | [英文稿](../paper/manuscript_draft.md)、[主图表](../paper/runs/20261105T055420_02d05b15/)、[补充表](../paper/runs/20261105T055445_54dd08de/tables/)、[数字来源](../paper/source_index.md) | EXP-05 整理实验表、数据来源和复现交付；G3 后安排正文与排版 |
-| E 统筹与整合 | [main 整合交接](../handoffs/E/2026-11-06_main_integration.md)已汇总 A–E 可共享材料；本轮C-006接收、限定数值结果冻结及签认记录完成；材料交组内复核；最终稿/投稿未完成 | [E本轮](../handoffs/E/2026-11-06_E-001_C006_result_scope.md)、[接受记录](../reviews/acceptance/20261105T055420_02d05b15.json)、[补充](../reviews/acceptance/20261105T055445_54dd08de.json)、[Workshop 3 模拟审稿意见](../handoffs/E/2026-11-06_workshop3_reviewer_assessment.md)、[两周建议与聚合预查](../handoffs/E/2026-11-06_workshop3_two_week_plan.md) | 新实验计划已交付；汇总 EXP-01/02、记录 G1/G2/G3 决定与后续安排 |
+| E 统筹与整合 | 已登记 EXP-01/02 交付范围、C 的规划输入和 D 的 S4 来源修正接收；G1 暂缓放行，G2/G3 待评估 | [E 阶段决定](../handoffs/E/2026-11-09_EXP-01_EXP-02_gate_review.md) · [既有 C-006 接收](../handoffs/E/2026-11-06_E-001_C006_result_scope.md) · [main 整合交接](../handoffs/E/2026-11-06_main_integration.md) | 收齐 C 独立复核和配对精度预算后复议 G1；按排期评估投稿可行性 |
 
 ## 历史同步记录（保留原时点口径）
 
