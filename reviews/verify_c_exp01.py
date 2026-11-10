@@ -134,13 +134,21 @@ def main():
           sha256_bytes(fm_bytes))
 
     source_root = "T1_A_Day1_2026-11-03_v1_Rebuilt_Full"
+    # The raw .psv files are not stored directly under <root>/raw/; the source
+    # package nests them inside two immutable archives (PhysioNet setA/setB).
+    NESTED_ZIPS = {
+        "training_setA.zip": "dd488baf1d85e0eebf627be56a8e09c7d79664a8660eb9760b1882ecd5279a71",
+        "training_setB.zip": "4ea0379fde2596b838904aef0f0942899670ab78c48d13f916eb61f7bb01d739",
+    }
     mine = []
     with ZipFile(io.BytesIO(src_bytes)) as src:
-        names = [n for n in src.namelist()
-                 if n.startswith(source_root + "/raw/") and n.endswith(".psv")]
-        for name in names:
-            filename = name.rsplit("/", 1)[-1]
-            mine.append(parse_one(src.read(name), filename))
+        for nested, expected in NESTED_ZIPS.items():
+            nested_bytes = src.read(f"{source_root}/raw/{nested}")
+            check(f"nested_zip_sha256_{nested}", sha256_bytes(nested_bytes) == expected,
+                  sha256_bytes(nested_bytes))
+            with ZipFile(io.BytesIO(nested_bytes)) as inner:
+                for name in [n for n in inner.namelist() if n.endswith(".psv")]:
+                    mine.append(parse_one(inner.read(name), name.rsplit("/", 1)[-1]))
     mine = pd.DataFrame(mine)
     check("raw_record_count", len(mine) == EXPECTED["raw_records"], f"{len(mine)}")
 
