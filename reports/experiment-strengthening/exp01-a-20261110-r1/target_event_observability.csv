@@ -1,0 +1,7 @@
+site,reason,target_transition_proxy,hour12_present,observed_through_hour18,observed_through_hour24,onset_within_released_hours,onset_beyond_released_hours,first_observation_positive_all_labels
+A,included,57,57,57,57,57,0,0
+A,insufficient_followup,184,184,118,0,184,0,153
+A,missing_initial_hours,93,93,68,21,93,0,50
+B,included,38,38,38,38,38,0,0
+B,insufficient_followup,105,105,82,0,104,1,217
+B,missing_initial_hours,9,9,7,2,9,0,6

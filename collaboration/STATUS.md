@@ -19,7 +19,7 @@ B/E本轮已接收C-006，按两份固定正式run的算术/协议保真记录`a
 
 | 岗位 | 当前状态 | 证据 | 下一项交付 / 接收人 |
 |---|---|---|---|
-| A 数据与基础实验 | A正式内容冻结不变；11月5日技术收尾补件在身份/恢复说明范围接收；许可保留 | A `68ce9d1`；[A交接](https://github.com/MarcoJIANG5203/BDDM-10/blob/68ce9d110e105dadc01e0abba5b7f2d4cdf7fec0/handoffs/A/2026-11-05_A_daily_closeout_EN.md)、[E本轮](../handoffs/E/2026-11-06_E-001_C006_result_scope.md) | EXP-01 纳排/阳性流失与精度预算；交 C 核验、E 汇总 |
+| A 数据与基础实验 | 2026-11-10 EXP-01 已完成 A 端全量重放、纳排流失、边界和精度预算，待接收复核 | [EXP-01 交接](../handoffs/A/2026-11-10_EXP-01.md) · [审计报告](../reports/experiment-strengthening/exp01-a-20261110-r1/REPORT.md) | C 独立复核病例和精度预算，E 记录 G1 可支持的研究范围 |
 | B 核心方法与实验 | B-002生产交付及C-006接收完成；正式两run已获算术/协议保真限定接受 | [B接收](../handoffs/B/2026-11-06_B_C006_receipt.md)、[E核验](../reviews/E/2026-11-06_C006_receipt_checks.json)；1,140指标/78区间零失败 | EXP-02 LR 诊断与固定 RF 外院补充；G1/G2 后推进 EXP-03/04 |
 | C 文献与独立核验 | C-006正式两run独立复核已提交，B/E在实际算术/协议范围接收；原始PSV个人全量重跑未完成 | C `b6d7c32`；[C原交接](../handoffs/C/2026-11-05_正式run独立复核.md)、[B接收](../handoffs/B/2026-11-06_B_C006_receipt.md) | 独立核 EXP-01 队列、EXP-02 模型及 EXP-04 统计精度，登记接收范围 |
 | D 图表与论文 | 主运行正式 Fig 1–6、主表、补充表 S1–S3、数字来源索引和完整英文初稿已交付 | [英文稿](../paper/manuscript_draft.md)、[主图表](../paper/runs/20261105T055420_02d05b15/)、[补充表](../paper/runs/20261105T055445_54dd08de/tables/)、[数字来源](../paper/source_index.md) | EXP-05 整理实验表、数据来源和复现交付；G3 后安排正文与排版 |
