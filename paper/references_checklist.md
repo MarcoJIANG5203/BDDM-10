@@ -1,26 +1,26 @@
 # 引用核实清单（C-002 → D-002）
 
-## 2026-11-10 改稿 E-1 新增 R9–R21（待 C 确认）
+## 2026-11-10 改稿 E-1 新增 R9–R21（已由 C 2026-11-11 逐条核实）
 
-按 [E 审阅清单](../handoffs/E/2026-11-10_manuscript_consistency_and_submission_verdict.md)第 4 项补充，由本聊天（Claude）加入，均为领域经典文献，只用于背景和方法定位，不支持本文任何结果主张。引用库现为 21 条，稿内 `\cite` 键与 `references.bib` 一一对应（无多无少）。
+按 [E 审阅清单](../handoffs/E/2026-11-10_manuscript_consistency_and_submission_verdict.md)第 4 项补充，由本聊天（Claude）加入，均为领域经典文献，只用于背景和方法定位，不支持本文任何结果主张。引用库现为 21 条，稿内 `\cite` 键与 `references.bib` 一一对应（无多无少）。C 本人 2026-11-11 已逐条经 Crossref / arXiv 核对 DOI、卷期页与标题，全部属实，签认见 [C 本人签认](../handoffs/C/2026-11-11_本人签认_内容审阅包与引用核验.md)。
 
 | 编号 / key | 文献 | 核实状态 | 稿中用途 |
 |---|---|---|---|
-| R9 `rubin1987multiple` | Rubin 1987，Wiley | 记忆中元数据，DOI 待核 | 多重插补背景 |
-| R10 `vanbuuren2011mice` | van Buuren & Groothuis-Oudshoorn 2011，JSS 45(3) | 记忆中元数据，待核 | 链式方程插补 |
-| R11 `little2019statistical` | Little & Rubin 第 3 版，Wiley 2019 | 书目经检索确认；DOI 未确认，已不写 DOI | 缺失数据背景 |
-| R12 `chow1970optimum` | Chow 1970，IEEE TIT 16(1) | 记忆中元数据，待核 | 拒识权衡起源 |
-| R13 `geifman2017selective` | Geifman & El-Yaniv，NeurIPS 2017 | 记忆中元数据，待核 | 选择性分类 |
-| R14 `mozannar2020consistent` | Mozannar & Sontag，ICML 2020 | 记忆中元数据，待核 | 学习延迟 |
-| R15 `vovk2005algorithmic` | Vovk、Gammerman、Shafer 2005，Springer | **检索确认** DOI 10.1007/b106715 | 共形预测、Mondrian |
-| R16 `sadinle2019least` | Sadinle、Lei、Wasserman，JASA 2019 | 记忆中元数据，待核 | 类条件覆盖 |
-| R17 `romano2020classification` | Romano、Sesia、Candès，NeurIPS 2020 | 记忆中元数据，待核 | 自适应集合 |
-| R18 `tibshirani2019covariate` | Tibshirani 等，NeurIPS 2019 | 记忆中元数据，待核 | 协变量偏移 |
-| R19 `barber2023beyond` | Barber 等，Ann. Stat. 51(2):816–845 | **检索确认** DOI 10.1214/23-AOS2276 | 非可交换 |
-| R20 `goldberger2000physiobank` | Goldberger 等，Circulation 2000 | 记忆中元数据，待核 | PhysioNet 平台署名（许可要求） |
-| R21 `singer2016sepsis3` | Singer 等，JAMA 2016 | 记忆中元数据，待核 | Sepsis-3 定义 |
+| R9 `rubin1987multiple` | Rubin 1987，Wiley | ✅ 已核（C 11-11）DOI 10.1002/9780470316696 | 多重插补背景 |
+| R10 `vanbuuren2011mice` | van Buuren & Groothuis-Oudshoorn 2011，JSS 45(3) | ✅ 已核（C 11-11）DOI 10.18637/jss.v045.i03 | 链式方程插补 |
+| R11 `little2019statistical` | Little & Rubin 第 3 版，Wiley 2019 | ✅ 已核（C 11-11）DOI 10.1002/9781119482260（已补入 bib） | 缺失数据背景 |
+| R12 `chow1970optimum` | Chow 1970，IEEE TIT 16(1):41–46 | ✅ 已核（C 11-11）DOI 10.1109/TIT.1970.1054406 | 拒识权衡起源 |
+| R13 `geifman2017selective` | Geifman & El-Yaniv，NeurIPS 2017 | ✅ 已核（C 11-11）arXiv:1705.08500 | 选择性分类 |
+| R14 `mozannar2020consistent` | Mozannar & Sontag，ICML 2020（PMLR 119） | ✅ 已核（C 11-11）arXiv:2006.01862 | 学习延迟 |
+| R15 `vovk2005algorithmic` | Vovk、Gammerman、Shafer 2005，Springer | ✅ 已核（C 11-11）DOI 10.1007/b106715 | 共形预测、Mondrian |
+| R16 `sadinle2019least` | Sadinle、Lei、Wasserman，JASA 114(525):223–234 | ✅ 已核（C 11-11）DOI 10.1080/01621459.2017.1395341（在线首发 2018，卷期 2019） | 类条件覆盖 |
+| R17 `romano2020classification` | Romano、Sesia、Candès，NeurIPS 2020 | ✅ 已核（C 11-11）arXiv:2006.02544 | 自适应集合 |
+| R18 `tibshirani2019covariate` | Tibshirani、Barber、Candès、Ramdas，NeurIPS 2019 | ✅ 已核（C 11-11）arXiv:1904.06019 | 协变量偏移 |
+| R19 `barber2023beyond` | Barber 等，Ann. Stat. 51(2):816–845 | ✅ 已核（C 11-11）DOI 10.1214/23-AOS2276 | 非可交换 |
+| R20 `goldberger2000physiobank` | Goldberger 等，Circulation 101(23):e215–e220 | ✅ 已核（C 11-11）DOI 10.1161/01.CIR.101.23.e215 | PhysioNet 平台署名（许可要求） |
+| R21 `singer2016sepsis3` | Singer 等，JAMA 315(8):801–810 | ✅ 已核（C 11-11）DOI 10.1001/jama.2016.0287 | Sepsis-3 定义 |
 
-C 需逐条核对 DOI/卷期页后把"待核"改为已核。若某条无法核实，删除该引用及稿中对应 `\cite`。
+C 已 2026-11-11 逐条核对 DOI/卷期页并签认；无条目被删除，无 `\cite` 需要撤回。
 
 ## 2026-11-10 写作前补齐
 
