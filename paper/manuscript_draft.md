@@ -1,8 +1,6 @@
-# Manuscript draft — ACCEPTED_WITH_LIMITS, not final submission
+# Imputation Disagreement for Selective Prediction with Missing Clinical Data: A Two-Hospital Reliability Evaluation
 
-**Status:** Prepared 2026-11-06 from run `20261105T055420_02d05b15` under the C/E `accepted_with_limits` record. The record allows figures/tables and **bounded descriptive writing**, but explicitly **does not** accept a final manuscript, PDF, or submission. Do not submit this file without C/E final consistency review, official template/page-limit checks, and A’s license decision.
-
-**Working title:** Imputation Disagreement for Selective Prediction under Missing Clinical Data: A Conformal Rejection Study
+**Review draft (2026-11-10, revision E-1).** Revised from D's version (`manuscript_draft_D_2026-11-10.md`) following the [E review list](../handoffs/E/2026-11-10_manuscript_consistency_and_submission_verdict.md); no result numbers changed. C sign-off, author statements and template typesetting are pending. Internal source IDs refer to the [number-to-source index](source_index.md) and are removed at typesetting.
 
 **Authors:** [to be confirmed by the group]
 
@@ -10,32 +8,33 @@
 
 ## Abstract
 
-**Background.** Clinical prediction models routinely face incomplete measurements. Multiple imputation (MI) replaces missing values with several plausible completions, so one patient can receive different predictions across draws. Whether this imputation-induced disagreement identifies erroneous predictions beyond confidence or missingness is unclear.
+**Background.** Multiple imputation produces a set of predictions for each patient with incomplete measurements. We evaluated whether disagreement across those predictions helps prioritize cases for automatic classification.
 
-**Methods.** We used the PhysioNet/Computing in Cardiology Challenge 2019 data \cite{reyna2020early}, with a 12-hour feature window and an outcome in the subsequent 12 hours after restoring the challenge’s 6-hour label lead. Hospital A provided training, rule-selection, calibration and internal-test partitions; hospital B was held out for external testing. A stochastic chained-equation imputer generated ten completed versions per patient, and a shared logistic-regression classifier was trained across the completed records. Split conformal prediction \cite{angelopoulos2023conformal,zaffran2023conformal} defined singleton candidate sets; only singleton sets entered the automatic pool. At a prespecified capacity, we compared confidence, missingness, imputation disagreement, and two error-risk rankings. The primary contrast was B4−B2 at a 0.60 target; the conditional-increment contrast was B6−B5.
+**Methods.** Using a retrospective two-hospital cohort from PhysioNet 2019, we predicted dataset-defined sepsis after ICU hour 12 through hour 24. We compared confidence and imputation disagreement using the same logistic-regression predictions and conformal singleton candidate pool. The primary outcome was the difference in error rate among accepted cases at a 60% target capacity. We also evaluated the acceptance thresholds selected in the source hospital on the held-out hospital.
 
-**Results.** The cohort contained 24,095 patients (A 10,174; B 13,921), with 57 and 38 positive outcomes, respectively; the internal test contained 1,525 patients and 8 positives. At the 0.60 target, primary seed 2026, S0, B2 accepted 915 patients with 1 error and B4 accepted 915 with 2 errors; the B4−B2 risk difference was +0.00109290 (95% interval 0.00000000 to 0.00327869). In the external hospital, B2 accepted 8,352 with 24 errors and B4 accepted 8,352 with 21; the difference was −0.00035920 (−0.00107759 to 0.00035920). The direction was not stable across seeds and scenarios. B5/B6 were unavailable because the rule-selection partition had 6 errors and 1,012 correct cases. MI positive-class coverage was 0/8 internally. A disagreement diagnostic among 1,388 singleton predictions contained only 4 errors.
+**Results.** Among 24,095 included patients, 95 met the endpoint. At equal batch capacity, the selective-risk difference (disagreement minus confidence) was +0.109 percentage points internally (95% paired bootstrap interval [0.000, +0.328]) and −0.036 externally ([−0.108, +0.036]). External overall set coverage was 97.24%, while positive-class coverage was 0/38. Switching to disagreement deferred six external positives that confidence accepted as negative and converted three previously deferred positives to accepted negatives. With frozen thresholds, external acceptance reached 89.05% for confidence and 86.09% for disagreement, with 33/38 and 34/38 false-negative acceptances, respectively. Six rule-selection errors precluded estimation of the prespecified conditional increment.
 
-**Conclusions.** The formal run reproduces the candidate arithmetic but does not support a stable disagreement advantage or clinical safety claim. The defensible conclusion is a limited or null finding under finite-event conditions.
+**Conclusions.** Disagreement showed no stable selective-risk advantage in these cohorts. Reporting class-specific coverage, paired patient dispositions and realized acceptance exposed failure modes obscured by aggregate coverage. `[S-004, S-005, S-020, S-022–S-026]`
 
 ---
 
 ## 1 Introduction
 
-Intensive care measurements are collected asynchronously and incompletely. A model that predicts deterioration from the first 12 hours therefore depends on how missing values are handled. Multiple imputation represents uncertainty about missing values rather than committing to one completed dataset, but its practical by-product is that predictions can vary across plausible completions. Two patients with the same mean predicted risk may differ in how sensitive that risk is to the completion.
+Intensive care measurements are collected asynchronously and incompletely. A model that predicts deterioration from the first 12 hours therefore depends on how missing values are handled. Multiple imputation represents uncertainty about missing values rather than committing to one completed dataset \cite{rubin1987multiple,vanbuuren2011mice}, but its practical by-product is that predictions can vary across plausible completions. Two patients with the same mean predicted risk may differ in how sensitive that risk is to the completion.
 
-Selective prediction offers a way to defer uncertain cases to human review. Conformal prediction provides distribution-free marginal coverage for prediction sets \cite{angelopoulos2023conformal}, and recent work connects conformal sets with cost-aware deferral in clinical triage \cite{kwon2026conformal}. Missing values complicate this pipeline: conformal prediction with missing values has been studied \cite{zaffran2023conformal}, conformal selection has been applied to clinical imputation with false-discovery-rate control \cite{he2026safeimpute}, and modality-conditional calibration has been proposed for missing-modality diagnosis \cite{wong2026mc2}. Uncertainty-aware sequence models for sparse healthcare time series use imputation and weighted evidential regression \cite{vavaroutas2025squiredl}.
+Selective prediction offers a way to defer uncertain cases to human review \cite{chow1970optimum,geifman2017selective,mozannar2020consistent}. Conformal prediction provides distribution-free marginal coverage for prediction sets \cite{angelopoulos2023conformal}, and recent work connects conformal sets with cost-aware deferral in clinical triage \cite{kwon2026conformal}. Missing values complicate this pipeline: conformal prediction with missing values has been studied \cite{zaffran2023conformal}, conformal selection has been applied to clinical imputation with false-discovery-rate control \cite{he2026safeimpute}, and modality-conditional calibration has been proposed for missing-modality diagnosis \cite{wong2026mc2}. Uncertainty-aware sequence models for sparse healthcare time series use imputation and weighted evidential regression \cite{vavaroutas2025squiredl}.
 
 These lines of work leave a practical question open. Confidence is the model’s self-assessment; missingness describes how much data are absent; imputation disagreement describes how much the prediction moves across plausible completions. A fair comparison must hold the predictor, imputation draws, conformal threshold, candidate pool and number of automatically accepted patients fixed. It must also report what happens when the singleton pool is smaller than the target capacity.
 
-This study asks whether imputation disagreement provides incremental information for selective prediction beyond confidence and missingness under a shared MI predictor and conformal rejection. We evaluate this question at a prespecified acceptance capacity, across natural and induced missingness, and in an external hospital. The contributions are:
+We evaluate three questions. First, how does overall prediction-set coverage relate to coverage and disposition among positive patients? Second, when the predictions, singleton pool and number accepted are held fixed, how does replacing confidence with imputation disagreement change selective risk and individual dispositions? Third, how much of the source-hospital acceptance capacity is retained when the same thresholds are applied at another hospital? Together, these comparisons trace the decisions from prediction sets to patient-level acceptance under both batch allocation and frozen rules.
 
-1. A capacity-constrained comparison of disagreement, confidence and missingness rankings that shares the MI predictor, conformal sets, masks and accepted count.
-2. A conditional-increment test using two error-risk models fitted on the rule-selection partition, with disagreement added only in the second.
-3. A stress-test slate covering natural missingness, additional hidden measurements, an unavailable laboratory block, and an external hospital, plus test-time imputation stability and sensitivity analyses.
-4. A reproducible evidence chain from an immutable run to every manuscript number, with an acceptance gate before clinical figures are generated.
+Our contributions are as follows.
 
-We do not propose a new conformal guarantee, a new imputer, or a causal explanation of missingness. The object of study is a decision-layer signal: whether disagreement across MI draws improves the ranking of patients for automatic acceptance at a fixed capacity.
+- **A matched evaluation protocol.** We compare confidence, missingness burden and imputation disagreement as ranking signals while holding the predictor, imputation draws, conformal threshold, singleton pool and acceptance count fixed, so that differences in selective risk can be attributed to the ranking alone.
+- **Patient-level failure reporting.** We report class-specific coverage and paired dispositions of positive patients. These show that an aggregate coverage of 97% coexisted with exclusion of the true label for every external positive patient.
+- **Evidence on threshold transfer.** We show that acceptance thresholds selected at one hospital accepted 86–89% rather than 60% of patients at another hospital, with more missed positives.
+
+The study is an evaluation of reliability failure modes in a low-prevalence setting, not a claim that any ranking signal is superior.
 
 ---
 
@@ -43,19 +42,15 @@ We do not propose a new conformal guarantee, a new imputer, or a causal explanat
 
 ### 2.1 Conformal prediction and selective classification
 
-Split conformal prediction constructs prediction sets with finite-sample marginal coverage under exchangeability \cite{angelopoulos2023conformal}. In clinical settings, coverage alone is insufficient: a retained subset can have a different error rate from the full test population, and deferral decisions have asymmetric costs. Cost-aware deferral with conformal sets has been evaluated for clinical triage under distribution shift \cite{kwon2026conformal}. Our work uses the same split-conformal construction but treats the post-calibration acceptance step as the object of study: which patients enter the automatic pool at a fixed capacity, and whether imputation disagreement improves that ranking.
+Split conformal prediction constructs prediction sets with finite-sample marginal coverage under exchangeability \cite{vovk2005algorithmic,angelopoulos2023conformal}. Marginal coverage can be dominated by the majority class; label-conditional (Mondrian) calibration targets coverage within each class \cite{vovk2005algorithmic,sadinle2019least}, and adaptive scores aim at more uniform conditional behavior \cite{romano2020classification}. Coverage under covariate shift or other departures from exchangeability requires weighting or explicit bounds \cite{tibshirani2019covariate,barber2023beyond}. Selective classification more broadly trades coverage for risk by abstaining \cite{chow1970optimum,geifman2017selective}, and learning-to-defer methods train the deferral rule jointly with the classifier \cite{mozannar2020consistent}. Clinical triage studies have combined conformal sets with cost-aware deferral and evaluated risk at fixed acceptance levels \cite{kwon2026conformal}. Li et al. pair patient dispositions to study release-side risk under prevalence shift. Their analysis uses distinct target-cohort subsets for prevalence correction, conformal calibration and evaluation \cite{li2026deployment}. Here the two rankings share the source model and singleton pool, and the external evaluation applies source thresholds without target-site recalibration.
 
 ### 2.2 Missing data and multiple imputation
 
-Conformal prediction with missing values has been analyzed for impute-then-predict pipelines \cite{zaffran2023conformal}. Conformal selection has also been applied to clinical data imputation, using conformal p-values and false-discovery-rate control to decide which imputed values are acceptable \cite{he2026safeimpute}. At the modality level, modality-conditional conformal calibration stratifies by the available modality combination and restores per-stratum coverage without retraining the predictor \cite{wong2026mc2}. Our question is different in level: those works address the validity or selection of imputed values, or missingness of whole modalities, whereas we ask whether patient-level variation across variable-level MI draws is useful for deciding which predictions to automate. We treat MI as a practical stochastic procedure with explicit clipping and reproducibility rules, not as a recovery of the true missing-data distribution.
+Multiple imputation propagates uncertainty about missing values into downstream estimates \cite{rubin1987multiple,little2019statistical}, and chained-equation imputation is a standard implementation \cite{vanbuuren2011mice}. Prior work studies conformal validity with imputed covariates, primarily for regression with an extension to classification \cite{zaffran2023conformal}. SafeImpute uses predictive dispersion under graph perturbations to score candidate imputed values and conformal selection to control the false discovery rate of released values under its stated assumptions \cite{he2026safeimpute}. Other work calibrates by available modality \cite{wong2026mc2}. Our unit of selection is a patient classification, and the disagreement score measures variation in that patient's predicted risk across variable-level imputations.
 
 ### 2.3 Uncertainty in sparse clinical time series
 
 Evidential deep learning with spline-based imputation and weighted observed/imputed points has been proposed for sparse healthcare time series \cite{vavaroutas2025squiredl}. That line of work estimates uncertainty within a sequence model. Our design instead fixes a shared tabular predictor and measures disagreement across repeated imputations; the two signals are related but not interchangeable.
-
-### 2.4 Positioning
-
-The closest clinical work combines conformal sets with cost-aware deferral \cite{kwon2026conformal}; the closest missing-data work studies conformal prediction, conformal imputation, and modality-conditional calibration \cite{zaffran2023conformal,he2026safeimpute,wong2026mc2}. Our incremental question is whether variable-level imputation disagreement adds information beyond confidence and missingness at the same acceptance capacity. We do not claim to be the first to handle missing clinical data, and we do not claim that disagreement is a superior uncertainty measure in general.
 
 ---
 
@@ -63,13 +58,13 @@ The closest clinical work combines conformal sets with cost-aware deferral \cite
 
 ### 3.1 Cohort, labels and partitions
 
-We use the PhysioNet/Computing in Cardiology Challenge 2019 data \cite{reyna2020early}. The prediction time is ICU hour 12; inputs use observations up to and including hour 12. The challenge label is advanced by six hours relative to the dataset-defined sepsis onset. We restore onset as the first observed 0-to-1 transition plus six hours; patients already onset by hour 12 are excluded; records whose first observation is already positive are not assigned a precise onset. The outcome is `y = 1` if and only if `12 < onset <= 24`, and `y = 0` otherwise within the observation window. This is the dataset-defined endpoint, not real-time clinician adjudication.
+We use the PhysioNet/Computing in Cardiology Challenge 2019 data \cite{reyna2020early,goldberger2000physiobank}, whose sepsis labels follow the Sepsis-3 definition \cite{singer2016sepsis3}. Eligible records contain ICU hours 1 through 24. Features use observations through hour 12. For records with an observed 0-to-1 label transition, we add six hours to the first positive label to recover the dataset-defined onset. We exclude patients with onset by hour 12 and records positive at the first observation, for which onset cannot be localized by the transition rule. The outcome is positive when the recovered onset falls after hour 12 and through hour 24.
 
-Hospital A is split at the patient level into training (60%), rule-selection (10%), calibration (15%) and internal test (15%), stratified by outcome. Hospital B is held out entirely for external testing. Five fixed seeds (2026–2030) are used; 2026 is the primary seed. Cohort counts, exclusions and positive counts are reported in Table 1 `[S-001]`; label and boundary audit is owned by A and independently checked by C.
+Hospital A is split at the patient level into training (60%), rule selection (10%), calibration (15%) and internal test (15%), stratified by outcome. Training fits the imputer and classifier. Rule selection determines the model hyperparameter and acceptance cutoffs. The separate calibration partition determines the conformal quantile. Hospital B is held out entirely for external testing. We use seeds 2026–2030, with 2026 as the primary seed. `[S-020]`
 
 ### 3.2 Multiple imputation and shared predictor
 
-The input space contains 34 physiological/laboratory variables plus Age and Gender, with missingness indicators for all 36 inputs. A stochastic chained-equation imputer with Bayesian ridge conditional models is fitted on training inputs only; the outcome is never passed to the imputer. Ten iterations and M=10 completed versions are used. Values generated at missing positions are clipped to the training-observed range; observed values are preserved. Variables entirely missing in training are removed from the numerical inputs while their indicators are retained.
+We use the most recent observed value through hour 12 for each of 34 physiological and laboratory variables, along with age, sex as recorded by the dataset's Gender field, and a missingness indicator for each input. We fit a stochastic chained-equation imputer \cite{vanbuuren2011mice} with Bayesian ridge conditional models on training inputs. We use ten iterations and M=10 completed versions. Imputed values are clipped to the range observed in training, and observed values are preserved. Variables entirely missing in training contribute their missingness indicators only.
 
 A single logistic-regression classifier is trained on the M completed copies with weight 1/M per copy. The regularization parameter is selected from 0.1, 1 and 10 by average precision on the rule-selection partition, with ties resolved toward the smaller value. A random forest with 300 trees is used as a robustness check. For each patient, `p_mean` is the mean predicted positive probability across draws and `D` is the sample standard deviation (ddof=1); a flip indicates predictions on both sides of 0.5. Replicates are never treated as independent patients.
 
@@ -77,7 +72,7 @@ A single logistic-regression classifier is trained on the M completed copies wit
 
 The nonconformity score for candidate label `y` is `1 - p_mean(y)`. The split-conformal threshold at level `alpha = 0.10` is the `ceil((n+1)(1-alpha))`-th ordered calibration score; if the index exceeds the calibration size, the threshold is infinite. Empty and two-label sets are rejected; only singleton sets enter the automatic pool. Coverage is evaluated over all test patients, including empty sets.
 
-At target acceptance `c` in {0.40, 0.60, 0.80}, the number accepted is `K = min(floor(cN), N_single)`, where `N` is the test size and `N_single` is the singleton-pool size. B2–B6 share the pool and `K`. Ties are broken by a fixed hash of patient identifiers, never by labels. If the pool is smaller than the target, the actual accepted count and shortfall are reported; accepting the whole pool must not be interpreted as a ranking difference. A frozen-threshold deployment analysis is reported separately, and its realized acceptance may differ.
+At target acceptance `c` in {0.40, 0.60, 0.80}, batch allocation accepts `K = min(floor(cN), N_single)`, where `N` is the test size and `N_single` is the singleton-pool size. B2–B6 share the pool and `K` when available. Ties are broken by a fixed hash of patient identifiers. If the pool is smaller than the target, all its cases are accepted. For the frozen evaluation, we select cases at the target capacity in the rule-selection partition and retain the resulting score and hash cutoffs. At test time, each singleton is accepted by applying these cutoffs. The resulting acceptance rate can differ across methods and sites.
 
 ### 3.4 Comparators
 
@@ -97,7 +92,7 @@ B5/B6 use all rule-selection patients, the base classification error at `p_mean 
 
 Acceptance is the number accepted divided by all test patients. Selective risk is the number of accepted errors divided by the number accepted. Dangerous miss is the number of true positives that are accepted and predicted negative, divided by all true positives. Negative residual risk is the number of true positives among accepted negative predictions, divided by accepted negative predictions. Original-set coverage is the fraction of patients whose true label is in the original conformal set. Zero denominators are reported as NA with counts.
 
-The primary contrast is B4 minus B2 selective risk at c=0.60; negative values favor B4. The conditional increment is B6 minus B5. Intervals use 1,000 patient-level paired bootstrap resamples; capacity allocation is recomputed within each resample, preserving paired method outputs. Five seeds describe full-pipeline stability and are not five independent clinical cohorts. Coverage is also reported by class and missingness stratum.
+The primary contrast is B4 minus B2 selective risk at c=0.60, expressed in percentage points. B6 minus B5 is the prespecified conditional-increment contrast. We use percentile intervals from 1,000 patient-level paired bootstrap resamples. We recompute the ranking and capacity allocation in each batch-mode resample and retain the selected cutoffs for fixed-threshold resampling. The five seeds assess sensitivity to the source split and reuse the same external patients. We report coverage overall and by class, and trace positive cases from the initial prediction set to their paired acceptance outcomes.
 
 ### 3.6 Missingness stress tests and sensitivity analyses
 
@@ -107,93 +102,90 @@ Sensitivity analyses include a random forest on S0/S2, M=5/10/20 on S0, alpha=0.
 
 ### 3.7 Reproducibility and evidence chain
 
-Each run is immutable and stores a manifest with source, data and split hashes. `scripts/make_figures.py` verifies the manifest and every artifact hash, refuses synthetic runs unless explicitly rendered as watermarked QA, and refuses clinical runs without a C/E-signed acceptance record matching the run’s manifest. Every manuscript number maps to `paper/source_index.md` and a generated table or figure-data CSV. No result number is typed by hand.
+Run manifests record the source, data and split hashes. The cohort audit replayed all 40,336 raw records to verify eligibility, endpoint assignment and feature extraction. An independently implemented technical check recomputed the derived coverage, paired dispositions and bootstrap intervals from the versioned results. The number-to-source index links the aggregate tables to their inputs and documents the scope of each check. `[S-020–S-026]`
 
 ---
 
 ## 4 Experimental Setup
 
-Data version, cohort size, positive counts and missingness summaries are in Table 1 `[S-001, S-009]`. The primary analysis uses seed 2026, logistic regression, M=10 and alpha=0.10; seeds 2027–2030 are stability checks. The formal result bundle is `b-clinical-v1-20261104-r1`; the accepted run is `20261105T055420_02d05b15`. Synthetic and candidate runs are excluded from paper results.
+The primary analysis uses seed 2026, logistic regression, M=10, the first test imputation batch and alpha=0.10. S0 is the internal test under natural missingness, and S4 is the held-out hospital under natural missingness. Both use the 60% target for the primary batch comparison and the corresponding cutoffs for the frozen-threshold evaluation. Results use data version `a-data-v1-20261104-r1` and main run `20261105T055420_02d05b15`. `[S-022, S-023]`
 
 ---
 
 ## 5 Results
 
-### 5.1 Cohort
+### 5.1 Cohort and base-model discrimination
 
-The cohort contains 24,095 patients: 10,174 from hospital A and 13,921 from hospital B. The target outcome is observed in 95 patients overall (A 57; B 38). The 2026 internal test partition contains 1,525 patients with 8 positives. The prespecified precision gates (200 positives per site; 50 internal-test positives) are not met, so all results are limited to a finite-event analysis. `[S-001, S-009]`
+Table 1 summarizes cohort construction. The raw transition audit flagged 486 records with a label transition whose six-hour adjustment placed the inferred onset in the target window. Eligibility filters removed 391 of these records, including one whose inferred onset was beyond the released record. The final cohort contained 95 endpoint-positive patients. The main Hospital A split contained 34 training, 6 rule-selection, 9 calibration and 8 internal-test positives. `[S-020]`
 
-Feature missingness is highest for Bilirubin_direct, Fibrinogen, EtCO2, TroponinI and BaseExcess; full values are in Table 1b. `[S-009]`
+**Table 1. Cohort and test-set counts.** Raw proxies are derived from observable label transitions before the eligibility filters.
 
-### 5.2 Primary selective risk
+| Hospital | Raw records | Raw target-window proxies | Included patients | Included positives | Test patients | Test positives |
+|---|---:|---:|---:|---:|---:|---:|
+| A | 20,336 | 334 | 10,174 | 57 | 1,525 | 8 |
+| B | 20,000 | 152 | 13,921 | 38 | 13,921 | 38 |
+| Total | 40,336 | 486 | 24,095 | 95 | — | — |
 
-At the 0.60 target, batch mode, primary seed 2026, S0:
+Logistic-regression AUROC was 0.793 internally (95% interval [0.579, 0.947]) and 0.502 externally ([0.407, 0.596]). External AUROC for the fixed random-forest diagnostic was 0.581 ([0.480, 0.674]). Both external estimates indicate limited discrimination in this evaluation, with substantial uncertainty. `[S-021]`
 
-- B2 confidence: 915 accepted, 1 error.
-- B4 disagreement: 915 accepted, 2 errors.
-- B4−B2 selective-risk difference: **+0.00109290** (95% interval `[0.00000000, 0.00327869]`). `[S-002, S-003]`
+### 5.2 Prediction-set coverage and positive cases
 
-At the external hospital (S4):
+Overall coverage was 1,384/1,525 (90.75%) internally and 13,537/13,921 (97.24%) externally. Positive-class coverage was 0/8 and 0/38, respectively. Four internal positives had empty sets, and four entered the candidate pool as negative singletons. All 38 external positives entered the pool as negative singletons. For these cases, the downstream ranking could defer the negative prediction or accept it as a false negative. No positive singleton occurred among test patients, and in every evaluated setting of the main run all automatically accepted cases were negative predictions. Selective risk is therefore the false-negative rate among accepted cases, and automatic acceptance acted as rule-out triage. `[S-022, S-025]`
 
-- B2: 8,352 accepted, 24 errors.
-- B4: 8,352 accepted, 21 errors.
-- B4−B2: **−0.00035920** `[−0.00107759, 0.00035920]`. `[S-002, S-003]`
+![Prediction-set coverage and patient disposition in the internal and external test sets](content-review/20261110-r1/fig_reliability.png)
 
-The direction is unstable across seeds and scenarios; the result does not support a stable advantage for B4. `[S-005]`
+**Figure 1. Prediction-set coverage and patient disposition.** Panel A reports marginal and positive-class coverage before acceptance. Panel B reports accepted cases as a fraction of all test cases under each allocation rule. Panel C reports accepted negative predictions among all positive cases. The 60.00% external batch acceptance is rounded from 8,352/13,921. [Vector figure](content-review/20261110-r1/fig_reliability.pdf). `[S-022, S-023]`
 
-B5 and B6 are unavailable because the rule-selection partition has 6 errors and 1,012 correct cases, below the 20/20 threshold. B6−B5 is NA, not zero. `[S-002, S-004]`
+### 5.3 Equal-capacity ranking and paired dispositions
 
-### 5.3 Scenario robustness
+Internally, confidence and disagreement each accepted 915 patients. Confidence accepted 1/8 positives as negative, compared with 2/8 for disagreement. The difference in selective risk was +0.109 percentage points (95% paired bootstrap interval [0.000, +0.328]). Externally, each ranking accepted 8,352 patients, with 24/38 versus 21/38 false-negative acceptances. The corresponding difference was −0.036 percentage points ([−0.108, +0.036]). `[S-022, S-023]`
 
-Across S0–S4 and five seeds, the B4−B2 difference is small and changes sign. For S0, the mean difference is +0.00021858 (min −0.00109290, max +0.00109290); for S4 it is −0.00014368 (min −0.00047893, max +0.00011973). `[S-005]`
+The external net reduction of three false-negative acceptances combined six patients moving from automatic negative classification to deferral and three moving in the opposite direction. Eighteen positives were accepted as negative by both rankings. Table 2 traces the same patients under both rules. The rule-selection partition contained six classification errors and 1,012 correct classifications. The error count fell below the minimum of 20 needed to fit B5 and B6, so the conditional-increment estimate is unavailable. `[S-004, S-024]`
 
-### 5.4 Coverage
+**Table 2. Paired dispositions among positive cases at the 60% target.** A miss is an accepted negative prediction.
 
-MI original-set coverage is high overall (about 0.907 in the primary S0 condition), but **positive-class (y=1) coverage is 0/8**. Overall coverage must not be presented as positive-class safety or as evidence that high-risk patients are protected. `[S-006]`
+| Test cohort | Both miss | Confidence only misses | Disagreement only misses | Both defer | Positive cases |
+|---|---:|---:|---:|---:|---:|
+| Internal | 1 | 0 | 1 | 6 | 8 |
+| External | 18 | 6 | 3 | 11 | 38 |
 
-### 5.5 Disagreement diagnostics
+### 5.4 Acceptance under frozen thresholds
 
-Among 1,388 singleton predictions at the primary condition, only 4 are errors. Error counts by disagreement quintile are 1/278, 0/277, 1/278, 0/277 and 2/278. The figure is annotated “Sparse errors; descriptive only.” `[S-007]`
+With source thresholds applied to the internal test, confidence accepted 919/1,525 patients (60.26%) and disagreement accepted 928/1,525 (60.85%). Applied externally, the same thresholds accepted 12,396/13,921 (89.05%) and 11,984/13,921 (86.09%), respectively. Confidence and disagreement accepted 33/38 and 34/38 external positives as negative. Across the five source splits, external acceptance ranged from 79.48% to 89.54% for confidence and 72.33% to 86.29% for disagreement. Each method therefore exceeded the 60% target on this held-out cohort across all source splits. `[S-022, S-026]`
 
-### 5.6 Stability
+### 5.5 Sensitivity and stability
 
-Test-time three-state disagreement is reported for batch and frozen allocation in Table 5. It is a stability diagnostic, not evidence of clinical safety. `[S-008]`
-
-### 5.7 Sensitivity analyses
-
-The supplement run `20261105T055445_54dd08de` is accepted with limits for RF (S0/S2), M=5/10/20 (S0) and alpha=.05 (S0/S2). Tables S1–S3 report these sensitivity analyses with B4−B2 batch/frozen contrasts; they do not replace the primary analysis and do not establish a stable advantage. `[S-010]`
+The batch selective-risk difference changed sign across the source splits and scenarios. Across five seeds, its range was −0.109 to +0.109 percentage points internally and −0.048 to +0.012 externally. Under 30% additional masking (S2), the difference was zero for all five seeds. The prespecified random-forest, imputation-count and alpha checks are reported in Supplementary Tables S1–S3. Across pairs of test-imputation batches at the primary internal setting, mean batch-mode disposition disagreement was 4.79% for confidence and 17.18% for the imputation-disagreement ranking. `[S-005, S-008, S-010]`
 
 ---
 
 ## 6 Discussion
 
-The formal run does not show a stable disagreement advantage. The primary S0 difference is small and positive, the external S4 difference is small and negative, and the direction changes across seeds and scenarios. The B5/B6 conditional-increment analysis could not be estimated because the rule-selection partition contained only 6 errors. The disagreement diagnostic contained only 4 errors among 1,388 singleton predictions, so it cannot support a strong mechanism claim.
+High overall external coverage coexisted with exclusion of the true label from every positive patient's prediction set. With positives comprising a small share of the test cohort, marginal coverage was driven by coverage among negatives. Standard split conformal coverage is a marginal property under exchangeability. The observed external coverage and the errors among accepted cases are empirical properties of the evaluated cohort and rules. `[S-022, S-025]`
 
-These findings should be interpreted through the finite-event setting. Hospital A had 57 positives, hospital B had 38, and the internal test had 8 positives per seed. MI positive-class coverage was zero in every planned setting. Overall coverage is not a substitute for positive-class safety. The result is therefore a limited or null finding, not evidence that disagreement improves selective risk or protects high-risk patients.
+Label-conditional (Mondrian) calibration is the natural remedy for the zero positive-class coverage, because it sets a separate threshold for each label \cite{vovk2005algorithmic,sadinle2019least}. In this cohort it faces a sample-size constraint. The primary calibration partition held nine positive patients, so at alpha = 0.10 the positive-class threshold would equal the largest of nine calibration scores, that is, the lowest predicted risk among calibration positives. With limited discrimination, such a threshold would likely add the positive label to the sets of many negative patients, shrink the singleton pool and vary considerably across splits. We did not evaluate class-conditional calibration. A credible assessment would need substantially more calibration events than were available here.
 
-The capacity-constrained design reflects a batch allocation problem, not a fixed per-patient deployment rule. Realized acceptance and dangerous misses matter as much as selective risk. External and missingness-shift evaluations are empirical; standard conformal marginal coverage does not extend to the accepted subset or shifted populations.
+The matched batch design identifies which patients changed dispositions at the same acceptance count. Both directions occurred externally, and the confidence and disagreement rankings had different point-estimate orderings across the two hospitals. The paired intervals include zero, so the direction and magnitude of a general advantage remain uncertain. The prespecified analysis of added information beyond confidence and missingness remains unestimated. Under frozen rules, both rankings accepted more patients externally than the target, with more false-negative acceptances than in the equal-capacity evaluation. A site evaluating such a rule would therefore need to track realized acceptance and class-specific errors alongside aggregate coverage. `[S-004, S-022–S-026]`
 
-Limitations include: one public retrospective dataset; two hospitals; no prospective evaluation; complete 24-hour follow-up induces a restricted cohort; the 6-hour label restoration and first-observation-positive handling limit onset precision; MI is a practical stochastic procedure, not a true posterior; the analysis uses a single tabular predictor family with a random-forest robustness check; capacity evaluation is batch-level; missingness scenarios are stress tests, not causal mechanisms; and event counts limit precision and the availability of B5/B6. C has not independently replayed all 40,336 raw PSV records, and the source-license metadata conflict remains unresolved.
-
-We do not claim clinical benefit, deployment readiness, cost-effectiveness, or that disagreement is universally superior to confidence or missingness.
+The small numbers of positive patients and the limited discrimination of both models externally restrict the inference to these cohorts. With an external AUROC of 0.502, the external equal-capacity comparison contrasts two orderings of a predictor that barely separates outcomes. We therefore interpret the external results as evidence about failure modes under transfer, such as acceptance drift and missed positives behind high coverage, rather than about the relative quality of the ranking signals. Eligibility required 24 hours of recorded follow-up, which selects a subset of ICU admissions. The endpoint uses the dataset's onset definition and a fixed label offset. The assessment reuses one retrospective dataset and the same held-out hospital across source splits. The artificial masks test sensitivity to measurement availability, and the imputations capture variability under the fitted procedure. The paired disposition summaries and random reference were added after inspection of the primary results. Evaluating clinical workflow impact would require prospective data and sufficient outcome events. `[S-020, S-021, S-024, S-027]`
 
 ---
 
 ## 7 Conclusion
 
-In this finite-event formal run, imputation disagreement did not show a stable selective-risk advantage over confidence or missingness, and the positive-class coverage result was zero. The appropriate conclusion is a limited or null finding under the prespecified protocol. Prospective evaluation with prespecified capacity, per-site calibration, and adequate positive-event counts is needed before clinical use.
+Across these two hospitals, we observed no stable selective-risk advantage from replacing confidence with imputation disagreement at equal capacity. Class-specific coverage, paired dispositions and realized acceptance exposed different aspects of reliability. In particular, applying source thresholds externally increased acceptance despite persistent false-negative acceptances. `[S-022–S-026]`
 
 ---
 
 ## Statements
 
-**Reproducibility.** Code, configurations, tests and run manifests are versioned; large artifacts are distributed with SHA256 checks. Figures and tables are regenerated by `scripts/make_figures.py` from an immutable run and a signed acceptance record.
+**Reproducibility.** Run manifests record inputs and SHA-256 hashes. The aggregate sources for the main figure and paired tables are indexed in the study repository.
 
-**Data availability.** PhysioNet 2019 data are available under the dataset’s access terms; no raw patient data are included in the repository.
+**Data availability.** The PhysioNet/Computing in Cardiology Challenge 2019 data are publicly available from PhysioNet (https://physionet.org/content/challenge-2019/1.0.0/). We do not redistribute patient-level records or derived patient-level files. Aggregate result tables, figure source data and the analysis code needed to reproduce the cohort, partitions and results from the public source are available from the authors. [Authors to confirm whether code is released publicly or on request.]
 
-**Ethics.** Secondary analysis of de-identified public data under the dataset’s data use agreement.
+**Ethics.** This study is a retrospective secondary analysis of a publicly available, de-identified dataset released for research use. No patients were contacted and no new data were collected; therefore, additional ethical approval was not required. [Authors to confirm against institutional policy.]
 
-**AI use disclosure.** Follow the workshop rule verified by C-002; disclose assistance if required.
+**AI use disclosure.** [Authors to confirm the final wording and scope of AI assistance.]
 
 **Author contributions.** A: data and labels; B: methods and experiments; C: literature and independent audit; D: figures and manuscript integration; E: coordination and integrity. The corresponding author is confirmed by the group.
 
@@ -208,7 +200,26 @@ In this finite-event formal run, imputation disagreement did not show a stable s
 5. Wong KK, Ajit A. Guarantees That Survive a Missing Scan: Modality-Conditional Conformal Prediction for Multimodal Medical Diagnosis. MICCAI 2026 Satellite Events, LNCS 17272; 2026.
 6. Reyna MA, Josef CS, Jeter R, Shashikumar SP, Westover MB, Nemati S, Clifford GD, Sharma A. Early Prediction of Sepsis From Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019. Critical Care Medicine. 2020;48(2):210–217. doi:10.1097/CCM.0000000000004145.
 7. Angelopoulos AN, Bates S. Conformal Prediction: A Gentle Introduction. Foundations and Trends in Machine Learning. 2023. doi:10.1561/2200000101.
+8. Li C, Liu X, Zhang H, et al. A Deployment Audit of Release-Side Risk in Conformal Triage under Prevalence Shift. arXiv preprint 2605.20956v2. 2026.
+9. Rubin DB. Multiple Imputation for Nonresponse in Surveys. New York: Wiley; 1987. doi:10.1002/9780470316696.
+10. van Buuren S, Groothuis-Oudshoorn K. mice: Multivariate Imputation by Chained Equations in R. Journal of Statistical Software. 2011;45(3):1–67. doi:10.18637/jss.v045.i03.
+11. Little RJA, Rubin DB. Statistical Analysis with Missing Data. 3rd ed. Hoboken: Wiley; 2019.
+12. Chow CK. On optimum recognition error and reject tradeoff. IEEE Transactions on Information Theory. 1970;16(1):41–46. doi:10.1109/TIT.1970.1054406.
+13. Geifman Y, El-Yaniv R. Selective Classification for Deep Neural Networks. Advances in Neural Information Processing Systems 30 (NeurIPS); 2017.
+14. Mozannar H, Sontag D. Consistent Estimators for Learning to Defer to an Expert. ICML, PMLR 119; 2020.
+15. Vovk V, Gammerman A, Shafer G. Algorithmic Learning in a Random World. New York: Springer; 2005. doi:10.1007/b106715.
+16. Sadinle M, Lei J, Wasserman L. Least Ambiguous Set-Valued Classifiers With Bounded Error Levels. Journal of the American Statistical Association. 2019;114(525):223–234. doi:10.1080/01621459.2017.1395341.
+17. Romano Y, Sesia M, Candès EJ. Classification with Valid and Adaptive Coverage. Advances in Neural Information Processing Systems 33 (NeurIPS); 2020.
+18. Tibshirani RJ, Barber RF, Candès EJ, Ramdas A. Conformal Prediction Under Covariate Shift. Advances in Neural Information Processing Systems 32 (NeurIPS); 2019.
+19. Barber RF, Candès EJ, Ramdas A, Tibshirani RJ. Conformal prediction beyond exchangeability. The Annals of Statistics. 2023;51(2):816–845. doi:10.1214/23-AOS2276.
+20. Goldberger AL, Amaral LAN, Glass L, Hausdorff JM, Ivanov PCh, Mark RG, Mietus JE, Moody GB, Peng C-K, Stanley HE. PhysioBank, PhysioToolkit, and PhysioNet: Components of a New Research Resource for Complex Physiologic Signals. Circulation. 2000;101(23):e215–e220. doi:10.1161/01.CIR.101.23.e215.
+21. Singer M, Deutschman CS, Seymour CW, et al. The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3). JAMA. 2016;315(8):801–810. doi:10.1001/jama.2016.0287.
 
 ---
 
-**Boundary:** This is a bounded descriptive draft under `accepted_with_limits`, not a final manuscript or submission. C/E final consistency review, official template/page-limit verification, and A’s license decision remain required.
+## Supplementary material for review
+
+- Cohort stages, seed-2026 partition counts, and base-model diagnostic intervals are provided in the [aggregate source package](content-review/20261110-r1/claims_and_evidence.md). `[S-020, S-021]`
+- [Per-seed stress tests](runs/20261105T055420_02d05b15/tables/table3_scenario_per_seed.csv) and [test-imputation stability](runs/20261105T055420_02d05b15/tables/table5_stability.csv) retain the natural and artificial missingness results. The [disagreement quintile diagnostic](runs/20261105T055420_02d05b15/tables/fig5_disagreement_data.csv) contains four errors among 1,388 internal singleton predictions. `[S-005, S-007, S-008]`
+- Sensitivity tables from run `20261105T055445_54dd08de` include [S1, random forest](runs/20261105T055445_54dd08de/tables/table_s1_rf.csv), [S2, imputation count](runs/20261105T055445_54dd08de/tables/table_s2_m_sensitivity.csv), and [S3, alpha 0.05](runs/20261105T055445_54dd08de/tables/table_s3_alpha005.csv). `[S-010]`
+- A post hoc [uniform random reference](content-review/20261110-r1/random_reference.csv) samples the same number of patients without replacement from the fixed singleton pool. Expected false-negative acceptances were 2.64 internally and 23.38 externally. Central 95% reference ranges were 1–4 and 17–29, respectively, under the fixed-pool sampling model. These ranges describe variability in allocation conditional on the observed pool. `[S-027]`

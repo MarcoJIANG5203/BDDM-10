@@ -1,5 +1,7 @@
 # D 岗位 · 论文与图表工作区
 
+**2026-11-10 当前入口。** 新版英文稿按三个研究问题整合了主图、队列表和阳性配对表，进入 C/E 审阅。[英文稿](manuscript_draft.md) · [数字来源](source_index.md) · [审阅交接](../handoffs/D/2026-11-10_manuscript_revision.md)
+
 本目录由 **D（图表与论文负责人）** 维护。当前状态：**D-001 / D-001a 已提交待验收；D-002 已从 accepted_with_limits 的正式 B-002 run 生成 `paper/runs/20261105T055420_02d05b15/`（Fig 1–6、Table 1–5）与 bounded results 草稿**。acceptance 明确不是最终论文/PDF 或投稿验收；最终稿仍需 C/E 全文一致性与 A 许可。**不需要合并 main。** 见 [d002_readiness.md](d002_readiness.md) 与 [source_index.md](source_index.md)。
 
 ## 目录约定
@@ -11,7 +13,7 @@ paper/
   figure_list.md         图表清单、生成方式、来源与验收检查点
   source_index.md        正文每个数字的来源索引与核对规则
   references_checklist.md  引用核实清单（C-002 输入 → D 可引用范围）
-  references.bib         只含已核实元数据的 7 条 BibTeX（含 C-004 补出的 R5）
+  references.bib         已核实元数据的 8 条 BibTeX（R1–R8；R8 使用 arXiv v2）
   draft_v0.md            英文稿骨架；结果全部占位，不可提交
   results_accepted_with_limits.md  正式 run 的 bounded results 草稿（accepted_with_limits）
   manuscript_draft.md    完整英文稿草稿（bounded writing；非最终投稿版）

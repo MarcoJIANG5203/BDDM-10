@@ -1,5 +1,25 @@
 # 团队当前状态
 
+## 当前工作 · 2026-11-10 晚（洛杉矶时间）
+
+用户要求完成 A/B/C/E 剩余内容，由本聊天（Claude）在本地完成：
+- **C**：新版英文稿所有可核数字已从主运行逐患者表独立复算，全部一致；另发现所有被接受病例均为阴性预测，稿件需写明。[C 数字核对](../handoffs/C/2026-11-10_manuscript_number_check.md)
+- **A**：许可冲突改为"不重新分发患者级数据"处置，数据可用性与伦理声明草稿已交。[A 许可与声明](../handoffs/A/2026-11-10_license_and_data_statements.md)
+- **E**：主张与证据一致；内容足以按有限描述性稿投 Workshop 3，但须先完成 7 项稿件修改（交 D）及提交事项。[E 审阅与投稿判断](../handoffs/E/2026-11-10_manuscript_consistency_and_submission_verdict.md)
+- **B**：无新增任务。
+
+随后已按 E 清单完成改稿 E-1：补阴性接受说明、Mondrian 讨论、贡献段、引用 8→21 条、新数据与伦理声明；结果数字未变。[改稿记录](../handoffs/D/2026-11-10_manuscript_revision_E1.md)
+
+仍待：C 本人签认与新增 13 条引用核对、D 复核改稿并排版、作者声明、页数与模板确认、实际提交。
+
+## 当前工作 · 2026-11-10（洛杉矶时间）
+
+新版英文稿已整合两院覆盖、固定批容量下的患者配对去向及冻结阈值的外院表现，进入 C/E 审阅。旧 16 页排版样稿对应上一版正文。下一步是 C/E 复核新版全文、作者组确认声明、D 完成正式模板排版。[新版英文稿](../paper/manuscript_draft.md) · [D 审阅交接](../handoffs/D/2026-11-10_manuscript_revision.md)
+
+现有内容已达到有限描述性论文的开写条件。用户要求推进至可开始写作，本轮重跑内容核验通过，并完成 E 写作范围决定、图表/数字入口及近邻文献补齐；EXP-03/04 不作为本稿开写前提。新增派生包的 C 本人签认与具体终稿审核仍待实际记录。[写作交接](../paper/WRITING_BRIEF_2026-11-10.md) · [E 范围决定](../handoffs/E/2026-11-10_drafting_scope.md) · [C 岗技术复核](../handoffs/C/2026-11-10_content_review_recheck.md)
+
+C 已提交 EXP-01 原始记录全量重放和 EXP-02 首批两份运行独立复核，分别在队列协议保真和模型诊断范围内有条件接受。E 已记录本轮投稿就绪度评估。现有英文稿和 16 页样稿可供内部审阅，正式投稿仍需明确可支持的结论、完成相应阶段复核和终稿排版。[C 独立复核](https://github.com/MarcoJIANG5203/BDDM-10/pull/7) · [E 投稿就绪度评估](../handoffs/E/2026-11-10_workshop3_submission_readiness.md)
+
 ## 当前工作 · 2026-11-09（洛杉矶时间）
 
 A 已交 EXP-01 队列审计，B 已交 EXP-02 首批两份运行并通过生产者重放，均待 C 独立复核。C 已提交精度预算和核验清单；E 登记为规划输入，并接收 D 的 S4 来源修正。G1 暂缓放行，G2 待评估，G3 等待 EXP-03/04。[E 阶段决定](../handoffs/E/2026-11-09_EXP-01_EXP-02_gate_review.md) · [当前任务](ISSUES.md)
@@ -25,9 +45,9 @@ B/E本轮已接收C-006，按两份固定正式run的算术/协议保真记录`a
 |---|---|---|---|
 | A 数据与基础实验 | A正式内容冻结不变；11月5日技术收尾补件在身份/恢复说明范围接收；许可保留 | A `68ce9d1`；[A交接](https://github.com/MarcoJIANG5203/BDDM-10/blob/68ce9d110e105dadc01e0abba5b7f2d4cdf7fec0/handoffs/A/2026-11-05_A_daily_closeout_EN.md)、[E本轮](../handoffs/E/2026-11-06_E-001_C006_result_scope.md) | EXP-01 纳排/阳性流失与精度预算；交 C 核验、E 汇总 |
 | B 核心方法与实验 | B-002生产交付及C-006接收完成；正式两run已获算术/协议保真限定接受 | [B接收](../handoffs/B/2026-11-06_B_C006_receipt.md)、[E核验](../reviews/E/2026-11-06_C006_receipt_checks.json)；1,140指标/78区间零失败 | EXP-02 LR 诊断与固定 RF 外院补充；G1/G2 后推进 EXP-03/04 |
-| C 文献与独立核验 | C-006正式两run独立复核已提交，B/E在实际算术/协议范围接收；原始PSV个人全量重跑未完成 | C `b6d7c32`；[C原交接](../handoffs/C/2026-11-05_正式run独立复核.md)、[B接收](../handoffs/B/2026-11-06_B_C006_receipt.md) | 独立核 EXP-01 队列、EXP-02 模型及 EXP-04 统计精度，登记接收范围 |
-| D 图表与论文 | 主运行正式 Fig 1–6、主表、补充表 S1–S3、数字来源索引和完整英文初稿已交付 | [英文稿](../paper/manuscript_draft.md)、[主图表](../paper/runs/20261105T055420_02d05b15/)、[补充表](../paper/runs/20261105T055445_54dd08de/tables/)、[数字来源](../paper/source_index.md) | EXP-05 整理实验表、数据来源和复现交付；G3 后安排正文与排版 |
-| E 统筹与整合 | 已登记 EXP-01/02 交付范围、C 的规划输入和 D 的 S4 来源修正接收；G1 暂缓放行，G2/G3 待评估 | [E 阶段决定](../handoffs/E/2026-11-09_EXP-01_EXP-02_gate_review.md) · [既有 C-006 接收](../handoffs/E/2026-11-06_E-001_C006_result_scope.md) · [main 整合交接](../handoffs/E/2026-11-06_main_integration.md) | 收齐 C 独立复核和配对精度预算后复议 G1；按排期评估投稿可行性 |
+| C 文献与独立核验 | C-010 已提交，涵盖原始 PSV 全量重放及 EXP-02 首批诊断。用户授权的内容审阅包技术复核已交付，8 个主条件、4 个配对区间和四篇文献已核 | [本轮复核](../handoffs/C/2026-11-10_content_review_recheck.md) · [C PR #7 · `c9b57bf`](https://github.com/MarcoJIANG5203/BDDM-10/pull/7) | C 本人记录新增派生结果接收范围，随后核新版全文数字与引用；E 的有限写作范围已记录 |
+| D 图表与论文 | 新版英文全文及主图表已交付本地审阅 | [新版英文稿](../paper/manuscript_draft.md) · [D 交接](../handoffs/D/2026-11-10_manuscript_revision.md) | 汇总 C/E 审阅意见后制作模板 PDF |
+| E 统筹与整合 | 有限描述性写作范围已记录，具体新版英文稿已进入审阅 | [范围决定](../handoffs/E/2026-11-10_drafting_scope.md) · [D 交接](../handoffs/D/2026-11-10_manuscript_revision.md) | 核新版全文与证据范围的一致性，协调作者声明与投稿材料 |
 
 ## 历史同步记录（保留原时点口径）
 

@@ -1,5 +1,7 @@
 # Submission checklist — D-002
 
+**2026-11-10 更新。** 新版英文全文已交付审阅，引用库为 8 条。待完成 C 对新增派生包的正式签认、C/E 对新版全文的审核、作者声明和会议模板 PDF。以下 11 月 6 日清单保留提交检查项。[英文稿](manuscript_draft.md) · [审阅交接](../handoffs/D/2026-11-10_manuscript_revision.md)
+
 更新：2026-11-06。状态：**ACCEPTED_WITH_LIMITS / NOT SUBMITTED**。acceptance 允许图表/表与 bounded descriptive writing，但明确不是最终 manuscript/PDF 或投稿验收。
 
 ## 当前已有
