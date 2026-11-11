@@ -1,6 +1,6 @@
 # Submission checklist — D-002
 
-**2026-11-10 更新。** 新版英文全文已交付审阅，引用库为 8 条。待完成 C 对新增派生包的正式签认、C/E 对新版全文的审核、作者声明和会议模板 PDF。以下 11 月 6 日清单保留提交检查项。[英文稿](manuscript_draft.md) · [审阅交接](../handoffs/D/2026-11-10_manuscript_revision.md)
+**2026-11-10 更新。** E-1 英文稿已交付审阅，引用库为 21 条，其中新增 13 条待 C 核查。待完成 C 对新增派生包的正式签认、E-1 复核、作者声明和会议模板 PDF。以下清单保留 11 月 6 日的提交检查项。[E-1 英文稿](manuscript_draft.md) · [改稿交接](../handoffs/D/2026-11-10_manuscript_revision_E1.md)
 
 更新：2026-11-06。状态：**ACCEPTED_WITH_LIMITS / NOT SUBMITTED**。acceptance 允许图表/表与 bounded descriptive writing，但明确不是最终 manuscript/PDF 或投稿验收。
 
@@ -13,7 +13,7 @@
 | 补充表 S1–S3 | `paper/runs/20261105T055445_54dd08de/tables/` | ACCEPTED_WITH_LIMITS |
 | 完整英文稿草稿 | `paper/manuscript_draft.md` | DRAFT，需 C/E 最终一致性 |
 | 来源索引 | `paper/source_index.md` | S-001–S-012 已绑定 |
-| 引用 | `paper/references.bib`（7 条） | 已核实元数据 |
+| 引用 | `paper/references.bib`（21 条） | 新增 13 条待 C 核查 |
 | Provenance | `.../provenance.json`、`.../provenance_supplement.json` | 已记录 acceptance/哈希 |
 
 ## 提交前必须完成
