@@ -1,5 +1,24 @@
 # 论文数字来源索引（D-001 模板）
 
+## 2026-11-10 新增内容的写作入口
+
+本轮新增 S-020–S-027，供[写作交接](WRITING_BRIEF_2026-11-10.md)限定的描述性初稿使用。S-013 留给 D 已交付的 S4 来源修正，本文不覆盖其编号。原 S-001–S-012 与两份 run 接受记录保持原范围。
+
+本节源目录为 `paper/content-review/20261110-r1/`，文件 SHA256 和完整过滤条件见其中 `provenance.json`；[C 岗复算记录](../reviews/C_content_review_2026-11-10.json)绑定该 provenance，另见[本轮核验](../reviews/E/2026-11-10_drafting_readiness.json)。本节扩展下文早期允许取数目录，且只允许这一已核字节包。状态为**技术复算通过、E 已确定可写范围；新增派生包的 C 本人正式签认待记录，终稿待审**，不标为新增独立接受。
+
+| ID | 用途 | 文件（相对上述目录） | 过滤条件 / 列 / 边界 |
+|---|---|---|---|
+| S-020 | 分院纳排和主划分事件数 | `cohort_flow.csv`、`split_event_counts.csv` | `site=A/B/Total` 按 `stage`；窗口事件使用 `target_transition_proxy`，同时列 `target_onset_beyond_released_hours`；划分 `seed=2026`、按 `role`；源 A `f0f0bfc`，全量原始重放沿用 C-010 |
+| S-021 | 基础模型背景 | `base_model_context.csv` | `split_seed=2026, source_M=10, alpha=.1, imputation_batch=0`；LR S0/S4，RF S4；`estimate, ci_low, ci_high, n, positives`；点估计 C-010 已核，区间是 B 生产者计算，本轮核复制一致性 |
+| S-022 | S0/S4 覆盖、接受和漏放主图 | `capacity_coverage_release.csv`、`fig_reliability.pdf` | 主 run `20261105T055420_02d05b15`；2026/LR/M=source_M=10/alpha=.1/batch=0/c=.6；B2/B4，`selection_mode=batch/frozen`；`accepted/n`、`accepted_false_negative/positives`、`covered/n`、`positive_covered/positives` |
+| S-023 | 主比较及固定阈值的配对区间 | `risk_contrasts.csv` | 同 S-022；`comparison=B4-B2`；率差及上下限乘 100 写为百分点；各 1000 有效重采样，batch 重排选 K，frozen 保持冻结规则 |
+| S-024 | 阳性患者双向处置变化 | `paired_positive_disposition.csv` | 同 S-022 的 batch 模式；`both_missed,b2_only_missed,b4_only_missed,both_rejected`；S0 1/0/1/6，S4 18/6/3/11；不要把净差当作全部处置变化 |
+| S-025 | 原始集合到处置的分流 | `set_to_decision_counts.csv` | 主条件，固定 batch 模式；按 `scenario,method,set_type` 列阳性人数及接受/拒识计数；集合覆盖与后续动作分开解释；S4 所有 38 个阳性为阴性单元素 |
+| S-026 | 外院固定阈值五种子稳定性 | `external_frozen_stability.csv` | `scenario=S4, selection_mode=frozen`；2026–2030，B2/B4；`accepted, acceptance, accepted_false_negative`；五种子同一外院队列，范围为划分敏感性 |
+| S-027 | P1 随机排序探索性参照 | `random_reference.csv` | 固定主候选池、同 K、均匀无放回；期望和中央 95% 范围；事后补充，不能称患者抽样区间或显著性检验 |
+
+## 既有正式运行来源 · 2026-11-06
+
 更新：2026-11-06。维护：D。核对：C（数字/引用），E（全文一致性）。
 
 **规则：** 摘要、正文、图表标题和结论中的每个数字都必须有本文件的一条 `S-xxx`。没有来源条目的数字不得写入论文。数字只从 `paper/runs/<run_id>/tables/`、`paper/inputs/<data_version>/tables/` 或 `paper/validation/.../tables/` 的 CSV 读取；不得从聊天、截图、旧稿或合成 run 复制到临床稿。临床 run 必须同时有 `reviews/acceptance/<run_id>.json`；`provenance.json.acceptance` 记录该文件的路径、SHA256、C/E 签认状态。

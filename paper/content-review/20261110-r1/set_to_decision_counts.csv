@@ -1,0 +1,17 @@
+scenario,site,method,set_type,positives,accepted_negative,accepted_positive,rejected
+S0,A,B2,empty,4,0,0,4
+S0,A,B2,negative_singleton,4,1,0,3
+S0,A,B2,positive_singleton,0,0,0,0
+S0,A,B2,both_labels,0,0,0,0
+S0,A,B4,empty,4,0,0,4
+S0,A,B4,negative_singleton,4,2,0,2
+S0,A,B4,positive_singleton,0,0,0,0
+S0,A,B4,both_labels,0,0,0,0
+S4,B,B2,empty,0,0,0,0
+S4,B,B2,negative_singleton,38,24,0,14
+S4,B,B2,positive_singleton,0,0,0,0
+S4,B,B2,both_labels,0,0,0,0
+S4,B,B4,empty,0,0,0,0
+S4,B,B4,negative_singleton,38,21,0,17
+S4,B,B4,positive_singleton,0,0,0,0
+S4,B,B4,both_labels,0,0,0,0

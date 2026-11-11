@@ -1,5 +1,39 @@
 # 引用核实清单（C-002 → D-002）
 
+## 2026-11-10 改稿 E-1 新增 R9–R21（待 C 确认）
+
+按 [E 审阅清单](../handoffs/E/2026-11-10_manuscript_consistency_and_submission_verdict.md)第 4 项补充，由本聊天（Claude）加入，均为领域经典文献，只用于背景和方法定位，不支持本文任何结果主张。引用库现为 21 条，稿内 `\cite` 键与 `references.bib` 一一对应（无多无少）。
+
+| 编号 / key | 文献 | 核实状态 | 稿中用途 |
+|---|---|---|---|
+| R9 `rubin1987multiple` | Rubin 1987，Wiley | 记忆中元数据，DOI 待核 | 多重插补背景 |
+| R10 `vanbuuren2011mice` | van Buuren & Groothuis-Oudshoorn 2011，JSS 45(3) | 记忆中元数据，待核 | 链式方程插补 |
+| R11 `little2019statistical` | Little & Rubin 第 3 版，Wiley 2019 | 书目经检索确认；DOI 未确认，已不写 DOI | 缺失数据背景 |
+| R12 `chow1970optimum` | Chow 1970，IEEE TIT 16(1) | 记忆中元数据，待核 | 拒识权衡起源 |
+| R13 `geifman2017selective` | Geifman & El-Yaniv，NeurIPS 2017 | 记忆中元数据，待核 | 选择性分类 |
+| R14 `mozannar2020consistent` | Mozannar & Sontag，ICML 2020 | 记忆中元数据，待核 | 学习延迟 |
+| R15 `vovk2005algorithmic` | Vovk、Gammerman、Shafer 2005，Springer | **检索确认** DOI 10.1007/b106715 | 共形预测、Mondrian |
+| R16 `sadinle2019least` | Sadinle、Lei、Wasserman，JASA 2019 | 记忆中元数据，待核 | 类条件覆盖 |
+| R17 `romano2020classification` | Romano、Sesia、Candès，NeurIPS 2020 | 记忆中元数据，待核 | 自适应集合 |
+| R18 `tibshirani2019covariate` | Tibshirani 等，NeurIPS 2019 | 记忆中元数据，待核 | 协变量偏移 |
+| R19 `barber2023beyond` | Barber 等，Ann. Stat. 51(2):816–845 | **检索确认** DOI 10.1214/23-AOS2276 | 非可交换 |
+| R20 `goldberger2000physiobank` | Goldberger 等，Circulation 2000 | 记忆中元数据，待核 | PhysioNet 平台署名（许可要求） |
+| R21 `singer2016sepsis3` | Singer 等，JAMA 2016 | 记忆中元数据，待核 | Sepsis-3 定义 |
+
+C 需逐条核对 DOI/卷期页后把"待核"改为已核。若某条无法核实，删除该引用及稿中对应 `\cite`。
+
+## 2026-11-10 写作前补齐
+
+当前引用库共 8 条。新增 R8 使用 arXiv v2；元数据和 §§3.1–3.3 的固定模型、目标标签角色与动作定义本轮重新核对，5.1 的配对评价范围沿用[C 岗原文核引](../handoffs/C/2026-11-10_content_review_recheck.md)。未据预印本模板页眉推断正式出版状态。
+
+| 编号 / BibTeX key | 条目与来源 | 可引用范围 |
+|---|---|---|
+| R8 / `li2026deployment` | Li 等，*A Deployment Audit of Release-Side Risk in Conformal Triage under Prevalence Shift*，arXiv:2605.20956v2，2026-08-04；[元数据](https://arxiv.org/abs/2605.20956v2) · [方法](https://arxiv.org/html/2605.20956v2#S3) | 源模型冻结，目标队列分为事件率校正、共形校准和评价；已有同患者漏放/覆盖/复核比较；阳性警报也计入人工复核。当前稿应具体比较共同单元素池中同容量的置信度/插补分歧排序及源院阈值外院表现。 |
+
+R1/R2/R3 的方法级表述采用上述 C 岗交接的边界：R1 已有固定接受率比较；R2 以回归为主但附录含分类，不能写成只研究回归；R3 已用图扰动离散度评分，不能声称首次将插补不确定性用于筛选。当前研究的分歧定义为同一患者风险预测在多次插补之间的标准差。此更新取代下文“只有 7 条”和相关尚未核原文的旧状态；未覆盖的旧限制继续有效。
+
+## 既有清单 · 2026-11-04
+
 更新：2026-11-04。维护：D。输入：C 的[文献与投稿要求](https://github.com/MarcoJIANG5203/BDDM-10/blob/c/Literature-Review-and-Independent-Test/handoffs/C/2026-11-03_文献与投稿要求.md)与 [C-004 引用核验](https://github.com/MarcoJIANG5203/BDDM-10/blob/c/Literature-Review-and-Independent-Test/handoffs/C/2026-11-04_引用核验_D002.md)（C 分支，未合并到 main）。D 只把**已核实元数据**的条目写入 `paper/references.bib`。
 
 **重要：** C 的对照表自己注明“未逐条读原文”。D 本轮核对了 DOI/出版社页面/摘要等**元数据**；C-004 补了 R5 出处并确认 R3 的 FDR。引用时仍只写能被标题/摘要/已核实原文支持的内容；R1 的“LOCF”仍未证实，不能写。

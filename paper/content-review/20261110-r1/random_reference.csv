@@ -1,0 +1,3 @@
+scenario,pool_n,pool_false_negatives,selected_n,expected_false_negatives,reference_low,reference_high
+S0,1388,4,915,2.636887608069164,1,4
+S4,13575,38,8352,23.379447513812156,17,29
