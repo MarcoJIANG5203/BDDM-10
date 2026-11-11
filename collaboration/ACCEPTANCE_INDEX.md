@@ -1,5 +1,20 @@
 # 阶段接收与验收索引
 
+## 当前稿写作范围 · 2026-11-10
+
+E 已完成[有限描述性写作范围决定](../handoffs/E/2026-11-10_drafting_scope.md)，内容达到开写条件。新增派生包有[C 岗技术复核](../handoffs/C/2026-11-10_content_review_recheck.md)，由曾参与生产的 Codex 执行，C 本人正式签认待记录；不新增独立人工接受事实。既有两份 run 的 `accepted_with_limits` 不变，具体终稿/PDF 和投稿仍未验收。C-010 已完成原始 PSV 全量重放及首批模型诊断的限定核验，下文早期未完成状态是历史记录。扩展 G3 不作为此描述性稿件开写前提。
+
+## 实验补强首批接收 · 2026-11-09（洛杉矶时间）
+
+| 交付 | 当前状态 | 后续独立核验与决定 |
+|---|---|---|
+| EXP-01 [A PR #11](https://github.com/MarcoJIANG5203/BDDM-10/pull/11) | 已提交；E 核对公开聚合表和正式包身份 | C 复算队列、标签边界与精度；G1 暂缓放行 |
+| EXP-02 [B PR #10](https://github.com/MarcoJIANG5203/BDDM-10/pull/10) | 首批已提交，B 生产者重放通过 | C 核验两份新运行，G2 待评估 |
+| EXP-01 精度预算 [C PR #7](https://github.com/MarcoJIANG5203/BDDM-10/pull/7) | E 接收为规划输入 | C 补充配对精度及病例复算范围；组内登记实际差异阈值 |
+| D-002 的 S4 来源修正 [D PR #8](https://github.com/MarcoJIANG5203/BDDM-10/pull/8) | C/E 限于 S-005/S-013 来源修正接收 | 正式稿和提交版 PDF 待 G3 与终稿复核 |
+
+[E 阶段决定与固定证据](../handoffs/E/2026-11-09_EXP-01_EXP-02_gate_review.md)
+
 ## 本轮实际接收表 · 2026-11-06
 
 | 交付 | 当前接收 | 剩余边界/交付 |

@@ -1,0 +1,107 @@
+{
+  "status": "technical_recheck_passed_pending_named_reviewer_signoff",
+  "run_id": "20261105T055420_02d05b15",
+  "review_provenance_sha256": "40acf935646ec10330c93e0d349b0e45c1fb11c39df2910ffb91f405b4a13653",
+  "claims_sha256": "bd20a0d8a10dfa3c227eb8ea74d8a5a03f077b464799e38233fb811a6b95074a",
+  "archive_sha256": {
+    "a-data-v1-20261104-r1": "feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c",
+    "b-clinical-v1-20261104-r1": "2328d26682a39ccb895553d3cee3dc6dd11bd6506c41a5a0ac0f5d49890e8426"
+  },
+  "frozen_member_count": 8,
+  "run_artifact_count": 45,
+  "package_artifact_count": 11,
+  "cohort_flow_rows": 21,
+  "split_role_rows": 5,
+  "diagnostic_rows": 12,
+  "decision_rows": 173152,
+  "primary_decision_rows": 61784,
+  "primary_contexts": 8,
+  "stability_contexts": 10,
+  "flow_rows": 16,
+  "pair_tables": [
+    {
+      "scenario": "S0",
+      "site": "A",
+      "positives": 8,
+      "both_missed": 1,
+      "b2_only_missed": 0,
+      "b4_only_missed": 1,
+      "both_rejected": 6
+    },
+    {
+      "scenario": "S4",
+      "site": "B",
+      "positives": 38,
+      "both_missed": 18,
+      "b2_only_missed": 6,
+      "b4_only_missed": 3,
+      "both_rejected": 11
+    }
+  ],
+  "random_reference": [
+    {
+      "scenario": "S0",
+      "pool_n": 1388,
+      "pool_false_negatives": 4,
+      "selected_n": 915,
+      "expected_false_negatives": 2.636887608069164,
+      "reference_low": 1,
+      "reference_high": 4
+    },
+    {
+      "scenario": "S4",
+      "pool_n": 13575,
+      "pool_false_negatives": 38,
+      "selected_n": 8352,
+      "expected_false_negatives": 23.379447513812156,
+      "reference_low": 17,
+      "reference_high": 29
+    }
+  ],
+  "paired_intervals": [
+    {
+      "scenario": "S0",
+      "selection_mode": "batch",
+      "risk_difference": 0.001092896174863388,
+      "resample_size": 1525,
+      "capacity_recomputed": true,
+      "ci_low": 0.0,
+      "ci_high": 0.003278688524590164,
+      "valid": 1000,
+      "invalid": 0
+    },
+    {
+      "scenario": "S0",
+      "selection_mode": "frozen",
+      "risk_difference": 0.0010670331319650294,
+      "resample_size": 1525,
+      "capacity_recomputed": false,
+      "ci_low": -6.787771037083995e-05,
+      "ci_high": 0.003260869565217391,
+      "valid": 1000,
+      "invalid": 0
+    },
+    {
+      "scenario": "S4",
+      "selection_mode": "batch",
+      "risk_difference": -0.00035919540229885057,
+      "resample_size": 13921,
+      "capacity_recomputed": true,
+      "ci_low": -0.0010775862068965517,
+      "ci_high": 0.00035919540229885057,
+      "valid": 1000,
+      "invalid": 0
+    },
+    {
+      "scenario": "S4",
+      "selection_mode": "frozen",
+      "risk_difference": 0.00017496707452466492,
+      "resample_size": 13921,
+      "capacity_recomputed": false,
+      "ci_low": -0.00017121758021573793,
+      "ci_high": 0.0005194702785816792,
+      "valid": 1000,
+      "invalid": 0
+    }
+  ]
+}

@@ -54,3 +54,6 @@ reviews/acceptance/*.json -text
 # The published paper tables and provenance are verified byte-for-byte.
 paper/runs/**/*.csv -text whitespace=cr-at-eol
 paper/runs/**/*.json -text whitespace=cr-at-eol
+# Content-review provenance binds the generated aggregate bytes.
+paper/content-review/**/*.csv -text whitespace=cr-at-eol
+paper/content-review/**/provenance.json -text whitespace=cr-at-eol

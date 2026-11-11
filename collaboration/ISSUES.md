@@ -1,6 +1,15 @@
 # 当前任务与问题
 
-## 新实验任务 · 2026-11-08
+## 首批交付检查点 · 2026-11-09（洛杉矶时间）
+
+| ID | 当前状态 | 复核与下一步 |
+|---|---|---|
+| EXP-01 | A 已提交；G1 暂缓放行 | C 已交核验方案，待复算队列和阳性流失、补配对精度预算。[A PR #11](https://github.com/MarcoJIANG5203/BDDM-10/pull/11) · [C PR #7](https://github.com/MarcoJIANG5203/BDDM-10/pull/7) |
+| EXP-02 | B 已交首批 LR 与固定 RF 外院运行，待 C 独立核验 | 核对首批运行及角色隔离；G1 放行后做完整比较，形成 G2 决定。[B PR #10](https://github.com/MarcoJIANG5203/BDDM-10/pull/10) |
+
+[E 阶段决定](../handoffs/E/2026-11-09_EXP-01_EXP-02_gate_review.md)记录当前证据和复核条件。C/E 已接收 D 的 S4 来源修正，E-04 终稿继续等待 G3。[D PR #8](https://github.com/MarcoJIANG5203/BDDM-10/pull/8)
+
+## 实验任务与依赖 · 2026-11-08 计划基线
 
 | ID | 状态 | 责任人 | 交付与依赖 |
 |---|---|---|---|

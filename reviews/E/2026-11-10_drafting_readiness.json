@@ -1,0 +1,102 @@
+{
+  "status": "READY_FOR_BOUNDED_DRAFTING",
+  "date_local": "2026-11-10",
+  "timezone": "America/Los_Angeles",
+  "executor": "Codex, user-delegated coordination; previously involved in production and technical recheck",
+  "decision_scope": "Evidence sufficiency for drafting a bounded descriptive Workshop 3 paper",
+  "independent_human_acceptance_created": false,
+  "named_c_content_signoff": "pending",
+  "final_manuscript_accepted": false,
+  "submitted": false,
+  "content_verification_command": "python reviews/verify_c_content_review.py --a-archive .artifact-cache/a-data-v1-20261104-r1.zip --b-archive .artifact-cache/remote-b-clinical-v1-20261104-r1.zip --run-dir results/clinical/20261105T055420_02d05b15 --package paper/content-review/20261110-r1 --output <new-json-path>",
+  "content_verifier_exit_code": 0,
+  "fresh_recheck_semantically_matches_existing": true,
+  "existing_content_check_path": "reviews/C_content_review_2026-11-10.json",
+  "existing_content_check_sha256": "5464b6b28ecad85abf840cd2521f827ef374c9dbcb8746372a1a864cb9dcb24c",
+  "content_provenance_sha256": "40acf935646ec10330c93e0d349b0e45c1fb11c39df2910ffb91f405b4a13653",
+  "claims_sha256": "bd20a0d8a10dfa3c227eb8ea74d8a5a03f077b464799e38233fb811a6b95074a",
+  "archive_sha256": {
+    "a-data-v1-20261104-r1": "feb69777e7c03c51d580808182a4702a2b3991a0edd552ec4d0dcbf7b1a7129c",
+    "b-clinical-v1-20261104-r1": "2328d26682a39ccb895553d3cee3dc6dd11bd6506c41a5a0ac0f5d49890e8426"
+  },
+  "counts": {
+    "frozen_member_count": 8,
+    "run_artifact_count": 45,
+    "package_artifact_count": 11,
+    "cohort_flow_rows": 21,
+    "split_role_rows": 5,
+    "diagnostic_rows": 12,
+    "decision_rows": 173152,
+    "primary_decision_rows": 61784,
+    "primary_contexts": 8,
+    "stability_contexts": 10,
+    "flow_rows": 16
+  },
+  "paired_intervals_recomputed": 4,
+  "valid_per_interval": [
+    1000,
+    1000,
+    1000,
+    1000
+  ],
+  "invalid_per_interval": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "base_model_interval_scope": "Copied B diagnostic intervals match; no new independent interval estimation claimed",
+  "formal_figure_table_integrity": {
+    "20261105T055420_02d05b15": {
+      "output_hashes_matched": 27,
+      "acceptance_sha256": "942e56e34ef20242a623d2de4fb4c316dc7cd1c92155e7fa6fdbe87d3e247a91",
+      "manifest_sha256": "f05827893e1eac44fa0c566e3da0f33e2149c30d4739f2f980d6776bf83b15d5"
+    },
+    "20261105T055445_54dd08de": {
+      "output_hashes_matched": 3,
+      "acceptance_sha256": "f481c68c8e0160b03c59b88e6be17d7f500b8bd07b6b9fea4a0ece43e16f462c",
+      "manifest_sha256": "8d6612735d87744d62aaac2806d5d8c1df484fc40f3d55a64f0417484fc85f29"
+    }
+  },
+  "protected_tracked_paths_unchanged": [
+    "paper/manuscript_draft.md",
+    "reviews/acceptance",
+    "reviews/freeze",
+    "artifacts/registry.json",
+    "artifacts/packages",
+    "T1_统一实验说明_v1.md",
+    "reports/clinical-v1",
+    "paper/runs"
+  ],
+  "source_ids_added": [
+    "S-020",
+    "S-021",
+    "S-022",
+    "S-023",
+    "S-024",
+    "S-025",
+    "S-026",
+    "S-027"
+  ],
+  "bibliography_entries": 8,
+  "new_reference": "li2026deployment: arXiv 2605.20956v2",
+  "official_web_checks": {
+    "date": "2026-11-10",
+    "method": "Official-domain search retrieved page text after direct open returned HTTP 502",
+    "scope_url": "https://www.icbddm.org/big-data/",
+    "submission_url": "https://www.icbddm.org/submission/",
+    "publication_url": "https://www.icbddm.org/",
+    "ei_indexing_confirmed": false
+  },
+  "literature_check_urls": [
+    "https://arxiv.org/abs/2605.20956v2",
+    "https://arxiv.org/html/2605.20956v2#S3"
+  ],
+  "remaining_delivery": [
+    "Revised manuscript",
+    "Named C review of newly derived package",
+    "C/E review of concrete final manuscript",
+    "Template PDF and author/disclosure/data-availability statements",
+    "Actual submission and receipt"
+  ]
+}
