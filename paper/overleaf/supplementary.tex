@@ -1,0 +1,128 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+
+\title{Supplementary Material\\Imputation Disagreement for Selective Prediction with Missing Clinical Data}
+\author{Author names to be confirmed}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent This supplement reports the prespecified sensitivity analyses and a post hoc allocation reference. All values are descriptive for the evaluated cohort and rules. The primary contrast remains the equal-capacity B4$-$B2 selective-risk difference at the 60\% target. B5/B6 were unavailable because the rule-selection partition contained six errors and 1{,}012 correct cases, below the prespecified 20/20 threshold.
+
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{S1. Random-forest robustness at the 60\% target (S0/S2).}
+\label{tab:s1}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+kind & method & scenario & target\_acceptance & selection\_mode & accepted & selective\_risk & risk\_difference & ci\_low & ci\_high \\
+\midrule
+method & B0 & S0 &  & batch & 1351 & 0.00518135 &  &  &  \\
+method & B1 & S0 &  & batch & 1377 & 0.00508351 &  &  &  \\
+method & B2 & S0 & 0.6 & batch & 915 & 0.00437158 &  &  &  \\
+method & B3 & S0 & 0.6 & batch & 915 & 0.00437158 &  &  &  \\
+method & B4 & S0 & 0.6 & batch & 915 & 0.00655738 &  &  &  \\
+contrast & B4-B2 & S0 & 0.6 & batch &  &  & 0.00218579 & -0.00218579 & 0.00655738 \\
+contrast & B4-B2 & S0 & 0.6 & frozen &  &  & 0.00187666 & -0.00169787 & 0.00703751 \\
+method & B0 & S2 &  & batch & 1400 & 0.005 &  &  &  \\
+method & B1 & S2 &  & batch & 1296 & 0.00540123 &  &  &  \\
+method & B2 & S2 & 0.6 & batch & 915 & 0.00437158 &  &  &  \\
+method & B3 & S2 & 0.6 & batch & 915 & 0.00546448 &  &  &  \\
+method & B4 & S2 & 0.6 & batch & 915 & 0.00655738 &  &  &  \\
+contrast & B4-B2 & S2 & 0.6 & batch &  &  & 0.00218579 & 0 & 0.00546448 \\
+contrast & B4-B2 & S2 & 0.6 & frozen &  &  & -0.000320511 & -0.00580324 & 0.00451515 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{S2. Imputation-count sensitivity at the 60\% target (S0).}
+\label{tab:s2}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+kind & method & M & source\_M & target\_acceptance & selection\_mode & accepted & selective\_risk & risk\_difference & ci\_low & ci\_high \\
+\midrule
+method & B0 & 1 & 5 &  & batch & 1380 & 0.00289855 &  &  &  \\
+method & B1 & 5 & 5 &  & batch & 1387 & 0.00216294 &  &  &  \\
+method & B2 & 5 & 5 & 0.6 & batch & 915 & 0.0010929 &  &  &  \\
+method & B3 & 5 & 5 & 0.6 & batch & 915 & 0.00218579 &  &  &  \\
+method & B4 & 5 & 5 & 0.6 & batch & 915 & 0.00218579 &  &  &  \\
+contrast & B4-B2 & 5 & 5 & 0.6 & batch &  &  & 0.0010929 & 0 & 0.00327869 \\
+contrast & B4-B2 & 5 & 5 & 0.6 & frozen &  &  & 0.000976193 & -0.000197998 & 0.00308424 \\
+method & B0 & 1 & 10 &  & batch & 1380 & 0.00289855 &  &  &  \\
+method & B1 & 10 & 10 &  & batch & 1388 & 0.00288184 &  &  &  \\
+method & B2 & 10 & 10 & 0.6 & batch & 915 & 0.0010929 &  &  &  \\
+method & B3 & 10 & 10 & 0.6 & batch & 915 & 0.00218579 &  &  &  \\
+method & B4 & 10 & 10 & 0.6 & batch & 915 & 0.00218579 &  &  &  \\
+contrast & B4-B2 & 10 & 10 & 0.6 & batch &  &  & 0.0010929 & 0 & 0.00327869 \\
+contrast & B4-B2 & 10 & 10 & 0.6 & frozen &  &  & 0.00106703 & -0.0000678777 & 0.00326087 \\
+method & B0 & 1 & 20 &  & batch & 1380 & 0.00289855 &  &  &  \\
+method & B1 & 20 & 20 &  & batch & 1389 & 0.00215983 &  &  &  \\
+method & B2 & 20 & 20 & 0.6 & batch & 915 & 0.0010929 &  &  &  \\
+method & B3 & 20 & 20 & 0.6 & batch & 915 & 0.00218579 &  &  &  \\
+method & B4 & 20 & 20 & 0.6 & batch & 915 & 0.0010929 &  &  &  \\
+contrast & B4-B2 & 20 & 20 & 0.6 & batch &  &  & 0 & 0 & 0 \\
+contrast & B4-B2 & 20 & 20 & 0.6 & frozen &  &  & -0.0000229782 & -0.000118233 & 0.00000748301 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{S3. Alpha sensitivity at the 60\% target (S0/S2).}
+\label{tab:s3}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+kind & method & scenario & alpha & target\_acceptance & selection\_mode & accepted & selective\_risk & risk\_difference & ci\_low & ci\_high \\
+\midrule
+method & B0 & S0 & 0.05 &  & batch & 1471 & 0.00407886 &  &  &  \\
+method & B1 & S0 & 0.05 &  & batch & 1467 & 0.00477164 &  &  &  \\
+method & B2 & S0 & 0.05 & 0.6 & batch & 915 & 0.0010929 &  &  &  \\
+method & B3 & S0 & 0.05 & 0.6 & batch & 915 & 0.00437158 &  &  &  \\
+method & B4 & S0 & 0.05 & 0.6 & batch & 915 & 0.00327869 &  &  &  \\
+contrast & B4-B2 & S0 & 0.05 & 0.6 & batch &  &  & 0.00218579 & 0 & 0.00546448 \\
+contrast & B4-B2 & S0 & 0.05 & 0.6 & frozen &  &  & 0.00214114 & -0.000034178 & 0.00537949 \\
+method & B0 & S2 & 0.05 &  & batch & 1492 & 0.00536193 &  &  &  \\
+method & B1 & S2 & 0.05 &  & batch & 1483 & 0.00539447 &  &  &  \\
+method & B2 & S2 & 0.05 & 0.6 & batch & 915 & 0.00327869 &  &  &  \\
+method & B3 & S2 & 0.05 & 0.6 & batch & 915 & 0.00546448 &  &  &  \\
+method & B4 & S2 & 0.05 & 0.6 & batch & 915 & 0.00327869 &  &  &  \\
+contrast & B4-B2 & S2 & 0.05 & 0.6 & batch &  &  & 0 & 0 & 0 \\
+contrast & B4-B2 & S2 & 0.05 & 0.6 & frozen &  &  & 0.00029873 & -0.0020918 & 0.00263702 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{S4. Post hoc uniform random reference from the fixed singleton pool.}
+\label{tab:s4}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+scenario & pool\_n & pool\_false\_negatives & selected\_n & expected\_false\_negatives & reference\_low & reference\_high \\
+\midrule
+S0 & 1388 & 4 & 915 & 2.63689 & 1 & 4 \\
+S4 & 13575 & 38 & 8352 & 23.3794 & 17 & 29 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+
+\noindent The random reference samples the same number of patients without replacement from the fixed singleton pool. It describes variability in allocation conditional on the observed pool, not a patient-sampling confidence interval, and was added after inspection of the primary results.
+
+\end{document}

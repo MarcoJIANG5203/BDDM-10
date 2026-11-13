@@ -1,0 +1,39 @@
+\documentclass[sigconf,nonacm]{acmart}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{url}
+
+\begin{document}
+
+\title{Imputation Disagreement for Selective Prediction with Missing Clinical Data: A Two-Hospital Reliability Evaluation}
+
+\author{Author names to be confirmed}
+\affiliation{%
+  \institution{Affiliations to be confirmed}
+  \country{Country to be confirmed}
+}
+\email{email to be confirmed}
+
+\begin{abstract}
+Multiple imputation produces a set of predictions for each patient with incomplete measurements. We evaluated whether disagreement across those predictions helps prioritize cases for automatic classification.
+
+Using a retrospective two-hospital cohort from PhysioNet 2019, we predicted dataset-defined sepsis after ICU hour 12 through hour 24. We compared confidence and imputation disagreement using the same logistic-regression predictions and conformal singleton candidate pool. The primary outcome was the difference in error rate among accepted cases at a 60\% target capacity. We also evaluated the acceptance thresholds selected in the source hospital on the held-out hospital.
+
+Among 24,095 included patients, 95 met the endpoint. At equal batch capacity, the selective-risk difference (disagreement minus confidence) was +0.109 percentage points internally (95\% paired bootstrap interval [0.000, +0.328]) and $-0.036$ externally ([$-0.108$, +0.036]). External overall set coverage was 97.24\%, while positive-class coverage was 0/38. Switching to disagreement deferred six external positives that confidence accepted as negative and converted three previously deferred positives to accepted negatives. With frozen thresholds, external acceptance reached 89.05\% for confidence and 86.09\% for disagreement, with 33/38 and 34/38 false-negative acceptances, respectively. Six rule-selection errors precluded estimation of the prespecified conditional increment.
+
+Disagreement showed no stable selective-risk advantage in these cohorts. Reporting class-specific coverage, paired patient dispositions and realized acceptance exposed failure modes obscured by aggregate coverage.
+\end{abstract}
+
+\keywords{sepsis, multiple imputation, conformal prediction, selective prediction, missing data, reliability evaluation}
+
+\maketitle
+
+\input{body}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}
