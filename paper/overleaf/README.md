@@ -29,6 +29,13 @@ This folder is a self-contained Overleaf project built from the final E-1 manusc
 If the official template is neither IEEEtran nor acmart, replace the wrapper's
 `\documentclass` with the official class and keep `body.tex`/`references.bib`.
 
+## Compile check (2026-11-13)
+
+- `main.tex` (IEEEtran): 6 pages; `main_acm.tex` (acmart): 6 pages; `supplementary.tex`: 2 pages.
+- pdflatex + BibTeX, 0 errors.
+- Fig 1 review watermark removed; acmart page-1 list spacing fixed; supplementary tables set to `[h!]`.
+- The PDFs in this folder are local build outputs and are not part of the Overleaf zip.
+
 ## Before submission
 
 - **Author block**: `main_ieee.tex`/`main_acm.tex` contain placeholders. Fill in
