@@ -45,7 +45,7 @@ B/E本轮已接收C-006，按两份固定正式run的算术/协议保真记录`a
 |---|---|---|---|
 | A 数据与基础实验 | A正式内容冻结不变；11月5日技术收尾补件在身份/恢复说明范围接收；许可保留 | A `68ce9d1`；[A交接](https://github.com/MarcoJIANG5203/BDDM-10/blob/68ce9d110e105dadc01e0abba5b7f2d4cdf7fec0/handoffs/A/2026-11-05_A_daily_closeout_EN.md)、[E本轮](../handoffs/E/2026-11-06_E-001_C006_result_scope.md) | EXP-01 纳排/阳性流失与精度预算；交 C 核验、E 汇总 |
 | B 核心方法与实验 | B-002生产交付及C-006接收完成；正式两run已获算术/协议保真限定接受 | [B接收](../handoffs/B/2026-11-06_B_C006_receipt.md)、[E核验](../reviews/E/2026-11-06_C006_receipt_checks.json)；1,140指标/78区间零失败 | EXP-02 LR 诊断与固定 RF 外院补充；G1/G2 后推进 EXP-03/04 |
-| C 文献与独立核验 | C 本人 11-11 签认：内容审阅包独立重跑通过（8 主条件 / 4 配对区间 / 173,152 决策记录）+ 新版稿数字全部一致 + 新增 R9–R21 逐条核实（21 bib ↔ 21 cite 零缺失/零孤儿） | [C 本人签认](../handoffs/C/2026-11-11_本人签认_内容审阅包与引用核验.md) · [C PR #7](https://github.com/MarcoJIANG5203/BDDM-10/pull/7) | 待 E 记录接收范围；D 排版并在提交前删内部标记；页数/模板/作者声明待定 |
+| C 文献与独立核验 | C 本人 11-11 签认（内容审阅包 + 新版稿数字 + R9–R21，21 bib ↔ 21 cite 零缺失/零孤儿）；11-14 新增 D-002 Overleaf 排版稿独立核验（数字/引用/摘要 214 词/无越界结论全部一致，仅余 1 处 bib 头注释「pending C confirmation」待 D 更新） | [C 11-11 签认](../handoffs/C/2026-11-11_本人签认_内容审阅包与引用核验.md) · [C 11-14 排版稿核验](../handoffs/C/2026-11-14_Overleaf排版稿核验.md) · [C PR #7](https://github.com/MarcoJIANG5203/BDDM-10/pull/7) | 待 E 记录接收范围；待 D/作者组填作者块与 AI 披露、选 IEEEtran/acmart 模板并确认页数、更新 bib 头注释；页数/模板/作者声明待定 |
 | D 图表与论文 | E-1 改稿及主图表已交付审阅，D 本人复核待记录 | [E-1 英文稿](../paper/manuscript_draft.md) · [E-1 改稿交接](../handoffs/D/2026-11-10_manuscript_revision_E1.md) | 汇总复核意见后制作模板 PDF |
 | E 统筹与整合 | E-1 英文稿和本轮 A/C/E 记录已纳入 main 同步交付，供作者组审阅 | [同步交接](../handoffs/E/2026-11-10_e1_main_sync.md) · [E 审阅与投稿判断](../handoffs/E/2026-11-10_manuscript_consistency_and_submission_verdict.md) | 协调 E-1 复核、作者声明与投稿材料 |
 
