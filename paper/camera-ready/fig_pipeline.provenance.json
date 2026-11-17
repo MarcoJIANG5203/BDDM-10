@@ -1,0 +1,11 @@
+{
+  "figure": "Study pipeline overview (schematic; counts quoted from paper/manuscript_draft.md)",
+  "generator": "scripts/make_pipeline_figure.py",
+  "generator_sha256": "66d52ba572db7f48036e5f2e7d9fbccaf8ee83334392d5926c4540d1b57c9503",
+  "matplotlib": "3.10.9",
+  "output_sha256": {
+    "fig_pipeline.pdf": "d3950632fad0bc74b254c361d048a1eef3e2edc3b02fb6d957e13d51e7c1996a",
+    "fig_pipeline.png": "b934f818fb60c680ad90e7921c4851fbe4eeee87209565c76318b21394a631c6",
+    "fig_pipeline.svg": "335849773d261086983e48fc968b97193262325ac6818c97193497d6abb685f0"
+  }
+}

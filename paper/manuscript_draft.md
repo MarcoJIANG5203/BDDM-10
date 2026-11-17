@@ -66,7 +66,7 @@ Hospital A is split at the patient level into training (60%), rule selection (10
 
 We use the most recent observed value through hour 12 for each of 34 physiological and laboratory variables, along with age, sex as recorded by the dataset's Gender field, and a missingness indicator for each input. We fit a stochastic chained-equation imputer \cite{vanbuuren2011mice} with Bayesian ridge conditional models on training inputs. We use ten iterations and M=10 completed versions. Imputed values are clipped to the range observed in training, and observed values are preserved. Variables entirely missing in training contribute their missingness indicators only.
 
-A single logistic-regression classifier is trained on the M completed copies with weight 1/M per copy. The regularization parameter is selected from 0.1, 1 and 10 by average precision on the rule-selection partition, with ties resolved toward the smaller value. A random forest with 300 trees is used as a robustness check. For each patient, `p_mean` is the mean predicted positive probability across draws and `D` is the sample standard deviation (ddof=1); a flip indicates predictions on both sides of 0.5. Replicates are never treated as independent patients.
+A single logistic-regression classifier is trained on the M completed copies with weight 1/M per copy. The regularization parameter is selected from 0.1, 1 and 10 by average precision on the rule-selection partition, with ties resolved toward the smaller value. A random forest with 300 trees is used as a robustness check. For each patient, `p_mean` is the mean predicted positive probability across draws and `D` is the sample standard deviation of the M predicted probabilities (denominator M − 1); a flip indicates predictions on both sides of 0.5. Replicates are never treated as independent patients.
 
 ### 3.3 Conformal sets and capacity-constrained acceptance
 
@@ -75,6 +75,8 @@ The nonconformity score for candidate label `y` is `1 - p_mean(y)`. The split-co
 At target acceptance `c` in {0.40, 0.60, 0.80}, batch allocation accepts `K = min(floor(cN), N_single)`, where `N` is the test size and `N_single` is the singleton-pool size. B2–B6 share the pool and `K` when available. Ties are broken by a fixed hash of patient identifiers. If the pool is smaller than the target, all its cases are accepted. For the frozen evaluation, we select cases at the target capacity in the rule-selection partition and retain the resulting score and hash cutoffs. At test time, each singleton is accepted by applying these cutoffs. The resulting acceptance rate can differ across methods and sites.
 
 ### 3.4 Comparators
+
+**Table 1. Acceptance strategies.** B0 and B1 accept every singleton; B2–B6 rank the same singleton pool and accept the top `K` patients.
 
 | ID | Strategy | Ranking score |
 |---|---|---|
@@ -116,9 +118,9 @@ The primary analysis uses seed 2026, logistic regression, M=10, the first test i
 
 ### 5.1 Cohort and base-model discrimination
 
-Table 1 summarizes cohort construction. The raw transition audit flagged 486 records with a label transition whose six-hour adjustment placed the inferred onset in the target window. Eligibility filters removed 391 of these records, including one whose inferred onset was beyond the released record. The final cohort contained 95 endpoint-positive patients. The main Hospital A split contained 34 training, 6 rule-selection, 9 calibration and 8 internal-test positives. `[S-020]`
+Table 2 summarizes cohort construction. The raw transition audit flagged 486 records with a label transition whose six-hour adjustment placed the inferred onset in the target window. Eligibility filters removed 391 of these records, including one whose inferred onset was beyond the released record. The final cohort contained 95 endpoint-positive patients. The main Hospital A split contained 34 training, 6 rule-selection, 9 calibration and 8 internal-test positives. `[S-020]`
 
-**Table 1. Cohort and test-set counts.** Raw proxies are derived from observable label transitions before the eligibility filters.
+**Table 2. Cohort and test-set counts.** Raw proxies are derived from observable label transitions before the eligibility filters.
 
 | Hospital | Raw records | Raw target-window proxies | Included patients | Included positives | Test patients | Test positives |
 |---|---:|---:|---:|---:|---:|---:|
@@ -134,15 +136,15 @@ Overall coverage was 1,384/1,525 (90.75%) internally and 13,537/13,921 (97.24%) 
 
 ![Prediction-set coverage and patient disposition in the internal and external test sets](content-review/20261110-r1/fig_reliability.png)
 
-**Figure 1. Prediction-set coverage and patient disposition.** Panel A reports marginal and positive-class coverage before acceptance. Panel B reports accepted cases as a fraction of all test cases under each allocation rule. Panel C reports accepted negative predictions among all positive cases. The 60.00% external batch acceptance is rounded from 8,352/13,921. [Vector figure](content-review/20261110-r1/fig_reliability.pdf). `[S-022, S-023]`
+**Figure 1. Prediction-set coverage and patient disposition (primary setting: LR, seed 2026, M = 10, α = 0.10, 60% target).** (a) Coverage of the original conformal sets among all test patients and among true positives; whiskers are exact 95% binomial intervals and the dashed line marks the nominal 90%. (b) Accepted patients as a share of the test cohort under equal-capacity allocation and under thresholds frozen in the source hospital; the dashed line marks the 60% target. (c) Positives accepted as negative predictions; grey bands show the central 95% range, and ticks the expectation, for a uniform random ranking of the same singleton pool at equal capacity. Equal-capacity B4 − B2 selective-risk differences were +0.109 pp [0.000, +0.328] internally and −0.036 pp [−0.108, +0.036] externally. [Vector figure](camera-ready/fig1_reliability.pdf). `[S-022, S-023, S-025, S-027]`
 
 ### 5.3 Equal-capacity ranking and paired dispositions
 
-Internally, confidence and disagreement each accepted 915 patients. Confidence accepted 1/8 positives as negative, compared with 2/8 for disagreement. The difference in selective risk was +0.109 percentage points (95% paired bootstrap interval [0.000, +0.328]). Externally, each ranking accepted 8,352 patients, with 24/38 versus 21/38 false-negative acceptances. The corresponding difference was −0.036 percentage points ([−0.108, +0.036]). `[S-022, S-023]`
+Internally, confidence and disagreement each accepted 915 patients. Confidence accepted 1/8 positives as negative, compared with 2/8 for disagreement. The difference in selective risk was +0.109 percentage points (95% paired bootstrap interval [0.000, +0.328]). Externally, each ranking accepted 8,352 patients, with 24/38 versus 21/38 false-negative acceptances. The corresponding difference was −0.036 percentage points ([−0.108, +0.036]). As a post hoc reference, drawing the same number of patients uniformly from the same singleton pool would accept 2.64 false negatives internally and 23.38 externally on average (central 95% ranges 1–4 and 17–29); both rankings fell within these ranges at both hospitals. `[S-022, S-023, S-027]`
 
-The external net reduction of three false-negative acceptances combined six patients moving from automatic negative classification to deferral and three moving in the opposite direction. Eighteen positives were accepted as negative by both rankings. Table 2 traces the same patients under both rules. The rule-selection partition contained six classification errors and 1,012 correct classifications. The error count fell below the minimum of 20 needed to fit B5 and B6, so the conditional-increment estimate is unavailable. `[S-004, S-024]`
+The external net reduction of three false-negative acceptances combined six patients moving from automatic negative classification to deferral and three moving in the opposite direction. Eighteen positives were accepted as negative by both rankings. Table 3 traces the same patients under both rules. The rule-selection partition contained six classification errors and 1,012 correct classifications. The error count fell below the minimum of 20 needed to fit B5 and B6, so the conditional-increment estimate is unavailable. `[S-004, S-024]`
 
-**Table 2. Paired dispositions among positive cases at the 60% target.** A miss is an accepted negative prediction.
+**Table 3. Paired dispositions among positive cases at the 60% target.** A miss is an accepted negative prediction.
 
 | Test cohort | Both miss | Confidence only misses | Disagreement only misses | Both defer | Positive cases |
 |---|---:|---:|---:|---:|---:|
@@ -155,7 +157,7 @@ With source thresholds applied to the internal test, confidence accepted 919/1,5
 
 ### 5.5 Sensitivity and stability
 
-The batch selective-risk difference changed sign across the source splits and scenarios. Across five seeds, its range was −0.109 to +0.109 percentage points internally and −0.048 to +0.012 externally. Under 30% additional masking (S2), the difference was zero for all five seeds. The prespecified random-forest, imputation-count and alpha checks are reported in Supplementary Tables S1–S3. Across pairs of test-imputation batches at the primary internal setting, mean batch-mode disposition disagreement was 4.79% for confidence and 17.18% for the imputation-disagreement ranking. `[S-005, S-008, S-010]`
+The batch selective-risk difference changed sign across the source splits and scenarios. Across five seeds, its range was −0.109 to +0.109 percentage points internally and −0.048 to +0.012 externally. Under 30% additional masking (S2), the difference was zero for all five seeds. In the prespecified checks, the batch difference was +0.219 percentage points for the random forest in S0 and S2, +0.109 and 0.000 for M=5 and M=20 in S0, and +0.219 and 0.000 for alpha=0.05 in S0 and S2; every 95% interval reached zero. Across pairs of test-imputation batches at the primary internal setting, mean batch-mode disposition disagreement was 4.79% for confidence and 17.18% for the imputation-disagreement ranking. `[S-005, S-008, S-010]`
 
 ---
 
@@ -185,7 +187,7 @@ Across these two hospitals, we observed no stable selective-risk advantage from 
 
 **Ethics.** This study is a retrospective secondary analysis of a publicly available, de-identified dataset released for research use. No patients were contacted and no new data were collected; therefore, additional ethical approval was not required. [Authors to confirm against institutional policy.]
 
-**AI use disclosure.** [Authors to confirm the final wording and scope of AI assistance.]
+**AI use disclosure.** [Draft — authors to confirm tools and scope:] Generative AI tools (OpenAI Codex and Anthropic Claude) assisted with code review, cross-checking numeric statements against the experiment records, figure preparation and language editing. The authors reviewed all content and take full responsibility for it.
 
 **Author contributions.** A: data and labels; B: methods and experiments; C: literature and independent audit; D: figures and manuscript integration; E: coordination and integrity. The corresponding author is confirmed by the group.
 
