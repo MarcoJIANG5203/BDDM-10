@@ -1,5 +1,31 @@
 # 团队当前状态
 
+## 当前工作 · 2026-11-16
+
+用户选定「Workshop3 新版」稿为投稿底稿。该版 LaTeX 源不在本机和仓库任何分支，已按其 PDF 重建为 `paper/latex-workshop3/main.tex`（单文件，四张图用 pgfplots 按正式运行数据重画），并完成投稿前修改 r1：删去悬空的补充材料引用、补报 B0、补 AUROC 区间和引言贡献段、改数据声明与 AI 披露、修正文献。输出 `paper/camera-ready/BDDM2026_Workshop3_manuscript_r1.pdf`，5 页。没有重跑实验；新写入的数字取自正式主运行，待 C 复核。
+
+待办：作者信息、数据提供方式与 AI 披露由作者组确认；文献 [12][15][18] 元数据核对；向会务确认入口、注册截止日和查重要求。[交接记录](../handoffs/D/2026-11-16_workshop3_latex_rebuild.md)
+
+## 当前工作 · 2026-11-14
+
+对比四份稿（初版、论文初稿、hsr 初稿、11-13 LaTeX 版）后，已生成审稿人视角的整合版 Word 稿，6 页，IEEE 双栏版式。新增机制解释、结果总表（含 B1、B3）、编号公式、带区间的敏感性表和报告建议；没有新做实验，新写入的数字均回到结果文件核对。
+
+11-15：用户决定以 LaTeX 为准、尽量 5 页。`paper/latex/main.tex` 已换成整合稿内容并压到 5 页，输出 `paper/camera-ready/BDDM2026_manuscript.pdf` 和可在 MiKTeX/Overleaf 编译的 `BDDM2026_latex_source.zip`；Word 稿保留为内容更全的参考版。
+
+待办：C 复核新增数字、E 复核表述、D 复核版式；作者信息与声明；向会务确认入口、模板、页数、查重要求。[交接记录](../handoffs/D/2026-11-14_integrated_word_draft.md) · [Word 稿](../paper/camera-ready/BDDM2026_manuscript_integrated.docx)
+
+## 当前工作 · 2026-11-13
+
+已对照 IEEE BDDM 2026 参会通知审阅两版稿件，并修正终稿格式硬伤：
+- **Fig. 1 已重绘**：从签认包 CSV 核对哈希后出图，消除 Type 3 字体。采用 SciencePlots 的 IEEE 风格和 Okabe–Ito 配色；`requirements.txt` 新增 SciencePlots。
+- **策略表**：补了表题，表号依次顺延。
+- **补充表引用**：随机参照和补充表 S1–S3 的结果改为在正文中直接给出数字。
+- **AI 使用声明**：已起草，待作者确认。
+
+- **IEEE 排版稿**：`paper/latex/main.tex` 已编译出 5 页 PDF（`paper/camera-ready/BDDM2026_manuscript.pdf`），没有 Type 3 字体，引用全部解析。新增方法流程主图作为 Fig. 1，原结果图改为 Fig. 2。
+
+结果数字未变。仍待：作者组填写 PDF 中红色标注的作者信息和声明；D、C、E 复核排版稿；向会务确认页数要求。[交接记录](../handoffs/D/2026-11-13_camera_ready_format_fixes.md) · [新图](../paper/camera-ready/fig1_reliability.pdf)
+
 ## 当前工作 · 2026-11-10 晚（洛杉矶时间）
 
 用户要求完成 A/B/C/E 剩余内容，由本聊天（Claude）在本地完成：
