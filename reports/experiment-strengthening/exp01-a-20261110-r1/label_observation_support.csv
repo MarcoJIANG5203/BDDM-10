@@ -1,0 +1,9 @@
+site,category,n,any_observed_positive_label,target_transition_proxy,target_onset_within_released_hours,target_onset_beyond_released_hours,observed_rows_min,observed_rows_q25,observed_rows_median,observed_rows_q75,observed_rows_max,first_hour_min,first_hour_q25,first_hour_median,first_hour_q75,first_hour_max,last_hour_min,last_hour_q25,last_hour_median,last_hour_q75,last_hour_max
+A,first_observation_positive,203,203,0,0,0,8.0,8.0,9.0,9.0,10.0,1.0,1.0,1.0,1.0,12.0,8.0,8.0,9.0,10.0,21.0
+A,recovered_onset_at_or_before_12,180,180,0,0,0,10.0,11.0,12.0,14.0,15.0,1.0,1.0,1.0,1.0,5.0,10.0,11.0,13.0,14.0,15.0
+A,v1_negative_no_released_positive_label,9444,0,0,0,0,24.0,36.0,42.0,49.0,336.0,1.0,1.0,1.0,1.0,1.0,24.0,36.0,42.0,49.0,336.0
+A,v1_negative_recovered_onset_after_24,673,673,0,0,0,27.0,44.0,73.0,114.0,336.0,1.0,1.0,1.0,1.0,1.0,27.0,44.0,73.0,114.0,336.0
+B,first_observation_positive,223,223,0,0,0,8.0,8.0,8.0,9.0,10.0,1.0,1.0,1.0,1.0,4.0,8.0,8.0,8.0,9.0,12.0
+B,recovered_onset_at_or_before_12,103,103,0,0,0,10.0,11.0,13.0,14.0,15.0,1.0,1.0,1.0,1.0,5.0,10.0,11.0,13.0,14.0,15.0
+B,v1_negative_no_released_positive_label,13283,0,0,0,0,24.0,37.0,42.0,49.0,336.0,1.0,1.0,1.0,1.0,1.0,24.0,37.0,42.0,49.0,336.0
+B,v1_negative_recovered_onset_after_24,600,600,0,0,0,24.0,46.0,72.5,119.0,336.0,1.0,1.0,1.0,1.0,1.0,24.0,46.0,72.5,119.0,336.0

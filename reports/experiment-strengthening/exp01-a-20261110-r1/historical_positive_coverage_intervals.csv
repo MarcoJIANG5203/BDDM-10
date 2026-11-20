@@ -1,0 +1,3 @@
+scene,role,covered,n_positive,clopper_pearson_lower,clopper_pearson_upper
+S0,test,0,8,0.0,0.36941664755281917
+S4,external,0,38,0.0,0.09251276141587829
